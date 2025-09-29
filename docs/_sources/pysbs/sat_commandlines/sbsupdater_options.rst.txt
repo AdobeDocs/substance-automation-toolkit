@@ -1,0 +1,154 @@
+.. _ref-to-sat-sbsupdateroptions:
+
+sbsupdater command line options
+===============================
+
+.. raw:: html
+
+    <h1>
+      sbsupdater
+    </h1>
+    <h2>
+      Usage
+    </h2>
+    <ul>
+      <li>sbsupdater [&lt;options&gt;...]</li>
+    </ul>
+    <h3>
+      Global options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--doc-html, --doc</strong>
+      </dt>
+      <dd>
+        Generate basic documentation html from the option's help.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--help, -h, -?</strong>
+      </dt>
+      <dd>
+        Display help about given subcommand.
+        If no subcommand is provided, this help about global options is printed.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--opt-descr</strong>
+      </dt>
+      <dd>
+        Create json description of all available options
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--quiet, -q</strong>
+      </dt>
+      <dd>
+        Disable warning messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--verbose, -v</strong>
+      </dt>
+      <dd>
+        Enable info and debug messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--version, -V</strong>
+      </dt>
+      <dd>
+        Display version of the program.
+      </dd>
+    </dl>
+    <h2>
+      <a name="update">Subcommand update</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Update Substance 3D Designer files to the lastest format.
+    </p>
+    <h3>
+      Input file options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--alias</strong>
+        <em>&lt;aliasname:&frasl;&frasl;path&gt;</em>
+      </dt>
+      <dd>
+        Define a custom alias path (e.g. 'myproject:&frasl;&frasl;path&frasl;to&frasl;myproject&frasl;library').
+        This option is mandatory if your filter have a dependency with some custom alias.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs, --input</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Specify a Substance 3D Designer file to mutate with sbsmutator. Can be given multiple times
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--no-dependency</strong>
+      </dt>
+      <dd>
+        Disable loading of dependencies.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--presets-path</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Path to presets library (shorthand for '--alias sbs:&frasl;&frasl;&lt;path&gt;').
+        This option is mandatory if your filter have a dependency to the presets library.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recursive, -r</strong>
+      </dt>
+      <dd>
+        recurse into directories to find input files
+      </dd>
+    </dl>
+    <h3>
+      Output file options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--output-name</strong>
+        <em>&lt;name&gt;</em>
+        [default: &quot;{inputName}&quot;]
+      </dt>
+      <dd>
+        Set the output name of the generated files, if the correct file extension is not present it will be added.
+        You can use the following patterns that will be replaced by the program when saving the result of the process:
+        - {inputName} : replaced by the input filename.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-path</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Set the output path for the generated files. By default the path is empty, i.e. the files will be saved in the current directory.
+        You can use the following patterns that will be replaced by the program when saving the result of the process:
+        - {inputPath} : replaced by the input filepath.
+        
+      </dd>
+    </dl>
+    

@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbswidgets module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsbakerslibrary module" href="../sbsbakers/sbsbakerslibrary.html" />
+    <link rel="prev" title="sbsfxmapnodes module" href="sbsfxmapnodes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbslibrary.html">sbslibrary module: Substance libraries</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsdictionaries.html">sbsdictionaries module: Dictionaries of all strings used in the libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibclasses.html">sbslibclasses module: Classes used by the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfunctions.html">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfxmapnodes.html">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.__convertToEnum"><code class="docutils literal notranslate"><span class="pre">__convertToEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType"><code class="docutils literal notranslate"><span class="pre">getAllWidgetFunctionButtonByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAngleWidgetByType"><code class="docutils literal notranslate"><span class="pre">getAngleWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getButtonWidgetByType"><code class="docutils literal notranslate"><span class="pre">getButtonWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getColorWidgetByType"><code class="docutils literal notranslate"><span class="pre">getColorWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDefaultWidget"><code class="docutils literal notranslate"><span class="pre">getDefaultWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDropDownWidgetByType"><code class="docutils literal notranslate"><span class="pre">getDropDownWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getEnumButtonsWidgetByType"><code class="docutils literal notranslate"><span class="pre">getEnumButtonsWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterDefinition"><code class="docutils literal notranslate"><span class="pre">getFilterDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterEnum"><code class="docutils literal notranslate"><span class="pre">getFilterEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionDefinition"><code class="docutils literal notranslate"><span class="pre">getFunctionDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeDefinition"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getInputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getInputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getIterationParamInput"><code class="docutils literal notranslate"><span class="pre">getIterationParamInput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOffsetWidgetByType"><code class="docutils literal notranslate"><span class="pre">getOffsetWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOutputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getOutputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getPositionWidgetByType"><code class="docutils literal notranslate"><span class="pre">getPositionWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getSliderWidgetByType"><code class="docutils literal notranslate"><span class="pre">getSliderWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationForwardWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationForwardWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationInverseWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationInverseWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getWidgetByType"><code class="docutils literal notranslate"><span class="pre">getWidgetByType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbslibrary.html">sbslibrary module</a></li>
+      <li class="breadcrumb-item active">sbswidgets module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbslibrary.sbswidgets">
+<span id="sbswidgets-module"></span><h1>sbswidgets module<a class="headerlink" href="#module-pysbs.sbslibrary.sbswidgets" title="Link to this heading"></a></h1>
+<p>Module <strong>sbswidgets</strong> provides the library of GUI widgets available when defining a graph input parameter:</p>
+<blockquote>
+<div><ul>
+<li><p>widget_Button_Bool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Button_Bool</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">BUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">BOOL_EDITOR_TYPE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>  <span class="s1">&#39;pushbuttons&#39;</span><span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>         <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>          <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>          <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>  <span class="s1">&#39;False&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>          <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>  <span class="s1">&#39;True&#39;</span>       <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Enum_Buttons:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Enum_Buttons</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">ENUMBUTTONS</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">BOOL_EDITOR_TYPE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>  <span class="s1">&#39;enumbuttons&#39;</span><span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>         <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>          <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>          <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>  <span class="s1">&#39;False&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>          <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>  <span class="s1">&#39;True&#39;</span>       <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Int1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Int1</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span>     <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>      <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Int2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Int2</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span> <span class="s1">&#39;1;1&#39;</span>    <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span>     <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>      <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Int3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Int3</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">,</span> <span class="s1">&#39;1;1;1&#39;</span>  <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL2</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Z&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span>     <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>      <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Int4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Int4</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">,</span> <span class="s1">&#39;1;1;1;1&#39;</span><span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL2</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Z&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL3</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;W&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span>     <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>      <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Float1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Float1</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0.01&#39;</span>   <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Float2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Float2</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span>   <span class="s1">&#39;1;1&#39;</span>    <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0.01&#39;</span>   <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Float3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Float3</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">,</span>   <span class="s1">&#39;1;1;1&#39;</span>  <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL2</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Z&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0.01&#39;</span>   <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Slider_Float4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Slider_Float4</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>   <span class="s1">&#39;1;1;1;1&#39;</span><span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL2</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Z&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL3</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;W&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0.01&#39;</span>   <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_DropDown_Int1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_DropDown_Int1</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">DROP_DOWN_LIST</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">PARAMETERS</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;0;0;0&#39;</span>  <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Size_Pow2_Int2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Size_Pow2_Int2</span><span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SIZE_POW_2</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span> <span class="s1">&#39;1;1&#39;</span>    <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span>     <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;sizepow2&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Angle_Float1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Angle_Float1</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">ANGLE</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;angle&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Color_Float1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Color_Float1</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">COLOR</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Color_Float3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Color_Float3</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">COLOR</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">,</span>   <span class="s1">&#39;1;1;1&#39;</span>  <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Color_Float4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Color_Float4</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">COLOR</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>   <span class="s1">&#39;1;1;1;1&#39;</span><span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Matrix_Inverse_Float4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Matrix_Inverse_Float4</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">TRANSFORMATION_INVERSE</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>   <span class="s1">&#39;1;0;0;1&#39;</span><span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;matrix&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Matrix_Forward_Float4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Matrix_Forward_Float4</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">TRANSFORMATION_FORWARD</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>   <span class="s1">&#39;1;0;0;1&#39;</span><span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;matrix&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Position_Float2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Position_Float2</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">POSITION</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span>   <span class="s1">&#39;0;0&#39;</span>    <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0.01&#39;</span>   <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Offset_Float2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Offset_Float2</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">OFFSET</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>     <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>  <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span>   <span class="s1">&#39;0;0&#39;</span>    <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;X&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>    <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;Y&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;1&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>       <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0&#39;</span>      <span class="p">),</span>
+                <span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>      <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>   <span class="s1">&#39;0.01&#39;</span>   <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_Text_String:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_Text_String</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">TEXT</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>   <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Float1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Float1</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Float2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Float2</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Float3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Float3</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Float4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Float4</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Int1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Int1</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Int2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Int2</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Int3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Int3</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Int4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Int4</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_Bool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_Bool</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>widget_FunctionButton_String:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">widget_FunctionButton_String</span> <span class="o">=</span> <span class="n">InputParamWidget</span><span class="p">(</span>
+    <span class="n">aWidget</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span><span class="p">,</span>
+    <span class="n">aType</span>    <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>
+    <span class="n">aOptions</span> <span class="o">=</span> <span class="p">[</span><span class="n">WidgetOption</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;functor&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsfxmapnodes.html" class="btn btn-neutral float-left" title="sbsfxmapnodes module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sbsbakers/sbsbakerslibrary.html" class="btn btn-neutral float-right" title="sbsbakerslibrary module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsarmanager module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsarmetadata module" href="sbsarmetadata.html" />
+    <link rel="prev" title="sbsargraph module" href="sbsargraph.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsargraph.html">sbsargraph module: SBSARGraph definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsarmanager module: SBSAR file manipulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarmetadata.html">sbsarmetadata module: SBSAR file metadata interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsargui.html">sbsargui module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarguiwidgets.html">sbsarguiwidgets module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarenum.html">sbsarenum module: SBSAR format enumeration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarchive.html#sbsarchive.sbsarchive.SBSARGlobalVar"><code class="docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarchive.html#sbsarchive.sbsarchive.SBSArchive"><code class="docutils literal notranslate"><span class="pre">SBSArchive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsarchive.html">sbsarchive module</a></li>
+      <li class="breadcrumb-item active">sbsarmanager module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbsarchive.sbsarmanager">
+<span id="sbsarmanager-module"></span><h1>sbsarmanager module<a class="headerlink" href="#module-sbsarchive.sbsarmanager" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarmanager.</span></span><span class="sig-name descname"><span class="pre">SBSARManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aArchive</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class SBSARManager to manipulate sbsar file.
+Must be used with the with statement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aArchive</strong> – an <code class="xref py py-class docutils literal notranslate"><span class="pre">sbsarchive.SBSArchive</span></code> or absolute file path</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.addAllPresets">
+<span class="sig-name descname"><span class="pre">addAllPresets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.addAllPresets" title="Link to this definition"></a></dt>
+<dd><p>add all presets of a sbsprs file to a given graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – graph’s identifier</p></li>
+<li><p><strong>aPresetFilePath</strong> – file path of the sbsprs file</p></li>
+</ul>
+</dd>
+</dl>
+<p>:return</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.addIcon">
+<span class="sig-name descname"><span class="pre">addIcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIconPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaceIfExists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.addIcon" title="Link to this definition"></a></dt>
+<dd><p>Add an icon file to the sbsar for the given graph identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – the graph identifier to which attach the icon</p></li>
+<li><p><strong>aIconPath</strong> – icon file path</p></li>
+<li><p><strong>replaceIfExists</strong> – if True the already existing icon will be replaced otherwise error will be raised</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.applyExternalPreset">
+<span class="sig-name descname"><span class="pre">applyExternalPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetFilePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.applyExternalPreset" title="Link to this definition"></a></dt>
+<dd><p>apply a new preset to a given graph from a sbsprs file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – graph’s identifier</p></li>
+<li><p><strong>aPresetFilePath</strong> – file path of the sbsprs file</p></li>
+<li><p><strong>aPresetName</strong> – preset’s name</p></li>
+</ul>
+</dd>
+</dl>
+<p>:return</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.applyInternalPreset">
+<span class="sig-name descname"><span class="pre">applyInternalPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.applyInternalPreset" title="Link to this definition"></a></dt>
+<dd><p>apply an embedded preset of a given graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – graph’s identifier</p></li>
+<li><p><strong>aPresetName</strong> – preset’s name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.changeInputValueFromName">
+<span class="sig-name descname"><span class="pre">changeInputValueFromName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputIndentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.changeInputValueFromName" title="Link to this definition"></a></dt>
+<dd><p>change the value of input by using its identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – graph’s identifier</p></li>
+<li><p><strong>aInputIdentifier</strong> – input’s identifier</p></li>
+<li><p><strong>aType</strong> – sbsarenum.SBSARTypeEnum</p></li>
+<li><p><strong>aValue</strong> – value of the new input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.deleteAllPresets">
+<span class="sig-name descname"><span class="pre">deleteAllPresets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.deleteAllPresets" title="Link to this definition"></a></dt>
+<dd><p>delete all presets of a given graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphIdentifier</strong> – graph’s identifier</p>
+</dd>
+</dl>
+<p>:return</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.deleteIcon">
+<span class="sig-name descname"><span class="pre">deleteIcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.deleteIcon" title="Link to this definition"></a></dt>
+<dd><p>delete the icon of a given graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphIdentifier</strong> – graph’s identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.exportAllPresets">
+<span class="sig-name descname"><span class="pre">exportAllPresets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.exportAllPresets" title="Link to this definition"></a></dt>
+<dd><p>export all presets of a given graph in a sbsprs file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – graph’s identifier</p></li>
+<li><p><strong>aPresetFilePath</strong> – file path of the sbsprs file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.save" title="Link to this definition"></a></dt>
+<dd><p>Save the sbsar modification</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.saveAllIcons">
+<span class="sig-name descname"><span class="pre">saveAllIcons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputDir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.saveAllIcons" title="Link to this definition"></a></dt>
+<dd><p>saveIcon(aGraphIdentifier, aOutputDir)
+extract icons of all graphes to the given output directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputDir</strong> – output directory path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.saveAs">
+<span class="sig-name descname"><span class="pre">saveAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aArchiveFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.saveAs" title="Link to this definition"></a></dt>
+<dd><p>Save as the sbsar modification</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aArchiveFilePath</strong> – a valid file path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSARManager.saveIcon">
+<span class="sig-name descname"><span class="pre">saveIcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputDir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSARManager.saveIcon" title="Link to this definition"></a></dt>
+<dd><p>extract the graph’s icon to the given output directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – graph’s identifier</p></li>
+<li><p><strong>aOutputDir</strong> – output directory path</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarmanager.SBSArchive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarmanager.</span></span><span class="sig-name descname"><span class="pre">SBSArchive</span></span><a class="headerlink" href="#sbsarchive.sbsarmanager.SBSArchive" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsargraph.html" class="btn btn-neutral float-left" title="sbsargraph module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsarmetadata.html" class="btn btn-neutral float-right" title="sbsarmetadata module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>common_interfaces module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsarobject module" href="sbsarobject.html" />
+    <link rel="prev" title="API Content" href="../modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">common_interfaces module: Common interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sbsarobject.html">sbsarobject module: Base class of all SBSAR objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsobject.html">sbsobject module: Base class of all SBS objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="package.html">package module: Common interfaces related to sbs and sbsar packages (Package, ParamInput, GraphOutput, Preset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="basegraph.html">basegraph module: Common interfaces related to graphs in sbs and sbsar packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="metadata.html">metadata module: Common interfaces related to metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">common_interfaces module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-interfaces-module">
+<h1>common_interfaces module<a class="headerlink" href="#common-interfaces-module" title="Link to this heading"></a></h1>
+<p>Content included in common_interfaces module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sbsarobject.html">sbsarobject module: Base class of all SBSAR objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsarobject.html#common_interfaces.sbsarobject.SBSARObject"><code class="docutils literal notranslate"><span class="pre">SBSARObject</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarobject.html#common_interfaces.sbsarobject.SBSARObject.parse"><code class="docutils literal notranslate"><span class="pre">SBSARObject.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsobject.html">sbsobject module: Base class of all SBS objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsobject.html#common_interfaces.sbsobject.SBSObject"><code class="docutils literal notranslate"><span class="pre">SBSObject</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsobject.html#common_interfaces.sbsobject.SBSObject.equals"><code class="docutils literal notranslate"><span class="pre">SBSObject.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsobject.html#common_interfaces.sbsobject.SBSObject.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSObject.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsobject.html#common_interfaces.sbsobject.SBSObject.parse"><code class="docutils literal notranslate"><span class="pre">SBSObject.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsobject.html#common_interfaces.sbsobject.SBSObject.write"><code class="docutils literal notranslate"><span class="pre">SBSObject.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsobject.html#common_interfaces.sbsobject.UIDGenerator"><code class="docutils literal notranslate"><span class="pre">UIDGenerator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsobject.html#common_interfaces.sbsobject.UIDGenerator.generateUID"><code class="docutils literal notranslate"><span class="pre">UIDGenerator.generateUID()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">package module: Common interfaces related to sbs and sbsar packages (Package, ParamInput, GraphOutput, Preset)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#common_interfaces.package.Package"><code class="docutils literal notranslate"><span class="pre">Package</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.buildAbsPathFromRelToMePath"><code class="docutils literal notranslate"><span class="pre">Package.buildAbsPathFromRelToMePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.parseDoc"><code class="docutils literal notranslate"><span class="pre">Package.parseDoc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.getObjectFromInternalPath"><code class="docutils literal notranslate"><span class="pre">Package.getObjectFromInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.getSBSGraph"><code class="docutils literal notranslate"><span class="pre">Package.getSBSGraph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.getSBSGraphPkgUrl"><code class="docutils literal notranslate"><span class="pre">Package.getSBSGraphPkgUrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.getSBSGraphList"><code class="docutils literal notranslate"><span class="pre">Package.getSBSGraphList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.isAnArchive"><code class="docutils literal notranslate"><span class="pre">Package.isAnArchive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.isAPackage"><code class="docutils literal notranslate"><span class="pre">Package.isAPackage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.isInitialized"><code class="docutils literal notranslate"><span class="pre">Package.isInitialized()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.setInitialized"><code class="docutils literal notranslate"><span class="pre">Package.setInitialized()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Package.removePackageExtension"><code class="docutils literal notranslate"><span class="pre">Package.removePackageExtension()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput"><code class="docutils literal notranslate"><span class="pre">ParamInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getAttribute"><code class="docutils literal notranslate"><span class="pre">ParamInput.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getDimension"><code class="docutils literal notranslate"><span class="pre">ParamInput.getDimension()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.formatValueToType"><code class="docutils literal notranslate"><span class="pre">ParamInput.formatValueToType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getGroup"><code class="docutils literal notranslate"><span class="pre">ParamInput.getGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getClamp"><code class="docutils literal notranslate"><span class="pre">ParamInput.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getMinValue"><code class="docutils literal notranslate"><span class="pre">ParamInput.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getMaxValue"><code class="docutils literal notranslate"><span class="pre">ParamInput.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getDefaultValue"><code class="docutils literal notranslate"><span class="pre">ParamInput.getDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getDropDownList"><code class="docutils literal notranslate"><span class="pre">ParamInput.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getLabels"><code class="docutils literal notranslate"><span class="pre">ParamInput.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getStep"><code class="docutils literal notranslate"><span class="pre">ParamInput.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getUsages"><code class="docutils literal notranslate"><span class="pre">ParamInput.getUsages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getWidget"><code class="docutils literal notranslate"><span class="pre">ParamInput.getWidget()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.hasUsage"><code class="docutils literal notranslate"><span class="pre">ParamInput.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.isAnInputImage"><code class="docutils literal notranslate"><span class="pre">ParamInput.isAnInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.isAnInputParameter"><code class="docutils literal notranslate"><span class="pre">ParamInput.isAnInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getType"><code class="docutils literal notranslate"><span class="pre">ParamInput.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.ParamInput.getIsConnectable"><code class="docutils literal notranslate"><span class="pre">ParamInput.getIsConnectable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#common_interfaces.package.GraphOutput"><code class="docutils literal notranslate"><span class="pre">GraphOutput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.GraphOutput.getAttribute"><code class="docutils literal notranslate"><span class="pre">GraphOutput.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.GraphOutput.getUsages"><code class="docutils literal notranslate"><span class="pre">GraphOutput.getUsages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.GraphOutput.hasUsage"><code class="docutils literal notranslate"><span class="pre">GraphOutput.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.GraphOutput.getType"><code class="docutils literal notranslate"><span class="pre">GraphOutput.getType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#common_interfaces.package.Preset"><code class="docutils literal notranslate"><span class="pre">Preset</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Preset.getPresetInputs"><code class="docutils literal notranslate"><span class="pre">Preset.getPresetInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Preset.getPresetInput"><code class="docutils literal notranslate"><span class="pre">Preset.getPresetInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Preset.getPresetInputFromIdentifier"><code class="docutils literal notranslate"><span class="pre">Preset.getPresetInputFromIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.Preset.getInputValue"><code class="docutils literal notranslate"><span class="pre">Preset.getInputValue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="package.html#common_interfaces.package.PresetInput"><code class="docutils literal notranslate"><span class="pre">PresetInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.PresetInput.getValue"><code class="docutils literal notranslate"><span class="pre">PresetInput.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.PresetInput.getType"><code class="docutils literal notranslate"><span class="pre">PresetInput.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="package.html#common_interfaces.package.PresetInput.getTypedValue"><code class="docutils literal notranslate"><span class="pre">PresetInput.getTypedValue()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basegraph.html">basegraph module: Common interfaces related to graphs in sbs and sbsar packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph"><code class="docutils literal notranslate"><span class="pre">BaseGraph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getIdentifier"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getAttribute"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getAllInputs"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getAllInputsInGroup"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getAllInputsInGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getAllInputGroups"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getAllInputGroups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInput"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInputFromUID"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInputFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInputImages"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInputImages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInputImage"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInputImageWithUsage"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInputImageWithUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInputParameters"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInputParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInputParameter"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.BaseGraph.getInputParameterFromUID"><code class="docutils literal notranslate"><span class="pre">BaseGraph.getInputParameterFromUID()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.getAllPresets"><code class="docutils literal notranslate"><span class="pre">Graph.getAllPresets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.getAttribute"><code class="docutils literal notranslate"><span class="pre">Graph.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.getGraphOutputs"><code class="docutils literal notranslate"><span class="pre">Graph.getGraphOutputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.getGraphOutput"><code class="docutils literal notranslate"><span class="pre">Graph.getGraphOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.getGraphOutputWithUsage"><code class="docutils literal notranslate"><span class="pre">Graph.getGraphOutputWithUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.getPreset"><code class="docutils literal notranslate"><span class="pre">Graph.getPreset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.getPrimaryInput"><code class="docutils literal notranslate"><span class="pre">Graph.getPrimaryInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="basegraph.html#common_interfaces.basegraph.Graph.isPrimaryInput"><code class="docutils literal notranslate"><span class="pre">Graph.isPrimaryInput()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">metadata module: Common interfaces related to metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.createMetaDataStr"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.createMetaDataStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.createMetaDataUrl"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.createMetaDataUrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.deleteMetaData"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.deleteMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.getAllMetaData"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.getAllMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.getMetaData"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.getMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.getSBSMetaDataTree"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.getSBSMetaDataTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.setMetaDataName"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.setMetaDataName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataObject.setMetaDataValue"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataObject.setMetaDataValue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTree"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTree.fromJson"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTree.fromJson()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTree.fromXmpIter"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTree.fromXmpIter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTree.parse"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTree.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTree.write"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTree.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr.name"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr.parse"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr.setName"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr.setName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr.setValue"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr.value"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr.value</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr.write"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeType"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeType</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeType.name"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeType.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeType.parse"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeType.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeType.setName"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeType.setName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeType.setValue"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeType.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeType.value"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeType.value</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeType.write"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeType.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl.name"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl.parse"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl.setName"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl.setName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl.setValue"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl.value"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl.value</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl.write"><code class="docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-common_interfaces"></span></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../modules.html" class="btn btn-neutral float-left" title="API Content" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsarobject.html" class="btn btn-neutral float-right" title="sbsarobject module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

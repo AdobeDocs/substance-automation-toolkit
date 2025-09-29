@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qtvariantreader module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="qtvariantwriter module" href="qtvariantwriter.html" />
+    <link rel="prev" title="qtclasses module" href="qtclasses.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">qtvariantreader module: Defininition of the class QtVariantReader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtvariantwriter.html">qtvariantwriter module: Defininition of the class QtVariantWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariantTypeEnum"><code class="docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant"><code class="docutils literal notranslate"><span class="pre">QtVariant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariantMap"><code class="docutils literal notranslate"><span class="pre">QtVariantMap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtColor"><code class="docutils literal notranslate"><span class="pre">QtColor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="qtclasses.html">qtclasses module</a></li>
+      <li class="breadcrumb-item active">qtvariantreader module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.qtclasses.qtvariantreader">
+<span id="qtvariantreader-module"></span><h1>qtvariantreader module<a class="headerlink" href="#module-pysbs.qtclasses.qtvariantreader" title="Link to this heading"></a></h1>
+<p>Module <strong>qtvariantreader</strong> provides the class QtVariantReader which allows the deserialization of a QVariant object.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.qtclasses.qtvariantreader.</span></span><span class="sig-name descname"><span class="pre">QtVariantReader</span></span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class QtVariantReader allows to read (deserialize) a <a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object from a Byte Array or a base64 encoded string.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToBool">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bytesToBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToBool" title="Link to this definition"></a></dt>
+<dd><p>Convert the given string in hexadecimal into a bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStr</strong> (<em>bytes</em>) – The string to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the conversion as a bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToChar">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bytesToChar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToChar" title="Link to this definition"></a></dt>
+<dd><p>Convert the given string in hexadecimal into a char</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStr</strong> (<em>bytes</em>) – The string to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the conversion as a char</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bytesToInt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt" title="Link to this definition"></a></dt>
+<dd><p>Convert the given string in hexadecimal into an integer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStr</strong> (<em>bytes</em>) – The string to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the conversion as an integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt16">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bytesToInt16</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt16" title="Link to this definition"></a></dt>
+<dd><p>Convert the given string in hexadecimal into an integer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStr</strong> (<em>bytes</em>) – The string to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the conversion as an integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt8">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bytesToInt8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt8" title="Link to this definition"></a></dt>
+<dd><p>Convert the given string in hexadecimal into an integer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStr</strong> (<em>bytes</em>) – The string to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the conversion as an integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.getFromBase64String">
+<span class="sig-name descname"><span class="pre">getFromBase64String</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aEncodedString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.getFromBase64String" title="Link to this definition"></a></dt>
+<dd><p>Read the given base64 encoded string and return the included QtVariant which must be of the given type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aEncodedString</strong> (<em>str</em>) – The string to read</p></li>
+<li><p><strong>aType</strong> (<a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariantTypeEnum" title="qtclasses.qtclasses.QtVariantTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a>) – Type of the QtVariant included in the byte array</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.getFromByteArray">
+<span class="sig-name descname"><span class="pre">getFromByteArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aByteArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.getFromByteArray" title="Link to this definition"></a></dt>
+<dd><p>Read the given byte array and return the included QtVariant which must be of the given type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aByteArray</strong> (<em>bytearray</em><em> or </em><em>str</em>) – The byte array to read</p></li>
+<li><p><strong>aType</strong> (<a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariantTypeEnum" title="qtclasses.qtclasses.QtVariantTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a>) – Type of the QtVariant included in the byte array</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readBool">
+<span class="sig-name descname"><span class="pre">readBool</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readBool" title="Link to this definition"></a></dt>
+<dd><p>Read 1 bytes as a Boolean</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next boolean as a Boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readByteArray">
+<span class="sig-name descname"><span class="pre">readByteArray</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readByteArray" title="Link to this definition"></a></dt>
+<dd><p>Read the next ByteArray</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ByteArray as a String</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readChar">
+<span class="sig-name descname"><span class="pre">readChar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readChar" title="Link to this definition"></a></dt>
+<dd><p>Read 1 bytes as a char</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next character as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readDouble">
+<span class="sig-name descname"><span class="pre">readDouble</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readDouble" title="Link to this definition"></a></dt>
+<dd><p>Read 8 bytes as a double</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next double as an Double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt">
+<span class="sig-name descname"><span class="pre">readInt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt" title="Link to this definition"></a></dt>
+<dd><p>Read 4 bytes as an integer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next integer as an Integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt16">
+<span class="sig-name descname"><span class="pre">readInt16</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt16" title="Link to this definition"></a></dt>
+<dd><p>Read 2 bytes as an integer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next integer as an Integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt8">
+<span class="sig-name descname"><span class="pre">readInt8</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt8" title="Link to this definition"></a></dt>
+<dd><p>Read 1 byte as an integer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The next integer as an Integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readKey">
+<span class="sig-name descname"><span class="pre">readKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readKey" title="Link to this definition"></a></dt>
+<dd><p>Read the next key (=size of the key + string)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The key as a String</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariant">
+<span class="sig-name descname"><span class="pre">readQtVariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariant" title="Link to this definition"></a></dt>
+<dd><p>Read the next variant item (=type + value)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The variant item as a QtVariant</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantList">
+<span class="sig-name descname"><span class="pre">readQtVariantList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantList" title="Link to this definition"></a></dt>
+<dd><p>Read the next variant list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The variant map as a list of QtVariant</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantMap">
+<span class="sig-name descname"><span class="pre">readQtVariantMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantMap" title="Link to this definition"></a></dt>
+<dd><p>Read the next variant map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The variant map as a dictionary of QtVariant</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantString">
+<span class="sig-name descname"><span class="pre">readQtVariantString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantString" title="Link to this definition"></a></dt>
+<dd><p>Read the next string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The bytes as a String</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantValue">
+<span class="sig-name descname"><span class="pre">readQtVariantValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantValue" title="Link to this definition"></a></dt>
+<dd><p>Read the next variant item value, according to the given type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The variant item as a QtVariant</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readSize">
+<span class="sig-name descname"><span class="pre">readSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readSize" title="Link to this definition"></a></dt>
+<dd><p>Read the next size object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The size as a tuple(int width,int height)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readString">
+<span class="sig-name descname"><span class="pre">readString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readString" title="Link to this definition"></a></dt>
+<dd><p>Read aSize bytes as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The bytes as a String</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readStringList">
+<span class="sig-name descname"><span class="pre">readStringList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readStringList" title="Link to this definition"></a></dt>
+<dd><p>Read the next string list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The string map as a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantreader.QtVariantReader.readURL">
+<span class="sig-name descname"><span class="pre">readURL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantreader.QtVariantReader.readURL" title="Link to this definition"></a></dt>
+<dd><p>Read the next URL</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The url as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qtclasses.html" class="btn btn-neutral float-left" title="qtclasses module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qtvariantwriter.html" class="btn btn-neutral float-right" title="qtvariantwriter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mdloperand module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mdlannotation module" href="mdlannotation.html" />
+    <link rel="prev" title="mdlnodeimpl module" href="mdlnodeimpl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.html">mdl module: MDL graph definition and all objects related to MDL</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mdlmanager.html">mdlmanager module: MDL manager, handles the MDL library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlgraph.html">mdlgraph module: MDL graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnode.html">mdlnode module: MDL node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdloperand module: MDL operand definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlannotation.html">mdlannotation module: MDL annotation definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlenum.html">mdlenum module: list of enumerations used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdllibclasses.html">mdllibclasses module: provides the classes used to create the MDL library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="mdl.html">mdl module</a></li>
+      <li class="breadcrumb-item active">mdloperand module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-mdl.mdloperand">
+<span id="mdloperand-module"></span><h1>mdloperand module<a class="headerlink" href="#module-mdl.mdloperand" title="Link to this heading"></a></h1>
+<p>Module <strong>mdloperand</strong> provides the definition of the classes related to the operand structure as in .sbs format:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperandValue" title="mdl.mdloperand.MDLOperandValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandValue</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperandStruct" title="mdl.mdloperand.MDLOperandStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandStruct</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperandArray" title="mdl.mdloperand.MDLOperandArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandArray</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperands" title="mdl.mdloperand.MDLOperands"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperands</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperandMetaData" title="mdl.mdloperand.MDLOperandMetaData"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandMetaData</span></code></a></p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdloperand.</span></span><span class="sig-name descname"><span class="pre">MDLOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Base class for:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperandValue" title="mdl.mdloperand.MDLOperandValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandValue</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperandStruct" title="mdl.mdloperand.MDLOperandStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandStruct</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdloperand.MDLOperandArray" title="mdl.mdloperand.MDLOperandArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandArray</span></code></a></p></li>
+</ul>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName     (string): name of the operand</p></li>
+<li><p>mType     (string): type of the operand (its type’s MDL path)</p></li>
+<li><p>mMetaData (<a class="reference internal" href="#mdl.mdloperand.MDLOperandMetaData" title="mdl.mdloperand.MDLOperandMetaData"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandMetaData</span></code></a>, optional): various meta-data</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.acceptConnection">
+<span class="sig-name descname"><span class="pre">acceptConnection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.acceptConnection" title="Link to this definition"></a></dt>
+<dd><p>Check if this operand accepts a connection (a pin is visible and active for this parameter)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the operand accepts connection, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.getSBSTag">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSTag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.getSBSTag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operand type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.getValue">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operand value, as a string or a <a class="reference internal" href="#mdl.mdloperand.MDLOperands" title="mdl.mdloperand.MDLOperands"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperands</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.isDefaultValue">
+<span class="sig-name descname"><span class="pre">isDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.isDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Check if the value of this operand is the default one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the value of the operand is the default one, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.setConnectionAccepted">
+<span class="sig-name descname"><span class="pre">setConnectionAccepted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.setConnectionAccepted" title="Link to this definition"></a></dt>
+<dd><p>Defines if the connection are accepted or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.setIsDefaultValue">
+<span class="sig-name descname"><span class="pre">setIsDefaultValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isDefaultValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.setIsDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Defines if the operand has the default value or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isDefaultValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperand.write">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperand.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdloperand.</span></span><span class="sig-name descname"><span class="pre">MDLOperandArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+<p>Class MDLOperandArray: An array operand</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName     (string): name of the operand</p></li>
+<li><p>mType     (string): type of the operand (its type’s MDL path)</p></li>
+<li><p>mItems    (<a class="reference internal" href="#mdl.mdloperand.MDLOperands" title="mdl.mdloperand.MDLOperands"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperands</span></code></a>): the list of operands</p></li>
+<li><p>mMetaData (<a class="reference internal" href="#mdl.mdloperand.MDLOperandMetaData" title="mdl.mdloperand.MDLOperandMetaData"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandMetaData</span></code></a>, optional): various meta-data</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.acceptConnection">
+<span class="sig-name descname"><span class="pre">acceptConnection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.acceptConnection" title="Link to this definition"></a></dt>
+<dd><p>Check if this operand accepts a connection (a pin is visible and active for this parameter)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the operand accepts connection, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.addItem">
+<span class="sig-name descname"><span class="pre">addItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIndex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.addItem" title="Link to this definition"></a></dt>
+<dd><p>Add an item with the given value to the array, at the given index if it is provided, or at the end.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aValue</strong> (<em>any type</em>) – The value to add</p></li>
+<li><p><strong>aIndex</strong> (<em>int</em><em>, </em><em>optional</em>) – The index where to add the item. At the end by default</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The added item as a <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.getItem">
+<span class="sig-name descname"><span class="pre">getItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.getItem" title="Link to this definition"></a></dt>
+<dd><p>Get the item at the given index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIndex</strong> (<em>positive integer</em>) – the index of the item to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a> at the given index if it possible, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.getItems">
+<span class="sig-name descname"><span class="pre">getItems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.getItems" title="Link to this definition"></a></dt>
+<dd><p>Get the array of items on this operand array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The items as a list of <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.getSBSTag">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSTag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.getSBSTag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.getSize">
+<span class="sig-name descname"><span class="pre">getSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.getSize" title="Link to this definition"></a></dt>
+<dd><p>Get the size of the array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The array size as a positive integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operand type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the operand, as a <a class="reference internal" href="#mdl.mdloperand.MDLOperands" title="mdl.mdloperand.MDLOperands"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperands</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.isDefaultValue">
+<span class="sig-name descname"><span class="pre">isDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.isDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Check if the value of this operand is the default one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the value of the operand is the default one, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.setConnectionAccepted">
+<span class="sig-name descname"><span class="pre">setConnectionAccepted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.setConnectionAccepted" title="Link to this definition"></a></dt>
+<dd><p>Defines if the connection are accepted or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.setIsDefaultValue">
+<span class="sig-name descname"><span class="pre">setIsDefaultValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isDefaultValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.setIsDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Defines if the operand has the default value or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isDefaultValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.setValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of this operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<a class="reference internal" href="#mdl.mdloperand.MDLOperandArray" title="mdl.mdloperand.MDLOperandArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandArray</span></code></a>) – the value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandArray.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandArray.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdloperand.</span></span><span class="sig-name descname"><span class="pre">MDLOperandMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAcceptConnection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class MDLOperandMetaData contains additional information associated to operands.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mAcceptConnection  (string, optional): defines if the connections are allowed on this operand. Default to False</p></li>
+<li><p>mIsDefaultValue    (string, optional): defines if the operand has the default value. Default to False</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.acceptConnection">
+<span class="sig-name descname"><span class="pre">acceptConnection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.acceptConnection" title="Link to this definition"></a></dt>
+<dd><p>Check if this operand accepts a connection (a pin is visible and active for this parameter)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the operand accepts connection, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.isDefaultValue">
+<span class="sig-name descname"><span class="pre">isDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.isDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Check if the value of this operand is the default one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the value of the operand is the default one, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.isEmpty">
+<span class="sig-name descname"><span class="pre">isEmpty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.isEmpty" title="Link to this definition"></a></dt>
+<dd><p>Check if the content of the metadata is empty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if there is no metadata, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.setConnectionAccepted">
+<span class="sig-name descname"><span class="pre">setConnectionAccepted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.setConnectionAccepted" title="Link to this definition"></a></dt>
+<dd><p>Defines if the connection are accepted or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.setIsDefaultValue">
+<span class="sig-name descname"><span class="pre">setIsDefaultValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isDefaultValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.setIsDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Defines if the operand is the default value or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isDefaultValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandMetaData.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandMetaData.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdloperand.</span></span><span class="sig-name descname"><span class="pre">MDLOperandStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMembers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+<p>Class MDLOperandStruct: A compound type (struct) operand.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName     (string): name of the operand</p></li>
+<li><p>mType     (string): type of the operand (its type’s MDL path)</p></li>
+<li><p>mMembers  (<a class="reference internal" href="#mdl.mdloperand.MDLOperands" title="mdl.mdloperand.MDLOperands"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperands</span></code></a>): the sub-operands</p></li>
+<li><p>mMetaData (<a class="reference internal" href="#mdl.mdloperand.MDLOperandMetaData" title="mdl.mdloperand.MDLOperandMetaData"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandMetaData</span></code></a>, optional): various meta-data</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.acceptConnection">
+<span class="sig-name descname"><span class="pre">acceptConnection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.acceptConnection" title="Link to this definition"></a></dt>
+<dd><p>Check if this operand accepts a connection (a pin is visible and active for this parameter)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the operand accepts connection, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.getMembers">
+<span class="sig-name descname"><span class="pre">getMembers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.getMembers" title="Link to this definition"></a></dt>
+<dd><p>Get the list of members on this operand struct</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The members as a list of <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.getOperand">
+<span class="sig-name descname"><span class="pre">getOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOperandName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.getOperand" title="Link to this definition"></a></dt>
+<dd><p>Get the operand with the given name among the structure members.
+The name can be:
+- Simply the name of the operand to get
+- A set of names separated by ‘/’ to access a sub member of the root member, for instance ‘surface/intensity’
+- A name with an operator [] to access a particular item of an operand array, for instance ‘color[2]’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOperandName</strong> (<em>str</em>) – The name of the operand to search</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operand as a <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.getSBSTag">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSTag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.getSBSTag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operand type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the operand, as a <a class="reference internal" href="#mdl.mdloperand.MDLOperands" title="mdl.mdloperand.MDLOperands"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperands</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.isDefaultValue">
+<span class="sig-name descname"><span class="pre">isDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.isDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Check if the value of this operand is the default one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the value of the operand is the default one, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.setConnectionAccepted">
+<span class="sig-name descname"><span class="pre">setConnectionAccepted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.setConnectionAccepted" title="Link to this definition"></a></dt>
+<dd><p>Defines if the connection are accepted or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.setIsDefaultValue">
+<span class="sig-name descname"><span class="pre">setIsDefaultValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isDefaultValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.setIsDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Defines if the operand has the default value or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isDefaultValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.setValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of this operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<a class="reference internal" href="#mdl.mdloperand.MDLOperandStruct" title="mdl.mdloperand.MDLOperandStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandStruct</span></code></a>) – the value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandStruct.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandStruct.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdloperand.</span></span><span class="sig-name descname"><span class="pre">MDLOperandValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+<p>Class MDLOperandValue: A simple base-type operand.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName     (string): name of the operand</p></li>
+<li><p>mType     (string): type of the operand (its type’s MDL path)</p></li>
+<li><p>mValue    (string): value of the operand</p></li>
+<li><p>mMetaData (<a class="reference internal" href="#mdl.mdloperand.MDLOperandMetaData" title="mdl.mdloperand.MDLOperandMetaData"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandMetaData</span></code></a>, optional): various meta-data</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.acceptConnection">
+<span class="sig-name descname"><span class="pre">acceptConnection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.acceptConnection" title="Link to this definition"></a></dt>
+<dd><p>Check if this operand accepts a connection (a pin is visible and active for this parameter)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the operand accepts connection, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.getSBSTag">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSTag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.getSBSTag" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The operand type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.getTypedValue">
+<span class="sig-name descname"><span class="pre">getTypedValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.getTypedValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this operand, in the type of the operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the operand, in the type of the operand</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the operand, as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.isDefaultValue">
+<span class="sig-name descname"><span class="pre">isDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.isDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Check if the value of this operand is the default one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the value of the operand is the default one, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.setConnectionAccepted">
+<span class="sig-name descname"><span class="pre">setConnectionAccepted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.setConnectionAccepted" title="Link to this definition"></a></dt>
+<dd><p>Defines if the connection are accepted or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.setIsDefaultValue">
+<span class="sig-name descname"><span class="pre">setIsDefaultValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isDefaultValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.setIsDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Defines if the operand has the default value or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isDefaultValue</strong> (<em>bool</em>) – The value to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.setValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of this operand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>any type</em>) – the value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperandValue.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperandValue.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdloperand.</span></span><span class="sig-name descname"><span class="pre">MDLOperands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOperands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on the MDL operands as defined in a .sbs file.
+A MDLOperands provides the list of parameters of a MDLNode or of a MDLAnnotation, and is constituted of a list of:
+- <a class="reference internal" href="#mdl.mdloperand.MDLOperandValue" title="mdl.mdloperand.MDLOperandValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandValue</span></code></a>
+- <a class="reference internal" href="#mdl.mdloperand.MDLOperandStruct" title="mdl.mdloperand.MDLOperandStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandStruct</span></code></a>
+- <a class="reference internal" href="#mdl.mdloperand.MDLOperandArray" title="mdl.mdloperand.MDLOperandArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperandArray</span></code></a></p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mOperands (list of <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a>, optional): list of parameters available on this node</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.equalsTo">
+<span class="sig-name descname"><span class="pre">equalsTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.equalsTo" title="Link to this definition"></a></dt>
+<dd><p>Allows to check if two MDLOperands are identical.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="#mdl.mdloperand.MDLOperands" title="mdl.mdloperand.MDLOperands"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperands</span></code></a>) – the MDLOperands to compare with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two MDLOperands has the same parameters, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getAllOperands">
+<span class="sig-name descname"><span class="pre">getAllOperands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getAllOperands" title="Link to this definition"></a></dt>
+<dd><p>Get the all the operands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getAllOperandsValue">
+<span class="sig-name descname"><span class="pre">getAllOperandsValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getAllOperandsValue" title="Link to this definition"></a></dt>
+<dd><p>Get all the operand values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of string and MDLOperand objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getNbOperands">
+<span class="sig-name descname"><span class="pre">getNbOperands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getNbOperands" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of operands</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getOperand">
+<span class="sig-name descname"><span class="pre">getOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOperandName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getOperand" title="Link to this definition"></a></dt>
+<dd><p>Get the operand with the given name.
+The name can be:
+- Simply the name of the operand to get
+- A set of names separated by ‘/’ to access a sub member of the root member, for instance ‘surface/intensity’
+- A name with an operator [] to access a particular item of an operand array, for instance ‘color[2]’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOperandName</strong> (<em>str</em>) – The name of the operand to search</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operand as a <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getOperandByIndex">
+<span class="sig-name descname"><span class="pre">getOperandByIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getOperandByIndex" title="Link to this definition"></a></dt>
+<dd><p>Get the operand at the given index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aIndex</strong> – The index of the operand to get</p></li>
+<li><p><strong>aIndex</strong> – positive integer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operand as a <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a> if possible, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getOperandValue">
+<span class="sig-name descname"><span class="pre">getOperandValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOperandName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getOperandValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the operand with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOperandName</strong> – The name of the operand to search</p></li>
+<li><p><strong>aOperandName</strong> – str</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operand value as a string (for a MDLOperandValue) or a list of <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a> (for a MDLOperandStruct or a MDLOperandArray) if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getOperandValueByIndex">
+<span class="sig-name descname"><span class="pre">getOperandValueByIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getOperandValueByIndex" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the operand at the given index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aIndex</strong> – The index of the operand to get</p></li>
+<li><p><strong>aIndex</strong> – positive integer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The operand value as a string (for a MDLOperandValue) or a list of <a class="reference internal" href="#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a> (for a MDLOperandStruct or a MDLOperandArray) if possible, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdloperand.MDLOperands.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdloperand.MDLOperands.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mdlnodeimpl.html" class="btn btn-neutral float-left" title="mdlnodeimpl module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mdlannotation.html" class="btn btn-neutral float-right" title="mdlannotation module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

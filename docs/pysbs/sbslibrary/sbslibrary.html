@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbslibrary module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsdictionaries module" href="sbsdictionaries.html" />
+    <link rel="prev" title="sbsenum module" href="../sbsenum.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbslibrary module: Substance libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sbsdictionaries.html">sbsdictionaries module: Dictionaries of all strings used in the libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibclasses.html">sbslibclasses module: Classes used by the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfunctions.html">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfxmapnodes.html">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbswidgets.html">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.__convertToEnum"><code class="docutils literal notranslate"><span class="pre">__convertToEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType"><code class="docutils literal notranslate"><span class="pre">getAllWidgetFunctionButtonByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getAngleWidgetByType"><code class="docutils literal notranslate"><span class="pre">getAngleWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getButtonWidgetByType"><code class="docutils literal notranslate"><span class="pre">getButtonWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getColorWidgetByType"><code class="docutils literal notranslate"><span class="pre">getColorWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getDefaultWidget"><code class="docutils literal notranslate"><span class="pre">getDefaultWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getDropDownWidgetByType"><code class="docutils literal notranslate"><span class="pre">getDropDownWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getEnumButtonsWidgetByType"><code class="docutils literal notranslate"><span class="pre">getEnumButtonsWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getFilterDefinition"><code class="docutils literal notranslate"><span class="pre">getFilterDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getFilterEnum"><code class="docutils literal notranslate"><span class="pre">getFilterEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getFunctionDefinition"><code class="docutils literal notranslate"><span class="pre">getFunctionDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getFunctionEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getFxMapNodeDefinition"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getFxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getInputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getInputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getIterationParamInput"><code class="docutils literal notranslate"><span class="pre">getIterationParamInput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getOffsetWidgetByType"><code class="docutils literal notranslate"><span class="pre">getOffsetWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getOutputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getOutputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getPositionWidgetByType"><code class="docutils literal notranslate"><span class="pre">getPositionWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getSliderWidgetByType"><code class="docutils literal notranslate"><span class="pre">getSliderWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getTransformationForwardWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationForwardWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getTransformationInverseWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationInverseWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbslibrary.sbslibrary.getWidgetByType"><code class="docutils literal notranslate"><span class="pre">getWidgetByType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbslibrary module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbslibrary-module">
+<h1>sbslibrary module<a class="headerlink" href="#sbslibrary-module" title="Link to this heading"></a></h1>
+<p>Content included in sbslibrary module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sbsdictionaries.html">sbsdictionaries module: Dictionaries of all strings used in the libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getAttribute"><code class="docutils literal notranslate"><span class="pre">getAttribute()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getColorSpace"><code class="docutils literal notranslate"><span class="pre">getColorSpace()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getColorSpaceEnum"><code class="docutils literal notranslate"><span class="pre">getColorSpaceEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCompNodeInput"><code class="docutils literal notranslate"><span class="pre">getCompNodeInput()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCompNodeInputEnum"><code class="docutils literal notranslate"><span class="pre">getCompNodeInputEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCompNodeOutput"><code class="docutils literal notranslate"><span class="pre">getCompNodeOutput()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCompNodeOutputEnum"><code class="docutils literal notranslate"><span class="pre">getCompNodeOutputEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCompNodeParam"><code class="docutils literal notranslate"><span class="pre">getCompNodeParam()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCompNodeParamEnum"><code class="docutils literal notranslate"><span class="pre">getCompNodeParamEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getComponents"><code class="docutils literal notranslate"><span class="pre">getComponents()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCurveName"><code class="docutils literal notranslate"><span class="pre">getCurveName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getCurveTypeEnum"><code class="docutils literal notranslate"><span class="pre">getCurveTypeEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getFunctionInput"><code class="docutils literal notranslate"><span class="pre">getFunctionInput()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getFunctionInputEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionInputEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getFunctionOutput"><code class="docutils literal notranslate"><span class="pre">getFunctionOutput()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getFunctionOutputEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionOutputEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getGUIObjectTypeEnum"><code class="docutils literal notranslate"><span class="pre">getGUIObjectTypeEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getGUIObjectTypeName"><code class="docutils literal notranslate"><span class="pre">getGUIObjectTypeName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getResourceTypeEnum"><code class="docutils literal notranslate"><span class="pre">getResourceTypeEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getResourceTypeName"><code class="docutils literal notranslate"><span class="pre">getResourceTypeName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getSubstanceGraphTemplatePath"><code class="docutils literal notranslate"><span class="pre">getSubstanceGraphTemplatePath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getSubstanceGraphType"><code class="docutils literal notranslate"><span class="pre">getSubstanceGraphType()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getUsage"><code class="docutils literal notranslate"><span class="pre">getUsage()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getWidgetName"><code class="docutils literal notranslate"><span class="pre">getWidgetName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getWidgetOptionName"><code class="docutils literal notranslate"><span class="pre">getWidgetOptionName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsdictionaries.html#pysbs.sbslibrary.sbsdictionaries.getWidgetTypeEnum"><code class="docutils literal notranslate"><span class="pre">getWidgetTypeEnum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbslibclasses.html">sbslibclasses module: Classes used by the library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput.getIdentifier"><code class="docutils literal notranslate"><span class="pre">CompNodeInput.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">CompNodeInput.getIdentifierStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput.isVariant"><code class="docutils literal notranslate"><span class="pre">CompNodeInput.isVariant()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeOutput"><code class="docutils literal notranslate"><span class="pre">CompNodeOutput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeOutput.getIdentifier"><code class="docutils literal notranslate"><span class="pre">CompNodeOutput.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeOutput.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">CompNodeOutput.getIdentifierStr()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIdentifier"><code class="docutils literal notranslate"><span class="pre">CompNodeParam.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">CompNodeParam.getIdentifierStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIsConnectable"><code class="docutils literal notranslate"><span class="pre">CompNodeParam.getIsConnectable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.addBaseParameters"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.addBaseParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputIdentifiers"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getAllInputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputs"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllOutputIdentifiers"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getAllOutputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllOutputs"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getAllOutputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllParameterIdentifiers"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getAllParameterIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllParameters"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getAllParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getFirstInputOfType"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getFirstInputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getFirstOutputOfType"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getFirstOutputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getIdentifier"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getInput"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getOutput"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getParameter"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.isBaseParameter"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.isBaseParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.isVariant"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.isVariant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.setInputs"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.setInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef.setOutputs"><code class="docutils literal notranslate"><span class="pre">CompNodeDef.setOutputs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionInput"><code class="docutils literal notranslate"><span class="pre">FunctionInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionInput.getIdentifier"><code class="docutils literal notranslate"><span class="pre">FunctionInput.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionInput.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">FunctionInput.getIdentifierStr()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionOutput"><code class="docutils literal notranslate"><span class="pre">FunctionOutput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionOutput.getIdentifier"><code class="docutils literal notranslate"><span class="pre">FunctionOutput.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionOutput.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">FunctionOutput.getIdentifierStr()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionParam"><code class="docutils literal notranslate"><span class="pre">FunctionParam</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionParam.getIdentifier"><code class="docutils literal notranslate"><span class="pre">FunctionParam.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionParam.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">FunctionParam.getIdentifierStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionParam.getIsConnectable"><code class="docutils literal notranslate"><span class="pre">FunctionParam.getIsConnectable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef"><code class="docutils literal notranslate"><span class="pre">FunctionDef</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputIdentifiers"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getAllInputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputs"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllOutputIdentifiers"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getAllOutputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllOutputs"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getAllOutputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllParameterIdentifiers"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getAllParameterIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllParameters"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getAllParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getFirstInputOfType"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getFirstInputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getFirstOutputOfType"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getFirstOutputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getIdentifier"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getInput"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getInputType"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getInputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getOutput"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.getParameter"><code class="docutils literal notranslate"><span class="pre">FunctionDef.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.setInputs"><code class="docutils literal notranslate"><span class="pre">FunctionDef.setInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef.setOutputs"><code class="docutils literal notranslate"><span class="pre">FunctionDef.setOutputs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputIdentifiers"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getAllInputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputs"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllOutputIdentifiers"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getAllOutputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllOutputs"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getAllOutputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllParameterIdentifiers"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getAllParameterIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllParameters"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getAllParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getFirstInputOfType"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getFirstInputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getFirstOutputOfType"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getFirstOutputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getIdentifier"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getInput"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getOutput"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getParameter"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isBaseParameter"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.isBaseParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isVariant"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.isVariant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.setInputs"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.setInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.setOutputs"><code class="docutils literal notranslate"><span class="pre">FxMapNodeDef.setOutputs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.GradientKey"><code class="docutils literal notranslate"><span class="pre">GradientKey</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CurveKey"><code class="docutils literal notranslate"><span class="pre">CurveKey</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CurveDefinition"><code class="docutils literal notranslate"><span class="pre">CurveDefinition</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CurveDefinition.addCurveKey"><code class="docutils literal notranslate"><span class="pre">CurveDefinition.addCurveKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CurveDefinition.initCurve"><code class="docutils literal notranslate"><span class="pre">CurveDefinition.initCurve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CurveDefinition.moveKeyTo"><code class="docutils literal notranslate"><span class="pre">CurveDefinition.moveKeyTo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.WidgetOption"><code class="docutils literal notranslate"><span class="pre">WidgetOption</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.InputParamWidget"><code class="docutils literal notranslate"><span class="pre">InputParamWidget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.InputParamWidget.getDefaultValue"><code class="docutils literal notranslate"><span class="pre">InputParamWidget.getDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.InputParamWidget.getOption"><code class="docutils literal notranslate"><span class="pre">InputParamWidget.getOption()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.InputParamWidget.getOptions"><code class="docutils literal notranslate"><span class="pre">InputParamWidget.getOptions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.InputParamWidget.hasOption"><code class="docutils literal notranslate"><span class="pre">InputParamWidget.hasOption()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbsfunctions.html">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbsfxmapnodes.html">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbswidgets.html">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+</ul>
+</div>
+<p id="module-sbslibrary.sbslibrary">Module <strong>sbslibrary</strong> provides the libraries of Filters, Functions, FxMap nodes and Widgets that are defined in the
+modules <a class="reference internal" href="sbsfilters.html#module-pysbs.sbslibrary.sbsfilters" title="pysbs.sbslibrary.sbsfilters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsfilters</span></code></a>, <a class="reference internal" href="sbsfunctions.html#module-pysbs.sbslibrary.sbsfunctions" title="pysbs.sbslibrary.sbsfunctions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsfunctions</span></code></a>, <a class="reference internal" href="sbsfxmapnodes.html#module-pysbs.sbslibrary.sbsfxmapnodes" title="pysbs.sbslibrary.sbsfxmapnodes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsfxmapnodes</span></code></a> and <a class="reference internal" href="sbswidgets.html#module-pysbs.sbslibrary.sbswidgets" title="pysbs.sbslibrary.sbswidgets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbswidgets</span></code></a>.</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt><strong>Libraries:</strong></dt><dd><ul>
+<li><p>__library_Filters: the library of Filters, identified by <a class="reference internal" href="../sbsenum.html#sbsenum.FilterEnum" title="sbsenum.FilterEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__library_Filters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">BITMAP</span>                <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_BITMAP</span>                 <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">BLEND</span>                 <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_BLEND</span>                  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">BLUR</span>                  <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_BLUR</span>                   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">COMPINSTANCE</span>          <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_COMPINSTANCE</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">CURVE</span>                 <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_CURVE</span>                  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">DIRECTIONALMOTIONBLUR</span> <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_DIRECTIONALMOTIONBLUR</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">DIRECTIONALWARP</span>       <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_DIRECTIONALWARP</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">DISTANCE</span>              <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_DISTANCE</span>               <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">DYNAMICGRADIENT</span>       <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_DYNAMICGRADIENT</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">EMBOSS</span>                <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_EMBOSS</span>                 <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">FXMAPS</span>                <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_FXMAPS</span>                 <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">GRADIENT</span>              <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_GRADIENT</span>               <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">GRAYSCALECONVERSION</span>   <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_GRAYSCALECONVERSION</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">HSL</span>                   <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_HSL</span>                    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">LEVELS</span>                <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_LEVELS</span>                 <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">NORMAL</span>                <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_NORMAL</span>                 <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">PIXEL_PROCESSOR</span>       <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_PIXEL_PROCESSOR</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">SHARPEN</span>               <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_SHARPEN</span>                <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">SHUFFLE</span>               <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_SHUFFLE</span>                <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">SVG</span>                   <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_SVG</span>                    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">TEXT</span>                  <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_TEXT</span>                   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">TRANSFORMATION</span>        <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_TRANSFORMATION</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span>               <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_UNIFORM</span>                <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">WARP</span>                  <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_WARP</span>                   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">VALUE_PROCESSOR</span>       <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_VALUE_PROCESSOR</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">PASSTHROUGH</span>           <span class="p">:</span> <span class="n">sbsfilters</span><span class="o">.</span><span class="n">filter_PASSTHROUGH</span>            <span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__library_FxMapNodes: the library of FxMap node, identified by <a class="reference internal" href="../sbsenum.html#sbsenum.FxMapNodeEnum" title="sbsenum.FxMapNodeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__library_FxMapNodes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FxMapNodeEnum</span><span class="o">.</span><span class="n">ITERATE</span>     <span class="p">:</span> <span class="n">sbsfxmapnodes</span><span class="o">.</span><span class="n">fxmap_ITERATE</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FxMapNodeEnum</span><span class="o">.</span><span class="n">QUADRANT</span>    <span class="p">:</span> <span class="n">sbsfxmapnodes</span><span class="o">.</span><span class="n">fxmap_QUADRANT</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FxMapNodeEnum</span><span class="o">.</span><span class="n">SWITCH</span>      <span class="p">:</span> <span class="n">sbsfxmapnodes</span><span class="o">.</span><span class="n">fxmap_SWITCH</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FxMapNodeEnum</span><span class="o">.</span><span class="n">PASSTHROUGH</span> <span class="p">:</span> <span class="n">sbsfxmapnodes</span><span class="o">.</span><span class="n">fxmap_PASSTHROUGH</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__library_Functions: the library of Function node, identified by <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__library_Functions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SEQUENCE</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SEQUENCE</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">IF_ELSE</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_IF_ELSE</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SET</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SET</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_BOOL</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_BOOL</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER1</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_INTEGER1</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER2</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_INTEGER2</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER3</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_INTEGER3</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER4</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_INTEGER4</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT1</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_FLOAT1</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT2</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_FLOAT2</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT3</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_FLOAT3</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT4</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_FLOAT4</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_STRING</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GET_STRING</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_BOOL</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_BOOL</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT</span>     <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_INT</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT2</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_INT2</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT3</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_INT3</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT4</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_INT4</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span>   <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_FLOAT</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT2</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_FLOAT2</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT3</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_FLOAT3</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT4</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_FLOAT4</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_STRING</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CONST_STRING</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">INSTANCE</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_INSTANCE</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR2</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_VECTOR2</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR3</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_VECTOR3</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR4</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_VECTOR4</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE1</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE1</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE2</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE2</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE3</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE3</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE4</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE4</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR_INT2</span>   <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_VECTOR_INT2</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR_INT3</span>   <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_VECTOR_INT3</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR_INT4</span>   <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_VECTOR_INT4</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT1</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE_INT1</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT2</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE_INT2</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT3</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE_INT3</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT4</span>  <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SWIZZLE_INT4</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_INT</span>        <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_INT</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_INT2</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_INT2</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_INT3</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_INT3</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_INT4</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_INT4</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_FLOAT</span>      <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_FLOAT</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_FLOAT2</span>     <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_FLOAT2</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_FLOAT3</span>     <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_FLOAT3</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TO_FLOAT4</span>     <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TO_FLOAT4</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">ADD</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_ADD</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SUB</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SUB</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">MUL</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_MUL</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">MUL_SCALAR</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_MUL_SCALAR</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">DIV</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_DIV</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">NEG</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_NEG</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">MOD</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_MOD</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">DOT</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_DOT</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CROSS</span>         <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CROSS</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">AND</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_AND</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">OR</span>            <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_OR</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">NOT</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_NOT</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">EQ</span>            <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_EQ</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">NOT_EQ</span>        <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_NOT_EQ</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GREATER</span>       <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GREATER</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GREATER_EQUAL</span> <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_GREATER_EQUAL</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">LOWER</span>         <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_LOWER</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">LOWER_EQUAL</span>   <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_LOWER_EQUAL</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">ABS</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_ABS</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">FLOOR</span>         <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_FLOOR</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CEIL</span>          <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CEIL</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">COS</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_COS</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SIN</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SIN</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SQRT</span>          <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SQRT</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">LOG</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_LOG</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">LOG2</span>          <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_LOG2</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">EXP</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_EXP</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">POW2</span>          <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_POW2</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">TAN</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_TAN</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">ATAN2</span>         <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_ATAN2</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CARTESIAN</span>     <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_CARTESIAN</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">LERP</span>          <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_LERP</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">MIN</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_MIN</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">MAX</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_MAX</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">RAND</span>          <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_RAND</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SAMPLE_LUM</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SAMPLE_LUM</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SAMPLE_COL</span>    <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_SAMPLE_COL</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">PASSTHROUGH</span>   <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_PASSTHROUGH</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">POW</span>           <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_POW</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">WHILE</span>         <span class="p">:</span> <span class="n">sbsfunctions</span><span class="o">.</span><span class="n">function_WHILE</span>         <span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__library_Widgets: the library of GUI widgets, identified by <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__library_Widgets</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">BUTTON_BOOL</span>            <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Button_Bool</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_INT1</span>            <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Int1</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_INT2</span>            <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Int2</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_INT3</span>            <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Int3</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_INT4</span>            <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Int4</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_FLOAT1</span>          <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Float1</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_FLOAT2</span>          <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Float2</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_FLOAT3</span>          <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Float3</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_FLOAT4</span>          <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Slider_Float4</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">DROPDOWN_INT1</span>          <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_DropDown_Int1</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SIZE_POW2_INT2</span>         <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Size_Pow2_Int2</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">ANGLE_FLOAT1</span>           <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Angle_Float1</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">COLOR_FLOAT1</span>           <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Color_Float1</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">COLOR_FLOAT3</span>           <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Color_Float3</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">COLOR_FLOAT4</span>           <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Color_Float4</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">MATRIX_INVERSE_FLOAT4</span>  <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Matrix_Inverse_Float4</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">MATRIX_FORWARD_FLOAT4</span>  <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Matrix_Forward_Float4</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">TEXT_STRING</span>            <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Text_String</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">POSITION_FLOAT2</span>        <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Position_Float2</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">OFFSET_FLOAT2</span>          <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Offset_Float2</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">ENUM_BUTTONS</span>           <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_Enum_Buttons</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_FLOAT1</span> <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Float1</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_FLOAT2</span> <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Float2</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_FLOAT3</span> <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Float3</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_FLOAT4</span> <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Float4</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_INT1</span>   <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Int1</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_INT2</span>   <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Int2</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_INT3</span>   <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Int3</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_INT4</span>   <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Int4</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_BOOL</span>   <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_Bool</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">FUNCTION_BUTTON_STRING</span> <span class="p">:</span> <span class="n">sbswidgets</span><span class="o">.</span><span class="n">widget_FunctionButton_String</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.__convertToEnum">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">__convertToEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGetEnumFunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.__convertToEnum" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getAllWidgetFunctionButtonByType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType" title="Link to this definition"></a></dt>
+<dd><p>Get a map of all the functionbutton widgets by their param type</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getAngleWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getAngleWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getAngleWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getButtonWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getButtonWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getButtonWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getColorWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getColorWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getColorWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getDefaultWidget">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getDefaultWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aWidget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getDefaultWidget" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aWidget</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a>) – widget identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the widget as a <a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.InputParamWidget" title="pysbs.sbslibrary.sbslibclasses.InputParamWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputParamWidget</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getDropDownWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getDropDownWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getDropDownWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getEnumButtonsWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getEnumButtonsWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getEnumButtonsWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getFilterDefinition">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getFilterDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getFilterDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the definition of the given filter (inputs, outputs, parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFilter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FilterEnum" title="sbsenum.FilterEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEnum</span></code></a> or str) – filter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getFilterEnum">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getFilterEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilterName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getFilterEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given filter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFilterName</strong> (<em>str</em>) – filter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the filter as a <a class="reference internal" href="../sbsenum.html#sbsenum.FilterEnum" title="sbsenum.FilterEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getFunctionDefinition">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getFunctionDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getFunctionDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the definition of the given function (inputs, outputs, parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunction</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a> or str) – function identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.FunctionDef" title="pysbs.sbslibrary.sbslibclasses.FunctionDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionDef</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getFunctionEnum">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getFunctionEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunctionName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getFunctionEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunctionName</strong> (<em>str</em>) – function identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the function as a <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getFunctionGetType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getFunctionGetType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getFunctionGetType" title="Link to this definition"></a></dt>
+<dd><p>Get the appropriate function GET_&lt;&gt; depending on the type of the input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – the type of data to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the function GET_&lt;&gt; corresponding to the given type if succeed, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getFxMapNodeDefinition">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getFxMapNodeDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFxMapNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getFxMapNodeDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the definition of the given FxMap node (inputs, outputs, parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFxMapNode</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FxMapNodeEnum" title="sbsenum.FxMapNodeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a> or str) – FxMap node identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getFxMapNodeEnum">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getFxMapNodeEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFxMapNodeName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getFxMapNodeEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFxMapNodeName</strong> (<em>str</em>) – FxMap node identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the FxMap node as a <a class="reference internal" href="../sbsenum.html#sbsenum.FxMapNodeEnum" title="sbsenum.FxMapNodeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getInputBridgeDefinition">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getInputBridgeDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getInputBridgeDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the definition of an input bridge node (inputs, outputs, parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getIterationParamInput">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getIterationParamInput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getIterationParamInput" title="Link to this definition"></a></dt>
+<dd><p>Get the description of the ‘iteration’ parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a> describing this parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getOffsetWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getOffsetWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getOffsetWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getOutputBridgeDefinition">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getOutputBridgeDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getOutputBridgeDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the definition of an output bridge node (inputs, outputs, parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getPositionWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getPositionWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getPositionWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getSliderWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getSliderWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getSliderWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getTransformationForwardWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getTransformationForwardWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getTransformationForwardWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getTransformationInverseWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getTransformationInverseWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getTransformationInverseWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbslibrary.sbslibrary.getWidgetByType">
+<span class="sig-prename descclassname"><span class="pre">sbslibrary.sbslibrary.</span></span><span class="sig-name descname"><span class="pre">getWidgetByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbslibrary.sbslibrary.getWidgetByType" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sbsenum.html" class="btn btn-neutral float-left" title="sbsenum module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsdictionaries.html" class="btn btn-neutral float-right" title="sbsdictionaries module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

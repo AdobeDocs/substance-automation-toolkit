@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mdlenum module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mdllibclasses module" href="mdllibclasses.html" />
+    <link rel="prev" title="mdldictionaries module" href="mdldictionaries.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.html">mdl module: MDL graph definition and all objects related to MDL</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mdlmanager.html">mdlmanager module: MDL manager, handles the MDL library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlgraph.html">mdlgraph module: MDL graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnode.html">mdlnode module: MDL node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdloperand.html">mdloperand module: MDL operand definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlannotation.html">mdlannotation module: MDL annotation definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdlenum module: list of enumerations used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdllibclasses.html">mdllibclasses module: provides the classes used to create the MDL library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="mdl.html">mdl module</a></li>
+      <li class="breadcrumb-item active">mdlenum module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-mdl.mdlenum">
+<span id="mdlenum-module"></span><h1>mdlenum module<a class="headerlink" href="#module-mdl.mdlenum" title="Link to this heading"></a></h1>
+<p>Module <strong>mdlenum</strong> provides all the enumeration used in Pysbs related to MDL graphs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlenum.MDLImplementationKindEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlenum.</span></span><span class="sig-name descname"><span class="pre">MDLImplementationKindEnum</span></span><a class="headerlink" href="#mdl.mdlenum.MDLImplementationKindEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of MDL node implementation available for a <a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation" title="mdl.mdlnodeimpl.MDLImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplementation</span></code></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONSTANT</span>           <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SELECTOR</span>           <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MDL_INSTANCE</span>       <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MDL_GRAPH_INSTANCE</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">SBS_INSTANCE</span>       <span class="o">=</span> <span class="mi">4</span>
+<span class="n">PASSTHROUGH</span>        <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlenum.MDLAnnotationEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlenum.</span></span><span class="sig-name descname"><span class="pre">MDLAnnotationEnum</span></span><a class="headerlink" href="#mdl.mdlenum.MDLAnnotationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the annotations used in a MDL graph.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AUTHOR</span>              <span class="o">=</span> <span class="mi">0</span>
+<span class="n">CONTRIBUTOR</span>         <span class="o">=</span> <span class="mi">1</span>
+<span class="n">COPYRIGHT</span>           <span class="o">=</span> <span class="mi">2</span>
+<span class="n">DESCRIPTION</span>         <span class="o">=</span> <span class="mi">3</span>
+<span class="n">DISPLAY_NAME</span>        <span class="o">=</span> <span class="mi">4</span>
+<span class="n">GAMMA_TYPE</span>          <span class="o">=</span> <span class="mi">5</span>
+<span class="n">KEYWORDS</span>            <span class="o">=</span> <span class="mi">6</span>
+<span class="n">IN_GROUP</span>            <span class="o">=</span> <span class="mi">7</span>
+<span class="n">HIDDEN</span>              <span class="o">=</span> <span class="mi">8</span>
+<span class="n">SAMPLER_USAGE</span>       <span class="o">=</span> <span class="mi">9</span>
+<span class="n">SOFT_RANGE</span>          <span class="o">=</span> <span class="mi">10</span>
+<span class="n">HARD_RANGE</span>          <span class="o">=</span> <span class="mi">11</span>
+<span class="n">VISIBLE_BY_DEFAULT</span>  <span class="o">=</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlenum.MDLTypeDefKindEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlenum.</span></span><span class="sig-name descname"><span class="pre">MDLTypeDefKindEnum</span></span><a class="headerlink" href="#mdl.mdlenum.MDLTypeDefKindEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of mdl types</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UNKNOWN</span>         <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ARRAY</span>           <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ATOMIC</span>          <span class="o">=</span> <span class="mi">2</span>
+<span class="n">BSDF_MEASURE</span>    <span class="o">=</span> <span class="mi">3</span>
+<span class="n">CALL</span>            <span class="o">=</span> <span class="mi">4</span>
+<span class="n">COLOR</span>           <span class="o">=</span> <span class="mi">5</span>
+<span class="n">ENUM</span>            <span class="o">=</span> <span class="mi">6</span>
+<span class="n">LIGHT_PROFILE</span>   <span class="o">=</span> <span class="mi">7</span>
+<span class="n">MATRIX</span>          <span class="o">=</span> <span class="mi">8</span>
+<span class="n">PARAM_REFERENCE</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">RESOURCE</span>        <span class="o">=</span> <span class="mi">10</span>
+<span class="n">REFERENCE</span>       <span class="o">=</span> <span class="mi">11</span>
+<span class="n">STRUCT</span>          <span class="o">=</span> <span class="mi">12</span>
+<span class="n">TEXTURE</span>         <span class="o">=</span> <span class="mi">13</span>
+<span class="n">VECTOR</span>          <span class="o">=</span> <span class="mi">14</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlenum.MDLTypeModifierEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlenum.</span></span><span class="sig-name descname"><span class="pre">MDLTypeModifierEnum</span></span><a class="headerlink" href="#mdl.mdlenum.MDLTypeModifierEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the type modifier available</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UNIFORM</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">VARYING</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">AUTO</span>    <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlenum.MDLPredefTypes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlenum.</span></span><span class="sig-name descname"><span class="pre">MDLPredefTypes</span></span><a class="headerlink" href="#mdl.mdlenum.MDLPredefTypes" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of some predefined mdl type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CALL</span>        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">COLOR</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">COLOR_LAYER</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">FLOAT</span>       <span class="o">=</span> <span class="mi">3</span>
+<span class="n">FLOAT3</span>      <span class="o">=</span> <span class="mi">4</span>
+<span class="n">STRING</span>      <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MATERIAL</span>    <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlenum.MDLGraphTemplateEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlenum.</span></span><span class="sig-name descname"><span class="pre">MDLGraphTemplateEnum</span></span><a class="headerlink" href="#mdl.mdlenum.MDLGraphTemplateEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the MDL Graph templates available in Substance Designer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AXF_2_PBR_METALLIC_ROUGHNESS</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">AXF_2_PBR_SPECULAR_GLOSSINESS</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">DIELECTRIC</span>                      <span class="o">=</span> <span class="mi">2</span>
+<span class="n">DIELECTRIC_IOR</span>                  <span class="o">=</span> <span class="mi">3</span>
+<span class="n">EMPTY</span>                           <span class="o">=</span> <span class="mi">4</span>
+<span class="n">METALLIC</span>                        <span class="o">=</span> <span class="mi">5</span>
+<span class="n">METALLIC_ANISOTROPIC</span>            <span class="o">=</span> <span class="mi">6</span>
+<span class="n">PHYSICALLY_METALLIC_ROUGHNESS</span>   <span class="o">=</span> <span class="mi">7</span>
+<span class="n">PHYSICALLY_SPECULAR_GLOSSINESS</span>  <span class="o">=</span> <span class="mi">8</span>
+<span class="n">TRANSLUCENT</span>                     <span class="o">=</span> <span class="mi">9</span>
+<span class="n">TRANSPARENT</span>                     <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mdldictionaries.html" class="btn btn-neutral float-left" title="mdldictionaries module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mdllibclasses.html" class="btn btn-neutral float-right" title="mdllibclasses module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

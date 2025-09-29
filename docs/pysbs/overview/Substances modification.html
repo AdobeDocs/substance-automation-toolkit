@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Substances modification &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Dependency path storage method" href="Dependencies%20management.html" />
+    <link rel="prev" title="Substance creation" href="Substance%20creation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modification of Substances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#massive-modification-of-substances">Massive modification of Substances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#baking-parameters-modification">Baking Parameters modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iteration-generation">Iteration generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sample-1-compositing-node-iteration">Sample 1: Compositing node iteration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-2-iteration-inside-a-pixel-processor">Sample 2: Iteration inside a Pixel Processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-3-iteration-inside-a-function-and-use-of-variables">Sample 3: Iteration inside a function, and use of variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SAT%20demos.html">SAT demos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">API overview</a></li>
+      <li class="breadcrumb-item active">Substances modification</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="substances-modification">
+<span id="ref-to-api-modification"></span><h1>Substances modification<a class="headerlink" href="#substances-modification" title="Link to this heading"></a></h1>
+<p>This API may also be used to modify existing substances, to automatize an update of a set of substances, or to apply the same modification on many nodes or graph.</p>
+<section id="massive-modification-of-substances">
+<h2>Massive modification of Substances<a class="headerlink" href="#massive-modification-of-substances" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">Suppose you want to do the same modification on all nodes of a Substance, or on a set of Substances, this API will allows you to script the modifications you want to apply instead of doing them manually.</div>
+<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoMassiveModification" title="demos.demoMassiveModification"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoMassiveModification()</span></code></a> demonstrates the modification of the Output size of all Graphs included in the substance <em>sample/blend_switch.sbs</em>, and the Pixel format of all Input nodes included in each Graph.</div>
+</div>
+<div class="line-block">
+<div class="line">Launch the script with this command line, from the folder <em>demos/</em>:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoMassiveModification<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;../sample/argsDemoMassiveModification.xml&quot;</span>
+</pre></div>
+</div>
+<p>On a package (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>), the following modifications can be done:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Relocate a linked resource</span>
+<span class="n">myResource</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSResource</span><span class="p">(</span><span class="s1">&#39;myResourceIdentifier&#39;</span><span class="p">)</span>                            <span class="c1"># Get the resource from its identifier</span>
+<span class="n">myResource</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSResourceFromPath</span><span class="p">(</span><span class="s1">&#39;&lt;myAbsolutePath&gt;/myResourceFilename.png&#39;</span><span class="p">)</span> <span class="c1"># Get the resource from its absolute path</span>
+<span class="n">myResource</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getObjectFromInternalPath</span><span class="p">(</span><span class="s1">&#39;pkg:///myGroup/myResourceIdentifier&#39;</span><span class="p">)</span>  <span class="c1"># Get the resource from its internal path</span>
+
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">relocateResource</span><span class="p">(</span><span class="n">myResource</span><span class="p">,</span> <span class="n">aNewPath</span><span class="o">=</span><span class="s1">&#39;&lt;myNewAbsolutePath&gt;/myNewFilename.png&#39;</span><span class="p">)</span> <span class="c1"># Relocate the resource</span>
+
+<span class="c1"># Move a graph/function/resource/group under a group</span>
+<span class="c1"># -&gt; it updates all the references on this object inside the current package)</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">moveObjectUnderGroup</span><span class="p">(</span><span class="n">aObject</span><span class="o">=</span><span class="n">myGraph</span><span class="p">,</span> <span class="n">aGroup</span><span class="o">=</span><span class="s1">&#39;pkg:///Graphs&#39;</span><span class="p">)</span>   <span class="c1"># Move the graph under the group named &#39;Graphs&#39;</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">moveObjectUnderGroup</span><span class="p">(</span><span class="n">aObject</span><span class="o">=</span><span class="n">myGraph</span><span class="p">,</span> <span class="n">aGroup</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>              <span class="c1"># Move the graph under the root package content</span>
+
+<span class="c1"># Set the identifier of a graph/function/resource/group</span>
+<span class="c1"># -&gt; It updates all the references on this object inside the current package</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">setObjectIdentifier</span><span class="p">(</span><span class="n">aObject</span><span class="o">=</span><span class="n">myGraph</span><span class="p">,</span> <span class="n">aIdentifier</span><span class="o">=</span><span class="s1">&#39;myNewGraphName&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On a graph (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>), the following modifications can be done for instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new input parameter, named &#39;InputColor&#39;, with a RGBA color widget</span>
+<span class="n">aParam</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="o">.</span><span class="n">addInputParameter</span><span class="p">(</span><span class="n">aIdentifier</span>   <span class="o">=</span> <span class="s1">&#39;InputColor&#39;</span><span class="p">,</span>
+                                     <span class="n">aWidget</span>       <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">COLOR_FLOAT4</span><span class="p">,</span>
+                                     <span class="n">aDefaultValue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                                     <span class="n">aLabel</span>        <span class="o">=</span> <span class="s1">&#39;Input Color&#39;</span><span class="p">)</span>
+
+<span class="c1"># Modify a base parameter: Set the output size for instance</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">setBaseParameterValue</span><span class="p">(</span><span class="n">aParameter</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span><span class="p">,</span>
+                             <span class="n">aParamValue</span> <span class="o">=</span> <span class="p">[</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">,</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">],</span>
+                             <span class="n">aRelativeTo</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">)</span>
+
+<span class="c1"># Set attributes and icon</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">aAttributeIdentifier</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Author</span><span class="p">,</span> <span class="n">aAttributeValue</span><span class="o">=</span><span class="s1">&#39;Substance Designer API&#39;</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">aIconAbsPath</span> <span class="o">=</span> <span class="n">myIconPath</span><span class="p">))</span>
+
+<span class="c1"># Create parameter presets</span>
+<span class="n">aPreset</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createPreset</span><span class="p">(</span><span class="n">aLabel</span><span class="o">=</span><span class="s1">&#39;DefaultPreset&#39;</span><span class="p">,</span> <span class="n">setCurrentDefaultValues</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">aPreset</span><span class="o">.</span><span class="n">setPresetInput</span><span class="p">(</span><span class="n">aInputParam</span><span class="o">=</span><span class="n">aParam</span><span class="p">,</span> <span class="n">aPresetValue</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Connect/Disconnect two nodes (the input and output can be specified or not, depending on the possible ambiguity)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aFirstNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aSecondNode</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aFirstNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aSecondNode</span><span class="p">,</span> <span class="n">aLeftNodeOutput</span><span class="o">=</span><span class="s1">&#39;myOutput&#39;</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">OPACITY</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">disconnectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aFirstNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aSecondNode</span><span class="p">)</span>
+
+<span class="c1"># Move the connections on a pin input/output to another pin input/output</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">moveConnectionsOnPinOutput</span><span class="p">(</span><span class="n">aInitialNode</span> <span class="o">=</span> <span class="n">rgbaSplitNode</span><span class="p">,</span> <span class="n">aInitialNodeOutput</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span>
+                                  <span class="n">aTargetNode</span> <span class="o">=</span> <span class="n">rgbaSplitNode</span><span class="p">,</span> <span class="n">aTargetNodeOutput</span> <span class="o">=</span> <span class="s1">&#39;G&#39;</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">moveConnectionOnPinInput</span><span class="p">(</span><span class="n">aInitialNode</span> <span class="o">=</span> <span class="n">blendNode</span><span class="p">,</span> <span class="n">aInitialNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">DESTINATION</span><span class="p">,</span>
+                                <span class="n">aTargetNode</span> <span class="o">=</span> <span class="n">embossNode</span><span class="p">,</span> <span class="n">aTargetNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT_GRADIENT</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On a compositing node (<a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>), several functions allow to modify a node:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify a Parameter: Set the output pixel format for instance</span>
+<span class="n">aCompNode</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">,</span>
+                            <span class="n">aParamValue</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputFormatEnum</span><span class="o">.</span><span class="n">FORMAT_16BITS</span><span class="p">,</span>
+                            <span class="n">aRelativeTo</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">)</span>
+
+<span class="c1"># Define a parameter as dynamic, handled by the input parameter named &#39;InputColor&#39; defined in the parent graph:</span>
+<span class="n">aDynFunction</span> <span class="o">=</span> <span class="n">aCompNode</span><span class="o">.</span><span class="n">setDynamicParameter</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">)</span>
+<span class="n">aDynFunction</span><span class="o">.</span><span class="n">setToInputParam</span><span class="p">(</span><span class="n">aParentGraph</span><span class="p">,</span> <span class="n">aInputParamIdentifier</span><span class="o">=</span><span class="s1">&#39;InputColor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are equivalent functions for Function graph (<a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) and function node (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>).</p>
+</section>
+<section id="baking-parameters-modification">
+<h2>Baking Parameters modification<a class="headerlink" href="#baking-parameters-modification" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">This API allows to create or modify the baking parameters of a Scene resource imported in the Substance.</div>
+<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoBakingParameters" title="demos.demoBakingParameters"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoBakingParameters()</span></code></a> gives a brief overview of what the API allows to do regarding the baking parameters.</div>
+</div>
+<p>The initial substance DemoBakingParameters.sbs provided in the folder <em>sample/</em> is almost empty and contains no resource.</p>
+<a class="reference internal image-reference" href="../../_images/bakingParams1.png"><img alt="../../_images/bakingParams1.png" class="align-center" src="../../_images/bakingParams1.png" style="width: 384px;" />
+</a>
+<div class="line-block">
+<div class="line">The objective of the script is:</div>
+<div class="line">- to import a new linked Scene resource in the package</div>
+<div class="line">- to create the Baking Parameters of this resource</div>
+<div class="line">- to set a ‘Normal Map From Mesh baker’ with a High definition mesh</div>
+<div class="line">- to set a ‘Ambient Occlusion’ baker which uses the result of the ‘Normal Map From Mesh’</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new Scene resource to the document</span>
+<span class="n">aRelPath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="n">aRelPathFromPackage</span><span class="o">=</span><span class="s1">&#39;./Models/LowPolyModel.obj&#39;</span><span class="p">)</span>
+<span class="n">aNewResource</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createExternalResource</span><span class="p">(</span><span class="n">aIdentifier</span><span class="o">=</span><span class="s1">&#39;MyNewResource&#39;</span><span class="p">,</span>
+                                             <span class="n">aResourcePath</span><span class="o">=</span><span class="n">aRelPath</span><span class="p">,</span>
+                                             <span class="n">aResourceTypeEnum</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">SCENE</span><span class="p">)</span>
+
+<span class="c1"># Create BakingParameters for this resource</span>
+<span class="n">aBakingParams</span> <span class="o">=</span> <span class="n">aNewResource</span><span class="o">.</span><span class="n">createBakingParameters</span><span class="p">()</span>
+
+<span class="c1"># Add a high poly mesh from a file path</span>
+<span class="n">aHighPolyFilePath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;./Models/HighPolyModel.obj&#39;</span><span class="p">)</span>
+<span class="n">aBakingParams</span><span class="o">.</span><span class="n">addHighDefinitionMeshFromFile</span><span class="p">(</span><span class="n">aHighPolyFilePath</span><span class="p">)</span>
+
+<span class="c1"># Add a Normal Map From Mesh baker</span>
+<span class="n">NM_baker</span> <span class="o">=</span> <span class="n">aBakingParams</span><span class="o">.</span><span class="n">addBaker</span><span class="p">(</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">NORMAL_MAP_FROM_MESH</span><span class="p">)</span>
+
+<span class="c1"># Set Antialiasing value specifically to NormalMap baker</span>
+<span class="n">NM_baker</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__SUB_SAMPLING</span><span class="p">,</span>
+                           <span class="n">aParamValue</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerFromMeshSubSamplingEnum</span><span class="o">.</span><span class="n">SUBSAMPLING_2x2</span><span class="p">)</span>
+
+<span class="c1"># Add an Ambient Occlusion baker which uses the resulting map of the Normal Map From Mesh baker</span>
+<span class="n">AO_baker</span> <span class="o">=</span> <span class="n">aBakingParams</span><span class="o">.</span><span class="n">addBaker</span><span class="p">(</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">AMBIENT_OCCLUSION</span><span class="p">)</span>
+<span class="n">AO_baker</span><span class="o">.</span><span class="n">setFileParameterValueFromPreviousBaker</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">NORMAL_MAP</span><span class="p">,</span>
+                                                <span class="n">aPreviousBaker</span><span class="o">=</span><span class="n">NM_baker</span><span class="p">)</span>
+
+<span class="c1"># Set back the baking parameters into the options of the resource</span>
+<span class="n">aNewResource</span><span class="o">.</span><span class="n">setBakingParameters</span><span class="p">(</span><span class="n">aBakingParams</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Launch the script with this command line, from the folder <em>demos/</em>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoBakingParameters<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;../sample/argsDemoBakingParameters.xml&quot;</span>
+</pre></div>
+</div>
+<p>Here is the result of the script execution:</p>
+<a class="reference internal image-reference" href="../../_images/bakingParams2.png"><img alt="../../_images/bakingParams2.png" class="align-center" src="../../_images/bakingParams2.png" style="width: 1200px;" />
+</a>
+<p>The generated maps:</p>
+<a class="reference internal image-reference" href="../../_images/bakinParamsMaps.png"><img alt="../../_images/bakinParamsMaps.png" class="align-center" src="../../_images/bakinParamsMaps.png" style="width: 514px;" />
+</a>
+<p>On a <a class="reference internal" href="../substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> on kind SCENE, the baking parameters are saved as a base64 encoded string in the options of the resource. The following functions allow to get the baking parameters as an object <a class="reference internal" href="../sbsbakers/sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters" title="pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParameters</span></code></a> with the ability to do modifications on the converters already defined, and to add new converters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the Scene resource named &#39;myResourceName&#39;</span>
+<span class="n">aSceneResource</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSResource</span><span class="p">(</span><span class="n">aResourceIdentifier</span><span class="o">=</span><span class="s1">&#39;myResourceName&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get the baking parameters as an object</span>
+<span class="n">aBakingParams</span> <span class="o">=</span> <span class="n">aSceneResource</span><span class="o">.</span><span class="n">getBakingParameters</span><span class="p">()</span>
+
+<span class="c1"># Get the &#39;Position&#39; baker</span>
+<span class="n">Position_baker</span> <span class="o">=</span> <span class="n">aBakingParams</span><span class="o">.</span><span class="n">getConverter</span><span class="p">(</span><span class="n">aConverter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">POSITION</span><span class="p">)</span>
+
+<span class="c1"># Override the &#39;Common to all bakers parameters&#39;</span>
+<span class="n">Position_baker</span><span class="o">.</span><span class="n">setOverrideParamsCommonToAllBakers</span><span class="p">(</span><span class="n">aOverride</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Set parameters values</span>
+<span class="n">Position_baker</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">COMMON__APPLY_DIFFUSION</span><span class="p">,</span>
+                                 <span class="n">aParamValue</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">Position_baker</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MODE</span><span class="p">,</span>
+                                 <span class="n">aParamValue</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerPositionModeEnum</span><span class="o">.</span><span class="n">ONE_AXIS</span><span class="p">)</span>
+<span class="n">Position_baker</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">AXIS</span><span class="p">,</span>
+                                 <span class="n">aParamValue</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerPositionAxisEnum</span><span class="o">.</span><span class="n">AXIS_Y</span><span class="p">)</span>
+
+<span class="c1"># Add a Curvature converter</span>
+<span class="n">Curvature_baker</span> <span class="o">=</span> <span class="n">aBakingParams</span><span class="o">.</span><span class="n">addConverter</span><span class="p">(</span><span class="n">aIdentifier</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">CURVATURE</span><span class="p">)</span>
+
+<span class="c1"># Set back the baking parameters into the options of the resource</span>
+<span class="n">aSceneResource</span><span class="o">.</span><span class="n">setBakingParameters</span><span class="p">(</span><span class="n">aBakingParams</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="iteration-generation">
+<span id="ref-to-demo-iteration"></span><h2>Iteration generation<a class="headerlink" href="#iteration-generation" title="Link to this heading"></a></h2>
+<p>This API provides a set of useful function to generate iterations on compositing or function graphs, allowing to duplicate n times a single node or a pattern of nodes.</p>
+<p>Several objects implement the two methods to generate iteration: <strong>createIterationOnNode</strong> and <strong>createIterationOnPattern</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>: To create an iteration of compositing nodes (objects <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>).</p></li>
+<li><p><a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>: To create an iteration of function nodes. (calls the methods implemented on <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> at the end).</p></li>
+<li><p><a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>: To create an iteration of function nodes for a dynamic parameter. (calls the methods implemented on <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> at the end).</p></li>
+<li><p><a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a>: To create an iteration of function nodes for a dynamic parameter of a FxMap node. (calls the methods implemented on <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> at the end).</p></li>
+<li><p><a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>: To create an iteration of function nodes (objects <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>).</p></li>
+</ul>
+<p>A set of sample of iteration creation are available in the folder <em>sample/</em>.</p>
+<section id="sample-1-compositing-node-iteration">
+<h3>Sample 1: Compositing node iteration<a class="headerlink" href="#sample-1-compositing-node-iteration" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoIteration" title="demos.demoIteration"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoIteration()</span></code></a> shows how to generate different kind of iterations.</div>
+</div>
+<p>The initial substance contains four graphs, and in each graph an iteration will be created, showing the ability of the
+provided methods to deduce automatically the connection between pattern where there is no ambiguity, or the ability to specify the connection between two successive patterns.</p>
+<div class="line-block">
+<div class="line">Launch the script with this command line, from the folder <em>demos/</em>:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoIteration<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;../sample/argsDemoIteration.xml&quot;</span>
+</pre></div>
+</div>
+<p><strong>The first example is very simple and shows the creation of an iteration of a single node, with only one input and one output:</strong></p>
+<a class="reference internal image-reference" href="../../_images/Iter1.png"><img alt="../../_images/Iter1.png" class="align-center" src="../../_images/Iter1.png" style="width: 280px;" />
+</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Duplicate 5 times a single node</span>
+<span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoIterationSubGraph&#39;</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnNode</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">aCompNodeUID</span> <span class="o">=</span> <span class="s1">&#39;1255032103&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iterResult1.png"><img alt="../../_images/iterResult1.png" class="align-center" src="../../_images/iterResult1.png" style="width: 690px;" />
+</a>
+<p><strong>The second example shows the creation of an iteration of a single node, with two inputs and outputs, grayscale and color, whose types are inverted between the input and the output:</strong></p>
+<a class="reference internal image-reference" href="../../_images/Iter2.png"><img alt="../../_images/Iter2.png" class="align-center" src="../../_images/Iter2.png" style="width: 300px;" />
+</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Duplicate 3 times the node (test the automatic detection of compatible inputs / outputs)</span>
+<span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoIterationSubGraphDouble&#39;</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnNode</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">aCompNodeUID</span> <span class="o">=</span> <span class="s1">&#39;1255523774&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iterResult2.png"><img alt="../../_images/iterResult2.png" class="align-center" src="../../_images/iterResult2.png" style="width: 530px;" />
+</a>
+<p><strong>The third example shows the creation of an iteration of a pattern, the detection of connections coming from the outside of the pattern, and the detection of the connection between two successive patterns.</strong></p>
+<a class="reference internal image-reference" href="../../_images/Iter3.png"><img alt="../../_images/Iter3.png" class="align-center" src="../../_images/Iter3.png" style="width: 540px;" />
+</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Duplicate 3 times the pattern of nodes (test the automatic detection of compatible inputs / outputs)</span>
+<span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoIterationPattern&#39;</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                                <span class="n">aCompNodeUIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1255034408&#39;</span><span class="p">,</span> <span class="s1">&#39;1255026224&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029181&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029884&#39;</span><span class="p">,</span>
+                                                 <span class="s1">&#39;1255029987&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029994&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029049&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iterResult3.png"><img alt="../../_images/iterResult3.png" class="align-center" src="../../_images/iterResult3.png" style="width: 970px;" />
+</a>
+<p><strong>The fourth example shows the creation of an iteration of a pattern with the way to specify the connection between two successive patterns.</strong></p>
+<a class="reference internal image-reference" href="../../_images/Iter4.png"><img alt="../../_images/Iter4.png" class="align-center" src="../../_images/Iter4.png" style="width: 420px;" />
+</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Duplicate 3 times the pattern of nodes, specifying way to connect two successive patterns</span>
+<span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoIterationVerticalPattern&#39;</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                                <span class="n">aCompNodeUIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262168894&#39;</span><span class="p">,</span> <span class="s1">&#39;1262168896&#39;</span><span class="p">],</span>
+                                <span class="n">aCompNodeUIDs_NextPatternInput</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262169024&#39;</span><span class="p">,</span> <span class="s1">&#39;1262168960&#39;</span><span class="p">],</span>
+                                <span class="n">aGUIOffset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/iterResult4.png"><img alt="../../_images/iterResult4.png" class="align-center" src="../../_images/iterResult4.png" style="width: 420px;" />
+</a>
+</section>
+<section id="sample-2-iteration-inside-a-pixel-processor">
+<h3>Sample 2: Iteration inside a Pixel Processor<a class="headerlink" href="#sample-2-iteration-inside-a-pixel-processor" title="Link to this heading"></a></h3>
+<p>The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoIterationPixProc" title="demos.demoIterationPixProc"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoIterationPixProc()</span></code></a> demonstrates the way to generate an iteration inside the pixel processor function.</p>
+<p>The purpose of the substance used in this sample is to generate a terrain heightmap using the MultiFractal algorithm:</p>
+<a class="reference internal image-reference" href="../../_images/TerrainOutput.jpg"><img alt="../../_images/TerrainOutput.jpg" class="align-center" src="../../_images/TerrainOutput.jpg" style="width: 250px;" />
+</a>
+<div class="line-block">
+<div class="line">Launch the script with this command line, from the folder <em>demos/</em>:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoIterationPixProc<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;../sample/argsDemoIterationPixProc.xml&quot;</span>
+</pre></div>
+</div>
+<p>The function will modify the pixel processor node framed with ‘Fractal Sum’ in yellow, in the substance <em>demoIteration.sbs</em> provided in <em>sample/</em>:</p>
+<a class="reference internal image-reference" href="../../_images/IterPixProc1.png"><img alt="../../_images/IterPixProc1.png" class="align-center" src="../../_images/IterPixProc1.png" style="width: 550px;" />
+</a>
+<div class="line-block">
+<div class="line">In the initial state of the pixel processor function, there are only two iterations of what we want to duplicate: The <strong>Add</strong> node and the instance of function <strong>FractamSumFct</strong> node.</div>
+<div class="line">The first one will be given as the pattern to duplicate, and the second one will be given as the next iteration pattern, in order to specify the connections between two successive patterns:</div>
+</div>
+<a class="reference internal image-reference" href="../../_images/IterPixProc2.png"><img alt="../../_images/IterPixProc2.png" class="align-center" src="../../_images/IterPixProc2.png" style="width: 610px;" />
+</a>
+<p>The function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoIterationPixProc" title="demos.demoIterationPixProc"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoIterationPixProc()</span></code></a> calls the method createIterationOnPattern() on the pixel processor function, with these lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the pixel processor node where the iteration will be created, and its dynamic function</span>
+<span class="n">aPixProcNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getCompNode</span><span class="p">(</span><span class="s1">&#39;1260898088&#39;</span><span class="p">)</span>
+<span class="n">aDynFct</span> <span class="o">=</span> <span class="n">aPixProcNode</span><span class="o">.</span><span class="n">getPixProcFunction</span><span class="p">()</span>
+
+<span class="c1"># Duplicate 10 times the pattern, indicating the way to reconnect to the next pattern</span>
+<span class="n">createdNodes</span> <span class="o">=</span> <span class="n">aDynFct</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                                <span class="n">aGUIOffset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+                                <span class="n">aParamNodeUIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1263052178&#39;</span><span class="p">,</span> <span class="s1">&#39;1263052114&#39;</span> <span class="p">],</span>
+                                <span class="n">aParamNodeUIDs_NextPattern</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1263052279&#39;</span><span class="p">,</span> <span class="s1">&#39;1263052278&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Note that the nodes are identified by their UID, which is their unique identifier in the context of their parent.</div>
+<div class="line">The UIDs can be retrieved by parsing the .sbs file or directly in Substance Designer, by right-clicking on a node and selecting ‘Copy Info to Clipboard’</div>
+<div class="line">Here is the result:</div>
+</div>
+<a class="reference internal image-reference" href="../../_images/IterPixProc3.png"><img alt="../../_images/IterPixProc3.png" class="align-center" src="../../_images/IterPixProc3.png" style="width: 610px;" />
+</a>
+</section>
+<section id="sample-3-iteration-inside-a-function-and-use-of-variables">
+<h3>Sample 3: Iteration inside a function, and use of variables<a class="headerlink" href="#sample-3-iteration-inside-a-function-and-use-of-variables" title="Link to this heading"></a></h3>
+<p>The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoIterationFlame" title="demos.demoIterationFlame"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoIterationFlame()</span></code></a> demonstrates the use of iteration inside a function, with the modification of variables inside this function, using the <strong>Get</strong> and <strong>Set</strong> nodes.</p>
+<div class="line-block">
+<div class="line">In the substance <em>Flame.sbs</em> provided in the folder <em>sample/</em>, the function <strong>RayMarch</strong> needs 64 iterations of the function called <strong>IterationStep</strong> to implement the RayMarching algorithm.</div>
+<div class="line">The function IteraionStep uses the variables called <em>glow</em> and <em>glowed</em> and eventually modify their value depending on certain conditions.</div>
+<div class="line">Same thing for variable ‘i’, which counts the number of executed iterations, and allows the user to obtain different results when tweacking the input parameter <em>NbIterations</em> (if i&gt;NbIterations, the IterationStep function does nothing).</div>
+</div>
+<p>The purpose of the substance used in this sample is to generate a flame animation, fully inspired from this ShaderToy by <a href="https://www.shadertoy.com/user/XT95" target="_blank">XT95</a>: <a href="https://www.shadertoy.com/view/MdX3zr" target="_blank">ShaderToy Flame</a></p>
+<a class="reference internal image-reference" href="../../_images/FlameOutput.jpg"><img alt="../../_images/FlameOutput.jpg" class="align-center" src="../../_images/FlameOutput.jpg" style="width: 300px;" />
+</a>
+<div class="line-block">
+<div class="line">Launch the script with this command line, from the folder <em>demos/</em>:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoIterationFlame<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;../sample/argsDemoIterationFlame.xml&quot;</span>
+</pre></div>
+</div>
+<p>Function IterationStep (click on it to view it correctly…):</p>
+<a class="reference internal image-reference" href="../../_images/Flame_Step.png"><img alt="../../_images/Flame_Step.png" class="align-center" src="../../_images/Flame_Step.png" style="width: 580px;" />
+</a>
+<p>Function RayMarch in its initial state:</p>
+<a class="reference internal image-reference" href="../../_images/Flame1.png"><img alt="../../_images/Flame1.png" class="align-center" src="../../_images/Flame1.png" style="width: 460px;" />
+</a>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Duplicate 63 times the pattern inside function RayMarch</span>
+<span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSFunction</span><span class="p">(</span><span class="n">aFunctionIdentifier</span><span class="o">=</span> <span class="s1">&#39;RayMarch&#39;</span><span class="p">)</span>
+<span class="n">createdNodes</span> <span class="o">=</span> <span class="n">aFunction</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">63</span><span class="p">,</span>
+                                    <span class="n">aGUIOffset</span>                 <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+                                    <span class="n">aNodeUIDs</span>                  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262101431&#39;</span><span class="p">,</span> <span class="s1">&#39;1262101516&#39;</span><span class="p">],</span>
+                                    <span class="n">aNodeUIDs_NextPatternInput</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262101533&#39;</span><span class="p">,</span> <span class="s1">&#39;1262101527&#39;</span><span class="p">])</span>
+
+
+<span class="c1"># Connect the last created node with the end of the function</span>
+<span class="n">aEndNode</span> <span class="o">=</span> <span class="n">aFunction</span><span class="o">.</span><span class="n">getFunctionNode</span><span class="p">(</span><span class="s1">&#39;1262095290&#39;</span><span class="p">)</span>
+<span class="n">aFunction</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">createdNodes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aEndNode</span><span class="p">,</span>
+                       <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SEQUENCE_IN</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And here is the result:</p>
+<a class="reference internal image-reference" href="../../_images/Flame2.png"><img alt="../../_images/Flame2.png" class="align-center" src="../../_images/Flame2.png" style="width: 684px;" />
+</a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Substance%20creation.html" class="btn btn-neutral float-left" title="Substance creation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Dependencies%20management.html" class="btn btn-neutral float-right" title="Dependency path storage method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

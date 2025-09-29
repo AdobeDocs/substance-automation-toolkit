@@ -1,0 +1,1488 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsmutator command line options &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsmutator Example Command Lines" href="sbsmutator_examples.html" />
+    <link rel="prev" title="sbsmutator" href="sbsmutator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sat_commandlines.html">Command Line Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker.html"> substance3d_baker — Bakes out mesh specific data such as ambient occlusion or normal data to textures.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbscooker.html"> sbscooker — Cooks .sbs files to .sbsar files ready to be rendered with sbsrender.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sbsmutator.html"> sbsmutator — Modifies and specializes .sbs files.</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#"> sbsmutator command line options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsmutator_examples.html"> sbsmutator Example Command Lines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsrender.html"> sbsrender — Renders out maps from .sbsar files.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsupdater.html"> sbsupdater — Updates .sbs files to the current version of the batch tools.</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="sat_commandlines.html">Command Line Tools</a></li>
+          <li class="breadcrumb-item"><a href="sbsmutator.html">sbsmutator</a></li>
+      <li class="breadcrumb-item active">sbsmutator command line options</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbsmutator-command-line-options">
+<span id="ref-to-sat-sbsmutatoroptions"></span><h1>sbsmutator command line options<a class="headerlink" href="#sbsmutator-command-line-options" title="Link to this heading"></a></h1>
+<h1>
+
+  sbsmutator
+
+</h1>
+
+<h2>
+
+  Usage
+
+</h2>
+
+<ul>
+
+  <li>
+
+    <a href="#edit">
+
+      sbsmutator [&lt;global_options&gt;...] edit [&lt;options&gt;...]
+
+    </a>
+
+  </li>
+
+  <li>
+
+    <a href="#export">
+
+      sbsmutator [&lt;global_options&gt;...] export [&lt;options&gt;...]
+
+    </a>
+
+  </li>
+
+  <li>
+
+    <a href="#graph-parameters-editor">
+
+      sbsmutator [&lt;global_options&gt;...] graph-parameters-editor [&lt;options&gt;...]
+
+    </a>
+
+  </li>
+
+  <li>
+
+    <a href="#info">
+
+      sbsmutator [&lt;global_options&gt;...] info [&lt;options&gt;...]
+
+    </a>
+
+  </li>
+
+  <li>
+
+    <a href="#instantiate">
+
+      sbsmutator [&lt;global_options&gt;...] instantiate [&lt;options&gt;...]
+
+    </a>
+
+  </li>
+
+  <li>
+
+    <a href="#specialization">
+
+      sbsmutator [&lt;global_options&gt;...] specialization [&lt;options&gt;...]
+
+    </a>
+
+  </li>
+
+  <li>
+
+    <a href="#update">
+
+      sbsmutator [&lt;global_options&gt;...] update [&lt;options&gt;...]
+
+    </a>
+
+  </li>
+
+</ul>
+
+<h3>
+
+  Global options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--doc-html, --doc</strong>
+
+  </dt>
+
+  <dd>
+
+    Generate basic documentation html from the option's help.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--help, -h, -?</strong>
+
+  </dt>
+
+  <dd>
+
+    Display help about given subcommand.
+
+    If no subcommand is provided, this help about global options is printed.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--opt-descr</strong>
+
+  </dt>
+
+  <dd>
+
+    Create json description of all available options
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--quiet, -q</strong>
+
+  </dt>
+
+  <dd>
+
+    Disable warning messages.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--verbose, -v</strong>
+
+  </dt>
+
+  <dd>
+
+    Enable info and debug messages.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--version, -V</strong>
+
+  </dt>
+
+  <dd>
+
+    Display version of the program.
+
+  </dd>
+
+</dl>
+
+<h2>
+
+  <a name="edit">Subcommand edit</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Edit or instantiate the inputs, outputs or parameters of a graph in a Substance 3D Designer file.
+
+</p>
+
+<h3>
+
+  Input file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--alias</strong>
+
+    <em>&lt;aliasname:&frasl;&frasl;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Define a custom alias path (e.g. 'myproject:&frasl;&frasl;path&frasl;to&frasl;myproject&frasl;library').
+
+    This option is mandatory if your filter have a dependency with some custom alias.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--inputs, --input</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Specify a Substance 3D Designer file to mutate with sbsmutator. Can be given multiple times
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--no-dependency</strong>
+
+  </dt>
+
+  <dd>
+
+    Disable loading of dependencies.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--presets-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Path to presets library (shorthand for '--alias sbs:&frasl;&frasl;&lt;path&gt;').
+
+    This option is mandatory if your filter have a dependency to the presets library.
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Output file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-merge</strong>
+
+  </dt>
+
+  <dd>
+
+    Merge generated content with output if a file is present, otherwise the file is overwritten.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-name</strong>
+
+    <em>&lt;name&gt;</em>
+
+    [default: &quot;{inputName}_edited&quot;]
+
+  </dt>
+
+  <dd>
+
+    Set the output name of the generated files, if the correct file extension is not present it will be added.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    - {inputName} : replaced by the input filename.
+
+
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the output path for the generated files. By default the path is empty, i.e. the files will be saved in the current directory.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    - {inputPath} : replaced by the input filepath.
+
+
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Options for graph input&frasl;output
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--input-graph</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Select a specific graph from the loaded files.
+
+    If you are editing multiple files, this options will apply to them all. If no graph are selected, the first graph found will be used.
+
+
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-author</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the author name of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-author-url</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the author's URL of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-category</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the category of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-description</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the description text of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-icon</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the icon of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-label</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the label of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-name</strong>
+
+    <em>&lt;name&gt;</em>
+
+    [default: &quot;{inputGraph}&quot;]
+
+  </dt>
+
+  <dd>
+
+    Name of the edited or generated graph to give in the output Substance 3D Designer file.
+
+    Default='{inputGraph}'.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    -{inputGraph} replaced by the input graph name.
+
+
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-physical-size</strong>
+
+    <em>&lt;x&gt;,&lt;y&gt;,&lt;z&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the physical size of the graph in the output Substance 3D Designer file, in cm.
+
+    Vector components must be separated by comma.
+
+    Example: --output-graph-physical-size 10.5,10.5,8
+
+
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-tags</strong>
+
+    <em>&lt;tags;...&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the tags of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-graph-user-data</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set user data of the graph in the output substance 3Dfile.
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Specific options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--connect-image</strong>
+
+    <em>&lt;arg&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Import image as resource in the new file, create a bitmap node and connect it to filter's input named.
+
+    format of &lt;arg&gt;: &lt;input_name&gt;[@&lt;parameter_name&gt;@&lt;value&gt;]...
+
+    Available key-value parameters are:
+
+    - &quot;path&quot; path of the image file
+
+    - &quot;format&quot; cooked format of image (RAW&frasl;JPEG)
+
+    - &quot;level&quot; cooking compression level of image (0 to 1)
+
+    - &quot;tiling&quot; tiling of image activation (0 or 1)
+
+    - &quot;absolute-size&quot; adapt image resolution relative to the parent or keep the absolute image size (0 or 1).
+
+    - &quot;bit-depth&quot; set the bit depth of the created image node.Can be set to &quot;auto&quot;, &quot;8&quot;, &quot;16&quot;, &quot;16f&quot;, &quot;32f&quot;.
+
+    You must provide the &quot;path&quot; parameter, so &lt;arg&gt; must look at least like &lt;input_name&gt;@path@&lt;actual_path_to_image_file&gt;
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--connect-input</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Create an input node and connect it to the input of the same identifier in the created instance filter. Only valid together with option --instantiate.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--hide-parameter</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Specifically hide parameter with identifier &lt;name&gt; of the filter. Only valid together with option --instantiate.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--hide-parameters</strong>
+
+  </dt>
+
+  <dd>
+
+    Hide all specific parameters of the filter. Implies --remove-all-presets. Only valid together with option --instantiate.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--insert-sbsprs</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Inject the presets contained in a *.sbsprs file into the output sbs.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--instantiate</strong>
+
+  </dt>
+
+  <dd>
+
+    Switch to instantiation mode. In instantiation mode, the graph is not edited in-place; rather another graph is created with a instance node pointing to the input graph.
+
+    Some operations can only work when using this option.
+
+    Warning: The input of the instance are not exposed to the new graph by default.You need to use option --connect-input to expose them.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--remove-all-presets</strong>
+
+  </dt>
+
+  <dd>
+
+    Remove all presets from the output graph.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--remove-output</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Remove the output node connected to filter's output those identifier is &lt;name&gt;.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--remove-preset</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Remove a preset from from an sbs file. &lt;name&gt; is the name of the preset to remove.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--set-bit-depth</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Change the bit depth of the graph. &lt;name&gt; can be set to &quot;8&quot; (or &quot;int8&quot;), &quot;16&quot; (or &quot;int16&quot;), &quot;16f&quot; (or &quot;float16&quot;) or &quot;32f&quot; (or &quot;float32&quot;).
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--set-default-value</strong>
+
+    <em>&lt;arg&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set default value of input. Format of &lt;arg&gt;: &lt;input_identifier&gt;@&lt;default_value&gt; Please note that the value is clamped between min and max.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--switch-to-constant</strong>
+
+    <em>&lt;arg&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Remove input and switch all places using this input to a constant value. format of '&lt;arg&gt;': &lt;input_identifier&gt;
+
+                    or &lt;input_identifier&gt;@&lt;value&gt;
+
+
+
+  </dd>
+
+</dl>
+
+<h2>
+
+  <a name="export">Subcommand export</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Export Substance 3D Designer files with their dependencies.
+
+</p>
+
+<h3>
+
+  Input file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--alias</strong>
+
+    <em>&lt;aliasname:&frasl;&frasl;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Define a custom alias path (e.g. 'myproject:&frasl;&frasl;path&frasl;to&frasl;myproject&frasl;library').
+
+    This option is mandatory if your filter have a dependency with some custom alias.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--inputs, --input</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Specify a Substance 3D Designer file to mutate with sbsmutator. Can be given multiple times
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--no-dependency</strong>
+
+  </dt>
+
+  <dd>
+
+    Disable loading of dependencies.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--presets-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Path to presets library (shorthand for '--alias sbs:&frasl;&frasl;&lt;path&gt;').
+
+    This option is mandatory if your filter have a dependency to the presets library.
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Output file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the output path for the generated files. By default the path is empty, i.e. the files will be saved in the current directory.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    - {inputPath} : replaced by the input filepath.
+
+
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Specific options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--build-archive</strong>
+
+  </dt>
+
+  <dd>
+
+    Compress the result in a 7z archive.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--preserve-alias</strong>
+
+    <em>&lt;name&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Do not automatically convert alias with name &lt;name&gt; into this computer's corresponding absolute path.
+
+  </dd>
+
+</dl>
+
+<h2>
+
+  <a name="graph-parameters-editor">Subcommand graph-parameters-editor</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Alias to `edit`
+
+</p>
+
+<h2>
+
+  <a name="info">Subcommand info</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Return description of a Substance 3D Designer file.
+
+</p>
+
+<h3>
+
+  Input file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--inputs, --input</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Specify a Substance 3D Designer file to mutate with sbsmutator. Can be given multiple times
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Specific options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--hide-details</strong>
+
+  </dt>
+
+  <dd>
+
+    Hide additional details about the inputs and outputs of the graph.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--print-attributes</strong>
+
+  </dt>
+
+  <dd>
+
+    Print the attributes of the graph.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--print-input-parameters</strong>
+
+  </dt>
+
+  <dd>
+
+    Print the non-image input parameters of the graph.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--print-inputs</strong>
+
+  </dt>
+
+  <dd>
+
+    Print the image inputs of the graph.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--print-outputs</strong>
+
+  </dt>
+
+  <dd>
+
+    Print the image outputs of the graph.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--print-presets</strong>
+
+  </dt>
+
+  <dd>
+
+    Print the presets of the graph.
+
+  </dd>
+
+</dl>
+
+<h2>
+
+  <a name="instantiate">Subcommand instantiate</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Alias to `edit --instantiate`
+
+</p>
+
+<h2>
+
+  <a name="specialization">Subcommand specialization</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Alias to `edit --instantiate`.  Default output name is &quot;{inputName}_specialized&quot;.
+
+</p>
+
+<h2>
+
+  <a name="update">Subcommand update</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Update Substance 3D Designer files to the lastest format.
+
+</p>
+
+<h3>
+
+  Input file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--alias</strong>
+
+    <em>&lt;aliasname:&frasl;&frasl;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Define a custom alias path (e.g. 'myproject:&frasl;&frasl;path&frasl;to&frasl;myproject&frasl;library').
+
+    This option is mandatory if your filter have a dependency with some custom alias.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--inputs, --input</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Specify a Substance 3D Designer file to mutate with sbsmutator. Can be given multiple times
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--no-dependency</strong>
+
+  </dt>
+
+  <dd>
+
+    Disable loading of dependencies.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--presets-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Path to presets library (shorthand for '--alias sbs:&frasl;&frasl;&lt;path&gt;').
+
+    This option is mandatory if your filter have a dependency to the presets library.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--recursive, -r</strong>
+
+  </dt>
+
+  <dd>
+
+    recurse into directories to find input files
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Output file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-name</strong>
+
+    <em>&lt;name&gt;</em>
+
+    [default: &quot;{inputName}_updated&quot;]
+
+  </dt>
+
+  <dd>
+
+    Set the output name of the generated files, if the correct file extension is not present it will be added.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    - {inputName} : replaced by the input filename.
+
+
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the output path for the generated files. By default the path is empty, i.e. the files will be saved in the current directory.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    - {inputPath} : replaced by the input filepath.
+
+
+
+  </dd>
+
+</dl></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsmutator.html" class="btn btn-neutral float-left" title="sbsmutator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsmutator_examples.html" class="btn btn-neutral float-right" title="sbsmutator Example Command Lines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>content module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="resource module" href="resource.html" />
+    <link rel="prev" title="substance module" href="substance.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="substance.html">substance module: Substance definition (.sbs)</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">content module: Package content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="resource.html">resource module: Resource definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance.html#substance.substance.FeatureVersionsOption"><code class="docutils literal notranslate"><span class="pre">FeatureVersionsOption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance.html#substance.substance.SBSDependency"><code class="docutils literal notranslate"><span class="pre">SBSDependency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance.html#substance.substance.SBSDocument"><code class="docutils literal notranslate"><span class="pre">SBSDocument</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="substance.html">substance module</a></li>
+      <li class="breadcrumb-item active">content module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-substance.content">
+<span id="content-module"></span><h1>content module<a class="headerlink" href="#module-substance.content" title="Link to this heading"></a></h1>
+<p>Module <strong>content</strong> provides the definition of the classes <a class="reference internal" href="#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> and <a class="reference internal" href="#substance.content.SBSContent" title="substance.content.SBSContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSContent</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.content.SBSContent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.content.</span></span><span class="sig-name descname"><span class="pre">SBSContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourcesScene</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunctions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMDLGraphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aModelGraphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on the content node as defined in a .sbs file.
+The content is a tree structure of these elements:</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mGraphs (list of <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>): Graphs in this content</p></li>
+<li><p>mGroups (list of <a class="reference internal" href="#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a>): Folders in this content</p></li>
+<li><p>mResources (list of <a class="reference internal" href="resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a>): Resources in this content</p></li>
+<li><p>mResourcesScene (list of <a class="reference internal" href="resource.html#substance.resource.SBSResourceScene" title="substance.resource.SBSResourceScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResourceScene</span></code></a>): Scene resources in this content</p></li>
+<li><p>mFunctions (list of <a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>): Functions in this content</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.computeUniqueIdentifier">
+<span class="sig-name descname"><span class="pre">computeUniqueIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSuffixId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.computeUniqueIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Check if the given identifier is already used and generate a unique identifier if necessary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A unique identifier, which is either the given one or a new one with a suffix: identifier_id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getMDLGraph">
+<span class="sig-name descname"><span class="pre">getMDLGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getMDLGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the MDL Graph object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> (<em>str</em>) – the identifier (not uid) of the graph to find</p></li>
+<li><p><strong>aRecursive</strong> (<em>bool</em>) – True to parse sub folders, False to search only inside the current Content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getMDLGraphList">
+<span class="sig-name descname"><span class="pre">getMDLGraphList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getMDLGraphList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of MDL graphs defined in this content, including sub-folders or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getModelGraph">
+<span class="sig-name descname"><span class="pre">getModelGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getModelGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the Model Graph object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> (<em>str</em>) – the identifier (not uid) of the graph to find</p></li>
+<li><p><strong>aRecursive</strong> (<em>bool</em>) – True to parse sub folders, False to search only inside the current Content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../modulegraph/modulegraph.html#modulegraph.modulegraph.ModuleGraph" title="modulegraph.modulegraph.ModuleGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getModelGraphList">
+<span class="sig-name descname"><span class="pre">getModelGraphList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getModelGraphList" title="Link to this definition"></a></dt>
+<dd><p>getMDLGraphList(aRecursive = True)
+Get the list of MDL graphs defined in this content, including sub-folders or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getObject">
+<span class="sig-name descname"><span class="pre">getObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getObject" title="Link to this definition"></a></dt>
+<dd><p>Get the object with the given identifier in the content directly under this content.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIdentifier</strong> (<em>str</em>) – the identifier (not uid) of the object to find</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getObjectFromUID">
+<span class="sig-name descname"><span class="pre">getObjectFromUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getObjectFromUID" title="Link to this definition"></a></dt>
+<dd><p>Parse the Groups, Graphs, Resources and Functions to find the object with the given uid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUID</strong> (<em>str</em>) – The UID of the object (group, graph, resource or function) to look for</p></li>
+<li><p><strong>aRecursive</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to search recursively in all groups, False to search only in the direct content. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getObjectInternalPath">
+<span class="sig-name descname"><span class="pre">getObjectInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aObjectClass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getObjectInternalPath" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the given object relatively to the current content.
+Only objects that are directly under a Content node can be found:
+<a class="reference internal" href="#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a>
+<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>
+<a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>
+<a class="reference internal" href="resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a>
+<a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUID</strong> (<em>str</em>) – the UID of the object to search</p></li>
+<li><p><strong>aObjectClass</strong> (<em>class</em><em>, </em><em>optional</em>) – the class of the object to search. If None, the function will look into all the kind of content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string containing the relative path from the current content to the given object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSFunction">
+<span class="sig-name descname"><span class="pre">getSBSFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunctionIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSFunction" title="Link to this definition"></a></dt>
+<dd><p>Get the Function object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFunctionIdentifier</strong> (<em>str</em>) – the identifier (not uid) of the function to find</p></li>
+<li><p><strong>aRecursive</strong> (<em>bool</em>) – True to parse sub folders, False to search only inside the current Content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSFunctionList">
+<span class="sig-name descname"><span class="pre">getSBSFunctionList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSFunctionList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of functions defined in this content, including sub-folders or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRecursive</strong> (<em>bool</em>) – True to parse sub folders, False to search only inside the current Content</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSGraph">
+<span class="sig-name descname"><span class="pre">getSBSGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the Graph object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> (<em>str</em>) – the identifier (not uid) of the graph to find</p></li>
+<li><p><strong>aRecursive</strong> (<em>bool</em>) – True to parse sub folders, False to search only inside the current Content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSGraphList">
+<span class="sig-name descname"><span class="pre">getSBSGraphList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSGraphList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of graphs defined in this content, including sub-folders or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSGroup">
+<span class="sig-name descname"><span class="pre">getSBSGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroupIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSGroup" title="Link to this definition"></a></dt>
+<dd><p>Get the Group object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGroupIdentifier</strong> (<em>str</em>) – the identifier (not uid) of the group to find</p></li>
+<li><p><strong>aRecursive</strong> (<em>bool</em>) – True to parse sub folders, False to search only inside the current Content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSGroupInternalPath">
+<span class="sig-name descname"><span class="pre">getSBSGroupInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroupIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSGroupInternalPath" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the given group relatively to the current content</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string containing the relative path from the current content to the given group, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSGroupList">
+<span class="sig-name descname"><span class="pre">getSBSGroupList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSGroupList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of groups defined in this content, including sub-folders or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSResource">
+<span class="sig-name descname"><span class="pre">getSBSResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSResource" title="Link to this definition"></a></dt>
+<dd><p>Get the Resource object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aResourceIdentifier</strong> (<em>str</em>) – the identifier (not uid) of the resource to find</p></li>
+<li><p><strong>aRecursive</strong> (<em>bool</em>) – True to parse sub folders, False to search only inside the current Content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getSBSResourceList">
+<span class="sig-name descname"><span class="pre">getSBSResourceList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIncludeSceneResources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getSBSResourceList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of the resources defined in this content, including sub-folders or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aRecursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to parse sub folders, False to search only inside the current Group. Default to True</p></li>
+<li><p><strong>aIncludeSceneResources</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to include the Scene/Mesh resources. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Parse the Groups, Graphs, Resources and Functions to find a SBSObject with the given uid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if a compnode has this uid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.isContentChildType">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isContentChildType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.isContentChildType" title="Link to this definition"></a></dt>
+<dd><p>Check if the type of given object is one of the types accepted under a SBSContent object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aObject</strong> – The object to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the type of the given object can be included in a SBSContent</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.removeObject">
+<span class="sig-name descname"><span class="pre">removeObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.removeObject" title="Link to this definition"></a></dt>
+<dd><p>Remove the given object from this content</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aObject</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> or UID) – The object (group, graph, function, resource) to remove from this content, as a SBSObject or given its UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSContent.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSContent.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.content.SBSGroup">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.content.</span></span><span class="sig-name descname"><span class="pre">SBSGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDesc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a group node as defined in a .sbs file.
+A group correspond to a folder in Substance Designer, and is a hierarchical group of elements.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier (str): identifier of the group used in the paths that refer to its sub-objects.</p></li>
+<li><p>mUID        (str): unique identifier of this group in the package/ context.</p></li>
+<li><p>mDesc       (str, optional): textual description.</p></li>
+<li><p>mContent    (<a class="reference internal" href="#substance.content.SBSContent" title="substance.content.SBSContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSContent</span></code></a>, optional): children of the group.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getContent">
+<span class="sig-name descname"><span class="pre">getContent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getContent" title="Link to this definition"></a></dt>
+<dd><p>Get the content included in this group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content as a <a class="reference internal" href="#substance.content.SBSContent" title="substance.content.SBSContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSContent</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getDescription">
+<span class="sig-name descname"><span class="pre">getDescription</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getDescription" title="Link to this definition"></a></dt>
+<dd><p>Get the group description</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The textual description of the group</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getMDLGraph">
+<span class="sig-name descname"><span class="pre">getMDLGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getMDLGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the MDL Graph object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphIdentifier</strong> (<em>str</em>) – Identifier of the graph to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getMDLGraphList">
+<span class="sig-name descname"><span class="pre">getMDLGraphList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getMDLGraphList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all MDL graphs included in this group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRecursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to parse sub folders, False to search only inside the current Group. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getModelGraph">
+<span class="sig-name descname"><span class="pre">getModelGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getModelGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the MDL Graph object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphIdentifier</strong> (<em>str</em>) – Identifier of the graph to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getModelGraphList">
+<span class="sig-name descname"><span class="pre">getModelGraphList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getModelGraphList" title="Link to this definition"></a></dt>
+<dd><p>getMDLGraphList()
+Get the list of all MDL graphs included in this group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRecursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to parse sub folders, False to search only inside the current Group. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSFunction">
+<span class="sig-name descname"><span class="pre">getSBSFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunctionIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSFunction" title="Link to this definition"></a></dt>
+<dd><p>Get the Function object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunctionIdentifier</strong> (<em>str</em>) – Identifier of the function to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSFunctionList">
+<span class="sig-name descname"><span class="pre">getSBSFunctionList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSFunctionList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all functions included in this group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRecursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to parse sub folders, False to search only inside the current Group. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSGraph">
+<span class="sig-name descname"><span class="pre">getSBSGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the Substance graph object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphIdentifier</strong> (<em>str</em>) – Identifier of the graph to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSGraphList">
+<span class="sig-name descname"><span class="pre">getSBSGraphList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSGraphList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all Substance graphs included in this group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRecursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to parse sub folders, False to search only inside the current Group. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSGroup">
+<span class="sig-name descname"><span class="pre">getSBSGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroupIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSGroup" title="Link to this definition"></a></dt>
+<dd><p>Get the Group object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGroupIdentifier</strong> (<em>str</em>) – Identifier of the group (=folder) to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSGroupList">
+<span class="sig-name descname"><span class="pre">getSBSGroupList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSGroupList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all groups included in this group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRecursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to parse sub folders, False to search only inside the current Group. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSResource">
+<span class="sig-name descname"><span class="pre">getSBSResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSResource" title="Link to this definition"></a></dt>
+<dd><p>Get the Resource object with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aResourceIdentifier</strong> (<em>str</em>) – Identifier of the resource to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getSBSResourceList">
+<span class="sig-name descname"><span class="pre">getSBSResourceList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRecursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIncludeSceneResources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getSBSResourceList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all the resources included in this group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aRecursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to parse sub folders, False to search only inside the current Group. Default to False</p></li>
+<li><p><strong>aIncludeSceneResources</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to include the Scene/Mesh resources. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.setDescription">
+<span class="sig-name descname"><span class="pre">setDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDescription</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.setDescription" title="Link to this definition"></a></dt>
+<dd><p>Set the given description</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDescription</strong> (<em>str</em>) – the textual group description</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.content.SBSGroup.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.content.SBSGroup.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="substance.html" class="btn btn-neutral float-left" title="substance module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="resource.html" class="btn btn-neutral float-right" title="resource module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

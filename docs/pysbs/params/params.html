@@ -1,0 +1,869 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>params module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="dynamicvalue module" href="dynamicvalue.html" />
+    <link rel="prev" title="compnode_common module" href="../compnode/common.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">params module: Parameters definition (dynamic or constant)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dynamicvalue.html">dynamicvalue module: Function graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="paramnode.html">paramnode module: Function node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#params.params.SBSParamSpotColorInfo"><code class="docutils literal notranslate"><span class="pre">SBSParamSpotColorInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#params.params.SBSParamValue"><code class="docutils literal notranslate"><span class="pre">SBSParamValue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#params.params.SBSParameter"><code class="docutils literal notranslate"><span class="pre">SBSParameter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#params.params.SBSParamsArray"><code class="docutils literal notranslate"><span class="pre">SBSParamsArray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#params.params.SBSParamsArrayCell"><code class="docutils literal notranslate"><span class="pre">SBSParamsArrayCell</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">params module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="params-module">
+<h1>params module<a class="headerlink" href="#params-module" title="Link to this heading"></a></h1>
+<p>Content included in params module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dynamicvalue.html">dynamicvalue module: Function graph definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.connectNodes"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.connectNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.contains"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.copy"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.copyNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.copyNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createComment"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createFrame"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createFrameAroundNodes"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createFrameAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createFunctionInstanceNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createFunctionInstanceNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createFunctionInstanceNodeFromPath"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createFunctionInstanceNodeFromPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createFunctionNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createFunctionNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createIterationOnNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createIterationOnNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createIterationOnPattern"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createIterationOnPattern()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.createNavigationPin"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.createNavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.deleteComment"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.deleteComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.deleteFrame"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.deleteFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.deleteNavigationPin"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.deleteNavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.deleteNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.deleteNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.disconnectNodes"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.disconnectNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.duplicateNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.duplicateNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.equals"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllComments"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllComments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllFrames"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllFrames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllFunctionsOfKind"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllFunctionsOfKind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllGUIObjects"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllGUIObjects()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllNavigationPins"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllNavigationPins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllNodeInstancesOf"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllNodeInstancesOf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getAllReferencesOnDependency"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getAllReferencesOnDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getCommentsAssociatedToNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getCommentsAssociatedToNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getConnectionsFromNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getConnectionsFromNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getConnectionsToNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getConnectionsToNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getNodeAssociatedToComment"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getNodeAssociatedToComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getNodeList"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getNodeList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getNodesConnectedFrom"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getNodesConnectedFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getNodesConnectedTo"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getNodesConnectedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getNodesDockedTo"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getNodesDockedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getNodesInFrame"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getNodesInFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getOutputNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getOutputNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getOutputType"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getRect"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.getUsedParameters"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.getUsedParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.isAPathBetween"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.isAPathBetween()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.moveConnectionOnPinInput"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.moveConnectionOnPinInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.moveConnectionsOnPinOutput"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.moveConnectionsOnPinOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.parse"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.reframeAroundNodes"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.reframeAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.setOutputNode"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.setOutputNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.setToInputParam"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.setToInputParam()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.sortNodesAsDAG"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.sortNodesAsDAG()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.updateValueProcessorType"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.updateValueProcessorType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue.write"><code class="docutils literal notranslate"><span class="pre">SBSDynamicValue.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="paramnode.html">paramnode module: Function node definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="paramnode.html#params.paramnode.SBSFuncData"><code class="docutils literal notranslate"><span class="pre">SBSFuncData</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSFuncData.equals"><code class="docutils literal notranslate"><span class="pre">SBSFuncData.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSFuncData.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSFuncData.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSFuncData.getValue"><code class="docutils literal notranslate"><span class="pre">SBSFuncData.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSFuncData.parse"><code class="docutils literal notranslate"><span class="pre">SBSFuncData.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSFuncData.write"><code class="docutils literal notranslate"><span class="pre">SBSFuncData.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode"><code class="docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.changeDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.changeDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.changeInstancePath"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.changeInstancePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.classify"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.equals"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getConnectedNodesUID"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getConnectedNodesUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getConnections"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getConnections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getConnectionsFromNode"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getConnectionsFromNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getOffsetPosition"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getOffsetPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getOutputType"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getPosition"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getRect"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getReferenceAbsPath"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getReferenceAbsPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getReferenceInternalPath"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getReferenceInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.hasAReferenceOnDependency"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.hasAReferenceOnDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.hasAReferenceOnInternalPath"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.hasAReferenceOnInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.isAnInstance"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.isAnInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.isConnectedTo"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.isConnectedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.isDocked"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.isDocked()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.parse"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.removeConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.removeConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.removeConnectionsFrom"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.removeConnectionsFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.resolveDependency"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.resolveDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.setParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.setPosition"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.setPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.setType"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.setType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.unsetParameter"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.unsetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode.write"><code class="docutils literal notranslate"><span class="pre">SBSParamNode.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<dl class="simple" id="module-params.params">
+<dt>Module <strong>params</strong> aims to define SBSObjects that are relative to the Function nodes, mostly:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p></li>
+<li><p><a class="reference internal" href="#params.params.SBSParamValue" title="params.params.SBSParamValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamValue</span></code></a></p></li>
+<li><p><a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<p>This module contains also the definition of the parameters (<a class="reference internal" href="#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>),
+which are useful for the <a class="reference internal" href="paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> and the <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="params.params.SBSParamSpotColorInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">params.params.</span></span><span class="sig-name descname"><span class="pre">SBSParamSpotColorInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSpotColorBookId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSpotColorId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamSpotColorInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a SpotColor as defined in a .sbs file.
+It allows to define a spotcolor book id and a spotcolor color id</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mSpotColorBookId  (str): Id of the SpotColor book</p></li>
+<li><p>mSpotColorId      (str): Id of the color from the spotcolor book id</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamSpotColorInfo.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamSpotColorInfo.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamSpotColorInfo.getInfo">
+<span class="sig-name descname"><span class="pre">getInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aProjectMgr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamSpotColorInfo.getInfo" title="Link to this definition"></a></dt>
+<dd><p>get color spot info</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aProjectMgr</strong> – a ProjectMgr can be needed if ACE config is setup</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of <a class="reference internal" href="../batchtools/spotcolorinfo_handlers.html#batchtools.spotcolorinfo_handlers.SpotColorInfoStruct" title="batchtools.spotcolorinfo_handlers.SpotColorInfoStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpotColorInfoStruct</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamSpotColorInfo.getInfoAsDict">
+<span class="sig-name descname"><span class="pre">getInfoAsDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aProjectMgr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamSpotColorInfo.getInfoAsDict" title="Link to this definition"></a></dt>
+<dd><p>get color spot info as dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aProjectMgr</strong> – a ProjectMgr can be needed if ACE config is setup</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamSpotColorInfo.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamSpotColorInfo.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamSpotColorInfo.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamSpotColorInfo.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamSpotColorInfo.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamSpotColorInfo.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="params.params.SBSParamValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">params.params.</span></span><span class="sig-name descname"><span class="pre">SBSParamValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aConstantValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDynamicValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTagName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConstantValue</span></code></p>
+<p>Class that contains information on a parameter value as defined in a .sbs file.
+A parameter can have a constant value with a specific type, or a value defined dynamically by a function.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mConstantValue (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSConstantValue" title="sbscommon.values.SBSConstantValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConstantValue</span></code></a>): simple constant definition of the parameter.</p></li>
+<li><p>mDynamicValue  (<a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>): dynamic definition of the parameter.</p></li>
+<li><p>mTagName       (str): tag name in the .sbs file, which provides the information of the parameter type.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.getConstantValue">
+<span class="sig-name descname"><span class="pre">getConstantValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.getConstantValue" title="Link to this definition"></a></dt>
+<dd><p>Get the constant value of this param value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the constant value as a <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSConstantValue" title="sbscommon.values.SBSConstantValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConstantValue</span></code></a> if it exists, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.getDynamicValue">
+<span class="sig-name descname"><span class="pre">getDynamicValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.getDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Get the dynamic value of this param value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the dynamic value as a <a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> if it exists, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of this constant value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type as a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> if success, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.getTypedConstantValue">
+<span class="sig-name descname"><span class="pre">getTypedConstantValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.getTypedConstantValue" title="Link to this definition"></a></dt>
+<dd><p>Get the constant value of this parameter, typed according to the type of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The constant parameter value appropriately typed according to the parameter type, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The parameter value, as a string if it is a constant value, or as a <a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> if it is a dynamic value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.isConstant">
+<span class="sig-name descname"><span class="pre">isConstant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.isConstant" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this parameter has a constant definition</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.isDynamic">
+<span class="sig-name descname"><span class="pre">isDynamic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.isDynamic" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this parameter is handled by a dynamic value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.isValidValue">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isValidValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.isValidValue" title="Link to this definition"></a></dt>
+<dd><p>setConstantValue(aType, aValue, aInt1 = False)
+Set the constant value to the given value, and set the tagname accordingly to the type of the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – type of the value</p></li>
+<li><p><strong>aValue</strong> (<em>str</em>) – the value to set</p></li>
+<li><p><strong>aInt1</strong> (<em>bool</em>) – True if the tag name must be ‘Int1’ instead of ‘Int32’ in the case of a value INTEGER1. Default to False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.setConstantValue">
+<span class="sig-name descname"><span class="pre">setConstantValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInt1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.setConstantValue" title="Link to this definition"></a></dt>
+<dd><p>Set the constant value of this param value to the given value and type.
+Remove the dynamic value if it exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – type of the parameter</p></li>
+<li><p><strong>aValue</strong> (<em>str</em>) – value to set</p></li>
+<li><p><strong>aInt1</strong> (<em>bool</em>) – True if the tag name must be ‘Int1’ instead of ‘Int32’ in the case of a value INTEGER1. Default to False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.setDynamicValue">
+<span class="sig-name descname"><span class="pre">setDynamicValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDynValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.setDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Set the dynamic value of this param value to the given value.
+Remove the constant value if it exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDynValue</strong> (<a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.updateConstantValue">
+<span class="sig-name descname"><span class="pre">updateConstantValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.updateConstantValue" title="Link to this definition"></a></dt>
+<dd><p>Update the value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>str</em>) – the value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamValue.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamValue.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="params.params.SBSParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">params.params.</span></span><span class="sig-name descname"><span class="pre">SBSParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSpotColorInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information of a parameter as defined in a .sbs file.
+This class is used to define the parameters of a compositing node, a function node or even a graph.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName       (str): name of the parameter to define.</p></li>
+<li><p>mRelativeTo (str, optional): parameter inheritance definition, among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>.</p></li>
+<li><p>mParamValue (<a class="reference internal" href="#params.params.SBSParamValue" title="params.params.SBSParamValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamValue</span></code></a>): definition of the parameter (constant value or dynamic function)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.createEmptyDynamicValue">
+<span class="sig-name descname"><span class="pre">createEmptyDynamicValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.createEmptyDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Init a dynamic value for this parameter.
+Remove the previous constant value or dynamic value if defined.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the new empty <a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.getConstantValue">
+<span class="sig-name descname"><span class="pre">getConstantValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.getConstantValue" title="Link to this definition"></a></dt>
+<dd><p>Get the constant value of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the constant value as a <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSConstantValue" title="sbscommon.values.SBSConstantValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConstantValue</span></code></a> if it exists, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.getDynamicValue">
+<span class="sig-name descname"><span class="pre">getDynamicValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.getDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Get the dynamic value of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the dynamic value as a <a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> if it exists, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.getSpotColorInfo">
+<span class="sig-name descname"><span class="pre">getSpotColorInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.getSpotColorInfo" title="Link to this definition"></a></dt>
+<dd><p>getSpotColoInfo()
+get <a class="reference internal" href="#params.params.SBSParamSpotColorInfo" title="params.params.SBSParamSpotColorInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamSpotColorInfo</span></code></a> that handle spot color info</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#params.params.SBSParamSpotColorInfo" title="params.params.SBSParamSpotColorInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamSpotColorInfo</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.setDynamicValue">
+<span class="sig-name descname"><span class="pre">setDynamicValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDynamicValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.setDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Set the dynamic value for this parameter.
+Remove the previous constant value or dynamic value if defined.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDynamicValue</strong> (<a class="reference internal" href="dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – the dynamic value to affect</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParameter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParameter.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="params.params.SBSParamsArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">params.params.</span></span><span class="sig-name descname"><span class="pre">SBSParamsArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamsArrayCells</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArray" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a paramsArray as defined in a .sbs file.
+It allows to define the gradient keys in a Gradient map filter.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName             (str): name (type) of the array.</p></li>
+<li><p>mUID              (str): unique identifier of the array in the /paramsArray/ context.</p></li>
+<li><p>mParamsArrayCells (list of <a class="reference internal" href="#params.params.SBSParamsArrayCell" title="params.params.SBSParamsArrayCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsArrayCell</span></code></a>): list of cells, representing gradient keys.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArray.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArray.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArray.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArray.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Parse the ParamsArrayCell list to find a <a class="reference internal" href="#params.params.SBSParamsArrayCell" title="params.params.SBSParamsArrayCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsArrayCell</span></code></a> with the given uid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this uid is already used, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArray.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArray.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArray.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArray.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="params.params.SBSParamsArrayCell">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">params.params.</span></span><span class="sig-name descname"><span class="pre">SBSParamsArrayCell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArrayCell" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a paramsArrayCell as defined in a .sbs file.
+It allows to define a gradient key in a Gradient map filter.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mUID        (str): unique identifier of the cell in the /paramsArrayCells/ context.</p></li>
+<li><p>mParameters (list of <a class="reference internal" href="#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>): parameter list of the cell.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArrayCell.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArrayCell.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArrayCell.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArrayCell.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArrayCell.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArrayCell.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="params.params.SBSParamsArrayCell.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#params.params.SBSParamsArrayCell.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../compnode/common.html" class="btn btn-neutral float-left" title="compnode_common module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dynamicvalue.html" class="btn btn-neutral float-right" title="dynamicvalue module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>psdparser module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="qtclasses module" href="qtclasses/qtclasses.html" />
+    <link rel="prev" title="sbswriter module" href="sbswriter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">psdparser module: Adobe Photoshop Document (.psd) file parser</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#psdparser.PSDLayer"><code class="docutils literal notranslate"><span class="pre">PSDLayer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psdparser.extractCompositeTo"><code class="docutils literal notranslate"><span class="pre">extractCompositeTo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psdparser.extractLayerTo"><code class="docutils literal notranslate"><span class="pre">extractLayerTo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psdparser.getLayers"><code class="docutils literal notranslate"><span class="pre">getLayers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psdparser.getPsdLayerFromList"><code class="docutils literal notranslate"><span class="pre">getPsdLayerFromList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psdparser.getPsdLayerNameFromResource"><code class="docutils literal notranslate"><span class="pre">getPsdLayerNameFromResource()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">psdparser module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-psdparser">
+<span id="psdparser-module"></span><h1>psdparser module<a class="headerlink" href="#module-psdparser" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="psdparser.PSDLayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psdparser.</span></span><span class="sig-name descname"><span class="pre">PSDLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLayerNo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aWidth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aHeight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDepth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorMode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.PSDLayer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class PSDLayer is used to gather information on a layer of a PSD file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName      (str): name of the function definition.</p></li>
+<li><p>mLayerNo   (str): unique identifier in the package/ context.</p></li>
+<li><p>mFormat    (str): various attributes</p></li>
+<li><p>mWidth     (int): width in pixel</p></li>
+<li><p>mHeight    (int): height in pixel</p></li>
+<li><p>mDepth     (<a class="reference internal" href="sbsenum.html#sbsenum.OutputFormatEnum" title="sbsenum.OutputFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">sbsenum.OutputFormatEnum</span></code></a>): bit depth</p></li>
+<li><p>mColorMode (<a class="reference internal" href="sbsenum.html#sbsenum.ColorModeEnum" title="sbsenum.ColorModeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">sbsenum.ColorModeEnum</span></code></a>): color mode</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="psdparser.PSDLayer.convertColorToSbsEnum">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convertColorToSbsEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.PSDLayer.convertColorToSbsEnum" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psdparser.PSDLayer.convertDepthToSbsEnum">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convertDepthToSbsEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDepth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.PSDLayer.convertDepthToSbsEnum" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psdparser.PSDLayer.getFilterParamColor">
+<span class="sig-name descname"><span class="pre">getFilterParamColor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.PSDLayer.getFilterParamColor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psdparser.PSDLayer.getFilterParamSize">
+<span class="sig-name descname"><span class="pre">getFilterParamSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.PSDLayer.getFilterParamSize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psdparser.extractCompositeTo">
+<span class="sig-prename descclassname"><span class="pre">psdparser.</span></span><span class="sig-name descname"><span class="pre">extractCompositeTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPsdFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestinationFolder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.extractCompositeTo" title="Link to this definition"></a></dt>
+<dd><p>Extract the composite image of the given .psd file into a .png file, and save it in the destination folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – current execution context</p></li>
+<li><p><strong>aPsdFileAbsPath</strong> (<em>str</em>) – path of the .psd file</p></li>
+<li><p><strong>aDestinationFolder</strong> (<em>str</em>) – absolute path of the destination folder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the output path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psdparser.extractLayerTo">
+<span class="sig-prename descclassname"><span class="pre">psdparser.</span></span><span class="sig-name descname"><span class="pre">extractLayerTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPsdFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLayer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestinationFolder</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.extractLayerTo" title="Link to this definition"></a></dt>
+<dd><p>Extract the layer image of the given .psd file into a .png file, and save it in the destination folder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – current execution context</p></li>
+<li><p><strong>aPsdFileAbsPath</strong> (<em>str</em>) – path of the .psd file</p></li>
+<li><p><strong>aLayer</strong> (<a class="reference internal" href="#psdparser.PSDLayer" title="psdparser.PSDLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDLayer</span></code></a>) – layer to extract</p></li>
+<li><p><strong>aDestinationFolder</strong> (<em>str</em>) – absolute path of the destination folder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the output path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psdparser.getLayers">
+<span class="sig-prename descclassname"><span class="pre">psdparser.</span></span><span class="sig-name descname"><span class="pre">getLayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPsdFileAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.getLayers" title="Link to this definition"></a></dt>
+<dd><p>Get the list of layers included in the given .psd file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – current execution context</p></li>
+<li><p><strong>aPsdFileAbsPath</strong> (<em>str</em>) – path of the .psd file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#psdparser.PSDLayer" title="psdparser.PSDLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDLayer</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psdparser.getPsdLayerFromList">
+<span class="sig-prename descclassname"><span class="pre">psdparser.</span></span><span class="sig-name descname"><span class="pre">getPsdLayerFromList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPsdLayerList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLayerName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.getPsdLayerFromList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aPsdLayerList</strong> (list of <a class="reference internal" href="#psdparser.PSDLayer" title="psdparser.PSDLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDLayer</span></code></a>) – list of layer</p></li>
+<li><p><strong>aLayerName</strong> (<em>str</em>) – the layer to find</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="#psdparser.PSDLayer" title="psdparser.PSDLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDLayer</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psdparser.getPsdLayerNameFromResource">
+<span class="sig-prename descclassname"><span class="pre">psdparser.</span></span><span class="sig-name descname"><span class="pre">getPsdLayerNameFromResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aResource</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psdparser.getPsdLayerNameFromResource" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aResource</strong> (class:<cite>.SBSResource</cite>) – A Resource which should be based on a .psd layer</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The layer name as save in the .psd file, or None if the resource is not extracted from a .psd file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbswriter.html" class="btn btn-neutral float-left" title="sbswriter module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qtclasses/qtclasses.html" class="btn btn-neutral float-right" title="qtclasses module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>batchtools modules &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="info_mesh_parser module" href="info_mesh_parser.html" />
+    <link rel="prev" title="ag_layout module" href="../autograph/ag_layout.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">batchtools module: Utilities to call the Substance Batchtools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="info_mesh_parser.html"> info mesh parser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="batchtools.html"> batchtools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="output_handlers.html"> output handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance3d_baker_info_handlers.html"> substance3d_baker info handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsrender_render_handlers.html"> sbsrender render handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spotcolorinfo_handlers.html"> spotcolorinfo handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thumbnail.html"> thumbnail</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">batchtools modules</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="batchtools-modules">
+<span id="ref-to-batchtools-main"></span><h1>batchtools modules<a class="headerlink" href="#batchtools-modules" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="info_mesh_parser.html"> info mesh parser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoBlockEnum"><code class="docutils literal notranslate"><span class="pre">InfoBlockEnum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoBlockEnum.BoundingBox"><code class="docutils literal notranslate"><span class="pre">InfoBlockEnum.BoundingBox</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoBlockEnum.GeomSubset"><code class="docutils literal notranslate"><span class="pre">InfoBlockEnum.GeomSubset</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoBlockEnum.Location"><code class="docutils literal notranslate"><span class="pre">InfoBlockEnum.Location</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoBlockEnum.Mesh"><code class="docutils literal notranslate"><span class="pre">InfoBlockEnum.Mesh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoBlockEnum.UV"><code class="docutils literal notranslate"><span class="pre">InfoBlockEnum.UV</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.BoundingBox"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.BoundingBox</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Center"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Center</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Color"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Color</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.ContainedUnitSquare"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.ContainedUnitSquare</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Enabled"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Enabled</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Faces"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Faces</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.GeomSubsetPath"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.GeomSubsetPath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.GlobalTransform"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.GlobalTransform</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.LocalTransform"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.LocalTransform</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Material_ID"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Material_ID</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.MaximalPoint"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.MaximalPoint</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.MinimalPoint"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.MinimalPoint</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Name"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.NumberPoints"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.NumberPoints</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Path"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Size"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Udim"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Udim</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Uv"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Uv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.InfoPropertyEnum.Vertices"><code class="docutils literal notranslate"><span class="pre">InfoPropertyEnum.Vertices</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.extract_block"><code class="docutils literal notranslate"><span class="pre">extract_block()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.get_first_value"><code class="docutils literal notranslate"><span class="pre">get_first_value()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.get_property_values"><code class="docutils literal notranslate"><span class="pre">get_property_values()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.leading_space"><code class="docutils literal notranslate"><span class="pre">leading_space()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="info_mesh_parser.html#batchtools.info_mesh_parser.prepare_property_value"><code class="docutils literal notranslate"><span class="pre">prepare_property_value()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batchtools.html"> batchtools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbscooker"><code class="docutils literal notranslate"><span class="pre">sbscooker()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsmutator_edit"><code class="docutils literal notranslate"><span class="pre">sbsmutator_edit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsmutator_export"><code class="docutils literal notranslate"><span class="pre">sbsmutator_export()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsmutator_info"><code class="docutils literal notranslate"><span class="pre">sbsmutator_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsmutator_instantiate"><code class="docutils literal notranslate"><span class="pre">sbsmutator_instantiate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsrender_info"><code class="docutils literal notranslate"><span class="pre">sbsrender_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsrender_render"><code class="docutils literal notranslate"><span class="pre">sbsrender_render()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsrender_render_animate"><code class="docutils literal notranslate"><span class="pre">sbsrender_render_animate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.sbsupdater"><code class="docutils literal notranslate"><span class="pre">sbsupdater()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.spotcolorinfo_from_ids"><code class="docutils literal notranslate"><span class="pre">spotcolorinfo_from_ids()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.spotcolorinfo_from_names"><code class="docutils literal notranslate"><span class="pre">spotcolorinfo_from_names()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.spotcolorinfo_list"><code class="docutils literal notranslate"><span class="pre">spotcolorinfo_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_ambient_occlusion_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_ambient_occlusion_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_color_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_color_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_curvature_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_curvature_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_height_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_height_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_info"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_info_get_mesh_info"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_info_get_mesh_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_normal_bent_normals"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_normal_bent_normals()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_normal_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_normal_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_normal_tangent_to_world"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_normal_tangent_to_world()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_normal_world_to_tangent"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_normal_world_to_tangent()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_opacity_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_opacity_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_position_rasterised"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_position_rasterised()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_position_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_position_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_run"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_run()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_texture_transfer_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_texture_transfer_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_thickness_raytraced"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_thickness_raytraced()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="batchtools.html#batchtools.batchtools.substance3d_baker_update"><code class="docutils literal notranslate"><span class="pre">substance3d_baker_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="output_handlers.html"> output handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.dump"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.get_results"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.get_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.output"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.output</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.print_stderr"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.print_stderr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.print_stdout"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.print_stdout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.returncode"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.returncode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.stderr"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.stderr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.stdout"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.stdout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandler.wait"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandler.wait()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandlerPipeError"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandlerPipeError</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandlerPipeError.args"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandlerPipeError.args</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.OutputProcessHandlerPipeError.with_traceback"><code class="docutils literal notranslate"><span class="pre">OutputProcessHandlerPipeError.with_traceback()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.dump"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.get_results"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.get_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.get_results_as_dict"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.get_results_as_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.output"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.output</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.print_stderr"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.print_stderr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.print_stdout"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.print_stdout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.returncode"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.returncode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.stderr"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.stderr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.stdout"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.stdout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SbsRenderOutputHandler.wait"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputHandler.wait()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.dump"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.get_results"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.get_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.get_results_as_dict"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.get_results_as_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.output"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.output</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.print_stderr"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.print_stderr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.print_stdout"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.print_stdout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.returncode"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.returncode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.stderr"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.stderr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.stdout"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.stdout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.SpotColorInfoOutputHandler.wait"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoOutputHandler.wait()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.dump"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.get_results"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.get_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.output"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.output</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.print_stderr"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.print_stderr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.print_stdout"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.print_stdout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.returncode"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.returncode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.stderr"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.stderr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.stdout"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.stdout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.Substance3dBakerInfoOutputHandler.wait"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoOutputHandler.wait()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="output_handlers.html#batchtools.output_handlers.extract_cmd_output_without_logs"><code class="docutils literal notranslate"><span class="pre">extract_cmd_output_without_logs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="substance3d_baker_info_handlers.html"> substance3d_baker info handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoBboxStruct"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoBboxStruct</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoGeomSubsetStruct"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoGeomSubsetStruct</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoLocStruct"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoLocStruct</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoMeshStruct</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct.convert_str_value"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoMeshStruct.convert_str_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct.enabled"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoMeshStruct.enabled</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoUvStruct</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct.udim_tiles"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoUvStruct.udim_tiles</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="substance3d_baker_info_handlers.html#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct.uv_tiles"><code class="docutils literal notranslate"><span class="pre">Substance3dBakerInfoUvStruct.uv_tiles</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsrender_render_handlers.html"> sbsrender render handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsrender_render_handlers.html#batchtools.sbsrender_render_handlers.SbsRenderGraphStruct"><code class="docutils literal notranslate"><span class="pre">SbsRenderGraphStruct</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsrender_render_handlers.html#batchtools.sbsrender_render_handlers.SbsRenderOutputStruct"><code class="docutils literal notranslate"><span class="pre">SbsRenderOutputStruct</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spotcolorinfo_handlers.html"> spotcolorinfo handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spotcolorinfo_handlers.html#batchtools.spotcolorinfo_handlers.SpotColorInfoAceStruct"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoAceStruct</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spotcolorinfo_handlers.html#batchtools.spotcolorinfo_handlers.SpotColorInfoStruct"><code class="docutils literal notranslate"><span class="pre">SpotColorInfoStruct</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thumbnail.html"> thumbnail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.AMBIENTOCCLUSION"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.AMBIENTOCCLUSION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.ANISOTROPYANGLE"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.ANISOTROPYANGLE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.ANISOTROPYLEVEL"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.ANISOTROPYLEVEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.BASECOLOR"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.BASECOLOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.EMISSIVE"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.EMISSIVE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.HEIGHT"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.HEIGHT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.METALLIC"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.METALLIC</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.NORMAL"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.NORMAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.OPACITY"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.OPACITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.PHYSICALSIZE"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.PHYSICALSIZE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.ROUGHNESS"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.ROUGHNESS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.ThumbnailRenderSbsarUsages.SPECULARLEVEL"><code class="docutils literal notranslate"><span class="pre">ThumbnailRenderSbsarUsages.SPECULARLEVEL</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thumbnail.html#batchtools.thumbnail.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../autograph/ag_layout.html" class="btn btn-neutral float-left" title="ag_layout module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="info_mesh_parser.html" class="btn btn-neutral float-right" title="info_mesh_parser module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

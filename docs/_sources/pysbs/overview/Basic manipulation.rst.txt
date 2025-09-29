@@ -1,0 +1,239 @@
+.. _ref-to-api-readwrite:
+
+Basic manipulation of a Substance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Opening and writing a substance
+"""""""""""""""""""""""""""""""
+
+| The API offers the ability to parse a .sbs or a .sbsar file to retrieve its content as a hierarchical object structure.
+| A .sbs file is parsed using a substance.SBSDocument object, whereas a .sbsar file is parsed using a sbsarchive.SBSArchive object.
+| Only a .sbs file can be created or modified through the API, so only the substance.SBSDocument has a writeDoc() function:
+
+.. code-block:: python
+
+    from pysbs import substance, sbsarchive
+
+    # Creation of a SBSArchive object from an existing .sbsar file, and parsing:
+    sbsarDoc = sbsarchive.SBSArchive(aContext, aSBSARFileAbsPath)
+    sbsarDoc.parseDoc()        # Parse the .sbsar file and put into sbsarDoc the object structure contained in the substance
+    
+    # Creation of a SBSDocument object from an existing .sbs file, parsing and writing
+    sbsDoc = substance.SBSDocument(aContext, aSBSFileAbsPath)
+    sbsDoc.parseDoc()          # Parse the .sbs file and put into sbsDoc the object structure contained in the substance
+    sbsDoc.writeDoc()          # Write back the object structure into the same .sbs file on disk
+
+
+
+.. _ref-to-api-requestinfo:
+
+Requesting information on a Substance
+"""""""""""""""""""""""""""""""""""""
+| The API can also be used to simply request information on a Substance (.sbs or .sbsar), to get information on the graphs it contains and their inputs and outputs.
+| Some common interfaces exists for SBSObject and SBSARObject, they are defined in the module :mod:`common_interfaces.package`:
+
+* :class:`.Package`: base class for :class:`.SBSDocument` and :class:`SBSArchive<sbsarchive.sbsarchive.SBSArchive>`
+* :class:`.Graph`: base class for :class:`.SBSGraph` and :class:`.SBSARGraph`
+* :class:`.ParamInput`: base class for :class:`.SBSParamInput` and :class:`.SBSARInput`
+* :class:`.GraphOutput`: base class for :class:`.SBSGraphOutput` and :class:`.SBSAROutput`
+* :class:`.Preset` and :class:`.PresetInput`: base classes for :class:`.SBSPreset`, :class:`.SBSPresetInput`, :class:`.SBSARPreset` and :class:`.SBSARPresetInput`
+
+The following functions are available on both sbs and sbsar packages:
+
+.. code-block:: python
+
+    # Getting all the graphs of a package
+    aGraphList = aDoc.getSBSGraphList()
+
+    # Getting the outputs of a graph
+    aOutputList = aGraph.getGraphOutputs()                                        # Get all the output of a graph
+    aOutput = aGraph.getGraphOutput(aOutputIdentifier='MyOutput')                 # Get a particular output
+    aOutput = aGraph.getGraphOutputWithUsage(aUsage=sbsenum.UsageEnum.ROUGHNESS)  # Get a particular output given its usage
+    aOutput = aGraph.getGraphOutputWithUsage(aUsage='MyCustomUsage')              # Same but with a custom usage
+
+    # Getting the inputs of a graph
+    aInputList = aGraph.getAllInputs()                         # Get all the inputs (images and parameters)
+    aInputList = aGraph.getAllInputsInGroup(aGroup='MyGroup')  # Get all the inputs of a particular GUI group named 'MyGroup'
+    aParamList = aGraph.getInputParameters()                   # Get only the input parameters
+    aImageList = aGraph.getInputImages()                       # Get only the input images
+
+    # Or get a particular input:
+    aInput = aGraph.getInput(aInputIdentifier='MyInput')
+    aParam = aGraph.getInputParameter(aInputParamIdentifier='MyInputParam')
+    aImage = aGraph.getInputImage(aInputImageIdentifier='MyInputImage')
+    aImage = aGraph.getInputImageWithUsage(aUsage=sbsenum.UsageEnum.ROUGHNESS)
+
+    # Get the parameter definition:
+    aParam.getWidget()
+    aParam.getDefaultValues()
+    aParam.getMinValue()
+    aParam.getMaxValue()
+    aParam.getClamp()
+    aParam.getStep()
+    aParam.getLabels()
+    aParam.getDropDownList()
+
+    # Getting the attributes of a graph, an input or an output
+    aGraph.getAttribute(aAttributeIdentifier=sbsenum.AttributeEnum.Author)
+    aInput.getAttribute(aAttributeIdentifier=sbsenum.AttributeEnum.Description)
+    aOutput.getAttribute(aAttributeIdentifier=sbsenum.AttributeEnum.Label)
+
+    # Getting the parameter presets defined on a Graph
+    aPresetList = aGraph.getAllPresets()                                                      # Get all the presets defined on the graph
+    aPreset = aGraph.getPreset(aPresetLabel='MyPresetLabel')                                  # Get one particular preset from its label
+    aPresetInputList = aPreset.getPresetInputs()                                              # Get all the preset inputs of a preset
+    aPresetInput = aPreset.getPresetInput(aInputParam=aParam)                                 # Get the preset input associated to a graph parameter
+    aPresetInput = aPreset.getPresetInputFromIdentifier(aInputParamIdentifier='MyInputParam') # Get the preset input associated to a graph parameter identifier
+
+
+
+On a :class:`.SBSDocument` only, more information can be retrieved, such as its **dependencies** and **resources**, which could be helpful to build the dependency graph of a Substance, for version control purpose for instance:
+
+.. code-block:: python
+
+    # Get the list of dependencies directly included in the package, as SBSDependency objects:
+    aDepdendencyList = sbsDoc.getSBSDependencyList()
+
+    # Get the list of resources directly included in the package, as SBSResource objects:
+    aResourceList = sbsDoc.getSBSResourceList()
+
+    # Get the list of dependency paths recursively referenced by the package, as strings:
+    aDependencyPathList = sbsDoc.getDependencyPathList(aRecurseOnPackages = True)
+
+    # Get the list of resource paths recursively referenced by the package, as strings:
+    aResourcePathList = sbsDoc.getResourcePathList(aRecurseOnPackages = True)
+
+
+On a :class:`.SBSGraph`, these lines allow to retrieve different lists of compositing nodes (:class:`.SBSCompNode`):
+
+.. code-block:: python
+
+    # List all Input nodes
+    inputNodes = aGraph.getAllInputNodes()
+
+    # List all Output nodes
+    outputNodes = aGraph.getAllOutputNodes()
+
+    # List all Bitmap Filter nodes
+    bitmapNodes = aGraph.getAllFiltersOfKind(sbsenum.FilterEnum.BITMAP)
+
+    # List all CompInstance nodes
+    instanceNodes = aGraph.getAllFiltersOfKind(sbsenum.FilterEnum.COMPINSTANCE)
+
+    # List all CompInstance nodes that reference the Substance 'curvature.sbs' in the default package folder
+    instanceOfCurvatureNodes = aGraph.getAllNodeInstancesOf(sbsDoc, 'sbs://curvature.sbs')
+
+    # List all nodes connected to/from a node (on a particular input/output or not)
+    connectedNodes = aGraph.getNodesConnectedTo(aRightNode=myNode)
+    connectedNodes = aGraph.getNodesConnectedTo(aRightNode=myNode, aRightNodeInput=sbsenum.InputEnum.MASK)
+    connectedNodes = aGraph.getNodesConnectedFrom(aLeftNode=myNode)
+    connectedNodes = aGraph.getNodesConnectedFrom(aLeftNode=myNode, aLeftNodeOutput='myOutput')
+
+
+Working with MDL graph (:class:`.MDLGraph`) is done with almost the same functions:
+
+.. code-block:: python
+
+    # Getting all the MDL graphs of a package
+    aMDLGraphList = aDoc.getMDLGraphList()
+
+    # Getting the output/root node of a MDL graph
+    aOutput = aMdlGraph.getGraphOutput()
+
+    # Getting the input nodes of a graph (e.g. the Constant nodes that has been exposed)
+    aInputList = aMdlGraph.getAllInputs()                         # Get all the inputs (images and parameters)
+    aInputList = aMdlGraph.getAllInputsInGroup(aGroup='MyGroup')  # Get all the inputs of a particular GUI group named 'MyGroup'
+    aParamList = aMdlGraph.getInputParameters()                   # Get only the input parameters
+    aImageList = aMdlGraph.getInputImages()                       # Get only the input of kind textures
+
+    # Or get a particular input node:
+    aInput = aMdlGraph.getInput(aInputIdentifier='MyInput')
+    aParam = aMdlGraph.getInputParameter(aInputParamIdentifier='MyInputParam')
+    aImage = aMdlGraph.getInputImage(aInputImageIdentifier='MyInputImage')
+    aImage = aMdlGraph.getInputImageWithUsage(aUsage=sbsenum.UsageEnum.ROUGHNESS)   # A custom string can be used
+
+    # List all the nodes by category
+    # - Constants
+    nodeList = mdlGraph.getAllMDLConstants()
+    nodeList = mdlGraph.getAllMDLConstantsOfType('mdl::float')
+    nodeList = mdlGraph.getAllMDLConstantsWithName('roughness')
+    # - Selectors
+    nodeList = mdlGraph.getAllMDLSelectors()
+    nodeList = mdlGraph.getAllMDLSelectorsWithName('tint')
+    nodeList = mdlGraph.getAllMDLSelectorsOfType('mdl::color')
+    # - MDL instances
+    nodeList = mdlGraph.getAllMDLInstances()
+    nodeList = mdlGraph.getAllMDLInstancesOf('mdl::operator*')
+    nodeList = mdlGraph.getAllMDLInstancesOf('mdl::operator*(float,float)')
+    # - MDL Graph instances
+    nodeList = mdlGraph.getAllMDLGraphInstances()
+    nodeList = mdlGraph.getAllMDLGraphInstancesOf(aSBSDocument=aDoc, aPath=aDoc.buildAbsPathFromRelToMePath('myMDL.sbs/MDL_Material'))
+    # - Substance Graph instances
+    nodeList = mdlGraph.getAllSBSInstances()
+    nodeList = mdlGraph.getAllSBSInstancesOf(aSBSDocument=aDoc, aPath='pkg:///myGraph')
+    nodeList = mdlGraph.getAllSBSInstancesOf(aSBSDocument=aDoc, aPath='sbs://perlin_noise_1.sbs')
+
+
+| Many objects in a .sbs file has **a unique identifier (uid)**, accessible through the member 'mUID'.
+| Some objects can be requested from their parent given their uid, that can be found either by reading the .sbs file, or, in the case of the nodes,
+| through Substance Designer user interface, by right clicking on a particular node and selecting: 'Copy info to clipboard'
+
+.. code-block:: python
+
+    # Get a particular node from its uid
+    myNode = aGraph.getNode(aNode='1289992758')
+
+
+To know the **signature**, or **definition**, of a compositing node (:class:`.SBSCompNode`) of any kind (e.g. Filter, Input, Output, Instance),
+the function :func:`.SBSCompNode.getDefinition` is helpful as it returns a :class:`.CompNodeDef` object, which is the definition of a compositing node and contains:
+
+- the node's identifier
+- the list of inputs of the node (:class:`.CompNodeInput`)
+- the list of outputs of the node (:class:`.CompNodeOutput`)
+- the list of parameters the node can accept (:class:`.CompNodeParam`)
+
+The same function exists for the other types of node:
+
+- SBSParamNode.getDefinition() the Function nodes (:class:`.SBSParamNode`)
+- SBSParamsGraphNode.getDefinition() for the FxMap nodes (:class:`.SBSParamsGraphNode`)
+- MDLNode.getDefinition() for the nodes of a MDL graph (:class:`.MDLNode`)
+
+.. code-block:: python
+
+    # Get the definition of a node
+    nodeDef = myNode.getDefinition()
+
+    # Get a particular input / output / parameter
+    aInput = nodeDef.getInput(aInput=sbsenum.InputEnum.MASK)                # Standard filter input
+    aInput = nodeDef.getInput(aInput='MyInput')                             # Custom input name
+    aOutput = nodeDef.getOutput(aOutput=sbsenum.InputEnum.MASK)             # Standard filter output
+    aOutput = nodeDef.getOutput(aOutput='MyOutput')                         # Custom output name
+    aParam = nodeDef.getParameter(aParameter=sbsenum.InputEnum.MASK)        # Standard filter parameter
+    aParam = nodeDef.getParameter(aParameter='MyParam')                     # Custom parameter name
+
+    # Get all inputs / outputs / parameters or their identifiers
+    inputList = nodeDef.getAllInputs()
+    inputIdentifierList = nodeDef.getAllInputIdentifiers()
+    outputList = nodeDef.getAllOutputs()
+    outputIdentifierList = nodeDef.getAllOutputIdentifiers()
+    paramList = nodeDef.getAllParameters()
+    paramIdentifierList = nodeDef.getAllParameterIdentifiers()
+
+
+**Comments**, **Frames** and **Navigation Pin** can also be requested (:class:`.SBSGUIObject`), on a :class:`.SBSGraph`, :class:`.SBSFunction` or :class:`.SBSParamsGraph`:
+
+.. code-block:: python
+
+    # List all comments, frames, or navigation pin
+    guiComments = aGraph.getAllComments()
+    guiFrames   = aGraph.getAllFrames()
+    guiNavPin   = aGraph.getAllNavigationPins()
+
+    # All the nodes included in a frame can be requested using:
+    inFrameNodes = aGraph.getNodesInFrame(myFrame)
+
+    # The node associated to a comment can be requested with:
+    aNode = aGraph.getNodeAssociatedToComment(aComment=myComment)
+
+    # Or the opposite:
+    commentList = aGraph.getCommentsAssociatedToNode(aNode=myNode)

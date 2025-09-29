@@ -1,0 +1,983 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsfunctions module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsfxmapnodes module" href="sbsfxmapnodes.html" />
+    <link rel="prev" title="sbsfilters module" href="sbsfilters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbslibrary.html">sbslibrary module: Substance libraries</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsdictionaries.html">sbsdictionaries module: Dictionaries of all strings used in the libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibclasses.html">sbslibclasses module: Classes used by the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfxmapnodes.html">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbswidgets.html">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.__convertToEnum"><code class="docutils literal notranslate"><span class="pre">__convertToEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType"><code class="docutils literal notranslate"><span class="pre">getAllWidgetFunctionButtonByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAngleWidgetByType"><code class="docutils literal notranslate"><span class="pre">getAngleWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getButtonWidgetByType"><code class="docutils literal notranslate"><span class="pre">getButtonWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getColorWidgetByType"><code class="docutils literal notranslate"><span class="pre">getColorWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDefaultWidget"><code class="docutils literal notranslate"><span class="pre">getDefaultWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDropDownWidgetByType"><code class="docutils literal notranslate"><span class="pre">getDropDownWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getEnumButtonsWidgetByType"><code class="docutils literal notranslate"><span class="pre">getEnumButtonsWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterDefinition"><code class="docutils literal notranslate"><span class="pre">getFilterDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterEnum"><code class="docutils literal notranslate"><span class="pre">getFilterEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionDefinition"><code class="docutils literal notranslate"><span class="pre">getFunctionDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeDefinition"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getInputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getInputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getIterationParamInput"><code class="docutils literal notranslate"><span class="pre">getIterationParamInput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOffsetWidgetByType"><code class="docutils literal notranslate"><span class="pre">getOffsetWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOutputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getOutputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getPositionWidgetByType"><code class="docutils literal notranslate"><span class="pre">getPositionWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getSliderWidgetByType"><code class="docutils literal notranslate"><span class="pre">getSliderWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationForwardWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationForwardWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationInverseWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationInverseWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getWidgetByType"><code class="docutils literal notranslate"><span class="pre">getWidgetByType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbslibrary.html">sbslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsfunctions module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbslibrary.sbsfunctions">
+<span id="sbsfunctions-module"></span><h1>sbsfunctions module<a class="headerlink" href="#module-pysbs.sbslibrary.sbsfunctions" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsfunctions</strong> provides the library of function nodes and their definition (inputs, outputs, parameters):</p>
+<blockquote>
+<div><ul>
+<li><p>function_SEQUENCE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SEQUENCE</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;sequence&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SEQUENCE_IN</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FUNCTION_ALL</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SEQUENCE_LAST</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span>    <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FUNCTION_ALL</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_IF_ELSE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_IF_ELSE</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;ifelse&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">CONDITION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span>   <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">IF_PATH</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">ELSE_PATH</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FUNCTION_ALL</span><span class="o">&amp;~</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">VOID_TYPE</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SET:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SET</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;set&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SET</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>   <span class="s1">&#39;&#39;</span>    <span class="p">)],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FUNCTION_ALL</span><span class="o">&amp;~</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">VOID_TYPE</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_BOOL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_BOOL</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_bool&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_BOOL</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span><span class="s1">&#39;&#39;</span>  <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_INTEGER1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_INTEGER1</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_integer1&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER1</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_INTEGER2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_INTEGER2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_integer2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER2</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_INTEGER3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_INTEGER3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_integer3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER3</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_INTEGER4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_INTEGER4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_integer4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_INTEGER4</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_FLOAT1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_FLOAT1</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_float1&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT1</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_FLOAT2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_FLOAT2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_float2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT2</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_FLOAT3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_FLOAT3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_float3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT3</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_FLOAT4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_FLOAT4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_float4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT4</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GET_STRING:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GET_STRING</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;get_string&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_STRING</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_BOOL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_BOOL</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_bool&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_BOOL</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_INT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_INT</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_int1&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT</span> <span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_INT2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_INT2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_int2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT2</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_INT3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_INT3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_int3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT3</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_INT4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_INT4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_int4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_INT4</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_FLOAT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_FLOAT</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_float1&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_FLOAT2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_FLOAT2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_float2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT2</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_FLOAT3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_FLOAT3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_float3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT3</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_FLOAT4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_FLOAT4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_float4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT4</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CONST_STRING:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CONST_STRING</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;const_string&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_STRING</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_INSTANCE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_INSTANCE</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;instance&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FUNCTION_ALL</span><span class="p">)],</span>
+    <span class="n">aInputs</span>  <span class="o">=</span>       <span class="p">[],</span>
+    <span class="n">aFunctionDatas</span><span class="o">=</span>  <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">INSTANCE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_VECTOR2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_VECTOR2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;vector2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_VECTOR3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_VECTOR3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;vector3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_VECTOR4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_VECTOR4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;vector4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE1</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;swizzle1&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE1</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;swizzle2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE2</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;swizzle3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE3</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;swizzle4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE4</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_VECTOR_INT2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_VECTOR_INT2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;ivector2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_VECTOR_INT3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_VECTOR_INT3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;ivector3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_VECTOR_INT4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_VECTOR_INT4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;ivector4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE_INT1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE_INT1</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;iswizzle1&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT1</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE_INT2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE_INT2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;iswizzle2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT2</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE_INT3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE_INT3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;iswizzle3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT3</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SWIZZLE_INT4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SWIZZLE_INT4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;iswizzle4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SWIZZLE_INT4</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_INT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_INT</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;toint1&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_INT2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_INT2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;toint2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_INT3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_INT3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;toint3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_INT4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_INT4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;toint4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_FLOAT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_FLOAT</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;tofloat&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_FLOAT2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_FLOAT2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;tofloat2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_FLOAT3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_FLOAT3</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;tofloat3&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TO_FLOAT4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TO_FLOAT4</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;tofloat4&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_ADD:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_ADD</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;add&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SUB:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SUB</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;sub&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_MUL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_MUL</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;mul&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_MUL_SCALAR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_MUL_SCALAR</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;mulscalar&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SCALAR</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_DIV:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_DIV</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;div&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_NEG:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_NEG</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;neg&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_MOD:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_MOD</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;mod&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_DOT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_DOT</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;dot&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CROSS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CROSS</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;cross&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_AND:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_AND</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;and&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_OR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_OR</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;or&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_NOT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_NOT</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;not&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_EQ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_EQ</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;eq&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_NOT_EQ:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_NOT_EQ</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;noteq&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GREATER:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GREATER</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_GREATER_EQUAL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_GREATER_EQUAL</span><span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;gteq&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_LOWER:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_LOWER</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;lr&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_LOWER_EQUAL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_LOWER_EQUAL</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;lreq&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_ABS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_ABS</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;abs&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_FLOOR:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_FLOOR</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;floor&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CEIL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CEIL</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;ceil&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>    <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_COS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_COS</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;cos&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>    <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SIN:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SIN</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;sin&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SQRT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SQRT</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;sqrt&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_LOG:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_LOG</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;log&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_LOG2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_LOG2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;log2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_EXP:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_EXP</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;exp&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_POW2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_POW2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;pow2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_TAN:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_TAN</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;tan&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_ATAN2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_ATAN2</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;atan2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_CARTESIAN:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_CARTESIAN</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;cartesian&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">RHO</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">THETA</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_LERP:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_LERP</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;lerp&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_MIN:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_MIN</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;min&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_MAX:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_MAX</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">),</span>
+                      <span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">aTemplate1</span> <span class="o">=</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">FLOAT</span><span class="o">|</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TypeMasksEnum</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_RAND:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_RAND</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;rand&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SAMPLE_LUM:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SAMPLE_LUM</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;samplelum&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">POS</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SAMPLE_LUM</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span> <span class="s1">&#39;0 0&#39;</span>  <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_SAMPLE_COL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_SAMPLE_COL</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;samplecol&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">POS</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span> <span class="p">)],</span>
+    <span class="n">aFunctionDatas</span> <span class="o">=</span> <span class="p">[</span><span class="n">FunctionParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">SAMPLE_COL</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="p">,</span> <span class="s1">&#39;0 0&#39;</span>  <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>function_PASSTHROUGH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_PASSTHROUGH</span> <span class="o">=</span> <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span>    <span class="s1">&#39;passthrough&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>       <span class="p">[</span><span class="n">FunctionOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">DUMMY_TYPE</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>        <span class="p">[</span><span class="n">FunctionInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">DUMMY_TYPE</span><span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsfilters.html" class="btn btn-neutral float-left" title="sbsfilters module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsfxmapnodes.html" class="btn btn-neutral float-right" title="sbsfxmapnodes module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsargraph module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsarmanager module" href="sbsarmanager.html" />
+    <link rel="prev" title="sbsarchive module" href="sbsarchive.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsargraph module: SBSARGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarmanager.html">sbsarmanager module: SBSAR file manipulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarmetadata.html">sbsarmetadata module: SBSAR file metadata interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsargui.html">sbsargui module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarguiwidgets.html">sbsarguiwidgets module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarenum.html">sbsarenum module: SBSAR format enumeration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarchive.html#sbsarchive.sbsarchive.SBSARGlobalVar"><code class="docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarchive.html#sbsarchive.sbsarchive.SBSArchive"><code class="docutils literal notranslate"><span class="pre">SBSArchive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsarchive.html">sbsarchive module</a></li>
+      <li class="breadcrumb-item active">sbsargraph module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbsarchive.sbsargraph">
+<span id="sbsargraph-module"></span><h1>sbsargraph module<a class="headerlink" href="#module-sbsarchive.sbsargraph" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsargraph</strong> aims to define SBSARObjects that are relative to a graph as saved in a .sbsar file,
+mostly <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARGraph" title="sbsarchive.sbsargraph.SBSARGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a>, <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a>, <a class="reference internal" href="#sbsarchive.sbsargraph.SBSAROutput" title="sbsarchive.sbsargraph.SBSAROutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a>, <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARPreset" title="sbsarchive.sbsargraph.SBSARPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPreset</span></code></a> and <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARPresetInput" title="sbsarchive.sbsargraph.SBSARPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPresetInput</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsargraph.</span></span><span class="sig-name descname"><span class="pre">SBSARGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPkgUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGuiGroups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAuthor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAuthorUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCategory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aHideInLibrary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aKeywords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPhysicalSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPrimaryInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIcon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code>, <a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject" title="sbsarchive.sbsarmetadata.SBSARMetaDataObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARMetaDataObject</span></code></a></p>
+<p>Class that contains information on a compositing graph as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mLabel          (str): label of the graph.</p></li>
+<li><p>mPkgUrl         (str): URL of the graph relatively to the package (pkg://graphIdentifier).</p></li>
+<li><p>mGuiGroups      (list of <a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARGuiGroup" title="sbsarchive.sbsargui.SBSARGuiGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiGroup</span></code></a>): List of parameters groups.</p></li>
+<li><p>mParamInputs    (list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a>): list of parameters and compositing inputs of the graph.</p></li>
+<li><p>mGraphOutputs   (list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSAROutput" title="sbsarchive.sbsargraph.SBSAROutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a>): list of compositing outputs of the graph.</p></li>
+<li><p>mPresets        (list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARPreset" title="sbsarchive.sbsargraph.SBSARPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPreset</span></code></a>): list of presets.</p></li>
+<li><p>mAuthor         (str, optional): Author.</p></li>
+<li><p>mAuthorUrl      (str, optional): Author URL.</p></li>
+<li><p>mCategory       (str, optional): Category.</p></li>
+<li><p>mDescription    (str, optional): Textual graph description.</p></li>
+<li><p>mHideInLibrary  (str, optional): Define if the graph is hidden in the library or not. Default to ‘off’</p></li>
+<li><p>mKeywords       (str, optional): List of tags separated by a space.</p></li>
+<li><p>mPhysicalSize   (str, optional): Physical Size attribute</p></li>
+<li><p>mPrimaryInput   (str, optional): The identifier of the primary (image) input.</p></li>
+<li><p>mUserData       (str, optional): Textual user data.</p></li>
+<li><p>mIcon           (str, optional): Icon filename</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.createMetaDataStr">
+<span class="sig-name descname"><span class="pre">createMetaDataStr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.createMetaDataStr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.createMetaDataUrl">
+<span class="sig-name descname"><span class="pre">createMetaDataUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResource</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.createMetaDataUrl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.deleteMetaData">
+<span class="sig-name descname"><span class="pre">deleteMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.deleteMetaData" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.extractSbsarMetaDataPack">
+<span class="sig-name descname"><span class="pre">extractSbsarMetaDataPack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDestFolderPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.extractSbsarMetaDataPack" title="Link to this definition"></a></dt>
+<dd><p>Extract all metadata resource files present in the sbsar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDestFolderPath</strong> (<em>str</em>) – a directory path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complete file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.extractSbsarMetaDataResource">
+<span class="sig-name descname"><span class="pre">extractSbsarMetaDataResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDestFolderPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSbsarResourcePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.extractSbsarMetaDataResource" title="Link to this definition"></a></dt>
+<dd><p>Extract a resource file present in the sbsar.
+The sbsar resource path is the sbsar relative path to the resource file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aDestFolderPath</strong> (<em>str</em>) – a directory path</p></li>
+<li><p><strong>aSbsarResourcePath</strong> (<em>str</em>) – sbsar relative path to the resource file, ex: “resources/1/untitled.blend”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complete file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAllGuiGroups">
+<span class="sig-name descname"><span class="pre">getAllGuiGroups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAllGuiGroups" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all parameter groups defined on this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARGuiGroup" title="sbsarchive.sbsargui.SBSARGuiGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiGroup</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAllInputGroups">
+<span class="sig-name descname"><span class="pre">getAllInputGroups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAllInputGroups" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all groups used for the inputs of the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of groups as strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAllInputs">
+<span class="sig-name descname"><span class="pre">getAllInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAllInputs" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all inputs (images and parameters) defined on this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAllInputsInGroup">
+<span class="sig-name descname"><span class="pre">getAllInputsInGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAllInputsInGroup" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Get the list of all inputs (images and parameters) contained in the given group.</div>
+<div class="line">If aGroup is None, returns all the parameters that are not included in a group.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGroup</strong> (<a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARGuiGroup" title="sbsarchive.sbsargui.SBSARGuiGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiGroup</span></code></a> or str) – The group of parameter to consider, given a SBSARGuiGroup object or a Group identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAllMetaData">
+<span class="sig-name descname"><span class="pre">getAllMetaData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAllMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get all MetaData under dictionary form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAllMetaDataIter">
+<span class="sig-name descname"><span class="pre">getAllMetaDataIter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAllMetaDataIter" title="Link to this definition"></a></dt>
+<dd><p>Extract the metadata from sbsar and return an iterator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a metadata dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAllPresets">
+<span class="sig-name descname"><span class="pre">getAllPresets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAllPresets" title="Link to this definition"></a></dt>
+<dd><p>Get all the presets defined on this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.Preset" title="common_interfaces.package.Preset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Preset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getGraphOutput">
+<span class="sig-name descname"><span class="pre">getGraphOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getGraphOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the graph output with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputIdentifier</strong> (<em>str</em>) – identifier of the output</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#sbsarchive.sbsargraph.SBSAROutput" title="sbsarchive.sbsargraph.SBSAROutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getGraphOutputType">
+<span class="sig-name descname"><span class="pre">getGraphOutputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getGraphOutputType" title="Link to this definition"></a></dt>
+<dd><p>Get the output type of the GraphOutput with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputIdentifier</strong> (<em>str</em>) – identifier of the output</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the output type in the format <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getGraphOutputWithUsage">
+<span class="sig-name descname"><span class="pre">getGraphOutputWithUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getGraphOutputWithUsage" title="Link to this definition"></a></dt>
+<dd><p>Get the first GraphOutput which has the given usage defined</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a> or str) – usage to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#sbsarchive.sbsargraph.SBSAROutput" title="sbsarchive.sbsargraph.SBSAROutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getGraphOutputs">
+<span class="sig-name descname"><span class="pre">getGraphOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getGraphOutputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the graph outputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSAROutput" title="sbsarchive.sbsargraph.SBSAROutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a> defined on this graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getGuiGroup">
+<span class="sig-name descname"><span class="pre">getGuiGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroupIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getGuiGroup" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARGuiGroup with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGroupIdentifier</strong> (<em>str</em>) – group identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARGuiGroup" title="sbsarchive.sbsargui.SBSARGuiGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiGroup</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>getIdentifer()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str identifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInput" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARInput with the given identifier, among the input images and parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputIdentifier</strong> (<em>str</em>) – input parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInputFromUID">
+<span class="sig-name descname"><span class="pre">getInputFromUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInputFromUID" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARInput with the given UID, among the input images and parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputUID</strong> (<em>str</em>) – input parameter UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInputImage">
+<span class="sig-name descname"><span class="pre">getInputImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputImageIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInputImage" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARInput of kind image with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputImageIdentifier</strong> (<em>str</em>) – input image identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInputImageWithUsage">
+<span class="sig-name descname"><span class="pre">getInputImageWithUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInputImageWithUsage" title="Link to this definition"></a></dt>
+<dd><p>Get the first SBSARInput of kind image which has the given usage defined</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a> or str) – usage to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInputImages">
+<span class="sig-name descname"><span class="pre">getInputImages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInputImages" title="Link to this definition"></a></dt>
+<dd><p>Get the list of image inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInputParameter">
+<span class="sig-name descname"><span class="pre">getInputParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARInput with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – input parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInputParameterFromUID">
+<span class="sig-name descname"><span class="pre">getInputParameterFromUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInputParameterFromUID" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARInput with the given UID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamUID</strong> (<em>str</em>) – input parameter UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getInputParameters">
+<span class="sig-name descname"><span class="pre">getInputParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getInputParameters" title="Link to this definition"></a></dt>
+<dd><p>Get the list of inputs parameters that are not input entries but numerical values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getMetaData">
+<span class="sig-name descname"><span class="pre">getMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get a MetaData by its name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aName</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getOutputFormat">
+<span class="sig-name descname"><span class="pre">getOutputFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getOutputFormat" title="Link to this definition"></a></dt>
+<dd><p>getFormat()
+Get the output format of this GraphOutput.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputNode</strong> – an Identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the output format <a class="reference internal" href="../sbsenum.html#sbsenum.TextureFormatEnum" title="sbsenum.TextureFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a> or <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> if Value output, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getOutputMipmaps">
+<span class="sig-name descname"><span class="pre">getOutputMipmaps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getOutputMipmaps" title="Link to this definition"></a></dt>
+<dd><p>Get the output format of this GraphOutput.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputNode</strong> – an Identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mipmaps level <a class="reference internal" href="../sbsenum.html#sbsenum.MipmapEnum" title="sbsenum.MipmapEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MipmapEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getPreset">
+<span class="sig-name descname"><span class="pre">getPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPresetLabel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getPreset" title="Link to this definition"></a></dt>
+<dd><p>Get the preset with the given label</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.Preset" title="common_interfaces.package.Preset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Preset</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getPrimaryInput">
+<span class="sig-name descname"><span class="pre">getPrimaryInput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getPrimaryInput" title="Link to this definition"></a></dt>
+<dd><p>Get the identifier of the primary input of the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The identifier of the primary input as a string if it exists, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.getSBSMetaDataTree">
+<span class="sig-name descname"><span class="pre">getSBSMetaDataTree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.getSBSMetaDataTree" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSMetaDataTree structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>class <cite>.SBSMetaDataTree</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.hasIcon">
+<span class="sig-name descname"><span class="pre">hasIcon</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.hasIcon" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.isPrimaryInput">
+<span class="sig-name descname"><span class="pre">isPrimaryInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.isPrimaryInput" title="Link to this definition"></a></dt>
+<dd><p>Check if the given input is the primary input for this graph or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a>) – The input to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this is the primary input, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.setMetaDataName">
+<span class="sig-name descname"><span class="pre">setMetaDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.setMetaDataName" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARGraph.setMetaDataValue">
+<span class="sig-name descname"><span class="pre">setMetaDataValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARGraph.setMetaDataValue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsargraph.</span></span><span class="sig-name descname"><span class="pre">SBSARInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAlterOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAlterNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserTag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputGui</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code>, <a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject" title="sbsarchive.sbsarmetadata.SBSARMetaDataObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARMetaDataObject</span></code></a></p>
+<p>Class that contains information on a graph input as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier   (str): identifier of the input.</p></li>
+<li><p>mUID          (str): uid of the input.</p></li>
+<li><p>mType         (<a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.SBSARTypeEnum" title="sbsarchive.sbsarenum.SBSARTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARTypeEnum</span></code></a>): data type, among the enumeration <a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.SBSARTypeEnum" title="sbsarchive.sbsarenum.SBSARTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARTypeEnum</span></code></a></p></li>
+<li><p>mAlterOutputs (List[str]): collection of graph outputs UID which are impacted anytime this input value is modified.</p></li>
+<li><p>mAlterNodes   (str): ???.</p></li>
+<li><p>mDefault      (str, optional): Default value.</p></li>
+<li><p>mUserTag      (str, optional): user textual tags</p></li>
+<li><p>mInputGui     (<a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui" title="sbsarchive.sbsargui.SBSARInputGui"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInputGui</span></code></a>, optional): GUI widget of the input</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.createMetaDataStr">
+<span class="sig-name descname"><span class="pre">createMetaDataStr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.createMetaDataStr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.createMetaDataUrl">
+<span class="sig-name descname"><span class="pre">createMetaDataUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResource</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.createMetaDataUrl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.deleteMetaData">
+<span class="sig-name descname"><span class="pre">deleteMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.deleteMetaData" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.formatValueToType">
+<span class="sig-name descname"><span class="pre">formatValueToType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.formatValueToType" title="Link to this definition"></a></dt>
+<dd><p>Return the given value formatted in the appropriate type for this parameter (bool, int or float)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>string</em><em>, </em><em>bool</em><em>, </em><em>int</em><em>, or </em><em>float</em>) – The value to format</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value as a bool, int of float depending on the parameter type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getAllMetaData">
+<span class="sig-name descname"><span class="pre">getAllMetaData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getAllMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get all MetaData under dictionary form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this parameter, None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getDefaultValue">
+<span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getDefaultValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the default value as a value or a list of values in the type of the parameter (bool, int or float), None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getDimension">
+<span class="sig-name descname"><span class="pre">getDimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getDimension" title="Link to this definition"></a></dt>
+<dd><p>Get the dimension of the parameter type (1, 2, 3, or 4 values)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dimension as an integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined for this parameter, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getGroup">
+<span class="sig-name descname"><span class="pre">getGroup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getGroup" title="Link to this definition"></a></dt>
+<dd><p>Get the input GUI group containing this input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the GUI group as a string if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getInputGui">
+<span class="sig-name descname"><span class="pre">getInputGui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getInputGui" title="Link to this definition"></a></dt>
+<dd><p>Get the input GUI associated to this input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui" title="sbsarchive.sbsargui.SBSARInputGui"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInputGui</span></code></a> object if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getIsConnectable">
+<span class="sig-name descname"><span class="pre">getIsConnectable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getIsConnectable" title="Link to this definition"></a></dt>
+<dd><p>Check if this input is connectable as an input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if it’s connectable, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getLabelFalse">
+<span class="sig-name descname"><span class="pre">getLabelFalse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getLabelFalse" title="Link to this definition"></a></dt>
+<dd><p>Returns the label for the false option if it’s valid for this input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str with the label if it’s a button, otherwise None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getLabelTrue">
+<span class="sig-name descname"><span class="pre">getLabelTrue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getLabelTrue" title="Link to this definition"></a></dt>
+<dd><p>Returns the label for the true option if it’s valid for this input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str with the label if it’s a button, otherwise None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this parameter, in the right order, as a list of strings. None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>asList</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to get the result as a list of maximum values accordingly to the number of values of this parameter, False to have only one value returned. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the maximum parameter value in the type of the parameter (int or float), as a list or not, None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getMetaData">
+<span class="sig-name descname"><span class="pre">getMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get a MetaData by its name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aName</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>asList</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to get the result as a list of minimum values accordingly to the number of values of this parameter, False to have only one value returned. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the minimum parameter value in the type of the parameter (int or float), as a list or not, None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getSBSMetaDataTree">
+<span class="sig-name descname"><span class="pre">getSBSMetaDataTree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getSBSMetaDataTree" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSMetaDataTree structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>class <cite>.SBSMetaDataTree</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step value (in the type of the parameter) of the widget for this parameter, None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the input among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>.
+Please be careful, it does not match the enumeration of type in a .sbsar format.
+To get the type as a <a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.SBSARTypeEnum" title="sbsarchive.sbsarenum.SBSARTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARTypeEnum</span></code></a>, just access the mType member</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type of the parameter as a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getUsages">
+<span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getUsages" title="Link to this definition"></a></dt>
+<dd><p>Get the usages of this param input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARUsage" title="sbsarchive.sbsarguiwidgets.SBSARUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARUsage</span></code></a> defined on this image input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.getWidget">
+<span class="sig-name descname"><span class="pre">getWidget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.getWidget" title="Link to this definition"></a></dt>
+<dd><p>Get the widget associated to this input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../common_interfaces/sbsarobject.html#common_interfaces.sbsarobject.SBSARObject" title="common_interfaces.sbsarobject.SBSARObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></a> object if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.hasUsage">
+<span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.hasUsage" title="Link to this definition"></a></dt>
+<dd><p>Check if the given usage is defined on this image input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (str or <a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a>) – The usage to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given usage is defined on this param input, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.isAnInputImage">
+<span class="sig-name descname"><span class="pre">isAnInputImage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.isAnInputImage" title="Link to this definition"></a></dt>
+<dd><p>Check if this input is of kind image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is an input image, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.isAnInputParameter">
+<span class="sig-name descname"><span class="pre">isAnInputParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.isAnInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Check if this input is a parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is an input parameter, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.setMetaDataName">
+<span class="sig-name descname"><span class="pre">setMetaDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.setMetaDataName" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARInput.setMetaDataValue">
+<span class="sig-name descname"><span class="pre">setMetaDataValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARInput.setMetaDataValue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsargraph.</span></span><span class="sig-name descname"><span class="pre">SBSAROutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aHeight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMipMaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDynamicSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputGui</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">GraphOutput</span></code>, <a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject" title="sbsarchive.sbsarmetadata.SBSARMetaDataObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARMetaDataObject</span></code></a></p>
+<p>Class that contains information on a graph output as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mUID         (str): uid of the output.</p></li>
+<li><p>mIdentifier  (str): identifier of the output.</p></li>
+<li><p>mType        (<a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.SBSARTypeEnum" title="sbsarchive.sbsarenum.SBSARTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARTypeEnum</span></code></a>): data type, among the enumeration <a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.SBSARTypeEnum" title="sbsarchive.sbsarenum.SBSARTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARTypeEnum</span></code></a></p></li>
+<li><p>mFormat      (<a class="reference internal" href="../sbsenum.html#sbsenum.TextureFormatEnum" title="sbsenum.TextureFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a>): format type, among the enumeration <a class="reference internal" href="../sbsenum.html#sbsenum.TextureFormatEnum" title="sbsenum.TextureFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a> or <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> if value output.</p></li>
+<li><p>mWidth       (str): width of the output.</p></li>
+<li><p>mHeight      (str): height of the output.</p></li>
+<li><p>mMipMaps     (str): mipmap level.</p></li>
+<li><p>mDynamicSize (str): dynamic size.</p></li>
+<li><p>mUserData    (str): user textual tags</p></li>
+<li><p>mOutputGui   (<a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSAROutputGui" title="sbsarchive.sbsargui.SBSAROutputGui"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutputGui</span></code></a>): GUI widget of the output</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.createMetaDataStr">
+<span class="sig-name descname"><span class="pre">createMetaDataStr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.createMetaDataStr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.createMetaDataUrl">
+<span class="sig-name descname"><span class="pre">createMetaDataUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResource</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.createMetaDataUrl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.deleteMetaData">
+<span class="sig-name descname"><span class="pre">deleteMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.deleteMetaData" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getAllMetaData">
+<span class="sig-name descname"><span class="pre">getAllMetaData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getAllMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get all MetaData under dictionary form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getFormat">
+<span class="sig-name descname"><span class="pre">getFormat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getFormat" title="Link to this definition"></a></dt>
+<dd><p>Get the output format of this GraphOutput.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the output format <a class="reference internal" href="../sbsenum.html#sbsenum.TextureFormatEnum" title="sbsenum.TextureFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a> or <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> if Value output, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getMetaData">
+<span class="sig-name descname"><span class="pre">getMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get a MetaData by its name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aName</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getMipmaps">
+<span class="sig-name descname"><span class="pre">getMipmaps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getMipmaps" title="Link to this definition"></a></dt>
+<dd><p>Get the output format of this GraphOutput.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mipmaps level <a class="reference internal" href="../sbsenum.html#sbsenum.MipmapEnum" title="sbsenum.MipmapEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MipmapEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getOutputType">
+<span class="sig-name descname"><span class="pre">getOutputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getOutputType" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getSBSMetaDataTree">
+<span class="sig-name descname"><span class="pre">getSBSMetaDataTree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getSBSMetaDataTree" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSMetaDataTree structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>class <cite>.SBSMetaDataTree</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the output type of this GraphOutput.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the output type in the format <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.getUsages">
+<span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.getUsages" title="Link to this definition"></a></dt>
+<dd><p>Get the usages of this graph output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARUsage" title="sbsarchive.sbsarguiwidgets.SBSARUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARUsage</span></code></a> defined on this graph output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.hasUsage">
+<span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.hasUsage" title="Link to this definition"></a></dt>
+<dd><p>Check if the given usage is defined on this graph output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (str or <a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a>) – The usage to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given usage is defined on this graph output, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.setMetaDataName">
+<span class="sig-name descname"><span class="pre">setMetaDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.setMetaDataName" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSAROutput.setMetaDataValue">
+<span class="sig-name descname"><span class="pre">setMetaDataValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSAROutput.setMetaDataValue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPreset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsargraph.</span></span><span class="sig-name descname"><span class="pre">SBSARPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPreset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Preset</span></code></p>
+<p>Class that contains information on a graph parameter preset as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mLabel        (str): identifier of the preset.</p></li>
+<li><p>mPresetInputs (list of <a class="reference internal" href="#sbsarchive.sbsargraph.SBSARPresetInput" title="sbsarchive.sbsargraph.SBSARPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPresetInput</span></code></a>): list of preset parameters.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPreset.getInputValue">
+<span class="sig-name descname"><span class="pre">getInputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPreset.getInputValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the given ParamInput in this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputUID</strong> (<em>str</em>) – UID of the input to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input value in this preset if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPreset.getPresetInput">
+<span class="sig-name descname"><span class="pre">getPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPreset.getPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Get the preset of the given input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParam</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code> or str) – the input parameter as ParamInput or identified by its uid</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.PresetInput" title="common_interfaces.package.PresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPreset.getPresetInputFromIdentifier">
+<span class="sig-name descname"><span class="pre">getPresetInputFromIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPreset.getPresetInputFromIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the preset of the given input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – the input parameter identified by its identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.PresetInput" title="common_interfaces.package.PresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPreset.getPresetInputs">
+<span class="sig-name descname"><span class="pre">getPresetInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPreset.getPresetInputs" title="Link to this definition"></a></dt>
+<dd><p>Get the list of preset inputs defined in this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.PresetInput" title="common_interfaces.package.PresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPreset.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPreset.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPresetInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsargraph.</span></span><span class="sig-name descname"><span class="pre">SBSARPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></p>
+<p>Class for manipulating embedded user-defined preset input inside a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mUID        (str): uid of the input parameter targeted by this preset input</p></li>
+<li><p>mIdentifier (str): identifier of the input parameter targeted by this preset input</p></li>
+<li><p>mValue      (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSConstantValue" title="sbscommon.values.SBSConstantValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConstantValue</span></code></a>): value, depend on the type.</p></li>
+<li><p>mType       (<a class="reference internal" href="../params/params.html#params.params.SBSParamValue" title="params.params.SBSParamValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamValue</span></code></a>): type of the input</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPresetInput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPresetInput.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the input among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>.
+Please be careful, it does not match the enumeration of type in a .sbsar format.
+To get the type as a <a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.SBSARTypeEnum" title="sbsarchive.sbsarenum.SBSARTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARTypeEnum</span></code></a>, just access the mType member</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type of the parameter as a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPresetInput.getTypedValue">
+<span class="sig-name descname"><span class="pre">getTypedValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPresetInput.getTypedValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this preset input correctly formatted in the type of this preset (e.g. bool, int, float, list of int, …)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The input value in the appropriate type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPresetInput.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPresetInput.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this preset input as it is saved in the file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input value in this preset input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsargraph.SBSARPresetInput.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsargraph.SBSARPresetInput.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsarchive.html" class="btn btn-neutral float-left" title="sbsarchive module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsarmanager.html" class="btn btn-neutral float-right" title="sbsarmanager module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

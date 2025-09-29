@@ -1,0 +1,410 @@
+.. _ref-to-api-modification:
+
+
+Substances modification
+^^^^^^^^^^^^^^^^^^^^^^^
+This API may also be used to modify existing substances, to automatize an update of a set of substances, or to apply the same modification on many nodes or graph.
+
+Massive modification of Substances
+""""""""""""""""""""""""""""""""""
+
+| Suppose you want to do the same modification on all nodes of a Substance, or on a set of Substances, this API will allows you to script the modifications you want to apply instead of doing them manually.
+| The sample function :func:`demos.demoMassiveModification` demonstrates the modification of the Output size of all Graphs included in the substance *sample/blend_switch.sbs*, and the Pixel format of all Input nodes included in each Graph.
+
+| Launch the script with this command line, from the folder *demos/*:
+
+.. code-block:: shell
+
+    python demos.py -fct: demoMassiveModification -args: "../sample/argsDemoMassiveModification.xml"
+
+On a package (:class:`.SBSDocument`), the following modifications can be done:
+
+.. code-block:: python
+
+    # Relocate a linked resource
+    myResource = sbsDoc.getSBSResource('myResourceIdentifier')                            # Get the resource from its identifier
+    myResource = sbsDoc.getSBSResourceFromPath('<myAbsolutePath>/myResourceFilename.png') # Get the resource from its absolute path
+    myResource = sbsDoc.getObjectFromInternalPath('pkg:///myGroup/myResourceIdentifier')  # Get the resource from its internal path
+
+    sbsDoc.relocateResource(myResource, aNewPath='<myNewAbsolutePath>/myNewFilename.png') # Relocate the resource
+
+    # Move a graph/function/resource/group under a group
+    # -> it updates all the references on this object inside the current package)
+    sbsDoc.moveObjectUnderGroup(aObject=myGraph, aGroup='pkg:///Graphs')   # Move the graph under the group named 'Graphs'
+    sbsDoc.moveObjectUnderGroup(aObject=myGraph, aGroup=None)              # Move the graph under the root package content
+
+    # Set the identifier of a graph/function/resource/group
+    # -> It updates all the references on this object inside the current package
+    sbsDoc.setObjectIdentifier(aObject=myGraph, aIdentifier='myNewGraphName')
+
+
+On a graph (:class:`.SBSGraph`), the following modifications can be done for instance:
+
+.. code-block:: python
+
+    # Create a new input parameter, named 'InputColor', with a RGBA color widget
+    aParam = aSubGraph.addInputParameter(aIdentifier   = 'InputColor',
+                                         aWidget       = sbsenum.WidgetEnum.COLOR_FLOAT4,
+                                         aDefaultValue = [1,1,1,1],
+                                         aLabel        = 'Input Color')
+    
+    # Modify a base parameter: Set the output size for instance
+    aGraph.setBaseParameterValue(aParameter  = sbsenum.CompNodeParamEnum.OUTPUT_SIZE,
+                                 aParamValue = [sbsenum.OutputSizeEnum.SIZE_1024,sbsenum.OutputSizeEnum.SIZE_1024],
+                                 aRelativeTo = sbsenum.ParamInheritanceEnum.ABSOLUTE)
+
+    # Set attributes and icon
+    aGraph.setAttribute(aAttributeIdentifier = sbsenum.AttributesEnum.Author, aAttributeValue='Substance Designer API')
+    aGraph.setIcon(aIconAbsPath = myIconPath))
+
+    # Create parameter presets
+    aPreset = aGraph.createPreset(aLabel='DefaultPreset', setCurrentDefaultValues=True)
+    aPreset.setPresetInput(aInputParam=aParam, aPresetValue=[0.1, 0.2, 0.3, 1])
+
+    # Connect/Disconnect two nodes (the input and output can be specified or not, depending on the possible ambiguity)
+    aGraph.connectNodes(aLeftNode = aFirstNode, aRightNode = aSecondNode)
+    aGraph.connectNodes(aLeftNode = aFirstNode, aRightNode = aSecondNode, aLeftNodeOutput='myOutput', aRightNodeInput=sbsenum.InputEnum.OPACITY)
+    aGraph.disconnectNodes(aLeftNode = aFirstNode, aRightNode = aSecondNode)
+
+    # Move the connections on a pin input/output to another pin input/output
+    aGraph.moveConnectionsOnPinOutput(aInitialNode = rgbaSplitNode, aInitialNodeOutput = 'R',
+                                      aTargetNode = rgbaSplitNode, aTargetNodeOutput = 'G')
+    aGraph.moveConnectionOnPinInput(aInitialNode = blendNode, aInitialNodeInput = sbsenum.InputEnum.DESTINATION,
+                                    aTargetNode = embossNode, aTargetNodeInput = sbsenum.InputEnum.INPUT_GRADIENT)
+
+
+On a compositing node (:class:`.SBSCompNode`), several functions allow to modify a node:
+
+.. code-block:: python
+
+    # Modify a Parameter: Set the output pixel format for instance
+    aCompNode.setParameterValue(aParameter  = sbsenum.CompNodeParamEnum.OUTPUT_FORMAT,
+                                aParamValue = sbsenum.OutputFormatEnum.FORMAT_16BITS,
+                                aRelativeTo = sbsenum.ParamInheritanceEnum.ABSOLUTE)
+    
+    # Define a parameter as dynamic, handled by the input parameter named 'InputColor' defined in the parent graph:
+    aDynFunction = aCompNode.setDynamicParameter(sbsenum.CompNodeParamEnum.OUTPUT_COLOR)
+    aDynFunction.setToInputParam(aParentGraph, aInputParamIdentifier='InputColor')
+
+
+There are equivalent functions for Function graph (:class:`.SBSFunction`) and function node (:class:`.SBSParamNode`).
+
+
+
+Baking Parameters modification
+""""""""""""""""""""""""""""""
+| This API allows to create or modify the baking parameters of a Scene resource imported in the Substance. 
+| The sample function :func:`demos.demoBakingParameters` gives a brief overview of what the API allows to do regarding the baking parameters.
+
+The initial substance DemoBakingParameters.sbs provided in the folder *sample/* is almost empty and contains no resource.
+
+.. image:: ../images/bakingParams1.png
+    :width: 384px
+    :align: center
+
+| The objective of the script is:
+| - to import a new linked Scene resource in the package
+| - to create the Baking Parameters of this resource
+| - to set a 'Normal Map From Mesh baker' with a High definition mesh
+| - to set a 'Ambient Occlusion' baker which uses the result of the 'Normal Map From Mesh'
+
+.. code-block:: python
+
+    # Add a new Scene resource to the document
+    aRelPath = sbsDoc.buildAbsPathFromRelToMePath(aRelPathFromPackage='./Models/LowPolyModel.obj')
+    aNewResource = sbsDoc.createExternalResource(aIdentifier='MyNewResource',
+                                                 aResourcePath=aRelPath,
+                                                 aResourceTypeEnum=sbsenum.ResourceTypeEnum.SCENE)
+    
+    # Create BakingParameters for this resource
+    aBakingParams = aNewResource.createBakingParameters()
+
+    # Add a high poly mesh from a file path
+    aHighPolyFilePath = sbsDoc.buildAbsPathFromRelToMePath('./Models/HighPolyModel.obj')
+    aBakingParams.addHighDefinitionMeshFromFile(aHighPolyFilePath)
+
+    # Add a Normal Map From Mesh baker
+    NM_baker = aBakingParams.addBaker(sbsbakers.BakerEnum.NORMAL_MAP_FROM_MESH)
+
+    # Set Antialiasing value specifically to NormalMap baker
+    NM_baker.setParameterValue(aParameter=sbsbakers.ConverterParamEnum.DEFAULT__SUB_SAMPLING,
+                               aParamValue=sbsbakers.BakerFromMeshSubSamplingEnum.SUBSAMPLING_2x2)
+
+    # Add an Ambient Occlusion baker which uses the resulting map of the Normal Map From Mesh baker
+    AO_baker = aBakingParams.addBaker(sbsbakers.BakerEnum.AMBIENT_OCCLUSION)
+    AO_baker.setFileParameterValueFromPreviousBaker(aParameter=sbsbakers.ConverterParamEnum.NORMAL_MAP,
+                                                    aPreviousBaker=NM_baker)
+
+    # Set back the baking parameters into the options of the resource
+    aNewResource.setBakingParameters(aBakingParams)  
+
+
+Launch the script with this command line, from the folder *demos/*:
+
+.. code-block:: shell
+
+    python demos.py -fct: demoBakingParameters -args: "../sample/argsDemoBakingParameters.xml"
+
+Here is the result of the script execution:
+
+.. image:: ../images/bakingParams2.png
+    :width: 1200px
+    :align: center
+
+The generated maps:
+   
+.. image:: ../images/bakinParamsMaps.png
+    :width: 514px
+    :align: center
+
+
+On a :class:`.SBSResource` on kind SCENE, the baking parameters are saved as a base64 encoded string in the options of the resource. The following functions allow to get the baking parameters as an object :class:`.BakingParameters` with the ability to do modifications on the converters already defined, and to add new converters.
+
+.. code-block:: python
+
+    # Get the Scene resource named 'myResourceName'
+    aSceneResource = sbsDoc.getSBSResource(aResourceIdentifier='myResourceName')
+    
+    # Get the baking parameters as an object
+    aBakingParams = aSceneResource.getBakingParameters()
+
+    # Get the 'Position' baker
+    Position_baker = aBakingParams.getConverter(aConverter=sbsbakers.BakerEnum.POSITION)
+
+    # Override the 'Common to all bakers parameters'
+    Position_baker.setOverrideParamsCommonToAllBakers(aOverride=True)
+    
+    # Set parameters values
+    Position_baker.setParameterValue(aParameter=sbsbakers.ConverterParamEnum.COMMON__APPLY_DIFFUSION,
+                                     aParamValue=False)
+    Position_baker.setParameterValue(aParameter=sbsbakers.ConverterParamEnum.MODE,
+                                     aParamValue=sbsbakers.BakerPositionModeEnum.ONE_AXIS)
+    Position_baker.setParameterValue(aParameter=sbsbakers.ConverterParamEnum.AXIS,
+                                     aParamValue=sbsbakers.BakerPositionAxisEnum.AXIS_Y)
+
+    # Add a Curvature converter
+    Curvature_baker = aBakingParams.addConverter(aIdentifier=sbsbakers.BakerEnum.CURVATURE)
+
+    # Set back the baking parameters into the options of the resource
+    aSceneResource.setBakingParameters(aBakingParams)
+
+
+
+.. _ref-to-demo-iteration:
+
+Iteration generation
+""""""""""""""""""""
+This API provides a set of useful function to generate iterations on compositing or function graphs, allowing to duplicate n times a single node or a pattern of nodes.
+
+Several objects implement the two methods to generate iteration: **createIterationOnNode** and **createIterationOnPattern**:
+
+* :class:`.SBSGraph`: To create an iteration of compositing nodes (objects :class:`.SBSCompNode`).
+* :class:`.SBSFunction`: To create an iteration of function nodes. (calls the methods implemented on :class:`.SBSDynamicValue` at the end).
+* :class:`.SBSCompNode`: To create an iteration of function nodes for a dynamic parameter. (calls the methods implemented on :class:`.SBSDynamicValue` at the end).
+* :class:`.SBSParamsGraph`: To create an iteration of function nodes for a dynamic parameter of a FxMap node. (calls the methods implemented on :class:`.SBSDynamicValue` at the end).
+* :class:`.SBSDynamicValue`: To create an iteration of function nodes (objects :class:`.SBSParamNode`).
+
+
+A set of sample of iteration creation are available in the folder *sample/*.  
+
+
+Sample 1: Compositing node iteration
+''''''''''''''''''''''''''''''''''''
+
+| The sample function :func:`demos.demoIteration` shows how to generate different kind of iterations.
+
+The initial substance contains four graphs, and in each graph an iteration will be created, showing the ability of the
+provided methods to deduce automatically the connection between pattern where there is no ambiguity, or the ability to specify the connection between two successive patterns.
+
+| Launch the script with this command line, from the folder *demos/*:
+
+.. code-block:: shell
+
+    python demos.py -fct: demoIteration -args: "../sample/argsDemoIteration.xml"
+
+**The first example is very simple and shows the creation of an iteration of a single node, with only one input and one output:**
+
+.. image:: ../images/Iter1.png
+    :width: 280px
+    :align: center
+
+.. code-block:: python
+
+    # Duplicate 5 times a single node
+    aGraph = sbsDoc.getSBSGraph(aGraphIdentifier = 'DemoIterationSubGraph')
+    aGraph.createIterationOnNode(aNbIteration = 5, aCompNodeUID = '1255032103')
+
+.. image:: ../images/iterResult1.png
+    :width: 690px
+    :align: center
+
+
+**The second example shows the creation of an iteration of a single node, with two inputs and outputs, grayscale and color, whose types are inverted between the input and the output:**
+
+.. image:: ../images/Iter2.png
+    :width: 300px
+    :align: center
+
+.. code-block:: python
+
+    # Duplicate 3 times the node (test the automatic detection of compatible inputs / outputs)
+    aGraph = sbsDoc.getSBSGraph(aGraphIdentifier = 'DemoIterationSubGraphDouble')
+    aGraph.createIterationOnNode(aNbIteration = 3, aCompNodeUID = '1255523774')
+
+.. image:: ../images/iterResult2.png
+    :width: 530px
+    :align: center
+
+**The third example shows the creation of an iteration of a pattern, the detection of connections coming from the outside of the pattern, and the detection of the connection between two successive patterns.**
+
+.. image:: ../images/Iter3.png
+    :width: 540px
+    :align: center
+
+.. code-block:: python
+
+    # Duplicate 3 times the pattern of nodes (test the automatic detection of compatible inputs / outputs)
+    aGraph = sbsDoc.getSBSGraph(aGraphIdentifier = 'DemoIterationPattern')
+    aGraph.createIterationOnPattern(aNbIteration = 3,
+                                    aCompNodeUIDs = ['1255034408', '1255026224', '1255029181', '1255029884',
+                                                     '1255029987', '1255029994', '1255029049'])
+
+.. image:: ../images/iterResult3.png
+    :width: 970px
+    :align: center
+
+**The fourth example shows the creation of an iteration of a pattern with the way to specify the connection between two successive patterns.**
+
+.. image:: ../images/Iter4.png
+    :width: 420px
+    :align: center
+
+.. code-block:: python
+
+    # Duplicate 3 times the pattern of nodes, specifying way to connect two successive patterns
+    aGraph = sbsDoc.getSBSGraph(aGraphIdentifier = 'DemoIterationVerticalPattern')
+    aGraph.createIterationOnPattern(aNbIteration = 3,
+                                    aCompNodeUIDs = ['1262168894', '1262168896'],
+                                    aCompNodeUIDs_NextPatternInput = ['1262169024', '1262168960'],
+                                    aGUIOffset = [0, 100])
+
+.. image:: ../images/iterResult4.png
+    :width: 420px
+    :align: center
+
+
+Sample 2: Iteration inside a Pixel Processor
+''''''''''''''''''''''''''''''''''''''''''''
+The sample function :func:`demos.demoIterationPixProc` demonstrates the way to generate an iteration inside the pixel processor function.
+
+The purpose of the substance used in this sample is to generate a terrain heightmap using the MultiFractal algorithm:
+
+.. image:: ../images/TerrainOutput.jpg
+    :width: 250px
+    :align: center
+
+| Launch the script with this command line, from the folder *demos/*:
+
+.. code-block:: shell
+
+    python demos.py -fct: demoIterationPixProc -args: "../sample/argsDemoIterationPixProc.xml"
+
+The function will modify the pixel processor node framed with 'Fractal Sum' in yellow, in the substance *demoIteration.sbs* provided in *sample/*:
+
+.. image:: ../images/IterPixProc1.png
+    :width: 550px
+    :align: center
+
+
+| In the initial state of the pixel processor function, there are only two iterations of what we want to duplicate: The **Add** node and the instance of function **FractamSumFct** node.
+| The first one will be given as the pattern to duplicate, and the second one will be given as the next iteration pattern, in order to specify the connections between two successive patterns:
+
+.. image:: ../images/IterPixProc2.png
+    :width: 610px
+    :align: center
+
+The function :func:`demos.demoIterationPixProc` calls the method createIterationOnPattern() on the pixel processor function, with these lines:
+
+.. code-block:: python
+
+    # Get the pixel processor node where the iteration will be created, and its dynamic function
+    aPixProcNode = aGraph.getCompNode('1260898088')
+    aDynFct = aPixProcNode.getPixProcFunction()
+    
+    # Duplicate 10 times the pattern, indicating the way to reconnect to the next pattern
+    createdNodes = aDynFct.createIterationOnPattern(aNbIteration = 10,
+                                    aGUIOffset = [0, 200],
+                                    aParamNodeUIDs = ['1263052178', '1263052114' ],
+                                    aParamNodeUIDs_NextPattern = ['1263052279', '1263052278'])
+
+| Note that the nodes are identified by their UID, which is their unique identifier in the context of their parent. 
+| The UIDs can be retrieved by parsing the .sbs file or directly in Substance Designer, by right-clicking on a node and selecting 'Copy Info to Clipboard'
+| Here is the result:
+
+.. image:: ../images/IterPixProc3.png
+    :width: 610px
+    :align: center
+
+
+Sample 3: Iteration inside a function, and use of variables
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+The sample function :func:`demos.demoIterationFlame` demonstrates the use of iteration inside a function, with the modification of variables inside this function, using the **Get** and **Set** nodes.
+
+| In the substance *Flame.sbs* provided in the folder *sample/*, the function **RayMarch** needs 64 iterations of the function called **IterationStep** to implement the RayMarching algorithm.
+| The function IteraionStep uses the variables called *glow* and *glowed* and eventually modify their value depending on certain conditions. 
+| Same thing for variable 'i', which counts the number of executed iterations, and allows the user to obtain different results when tweacking the input parameter *NbIterations* (if i>NbIterations, the IterationStep function does nothing).
+
+The purpose of the substance used in this sample is to generate a flame animation, fully inspired from this ShaderToy by |ShaderToyUser|: |ShaderToyFlame|
+
+.. image:: ../images/FlameOutput.jpg
+    :width: 300px
+    :align: center
+
+| Launch the script with this command line, from the folder *demos/*:
+
+.. code-block:: shell
+
+    python demos.py -fct: demoIterationFlame -args: "../sample/argsDemoIterationFlame.xml"
+
+Function IterationStep (click on it to view it correctly...):
+
+.. image:: ../images/Flame_Step.png
+    :width: 580px
+    :align: center
+
+Function RayMarch in its initial state:
+
+.. image:: ../images/Flame1.png
+    :width: 460px
+    :align: center
+
+.. code-block:: python
+
+    # Duplicate 63 times the pattern inside function RayMarch
+    aFunction = sbsDoc.getSBSFunction(aFunctionIdentifier= 'RayMarch')
+    createdNodes = aFunction.createIterationOnPattern(aNbIteration = 63,
+                                        aGUIOffset                 = [0, 200],
+                                        aNodeUIDs                  = ['1262101431', '1262101516'],
+                                        aNodeUIDs_NextPatternInput = ['1262101533', '1262101527'])
+    
+    
+    # Connect the last created node with the end of the function
+    aEndNode = aFunction.getFunctionNode('1262095290')
+    aFunction.connectNodes(aLeftNode = createdNodes[-1],
+                           aRightNode = aEndNode,
+                           aRightNodeInput = sbsenum.FunctionInputEnum.SEQUENCE_IN)
+
+And here is the result:
+
+.. image:: ../images/Flame2.png
+    :width: 684px
+    :align: center
+
+
+.. |ShaderToyFlame| raw:: html
+
+   <a href="https://www.shadertoy.com/view/MdX3zr" target="_blank">ShaderToy Flame</a>
+
+.. |ShaderToyUser| raw:: html
+
+   <a href="https://www.shadertoy.com/user/XT95" target="_blank">XT95</a>

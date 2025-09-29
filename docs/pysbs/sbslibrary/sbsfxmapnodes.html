@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsfxmapnodes module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbswidgets module" href="sbswidgets.html" />
+    <link rel="prev" title="sbsfunctions module" href="sbsfunctions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbslibrary.html">sbslibrary module: Substance libraries</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsdictionaries.html">sbsdictionaries module: Dictionaries of all strings used in the libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibclasses.html">sbslibclasses module: Classes used by the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfunctions.html">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbswidgets.html">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.__convertToEnum"><code class="docutils literal notranslate"><span class="pre">__convertToEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType"><code class="docutils literal notranslate"><span class="pre">getAllWidgetFunctionButtonByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAngleWidgetByType"><code class="docutils literal notranslate"><span class="pre">getAngleWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getButtonWidgetByType"><code class="docutils literal notranslate"><span class="pre">getButtonWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getColorWidgetByType"><code class="docutils literal notranslate"><span class="pre">getColorWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDefaultWidget"><code class="docutils literal notranslate"><span class="pre">getDefaultWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDropDownWidgetByType"><code class="docutils literal notranslate"><span class="pre">getDropDownWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getEnumButtonsWidgetByType"><code class="docutils literal notranslate"><span class="pre">getEnumButtonsWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterDefinition"><code class="docutils literal notranslate"><span class="pre">getFilterDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterEnum"><code class="docutils literal notranslate"><span class="pre">getFilterEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionDefinition"><code class="docutils literal notranslate"><span class="pre">getFunctionDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeDefinition"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getInputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getInputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getIterationParamInput"><code class="docutils literal notranslate"><span class="pre">getIterationParamInput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOffsetWidgetByType"><code class="docutils literal notranslate"><span class="pre">getOffsetWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOutputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getOutputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getPositionWidgetByType"><code class="docutils literal notranslate"><span class="pre">getPositionWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getSliderWidgetByType"><code class="docutils literal notranslate"><span class="pre">getSliderWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationForwardWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationForwardWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationInverseWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationInverseWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getWidgetByType"><code class="docutils literal notranslate"><span class="pre">getWidgetByType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbslibrary.html">sbslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsfxmapnodes module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbslibrary.sbsfxmapnodes">
+<span id="sbsfxmapnodes-module"></span><h1>sbsfxmapnodes module<a class="headerlink" href="#module-pysbs.sbslibrary.sbsfxmapnodes" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsfxmapnodes</strong> provides the library of FxMap nodes and their definition (inputs, outputs, parameters):</p>
+<blockquote>
+<div><ul>
+<li><p>fxmap_ITERATE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fxmap_ITERATE</span> <span class="o">=</span> <span class="n">FxMapNodeDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;addnode&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>     <span class="p">[</span><span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT0</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">),</span>
+                    <span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT1</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>      <span class="p">[</span><span class="n">CompNodeInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">)],</span>
+    <span class="n">aParameters</span> <span class="o">=</span>  <span class="p">[</span><span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_ITERATIONS</span><span class="p">,</span>       <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span> <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_SEED</span><span class="p">,</span>      <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span> <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_INHERITED</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span> <span class="p">,</span> <span class="s1">&#39;1&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>fxmap_QUADRANT:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fxmap_QUADRANT</span> <span class="o">=</span> <span class="n">FxMapNodeDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;paramset&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>     <span class="p">[</span><span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT0</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">),</span>
+                    <span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT1</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">),</span>
+                    <span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT2</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">),</span>
+                    <span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT3</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>      <span class="p">[</span><span class="n">CompNodeInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">)],</span>
+    <span class="n">aParameters</span> <span class="o">=</span>  <span class="p">[</span><span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_COLOR_LUM</span><span class="p">,</span>         <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT_VARIANT</span><span class="p">,</span> <span class="s1">&#39;1.0 1.0 1.0 1.0&#39;</span> <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_BRANCH_OFFSET</span><span class="p">,</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span>       <span class="p">,</span> <span class="s1">&#39;0.0 0.0&#39;</span>         <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_TYPE</span><span class="p">,</span>      <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span>     <span class="p">,</span> <span class="s1">&#39;0&#39;</span>               <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_OFFSET</span><span class="p">,</span>    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span>       <span class="p">,</span> <span class="s1">&#39;0.0 0.0&#39;</span>         <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_SIZE</span><span class="p">,</span>      <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span>       <span class="p">,</span> <span class="s1">&#39;1.0 1.0&#39;</span>         <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_ROTATION</span><span class="p">,</span>  <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span>       <span class="p">,</span> <span class="s1">&#39;0.0&#39;</span>             <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_VARIATION</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span>       <span class="p">,</span> <span class="s1">&#39;0.0&#39;</span>             <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_BLENDING_MODE</span><span class="p">,</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span>     <span class="p">,</span> <span class="s1">&#39;0&#39;</span>               <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_SEED</span><span class="p">,</span>       <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span>     <span class="p">,</span> <span class="s1">&#39;0&#39;</span>               <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_INHERITED</span><span class="p">,</span>  <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span>      <span class="p">,</span> <span class="s1">&#39;1&#39;</span>               <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_IMAGE_INDEX</span><span class="p">,</span>       <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span>     <span class="p">,</span> <span class="s1">&#39;0&#39;</span>               <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_IMAGE_ALPHA_PREMUL</span><span class="p">,</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span>      <span class="p">,</span> <span class="s1">&#39;0&#39;</span>               <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_IMAGE_FILTERING</span><span class="p">,</span>   <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span>     <span class="p">,</span> <span class="s1">&#39;0&#39;</span>               <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+<li><p>fxmap_SWITCH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fxmap_SWITCH</span> <span class="o">=</span> <span class="n">FxMapNodeDef</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;markov2&#39;</span><span class="p">,</span>
+    <span class="n">aOutputs</span> <span class="o">=</span>     <span class="p">[</span><span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT0</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">),</span>
+                    <span class="n">CompNodeOutput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT1</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">)],</span>
+    <span class="n">aInputs</span> <span class="o">=</span>      <span class="p">[</span><span class="n">CompNodeInput</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT</span><span class="p">,</span>     <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_PARAMETER</span><span class="p">)],</span>
+    <span class="n">aParameters</span> <span class="o">=</span>  <span class="p">[</span><span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_SELECTOR</span><span class="p">,</span>         <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span> <span class="p">,</span> <span class="s1">&#39;0&#39;</span> <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_SEED</span><span class="p">,</span>      <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span> <span class="p">),</span>
+                    <span class="n">CompNodeParam</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_INHERITED</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span> <span class="p">,</span> <span class="s1">&#39;1&#39;</span> <span class="p">)])</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsfunctions.html" class="btn btn-neutral float-left" title="sbsfunctions module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbswidgets.html" class="btn btn-neutral float-right" title="sbswidgets module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

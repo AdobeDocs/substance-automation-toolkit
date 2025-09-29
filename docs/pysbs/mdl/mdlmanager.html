@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mdlmanager module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mdlgraph module" href="mdlgraph.html" />
+    <link rel="prev" title="mdl module" href="mdl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.html">mdl module: MDL graph definition and all objects related to MDL</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdlmanager module: MDL manager, handles the MDL library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlgraph.html">mdlgraph module: MDL graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnode.html">mdlnode module: MDL node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdloperand.html">mdloperand module: MDL operand definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlannotation.html">mdlannotation module: MDL annotation definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlenum.html">mdlenum module: list of enumerations used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdllibclasses.html">mdllibclasses module: provides the classes used to create the MDL library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="mdl.html">mdl module</a></li>
+      <li class="breadcrumb-item active">mdlmanager module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-mdl.mdlmanager">
+<span id="mdlmanager-module"></span><h1>mdlmanager module<a class="headerlink" href="#module-mdl.mdlmanager" title="Link to this heading"></a></h1>
+<p>Module <strong>mdlmanager</strong> provides the class <a class="reference internal" href="#mdl.mdlmanager.MDLManager" title="mdl.mdlmanager.MDLManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLManager</span></code></a> that allows requesting a native mdl node information.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlmanager.</span></span><span class="sig-name descname"><span class="pre">MDLManager</span></span><a class="headerlink" href="#mdl.mdlmanager.MDLManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used handle the MDL library and to request information on a MDL instance</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.MATERIAL_CONSTRUCTOR_FUNCTION">
+<span class="sig-name descname"><span class="pre">MATERIAL_CONSTRUCTOR_FUNCTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl::material(bool,material_surface,material_surface,color,material_volume,material_geometry,hair_bsdf)'</span></em><a class="headerlink" href="#mdl.mdlmanager.MDLManager.MATERIAL_CONSTRUCTOR_FUNCTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.addRootPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addRootPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.addRootPath" title="Link to this definition"></a></dt>
+<dd><p>Add the given absolute path to the list of mdl root paths</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>str</em>) – The absolute path to the directory to add</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>IOError in case the provided path does not exist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.extractMDLModulesFrom">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">extractMDLModulesFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRootPaths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.extractMDLModulesFrom" title="Link to this definition"></a></dt>
+<dd><p>Call mdltools executable to extract the JSON data of the mdl module found in the given list of root path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRootPaths</strong> (<em>list</em><em> of </em><em>strings</em>) – The root path list to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number of extracted items</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.getAcceptConnectionByDefaultForType">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAcceptConnectionByDefaultForType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTypePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamListContainsRefOrMaterial</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.getAcceptConnectionByDefaultForType" title="Link to this definition"></a></dt>
+<dd><p>Get the default connectivity status for an input pin, depending on the given type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aTypePath</strong> (<em>str</em>) – the mdl path of the type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if by default this type accepts connection, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.getConstantDefaultAnnotations">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getConstantDefaultAnnotations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTypePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aExposed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.getConstantDefaultAnnotations" title="Link to this definition"></a></dt>
+<dd><p>Get the list of annotation definition for a MDL constant node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aTypePath</strong> (<em>str</em>) – mdl path of the type of the constant</p></li>
+<li><p><strong>aExposed</strong> (<em>bool</em>) – True to consider a constant exposed as an input parameter, False otherwise</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation" title="mdl.mdlannotation.MDLAnnotation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.getGraphDefaultAnnotations">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getGraphDefaultAnnotations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.getGraphDefaultAnnotations" title="Link to this definition"></a></dt>
+<dd><p>Get the list of annotation definition for a MDL graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation" title="mdl.mdlannotation.MDLAnnotation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.getMDLAnnotationDefinition">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMDLAnnotationDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAnnotation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.getMDLAnnotationDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the annotation definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAnnotation</strong> (<a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLAnnotationEnum" title="mdl.mdlenum.MDLAnnotationEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotationEnum</span></code></a> or str) – The annotation to get, as an enumeration value, or a complete mdl path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The annotation definition as a <a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLAnnotationDef" title="mdl.mdllibclasses.MDLAnnotationDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotationDef</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.getMDLNodeDefinition">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMDLNodeDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.getMDLNodeDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the MDLNodeDef object corresponding to the given mdl path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>string</em>) – The mdl path (for instance ‘mdl::base::color_layer(color,float,::base::color_layer_mode)’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef" title="mdl.mdllibclasses.MDLNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDef</span></code></a> object if the path is found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.getMDLTypeDefinition">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMDLTypeDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.getMDLTypeDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the MDLTypeDef object corresponding to the given mdl path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>string</em>) – The mdl path (for instance ‘mdl::color’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef" title="mdl.mdllibclasses.MDLTypeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLTypeDef</span></code></a> object if the path is found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.getRootPaths">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getRootPaths</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.getRootPaths" title="Link to this definition"></a></dt>
+<dd><p>Get the list of MDL root paths</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The MDL root paths package path as a list of strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.initAllMDLModules">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initAllMDLModules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.initAllMDLModules" title="Link to this definition"></a></dt>
+<dd><p>Initialize the MDL library with all the modules found in the MDL root paths</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.isAColor">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTypePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.isAColor" title="Link to this definition"></a></dt>
+<dd><p>Check whether the given type is related to a color or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this type can be interpreted as a color, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.isModulePathDenyListed">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isModulePathDenyListed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.isModulePathDenyListed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given mdl path is deny listed and cannot be instantiated as a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>str</em>) – The path to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the path is deny listed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.parseJsonData">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parseJsonData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.parseJsonData" title="Link to this definition"></a></dt>
+<dd><p>Parse the given JSON data to extract the MDL functions and materials found in it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> – The JSON data, in the format created by ‘mdltools’ executable</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number of extracted items</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.resolveVersionnedFunctionPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resolveVersionnedFunctionPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.resolveVersionnedFunctionPath" title="Link to this definition"></a></dt>
+<dd><p>Check if the parsed path match mdltools MDL specification, if not change it to a versionned function path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – mdl path to resolve</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str, resolved path, same as argument if not resolved required</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlmanager.MDLManager.setRootPaths">
+<span class="sig-name descname"><span class="pre">setRootPaths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPathList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlmanager.MDLManager.setRootPaths" title="Link to this definition"></a></dt>
+<dd><p>If the given root path list is different from the ones already loaded, reinitialize the MDL library with the given root path.
+Do nothing otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPathList</strong> (<em>list</em><em> of </em><em>string</em>) – the MDL root path list to set, as absolute paths</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mdl.html" class="btn btn-neutral float-left" title="mdl module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mdlgraph.html" class="btn btn-neutral float-right" title="mdlgraph module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

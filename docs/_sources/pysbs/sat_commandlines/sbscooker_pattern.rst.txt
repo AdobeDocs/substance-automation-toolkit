@@ -1,0 +1,24 @@
+.. _ref-to-sat-sbscookerpattern:
+
+sbscooker pattern variables
+===========================
+
+Pattern variables
+
+SbsCooker can replace some pattern by the content of its variable as shown in the next example:
+
+.. code-block:: batch
+
+    sbscooker C:\path\to\file.sbs --output-name {inputName}_wip
+
+The list of the available pattern variables:
+
+.. code-block:: shell
+
+    {inputName} the name of the input sbs file
+    {inputPath} the directory path of the input sbs file, usable only with --output-path flag
+    {outputName} the output name of the future sbsar file
+    {outputPath} the output path of the future sbsar file
+    {engineName} the engine name used by sbscooker
+    {udim} the processed udim number
+

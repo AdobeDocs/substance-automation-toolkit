@@ -1,0 +1,825 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsarguiwidgets module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsarenum module" href="sbsarenum.html" />
+    <link rel="prev" title="sbsargui module" href="sbsargui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsargraph.html">sbsargraph module: SBSARGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarmanager.html">sbsarmanager module: SBSAR file manipulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarmetadata.html">sbsarmetadata module: SBSAR file metadata interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsargui.html">sbsargui module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsarguiwidgets module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarenum.html">sbsarenum module: SBSAR format enumeration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarchive.html#sbsarchive.sbsarchive.SBSARGlobalVar"><code class="docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarchive.html#sbsarchive.sbsarchive.SBSArchive"><code class="docutils literal notranslate"><span class="pre">SBSArchive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsarchive.html">sbsarchive module</a></li>
+      <li class="breadcrumb-item active">sbsarguiwidgets module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbsarchive.sbsarguiwidgets">
+<span id="sbsarguiwidgets-module"></span><h1>sbsarguiwidgets module<a class="headerlink" href="#module-sbsarchive.sbsarguiwidgets" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsarguiwidget</strong> aims to define SBSARObjects that are relative to the GUI widget as saved in a .sbsar file:
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget" title="sbsarchive.sbsarguiwidgets.SBSARGuiWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiWidget</span></code></a>
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle" title="sbsarchive.sbsarguiwidgets.SBSARGuiAngle"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiAngle</span></code></a>
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox" title="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiComboBox</span></code></a>
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem" title="sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiComboBoxItem</span></code></a>
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider" title="sbsarchive.sbsarguiwidgets.SBSARGuiSlider"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiSlider</span></code></a>
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiImage" title="sbsarchive.sbsarguiwidgets.SBSARGuiImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiImage</span></code></a>
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton" title="sbsarchive.sbsarguiwidgets.SBSARGuiButton"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiButton</span></code></a>
+- <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARUsage" title="sbsarchive.sbsarguiwidgets.SBSARUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARUsage</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARGuiAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aClamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aStep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUnit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget" title="sbsarchive.sbsarguiwidgets.SBSARGuiWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiWidget</span></code></a></p>
+<p>Class that contains information on the GUI slider widget of an input parameter as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mMin   (str): Minimum value</p></li>
+<li><p>mMax   (str): Maximum value</p></li>
+<li><p>mClamp (str, optional): Defines if the values are clamped to [min,max] range or not (‘on’,’off’). Default to off.</p></li>
+<li><p>mStep  (str, optional): Defines step value for the widget.</p></li>
+<li><p>mUnit  (str, optional): Unit of the angle (‘degrees’,’radians’,’turns’)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.convertValueToBool">
+<span class="sig-name descname"><span class="pre">convertValueToBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.convertValueToBool" title="Link to this definition"></a></dt>
+<dd><p>Converts the given value to a boolean, if the conversion is possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>str</em>) – The value to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a boolean if the conversion is possible, the given aValue as is otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined in this widget, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this widget, in the right order, as a list of strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the maximum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the minimum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiAngle.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARGuiButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget" title="sbsarchive.sbsarguiwidgets.SBSARGuiWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiWidget</span></code></a></p>
+<p>Class that contains information on the GUI button widget of an input parameter as defined in a .sbsar file</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.convertValueToBool">
+<span class="sig-name descname"><span class="pre">convertValueToBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.convertValueToBool" title="Link to this definition"></a></dt>
+<dd><p>Converts the given value to a boolean, if the conversion is possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>str</em>) – The value to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a boolean if the conversion is possible, the given aValue as is otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined in this widget, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this widget, in the right order, as a list of strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the maximum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the minimum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiButton.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARGuiComboBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aComboBoxItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget" title="sbsarchive.sbsarguiwidgets.SBSARGuiWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiWidget</span></code></a></p>
+<p>Class that contains information on the GUI combo box widget of an input parameter as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mComboBoxItems (list of <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem" title="sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiComboBoxItem</span></code></a>): The items in the combo box menu</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.convertValueToBool">
+<span class="sig-name descname"><span class="pre">convertValueToBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.convertValueToBool" title="Link to this definition"></a></dt>
+<dd><p>Converts the given value to a boolean, if the conversion is possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>str</em>) – The value to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a boolean if the conversion is possible, the given aValue as is otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined in this widget, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this widget, in the right order, as a list of strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the maximum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the minimum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARGuiComboBoxItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></p>
+<p>Class that contains information on the GUI combo box widget of an input parameter as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mValue (str): Drop down value (integer)</p></li>
+<li><p>mText  (str): Associated label</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiImage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARGuiImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColorType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiImage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></p>
+<p>Class that contains information on the GUI image widget of an input as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mColorType (str): Color mode, ‘color’ or ‘grayscale’</p></li>
+<li><p>mUsages    (list of <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARUsage" title="sbsarchive.sbsarguiwidgets.SBSARUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARUsage</span></code></a>): usages of this input image (‘&lt;channels&gt;’ in the .sbsar file)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiImage.getUsages">
+<span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiImage.getUsages" title="Link to this definition"></a></dt>
+<dd><p>Get the usages of this param input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARUsage" title="sbsarchive.sbsarguiwidgets.SBSARUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARUsage</span></code></a> defined on this image input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiImage.hasUsage">
+<span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiImage.hasUsage" title="Link to this definition"></a></dt>
+<dd><p>Check if the given usage is defined on this image input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (str or <a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a>) – The usage to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given usage is defined on this param input, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiImage.isColor">
+<span class="sig-name descname"><span class="pre">isColor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiImage.isColor" title="Link to this definition"></a></dt>
+<dd><p>Check if the image is in color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is a color image, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiImage.isGrayscale">
+<span class="sig-name descname"><span class="pre">isGrayscale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiImage.isGrayscale" title="Link to this definition"></a></dt>
+<dd><p>Check if the image is in grayscale</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is a grayscale image, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiImage.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiImage.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARGuiSlider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aStep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aClamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'off'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'W'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSuffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValueScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget" title="sbsarchive.sbsarguiwidgets.SBSARGuiWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiWidget</span></code></a></p>
+<p>Class that contains information on the GUI angle widget of an input parameter as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mMin        (str): Minimum value</p></li>
+<li><p>mMax        (str): Maximum value</p></li>
+<li><p>mStep       (str): Defines step value for the slider.</p></li>
+<li><p>mClamp      (str, optional): Defines if the values are clamped to [min,max] range or not (‘on’,’off’). Default to off.</p></li>
+<li><p>mLabel0     (str, optional): First value label</p></li>
+<li><p>mLabel1     (str, optional): Second value label</p></li>
+<li><p>mLabel2     (str, optional): Third value label</p></li>
+<li><p>mLabel3     (str, optional): Fourth value label</p></li>
+<li><p>mSuffix     (str, optional): Suffix</p></li>
+<li><p>mValueScale (str, optional): Value scale</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.convertValueToBool">
+<span class="sig-name descname"><span class="pre">convertValueToBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.convertValueToBool" title="Link to this definition"></a></dt>
+<dd><p>Converts the given value to a boolean, if the conversion is possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>str</em>) – The value to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a boolean if the conversion is possible, the given aValue as is otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined in this widget, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this widget, in the right order, as a list of strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the maximum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the minimum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiSlider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARGuiWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aStep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aClamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aComboBoxItems</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></p>
+<p>Class that contains information on a GUI widget of an input parameter as defined in a .sbsar file.
+Base class for <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiAngle" title="sbsarchive.sbsarguiwidgets.SBSARGuiAngle"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiAngle</span></code></a>, <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox" title="sbsarchive.sbsarguiwidgets.SBSARGuiComboBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiComboBox</span></code></a>, <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiSlider" title="sbsarchive.sbsarguiwidgets.SBSARGuiSlider"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiSlider</span></code></a>, <a class="reference internal" href="#sbsarchive.sbsarguiwidgets.SBSARGuiButton" title="sbsarchive.sbsarguiwidgets.SBSARGuiButton"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiButton</span></code></a></p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mMin        (str): Minimum value</p></li>
+<li><p>mMax        (str): Maximum value</p></li>
+<li><p>mStep       (str): Defines step value for the slider.</p></li>
+<li><p>mClamp      (str, optional): Defines if the values are clamped to [min,max] range or not (‘on’,’off’). Default to off.</p></li>
+<li><p>mLabel0     (str, optional): First value label</p></li>
+<li><p>mLabel1     (str, optional): Second value label</p></li>
+<li><p>mLabel2     (str, optional): Third value label</p></li>
+<li><p>mLabel3     (str, optional): Fourth value label</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.convertValueToBool">
+<span class="sig-name descname"><span class="pre">convertValueToBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.convertValueToBool" title="Link to this definition"></a></dt>
+<dd><p>Converts the given value to a boolean, if the conversion is possible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>str</em>) – The value to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a boolean if the conversion is possible, the given aValue as is otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined in this widget, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this widget, in the right order, as a list of strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the maximum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the minimum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARGuiWidget.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARUsage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarguiwidgets.</span></span><span class="sig-name descname"><span class="pre">SBSARUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aComponents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorSpace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARUsage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></p>
+<p>Class that contains information on the channels of an input or output texture as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName       (str): Drop down value (integer)</p></li>
+<li><p>mComponents (str, optional): Color components. Default to ‘RGBA’</p></li>
+<li><p>mColorSpace (str, optional): Color space for the channel</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarguiwidgets.SBSARUsage.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarguiwidgets.SBSARUsage.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsargui.html" class="btn btn-neutral float-left" title="sbsargui module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsarenum.html" class="btn btn-neutral float-right" title="sbsarenum module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1395 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>inputparameters module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="output module" href="output.html" />
+    <link rel="prev" title="function module" href="function.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="graph.html">graph module: Graph and Function definition</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="function.html">function module: Function graph definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">inputparameters module: Input parameters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="output.html">output module: Graph output definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graph.html#graph.graph.SBSGraph"><code class="docutils literal notranslate"><span class="pre">SBSGraph</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="graph.html">graph module</a></li>
+      <li class="breadcrumb-item active">inputparameters module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-graph.inputparameters">
+<span id="inputparameters-module"></span><h1>inputparameters module<a class="headerlink" href="#module-graph.inputparameters" title="Link to this heading"></a></h1>
+<p>Module <strong>inputparameters</strong> provides the definition of <a class="reference internal" href="#graph.inputparameters.SBSWidget" title="graph.inputparameters.SBSWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWidget</span></code></a> and <a class="reference internal" href="#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a>,
+which allow the definition of the Input Parameters of a graph in Substance Designer.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph.inputparameters.</span></span><span class="sig-name descname"><span class="pre">SBSParamInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsConnectable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultWidget</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aVisibleIf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSpotColorInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataObject</span></code></p>
+<p>Class that contains information on an input parameter of a graph, as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier    (str): identifier of this input.</p></li>
+<li><p>mUID           (str): unique identifier in the /graph/ context.</p></li>
+<li><p>mAttributes    (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSAttributes" title="sbscommon.values.SBSAttributes"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAttributes</span></code></a>): various attributes</p></li>
+<li><p>mDisabled      (str, optional): this input is NOT used (“1” / None)</p></li>
+<li><p>mUsages        (list of <a class="reference internal" href="output.html#graph.output.SBSUsage" title="graph.output.SBSUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUsage</span></code></a>): usages of this input</p></li>
+<li><p>mType          (str): type of the input</p></li>
+<li><p>mDefaultValue  (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSConstantValue" title="sbscommon.values.SBSConstantValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConstantValue</span></code></a>): default value, depend on the type.</p></li>
+<li><p>mWidget        (<a class="reference internal" href="#graph.inputparameters.SBSWidget" title="graph.inputparameters.SBSWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWidget</span></code></a>): default widget used to visualize the entry.</p></li>
+<li><p>mGroup         (str, optional): string that contains a group name. Can uses path with ‘/’ separators.</p></li>
+<li><p>mVisibleIf     (str, optional): string boolean expression based on graph inputs values</p></li>
+<li><p>mIsConnectable (str, optional): Flag saying whether the input is possible to connect to the input</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.addUsage">
+<span class="sig-name descname"><span class="pre">addUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aComponents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sbsenum.ComponentsEnum.RGBA</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.addUsage" title="Link to this definition"></a></dt>
+<dd><p>Add the given usage on this param input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUsage</strong> (str or <a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a>) – The usage to set</p></li>
+<li><p><strong>aComponents</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ComponentsEnum" title="sbsenum.ComponentsEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentsEnum</span></code></a>, optional) – The components associated to this usage. Default to sbsenum.ComponentsEnum.RGBA</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the create <a class="reference internal" href="output.html#graph.output.SBSUsage" title="graph.output.SBSUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUsage</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.createMetaDataStr">
+<span class="sig-name descname"><span class="pre">createMetaDataStr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.createMetaDataStr" title="Link to this definition"></a></dt>
+<dd><p>Create a metadata of type Str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aName</strong> (<em>str</em>)</p></li>
+<li><p><strong>aResource</strong> (<a class="reference internal" href="../substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataUrl</span></code> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.createMetaDataUrl">
+<span class="sig-name descname"><span class="pre">createMetaDataUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResource</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.createMetaDataUrl" title="Link to this definition"></a></dt>
+<dd><p>Create a metadata of type Url.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aName</strong> (<em>str</em>)</p></li>
+<li><p><strong>aResource</strong> (<a class="reference internal" href="../substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataUrl</span></code> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.deleteMetaData">
+<span class="sig-name descname"><span class="pre">deleteMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.deleteMetaData" title="Link to this definition"></a></dt>
+<dd><p>Delete a metadata, return True if success.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aName</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.formatValueToType">
+<span class="sig-name descname"><span class="pre">formatValueToType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.formatValueToType" title="Link to this definition"></a></dt>
+<dd><p>Return the given value formatted in the appropriate type for this parameter (bool, int or float)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>string</em><em>, </em><em>bool</em><em>, </em><em>int</em><em>, or </em><em>float</em>) – The value to format</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value as a bool, int of float depending on the parameter type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getAllMetaData">
+<span class="sig-name descname"><span class="pre">getAllMetaData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getAllMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get all MetaData under dictionary form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getAllowedAttributes">
+<span class="sig-name descname"><span class="pre">getAllowedAttributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getAllowedAttributes" title="Link to this definition"></a></dt>
+<dd><p>Get the attributes allowed on a SBSParamInput</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of attribute enumeration allowed (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this parameter, None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getDefaultValue">
+<span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getDefaultValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the default value as a value or a list of values in the type of the parameter (bool, int or float), None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getDimension">
+<span class="sig-name descname"><span class="pre">getDimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getDimension" title="Link to this definition"></a></dt>
+<dd><p>Get the dimension of the parameter type (1, 2, 3, or 4 values)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dimension as an integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined for this parameter, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getGroup">
+<span class="sig-name descname"><span class="pre">getGroup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getGroup" title="Link to this definition"></a></dt>
+<dd><p>Get the group associated to this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the group of this parameter as a string if it has one, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getIsConnectable">
+<span class="sig-name descname"><span class="pre">getIsConnectable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getIsConnectable" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this parameter, in the right order, as a list of strings. None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the maximum parameter value in the type of the parameter (int or float), None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getMetaData">
+<span class="sig-name descname"><span class="pre">getMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get a MetaData by its name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aName</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the minimum parameter value in the type of the parameter (int or float), None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getSBSMetaDataTree">
+<span class="sig-name descname"><span class="pre">getSBSMetaDataTree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getSBSMetaDataTree" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSMetaDataTree structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>class <cite>.SBSMetaDataTree</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getSpotColorInfo">
+<span class="sig-name descname"><span class="pre">getSpotColorInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getSpotColorInfo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step value (in the type of the parameter) of the widget for this parameter, None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the input among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type of the parameter as a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getUID">
+<span class="sig-name descname"><span class="pre">getUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getUID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getUsages">
+<span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getUsages" title="Link to this definition"></a></dt>
+<dd><p>Get the usages of this param input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="output.html#graph.output.SBSUsage" title="graph.output.SBSUsage"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUsage</span></code></a> defined on this param input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getValueInterpretation">
+<span class="sig-name descname"><span class="pre">getValueInterpretation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getValueInterpretation" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the value interpretation as a string if defined for this parameter, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getWidget">
+<span class="sig-name descname"><span class="pre">getWidget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getWidget" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The widget used for this parameter, as a <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDefaultWidget</span></code>. None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.getWidgetType">
+<span class="sig-name descname"><span class="pre">getWidgetType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.getWidgetType" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the kind of widget used for this parameter, as a <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetTypeEnum" title="sbsenum.WidgetTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a>. None if not defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.hasUsage">
+<span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.hasUsage" title="Link to this definition"></a></dt>
+<dd><p>Check if the given usage is defined on this param input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (str or <a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a>) – The usage to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given usage is defined on this param input, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.isAnInputImage">
+<span class="sig-name descname"><span class="pre">isAnInputImage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.isAnInputImage" title="Link to this definition"></a></dt>
+<dd><p>Return True if this input is an input Entry (kind ENTRY_COLOR | ENTRY_GRAYSCALE | ENTRY_VARIANT)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if it is an input entry, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.isAnInputParameter">
+<span class="sig-name descname"><span class="pre">isAnInputParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.isAnInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Return True if this input is a parameter (numeric value)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if it is an input parameter, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setAttribute">
+<span class="sig-name descname"><span class="pre">setAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributeValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setAttribute" title="Link to this definition"></a></dt>
+<dd><p>Set the given attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – The attribute identifier to set</p></li>
+<li><p><strong>aAttributeValue</strong> (<em>str</em>) – The attribute value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setAttributes">
+<span class="sig-name descname"><span class="pre">setAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setAttributes" title="Link to this definition"></a></dt>
+<dd><p>Set the given attributes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value}) – The attributes to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setClamp">
+<span class="sig-name descname"><span class="pre">setClamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aClamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setClamp" title="Link to this definition"></a></dt>
+<dd><p>Set the clamp option for the widget of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aClamp</strong> (<em>boolean</em>) – The clamp option for the parameter widget (True to clamp)</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setDefaultValue">
+<span class="sig-name descname"><span class="pre">setDefaultValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Set the default value of the widget</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDefaultValue</strong> (<em>depend on the widget type</em><em> (</em><em>single value</em><em> or </em><em>list</em><em>)</em>) – The default value for the parameter widget</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setDropDownList">
+<span class="sig-name descname"><span class="pre">setDropDownList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValueMap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setDropDownList" title="Link to this definition"></a></dt>
+<dd><p>Set the drop down value map for a DropDown widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValueMap</strong> (<em>dictionary in the format {key</em><em>(</em><em>int</em><em>)</em><em>:value</em><em>(</em><em>string</em><em>)</em><em>}</em>) – The drop down values as a map</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setIdentifier">
+<span class="sig-name descname"><span class="pre">setIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDoc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Be careful! if aIdentifier is already used by another input param of this graph, the file risks to be corrupted.
+It safer to use graph.changeInputParameterIdentifier()</p>
+<p>Change the param’s identifier and update its dependencies, function’s paramnode, visibleIf…
+:param aDoc: the current substance document <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>
+:type aDoc: <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>
+:param aIdentifier: the new identifier value
+:type aIdentifier: str
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setIsConnectable">
+<span class="sig-name descname"><span class="pre">setIsConnectable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIsConnectable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setIsConnectable" title="Link to this definition"></a></dt>
+<dd><p>Set whether the input is connectable</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIsConnectable</strong> (<em>bool</em><em> or </em><em>None</em>) – Whether the input is connectable or not</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setLabels">
+<span class="sig-name descname"><span class="pre">setLabels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setLabels" title="Link to this definition"></a></dt>
+<dd><p>Set the labels associated to the different values for the widget of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLabels</strong> (<em>list</em><em> of </em><em>string</em>) – The labels for the parameter widget</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setMaxValue">
+<span class="sig-name descname"><span class="pre">setMaxValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMaxValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setMaxValue" title="Link to this definition"></a></dt>
+<dd><p>Set the maximum value for the widget of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aMaxValue</strong> (<em>int</em><em> or </em><em>float</em>) – The maximum value to set</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setMetaDataName">
+<span class="sig-name descname"><span class="pre">setMetaDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setMetaDataName" title="Link to this definition"></a></dt>
+<dd><p>Set name of a metadata if name is valid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aMetadata</strong> (<a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a>) – a metadata <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a> object</p></li>
+<li><p><strong>aName</strong> (<em>str</em>) – a name/key for the metadata</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setMetaDataValue">
+<span class="sig-name descname"><span class="pre">setMetaDataValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setMetaDataValue" title="Link to this definition"></a></dt>
+<dd><p>Set value of a metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aMetadata</strong> (<a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a>) – a metadata <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a> object</p></li>
+<li><p><strong>aValue</strong> (<em>str</em>) – a value for the metadata</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setMinValue">
+<span class="sig-name descname"><span class="pre">setMinValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMinValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setMinValue" title="Link to this definition"></a></dt>
+<dd><p>Set the minimum value for the widget of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aMinValue</strong> (<em>int</em><em> or </em><em>float</em>) – The minimum value to set</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setSpotColorFromIds">
+<span class="sig-name descname"><span class="pre">setSpotColorFromIds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBookId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorId</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setSpotColorFromIds" title="Link to this definition"></a></dt>
+<dd><p>If the input widget is a color, a new color value and spot color info will be set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBookId</strong> (<em>str</em>) – The book id</p></li>
+<li><p><strong>aColorId</strong> (<em>str</em>) – The color id</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setSpotColorFromNames">
+<span class="sig-name descname"><span class="pre">setSpotColorFromNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBookName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setSpotColorFromNames" title="Link to this definition"></a></dt>
+<dd><p>If the input widget is a color, a new color value and spot color info will be set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBookName</strong> (<em>str</em>) – The book name of the color</p></li>
+<li><p><strong>aColorName</strong> (<em>str</em>) – The color name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setStep">
+<span class="sig-name descname"><span class="pre">setStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setStep" title="Link to this definition"></a></dt>
+<dd><p>Set the step option for the widget of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStep</strong> (<em>int</em><em> or </em><em>float</em>) – The step value for the parameter widget</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setUID">
+<span class="sig-name descname"><span class="pre">setUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setUID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph.inputparameters.</span></span><span class="sig-name descname"><span class="pre">SBSPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRefGraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Preset</span></code></p>
+<p>Class for manipulating embedded user-defined presets inside a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mLabel        (str): label of the preset</p></li>
+<li><p>mUsertags     (str): user-defined tags</p></li>
+<li><p>mPresetInputs (list of <a class="reference internal" href="#graph.inputparameters.SBSPresetInput" title="graph.inputparameters.SBSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPresetInput</span></code></a>): list of preset inputs</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.deletePresetInput">
+<span class="sig-name descname"><span class="pre">deletePresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.deletePresetInput" title="Link to this definition"></a></dt>
+<dd><p>Delete the preset input associated to the given input parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParam</strong> (<a class="reference internal" href="#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> or str) – the input parameter to delete in this preset, as a SBSParamInput object or a UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the preset input has been found and deleted, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.getInputValue">
+<span class="sig-name descname"><span class="pre">getInputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.getInputValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the given ParamInput in this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputUID</strong> (<em>str</em>) – UID of the input to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input value in this preset if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.getPresetInput">
+<span class="sig-name descname"><span class="pre">getPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.getPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Get the preset input corresponding to the given input parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParam</strong> (<a class="reference internal" href="#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> or str) – the input parameter to get in this preset, as a SBSParamInput object or a UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#graph.inputparameters.SBSPresetInput" title="graph.inputparameters.SBSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPresetInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.getPresetInputFromIdentifier">
+<span class="sig-name descname"><span class="pre">getPresetInputFromIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.getPresetInputFromIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the preset input with the given input UID defined in this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – the identifier of the input parameter to get in this preset</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#graph.inputparameters.SBSPresetInput" title="graph.inputparameters.SBSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPresetInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.getPresetInputs">
+<span class="sig-name descname"><span class="pre">getPresetInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.getPresetInputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the preset inputs defined in this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#graph.inputparameters.SBSPresetInput" title="graph.inputparameters.SBSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPresetInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.setPresetInput">
+<span class="sig-name descname"><span class="pre">setPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.setPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Set the preset value for the given graph input parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aInputParam</strong> (<a class="reference internal" href="#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> or str) – the input parameter to set in this preset, as a SBSParamInput object or a UID</p></li>
+<li><p><strong>aPresetValue</strong> (<em>any type</em>) – the value of this input parameter in this preset</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.setRefGraph">
+<span class="sig-name descname"><span class="pre">setRefGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRefGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.setRefGraph" title="Link to this definition"></a></dt>
+<dd><p>Set the parent graph of this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRefGraph</strong> (<a class="reference internal" href="graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The parent graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPreset.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPreset.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph.inputparameters.</span></span><span class="sig-name descname"><span class="pre">SBSPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></p>
+<p>Class for manipulating embedded user-defined preset input inside a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mUID        (str): uid of the input parameter targeted by this preset input</p></li>
+<li><p>mIdentifier (str): identifier of the input parameter targeted by this preset input</p></li>
+<li><p>mType       (str): type of the input</p></li>
+<li><p>mValue      (<a class="reference internal" href="../params/params.html#params.params.SBSParamValue" title="params.params.SBSParamValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamValue</span></code></a>): value, depend on the type.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the input among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type of the parameter as a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.getTypedValue">
+<span class="sig-name descname"><span class="pre">getTypedValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.getTypedValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this preset input correctly formatted in the type of this preset (e.g. bool, int, float, list of int, …)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The input value in the appropriate type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.getUID">
+<span class="sig-name descname"><span class="pre">getUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.getUID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of this preset input as it is saved in the file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input value in this preset input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.setType">
+<span class="sig-name descname"><span class="pre">setType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.setType" title="Link to this definition"></a></dt>
+<dd><p>Set the type of this preset input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – The type to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.setUID">
+<span class="sig-name descname"><span class="pre">setUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.setUID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.setValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of the input parameter in the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>any type</em>) – The value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSPresetInput.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSPresetInput.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph.inputparameters.</span></span><span class="sig-name descname"><span class="pre">SBSWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a Widget as defined in a .sbs file.
+A widget describes the way an input parameter will be displayed in Substance Designer.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName    (str): name of the widget used to visualize the entry, among the list defined in <code class="xref py py-attr docutils literal notranslate"><span class="pre">sbslibrary.__dict_WidgetTypes</span></code></p></li>
+<li><p>mOptions (list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a>): list of specific options of the widget type.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getClamp">
+<span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clamp as a boolean if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getDefaultValue">
+<span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getDefaultValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the default value as a string or a list of strings if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getDropDownList">
+<span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined in this widget, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getLabels">
+<span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of all labels defined for this widget, in the right order, as a list of strings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getMaxValue">
+<span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the maximum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getMinValue">
+<span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the minimum value as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getOption">
+<span class="sig-name descname"><span class="pre">getOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionId</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getOption" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOptionId</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>) – The option to look for, among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the requested option as a <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getOptions">
+<span class="sig-name descname"><span class="pre">getOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getOptions" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all the options of this widget as a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getStep">
+<span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the step as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getValueInterpretation">
+<span class="sig-name descname"><span class="pre">getValueInterpretation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getValueInterpretation" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the value interpretation as a string if defined for this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.getWidgetType">
+<span class="sig-name descname"><span class="pre">getWidgetType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.getWidgetType" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the kind of widget, as a <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetTypeEnum" title="sbsenum.WidgetTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.isInRange">
+<span class="sig-name descname"><span class="pre">isInRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.isInRange" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>int</em><em> or </em><em>float</em>) – The value to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given value is allowed for this widget. Will return True if there is no range, or if the clamping is disabled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setClamp">
+<span class="sig-name descname"><span class="pre">setClamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aClamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setClamp" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aClamp</strong> (<em>boolean</em>) – The clamp option for this widget (True to clamp)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setDefaultValue">
+<span class="sig-name descname"><span class="pre">setDefaultValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setDefaultValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aDefaultValue</strong> (<em>list</em><em> of </em><em>int</em><em> or </em><em>list</em><em> of </em><em>float</em>) – The default values for this widget</p></li>
+<li><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – The type of this widget (BOOL , INT1 .. INT4 , FLOAT1 .. FLOAT4)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setDropDownList">
+<span class="sig-name descname"><span class="pre">setDropDownList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValueMap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setDropDownList" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValueMap</strong> (<em>a dictionary in the format {key</em><em>(</em><em>int</em><em>)</em><em>:value</em><em>(</em><em>string</em><em>)</em><em>}</em>) – The drop down values, as a map in the format key(int):value(string)</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setLabels">
+<span class="sig-name descname"><span class="pre">setLabels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setLabels" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLabels</strong> (<em>list</em><em> of </em><em>string</em>) – The labels for this widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setMaxValue">
+<span class="sig-name descname"><span class="pre">setMaxValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMaxValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setMaxValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aMaxValue</strong> (<em>int</em><em> or </em><em>float</em>) – The maximum value to set on this widget</p></li>
+<li><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – The type of the values for this widget (int or float)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setMinValue">
+<span class="sig-name descname"><span class="pre">setMinValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMinValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setMinValue" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aMinValue</strong> (<em>int</em><em> or </em><em>float</em>) – The minimum value to set on this widget</p></li>
+<li><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – The type of the values for this widget (int or float)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setOption">
+<span class="sig-name descname"><span class="pre">setOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setOption" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOptionId</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>) – The option to look for, among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a></p></li>
+<li><p><strong>aValue</strong> (<em>string</em>) – The value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.setStep">
+<span class="sig-name descname"><span class="pre">setStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.setStep" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aStep</strong> (<em>int</em><em> or </em><em>float</em>) – The step value for this widget</p></li>
+<li><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – The type of the values for this widget (int or float)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.inputparameters.SBSWidget.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSWidget.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="function.html" class="btn btn-neutral float-left" title="function module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="output.html" class="btn btn-neutral float-right" title="output module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

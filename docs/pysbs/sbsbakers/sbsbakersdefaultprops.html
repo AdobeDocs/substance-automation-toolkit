@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsbakersdefaultprops module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsbakingconverterparam module" href="sbsbakingconverterparam.html" />
+    <link rel="prev" title="sbsbakersdef module" href="sbsbakersdef.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersenum.html">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdef.html">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverterparam.html">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier"><code class="docutils literal notranslate"><span class="pre">getBakerDefaultIdentifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefinition"><code class="docutils literal notranslate"><span class="pre">getBakerDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerEnum"><code class="docutils literal notranslate"><span class="pre">getBakerEnum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsbakerslibrary.html">sbsbakerslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsbakersdefaultprops module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbsbakers.sbsbakersdefaultprops">
+<span id="sbsbakersdefaultprops-module"></span><h1>sbsbakersdefaultprops module<a class="headerlink" href="#module-pysbs.sbsbakers.sbsbakersdefaultprops" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsbakersdefaultprops</strong> provides the definition of all the common properties of bakers, with their default values.</p>
+<ul>
+<li><p>sGlobalOutputProperties: Global output properties:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sGlobalOutputProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">OUTPUT__FOLDER</span><span class="p">,</span>          <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">URL</span><span class="p">,</span>    <span class="s1">&#39;&#39;</span>     <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">OUTPUT__RESOURCE_NAME</span><span class="p">,</span>   <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;$(mesh)_$(bakername)&#39;</span><span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">OUTPUT__IN_SUBFOLDER</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">False</span>      <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">OUTPUT__RESOURCE_METHOD</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerResourceMethodEnum</span><span class="o">.</span><span class="n">LINKED</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sGlobalBakersDefaultProperties: Global mesh properties:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sGlobalBakersDefaultProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__APPLY_DIFFUSION</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">True</span> <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__AVERAGE_NORMALS</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">True</span>  <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__DILATION_WIDTH</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="mi">4</span>     <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__FORMAT</span><span class="p">,</span>          <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="n">bakersdict</span><span class="o">.</span><span class="n">getBakerOutputFormatName</span><span class="p">(</span><span class="n">BakerOutputFormatEnum</span><span class="o">.</span><span class="n">PNG</span><span class="p">))),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__OUTPUT_WIDTH</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_2048</span><span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__OUTPUT_HEIGHT</span><span class="p">,</span>   <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_2048</span><span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__SUB_SAMPLING</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerFromMeshSubSamplingEnum</span><span class="o">.</span><span class="n">NONE</span> <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__UVSET</span><span class="p">,</span>           <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerUVSetEnum</span><span class="o">.</span><span class="n">UV_0</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sGlobalMeshesProperties: Global default properties:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sGlobalMeshesProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__CAGE_PATH</span><span class="p">,</span>                 <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>      <span class="s1">&#39;&#39;</span>    <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__DISTANCE_WITH</span><span class="p">,</span>             <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>         <span class="n">BakerFromMeshDistanceWithEnum</span><span class="o">.</span><span class="n">VALUES</span> <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__MAX_FRONTAL_DISTANCE</span><span class="p">,</span>      <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span>      <span class="mf">0.01</span>  <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__IGNORE_BACKFACE</span><span class="p">,</span>           <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>        <span class="kc">True</span>  <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__INVERT_SKEW_CORRECTION</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>        <span class="kc">False</span> <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__MATCH_METHOD</span><span class="p">,</span>              <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>         <span class="n">BakerFromMeshMatchEnum</span><span class="o">.</span><span class="n">ALWAYS</span> <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__HIGH_DEF_MESHES</span><span class="p">,</span>           <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING_LIST</span><span class="p">,</span> <span class="p">[]</span>    <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__MAX_REAR_DISTANCE</span><span class="p">,</span>         <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span>      <span class="mf">0.01</span>  <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__RELATIVE_TO_BB</span><span class="p">,</span>            <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>        <span class="kc">True</span>  <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__USE_SKEW</span><span class="p">,</span>                  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span>      <span class="s1">&#39;&#39;</span>    <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__USE_LOW_AS_HIGH_POLY</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>        <span class="kc">False</span> <span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">MESH__SKEW_PATH</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sOverridableProperties: Properties overridable at the level of each baker:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sOverridableProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__OUTPUT_HEIGHT</span><span class="p">,</span>
+    <span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__OUTPUT_WIDTH</span><span class="p">,</span>
+    <span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL__SUB_SAMPLING</span><span class="p">,</span>
+    <span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL__SMOOTH_NORMALS</span><span class="p">,</span>
+    <span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">COMMON__UVSET</span><span class="p">,</span>
+    <span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__FORMAT</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sAllBakersOutputProperties: Output properties registered on all bakers (Size and Format):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sAllBakersOutputProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__FORMAT</span><span class="p">,</span>        <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="n">bakersdict</span><span class="o">.</span><span class="n">getBakerOutputFormatName</span><span class="p">(</span><span class="n">BakerOutputFormatEnum</span><span class="o">.</span><span class="n">PNG</span><span class="p">))),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__OUTPUT_WIDTH</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_2048</span><span class="p">)),</span>
+    <span class="n">BakingGlobalParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__OUTPUT_HEIGHT</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_2048</span><span class="p">)),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sAllBakersCommonProperties: Properties registered on all bakers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sAllBakersCommonProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">COMMON__UV_TILE</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span>    <span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">COMMON__UVSET</span><span class="p">,</span>      <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerUVSetEnum</span><span class="o">.</span><span class="n">UV_0</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sDetailBakerCommonProperties: Properties registered on all ‘from mesh’ bakers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sDetailBakerCommonProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL__SMOOTH_NORMALS</span><span class="p">,</span>      <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">False</span> <span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL__SUB_SAMPLING</span><span class="p">,</span>        <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerFromMeshSubSamplingEnum</span><span class="o">.</span><span class="n">NONE</span> <span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sDistanceCommonProperties: Properties available for all bakers with distance settings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sDistanceCommonProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_DISTANCE__MAXIMIZE_RANGE</span><span class="p">,</span>     <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sNormalBakersCommonProperties: Properties available for all bakers with normal settings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sNormalBakersCommonProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_NORMAL_COMMON__RESULT_TYPE</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerMapTypeEnum</span><span class="o">.</span><span class="n">TANGENT_SPACE</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_NORMAL_COMMON__INVERT_GREEN</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerNormalOrientationEnum</span><span class="o">.</span><span class="n">DIRECTX</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sPositionBakersCommonProperties: Properties available for all bakers with position settings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sPositionBakersCommonProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">POSITION__AXIS</span><span class="p">,</span>           <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerPositionAxisEnum</span><span class="o">.</span><span class="n">AXIS_X</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">POSITION__MODE</span><span class="p">,</span>           <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerPositionModeEnum</span><span class="o">.</span><span class="n">ALL_AXIS</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">POSITION__NORMALIZATION</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerPositionNormalizationEnum</span><span class="o">.</span><span class="n">BSPHERE</span><span class="p">))</span>
+    <span class="c1"># TODO: Normalization scale</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>sSecondaryRayCommonProperties: Properties available for all bakers with secondary ray settings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sSecondaryRayCommonProperties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__DISTRIBUTION</span><span class="p">,</span>              <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerDistributionEnum</span><span class="o">.</span><span class="n">COSINE</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__IGNORE_BACKFACE_SECONDARY</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">True</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__MAX_DISTANCE</span><span class="p">,</span>     <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__MIN_DISTANCE</span><span class="p">,</span>     <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">1e-05</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__NB_SECONDARY</span><span class="p">,</span>              <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="mi">64</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__RELATIVE_SCALE</span><span class="p">,</span>            <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">True</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__FILTER_METHOD</span><span class="p">,</span>            <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerFromMeshMatchEnum</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">)),</span>
+    <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_SECONDARY_COMMON__SPREAD</span><span class="p">,</span>              <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">))</span>
+    <span class="c1"># Missing</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsbakersdef.html" class="btn btn-neutral float-left" title="sbsbakersdef module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsbakingconverterparam.html" class="btn btn-neutral float-right" title="sbsbakingconverterparam module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

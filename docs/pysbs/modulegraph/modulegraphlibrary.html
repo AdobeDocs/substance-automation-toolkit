@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modulegraphlibrary module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="modulegraphregister module" href="modulegraphregister.html" />
+    <link rel="prev" title="moduleconnection module" href="moduleconnection.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="modulegraph.html">modulegraph module: ModuleGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulegraphgenerator.html">modulegraphgenerator module: Handle all function to generate ModuleGraph's objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulegraphimplementation.html">modulegraphimplementation module: Provide an interface for derived implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulenode.html">modulenode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulenodeimplementation.html">modulenodeimplementation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulenodeinstance.html">modulenodeinstance module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleparaminput.html">moduleparaminput module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleoperand.html">moduleoperand module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleannotation.html">moduleannotation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleconnection.html">moduleconnection module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">modulegraphlibrary module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulegraphregister.html">modulegraphregister module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleoutputbridging.html">moduleoutputbridging module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="modulegraphindex.html">modulegraphindex module</a></li>
+      <li class="breadcrumb-item active">modulegraphlibrary module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modulegraph.modulegraphlibrary">
+<span id="modulegraphlibrary-module"></span><h1>modulegraphlibrary module<a class="headerlink" href="#module-modulegraph.modulegraphlibrary" title="Link to this heading"></a></h1>
+<p>Module <strong>sbslibrary</strong> provides the libraries of Module Graph’s Tag.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Libraries:</strong></dt><dd><ul>
+<li><p>ModuleGraphTag: the library of Tag, identified by <a class="reference internal" href="#modulegraph.modulegraphlibrary.ModuleGraphTag" title="modulegraph.modulegraphlibrary.ModuleGraphTag"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraphTag</span></code></a></p></li>
+<li><p>ModuleGraphRegisterClass: the library of register key names, identified by <a class="reference internal" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass" title="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraphRegisterClass</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modulegraph.modulegraphlibrary.</span></span><span class="sig-name descname"><span class="pre">ModuleGraphRegisterClass</span></span><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.ANNOTATION">
+<span class="sig-name descname"><span class="pre">ANNOTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'annotation'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.ANNOTATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.BASICNODEINSTANCE">
+<span class="sig-name descname"><span class="pre">BASICNODEINSTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'basicnodeinstance'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.BASICNODEINSTANCE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.BASICNODEINSTANCEIMPLEMENTATION">
+<span class="sig-name descname"><span class="pre">BASICNODEINSTANCEIMPLEMENTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'basicnodeinstanceimplementation'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.BASICNODEINSTANCEIMPLEMENTATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.CONNECTION">
+<span class="sig-name descname"><span class="pre">CONNECTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'connection'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.CONNECTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.CUSTOMIMPLEMENTATION">
+<span class="sig-name descname"><span class="pre">CUSTOMIMPLEMENTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'customimplementation'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.CUSTOMIMPLEMENTATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.FEATUREVERSION">
+<span class="sig-name descname"><span class="pre">FEATUREVERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'featureversion'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.FEATUREVERSION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.GRAPH">
+<span class="sig-name descname"><span class="pre">GRAPH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'graph'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.GRAPH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.GRAPHIMPLEMENTATION">
+<span class="sig-name descname"><span class="pre">GRAPHIMPLEMENTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'graphimplementation'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.GRAPHIMPLEMENTATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.INPUTPARAM">
+<span class="sig-name descname"><span class="pre">INPUTPARAM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inputparameter'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.INPUTPARAM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.NODES">
+<span class="sig-name descname"><span class="pre">NODES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nodes'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.NODES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.OPERANDS">
+<span class="sig-name descname"><span class="pre">OPERANDS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'operands'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphRegisterClass.OPERANDS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modulegraph.modulegraphlibrary.</span></span><span class="sig-name descname"><span class="pre">ModuleGraphTag</span></span><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.ANNOTATION">
+<span class="sig-name descname"><span class="pre">ANNOTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_annotation'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.ANNOTATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.ANNOTATIONS">
+<span class="sig-name descname"><span class="pre">ANNOTATIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_annotations'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.ANNOTATIONS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.CONNECTION">
+<span class="sig-name descname"><span class="pre">CONNECTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'connection'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.CONNECTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.CONNECTIONS">
+<span class="sig-name descname"><span class="pre">CONNECTIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'connections'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.CONNECTIONS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.CONNREF">
+<span class="sig-name descname"><span class="pre">CONNREF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'connRef'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.CONNREF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.CONNREFOUTPUT">
+<span class="sig-name descname"><span class="pre">CONNREFOUTPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'connRefOutput'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.CONNREFOUTPUT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH">
+<span class="sig-name descname"><span class="pre">GRAPH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_graph'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH_IMPLEMENTATION">
+<span class="sig-name descname"><span class="pre">GRAPH_IMPLEMENTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_graph_implementation'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH_IMPLEMENTATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH_INPUT">
+<span class="sig-name descname"><span class="pre">GRAPH_INPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_input'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH_INPUT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH_INPUTS">
+<span class="sig-name descname"><span class="pre">GRAPH_INPUTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'inputs'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.GRAPH_INPUTS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.GUI_LAYOUT">
+<span class="sig-name descname"><span class="pre">GUI_LAYOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GUILayout'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.GUI_LAYOUT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.IDENTIFIER">
+<span class="sig-name descname"><span class="pre">IDENTIFIER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'identifier'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.IDENTIFIER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.NODE">
+<span class="sig-name descname"><span class="pre">NODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_node'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.NODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.NODES">
+<span class="sig-name descname"><span class="pre">NODES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nodes'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.NODES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION">
+<span class="sig-name descname"><span class="pre">NODE_IMPLEMENTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_node_implementation'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION_BASIC">
+<span class="sig-name descname"><span class="pre">NODE_IMPLEMENTATION_BASIC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_node_implementation_mdl_instance'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION_BASIC" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION_MDL_INSTANCE">
+<span class="sig-name descname"><span class="pre">NODE_IMPLEMENTATION_MDL_INSTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_node_implementation_mdl_instance'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION_MDL_INSTANCE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION_SBS_INSTANCE">
+<span class="sig-name descname"><span class="pre">NODE_IMPLEMENTATION_SBS_INSTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_node_implementation_sbs_instance'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_IMPLEMENTATION_SBS_INSTANCE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_UID">
+<span class="sig-name descname"><span class="pre">NODE_UID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nodeuid'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.NODE_UID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.OPERANDS">
+<span class="sig-name descname"><span class="pre">OPERANDS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_operands'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.OPERANDS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_ARRAY">
+<span class="sig-name descname"><span class="pre">OPERAND_ARRAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdloperandarray'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_ARRAY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_METADATA">
+<span class="sig-name descname"><span class="pre">OPERAND_METADATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_operand_meta_data'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_METADATA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_STRUCT">
+<span class="sig-name descname"><span class="pre">OPERAND_STRUCT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdloperandstruct'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_STRUCT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_VALUE">
+<span class="sig-name descname"><span class="pre">OPERAND_VALUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdloperandvalue'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.OPERAND_VALUE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.OUTPUT_BRIDGING">
+<span class="sig-name descname"><span class="pre">OUTPUT_BRIDGING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outputBridging'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.OUTPUT_BRIDGING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.OUTPUT_BRIDGINGS">
+<span class="sig-name descname"><span class="pre">OUTPUT_BRIDGINGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outputBridgings'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.OUTPUT_BRIDGINGS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.PATH">
+<span class="sig-name descname"><span class="pre">PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mdl_path'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.PATH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.ROOT_NODE_UID">
+<span class="sig-name descname"><span class="pre">ROOT_NODE_UID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'root_node_uid'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.ROOT_NODE_UID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modulegraph.modulegraphlibrary.ModuleGraphTag.UID">
+<span class="sig-name descname"><span class="pre">UID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uid'</span></em><a class="headerlink" href="#modulegraph.modulegraphlibrary.ModuleGraphTag.UID" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="moduleconnection.html" class="btn btn-neutral float-left" title="moduleconnection module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modulegraphregister.html" class="btn btn-neutral float-right" title="modulegraphregister module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

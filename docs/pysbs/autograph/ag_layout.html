@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ag_layout module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="batchtools modules" href="../batchtools/batchtools%20overview.html" />
+    <link rel="prev" title="ag_types module" href="ag_types.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ag_functions.html">ag_functions module: Definition of the function context and the mathematical operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ag_types.html">ag_types module: Definition of all data types used by the automatic generation of function graph</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ag_layout module: Functions for automatically laying out graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="autograph.html">autograph module</a></li>
+      <li class="breadcrumb-item active">ag_layout module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-autograph.ag_layout">
+<span id="ag-layout-module"></span><h1>ag_layout module<a class="headerlink" href="#module-autograph.ag_layout" title="Link to this heading"></a></h1>
+<p>Module <strong>ag_layout</strong> provides the definition of the functions <a class="reference internal" href="#autograph.ag_layout.layoutGraph" title="autograph.ag_layout.layoutGraph"><code class="xref py py-func docutils literal notranslate"><span class="pre">layoutGraph()</span></code></a>,
+and <a class="reference internal" href="#autograph.ag_layout.layoutDoc" title="autograph.ag_layout.layoutDoc"><code class="xref py py-func docutils literal notranslate"><span class="pre">layoutDoc()</span></code></a> for automatically organizing the nodes in a graph or all graphs
+in a document respectively.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_layout.NodesToKeepEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_layout.</span></span><span class="sig-name descname"><span class="pre">NodesToKeepEnum</span></span><a class="headerlink" href="#autograph.ag_layout.NodesToKeepEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of what nodes to keep when laying out a graph</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KEEP_ALL_NODES</span><span class="o">=</span> <span class="mi">0</span>
+<span class="n">KEEP_COMPUTED_NODES</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">KEEP_COMPUTED_AND_INPUT_NODES</span><span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_layout.GUIElementsToKeepEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_layout.</span></span><span class="sig-name descname"><span class="pre">GUIElementsToKeepEnum</span></span><a class="headerlink" href="#autograph.ag_layout.GUIElementsToKeepEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration treatments of gui elements when laying out a graph</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KEEP_ALL</span><span class="o">=</span> <span class="mi">0</span>
+<span class="n">KEEP_NONE</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">KEEP_NON_EMPTY</span><span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_layout.GraphFlowDirectionEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_layout.</span></span><span class="sig-name descname"><span class="pre">GraphFlowDirectionEnum</span></span><a class="headerlink" href="#autograph.ag_layout.GraphFlowDirectionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration layout directions for graphs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RIGHTWARD</span><span class="o">=</span> <span class="mi">0</span>
+<span class="n">UPWARD</span><span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_layout.GraphLayoutAlignment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_layout.</span></span><span class="sig-name descname"><span class="pre">GraphLayoutAlignment</span></span><a class="headerlink" href="#autograph.ag_layout.GraphLayoutAlignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration what side of a graph to align when laying out a graph</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUTS</span><span class="o">=</span> <span class="mi">0</span>
+<span class="n">INPUTS</span><span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autograph.ag_layout.layoutGraph">
+<span class="sig-prename descclassname"><span class="pre">autograph.ag_layout.</span></span><span class="sig-name descname"><span class="pre">layoutGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeSpacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">160</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeShift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(80,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodesToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layoutAlignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commentsToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">framesToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">navigationPinsToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_layout.layoutGraph" title="Link to this definition"></a></dt>
+<dd><p>Lays out a graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> (<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> or <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> or <a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a> or <a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a> or :class:.`MDLGraph`) – graph to layout</p></li>
+<li><p><strong>aNodeSpacing</strong> (<em>int</em>) – distance to keep between nodes when laying them out</p></li>
+<li><p><strong>aNodeShift</strong> (<em>tuple</em><em> of </em><em>int</em>) – Start position for the laid out graph</p></li>
+<li><p><strong>nodesToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.NodesToKeepEnum" title="autograph.ag_layout.NodesToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodesToKeepEnum</span></code></a>) – What nodes to keep in the graph</p></li>
+<li><p><strong>layoutAlignment</strong> (<a class="reference internal" href="#autograph.ag_layout.GraphLayoutAlignment" title="autograph.ag_layout.GraphLayoutAlignment"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphLayoutAlignment</span></code></a>) – Enum selecting whether to traverse from inputs or outputs</p></li>
+<li><p><strong>commentsToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.GUIElementsToKeepEnum" title="autograph.ag_layout.GUIElementsToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIElementsToKeepEnum</span></code></a>) – Whether to delete or keep comments</p></li>
+<li><p><strong>framesToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.GUIElementsToKeepEnum" title="autograph.ag_layout.GUIElementsToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIElementsToKeepEnum</span></code></a>) – Whether to delete or keep frames</p></li>
+<li><p><strong>navigationPinsToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.GUIElementsToKeepEnum" title="autograph.ag_layout.GUIElementsToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIElementsToKeepEnum</span></code></a>) – Whether to delete or keep navigation pins</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autograph.ag_layout.layoutDoc">
+<span class="sig-prename descclassname"><span class="pre">autograph.ag_layout.</span></span><span class="sig-name descname"><span class="pre">layoutDoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sbsDoc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeSpacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">160</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeShift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(80,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodesToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layoutAlignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commentsToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">framesToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">navigationPinsToKeep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_layout.layoutDoc" title="Link to this definition"></a></dt>
+<dd><p>Layout all graphs in an sbs document</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sbsDoc</strong> – Document to layout</p></li>
+<li><p><strong>aNodeSpacing</strong> (<em>int</em>) – distance to keep between nodes when laying them out</p></li>
+<li><p><strong>aNodeShift</strong> (<em>tuple</em><em> of </em><em>int</em>) – Start position for the laid out graphs</p></li>
+<li><p><strong>nodesToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.NodesToKeepEnum" title="autograph.ag_layout.NodesToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodesToKeepEnum</span></code></a>) – What nodes to keep in the graph</p></li>
+<li><p><strong>layoutAlignment</strong> (<a class="reference internal" href="#autograph.ag_layout.GraphLayoutAlignment" title="autograph.ag_layout.GraphLayoutAlignment"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphLayoutAlignment</span></code></a>) – Enum selecting whether to traverse from inputs or outputs</p></li>
+<li><p><strong>commentsToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.GUIElementsToKeepEnum" title="autograph.ag_layout.GUIElementsToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIElementsToKeepEnum</span></code></a>) – Whether to delete or keep comments</p></li>
+<li><p><strong>framesToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.GUIElementsToKeepEnum" title="autograph.ag_layout.GUIElementsToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIElementsToKeepEnum</span></code></a>) – Whether to delete or keep frames</p></li>
+<li><p><strong>navigationPinsToKeep</strong> (<a class="reference internal" href="#autograph.ag_layout.GUIElementsToKeepEnum" title="autograph.ag_layout.GUIElementsToKeepEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIElementsToKeepEnum</span></code></a>) – Whether to delete or keep navigation pins</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ag_types.html" class="btn btn-neutral float-left" title="ag_types module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../batchtools/batchtools%20overview.html" class="btn btn-neutral float-right" title="batchtools modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

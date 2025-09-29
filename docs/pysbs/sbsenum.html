@@ -1,0 +1,1287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsenum module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sbslibrary module" href="sbslibrary/sbslibrary.html" />
+    <link rel="prev" title="moduleoutputbridging module" href="modulegraph/moduleoutputbridging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbsenum module: Types and enumeration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ParamTypeEnum"><code class="docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.InputValueTypeEnum"><code class="docutils literal notranslate"><span class="pre">InputValueTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TypeMasksEnum"><code class="docutils literal notranslate"><span class="pre">TypeMasksEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.AttributesEnum"><code class="docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BitmapFormatEnum"><code class="docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.InputEnum"><code class="docutils literal notranslate"><span class="pre">InputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.OutputEnum"><code class="docutils literal notranslate"><span class="pre">OutputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FilterEnum"><code class="docutils literal notranslate"><span class="pre">FilterEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BaseParamEnum"><code class="docutils literal notranslate"><span class="pre">BaseParamEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CompNodeParamEnum"><code class="docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FunctionEnum"><code class="docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FunctionInputEnum"><code class="docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TextureFormatEnum"><code class="docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.MipmapEnum"><code class="docutils literal notranslate"><span class="pre">MipmapEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.UsageEnum"><code class="docutils literal notranslate"><span class="pre">UsageEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ComponentsEnum"><code class="docutils literal notranslate"><span class="pre">ComponentsEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ColorSpacesEnum"><code class="docutils literal notranslate"><span class="pre">ColorSpacesEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.UsageDataEnum"><code class="docutils literal notranslate"><span class="pre">UsageDataEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ResourceTypeEnum"><code class="docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ParamInheritanceEnum"><code class="docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TilingEnum"><code class="docutils literal notranslate"><span class="pre">TilingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.OutputFormatEnum"><code class="docutils literal notranslate"><span class="pre">OutputFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.OutputSizeEnum"><code class="docutils literal notranslate"><span class="pre">OutputSizeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.PixelRatioEnum"><code class="docutils literal notranslate"><span class="pre">PixelRatioEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.QualityEnum"><code class="docutils literal notranslate"><span class="pre">QualityEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ColorModeEnum"><code class="docutils literal notranslate"><span class="pre">ColorModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BlendBlendingModeEnum"><code class="docutils literal notranslate"><span class="pre">BlendBlendingModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.AlphaBlendingEnum"><code class="docutils literal notranslate"><span class="pre">AlphaBlendingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ChannelShuffleEnum"><code class="docutils literal notranslate"><span class="pre">ChannelShuffleEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CombineDistanceEnum"><code class="docutils literal notranslate"><span class="pre">CombineDistanceEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CurveTypeEnum"><code class="docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GradientAddressingEnum"><code class="docutils literal notranslate"><span class="pre">GradientAddressingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GradientOrientationEnum"><code class="docutils literal notranslate"><span class="pre">GradientOrientationEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.NormalFormatEnum"><code class="docutils literal notranslate"><span class="pre">NormalFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.NormalAlphaChannelContentEnum"><code class="docutils literal notranslate"><span class="pre">NormalAlphaChannelContentEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.MipMapModeEnum"><code class="docutils literal notranslate"><span class="pre">MipMapModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FilteringEnum"><code class="docutils literal notranslate"><span class="pre">FilteringEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TextAlignEnum"><code class="docutils literal notranslate"><span class="pre">TextAlignEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_PatternType"><code class="docutils literal notranslate"><span class="pre">FX_PatternType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_BlendingModeEnum"><code class="docutils literal notranslate"><span class="pre">FX_BlendingModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_InputImageAlphaEnum"><code class="docutils literal notranslate"><span class="pre">FX_InputImageAlphaEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_InputImageFilteringEnum"><code class="docutils literal notranslate"><span class="pre">FX_InputImageFilteringEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_SelectorEnum"><code class="docutils literal notranslate"><span class="pre">FX_SelectorEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BitmapResizeMethodEnum"><code class="docutils literal notranslate"><span class="pre">BitmapResizeMethodEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.WidgetTypeEnum"><code class="docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.WidgetOptionEnum"><code class="docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.WidgetEnum"><code class="docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GUIObjectTypeEnum"><code class="docutils literal notranslate"><span class="pre">GUIObjectTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CompImplementationKindEnum"><code class="docutils literal notranslate"><span class="pre">CompImplementationKindEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BatchToolsEnum"><code class="docutils literal notranslate"><span class="pre">BatchToolsEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GraphTemplateEnum"><code class="docutils literal notranslate"><span class="pre">GraphTemplateEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BaseTypeEnum"><code class="docutils literal notranslate"><span class="pre">BaseTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.UVTileFormat"><code class="docutils literal notranslate"><span class="pre">UVTileFormat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GraphTypeEnum"><code class="docutils literal notranslate"><span class="pre">GraphTypeEnum</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbsenum module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbsenum">
+<span id="sbsenum-module"></span><h1>sbsenum module<a class="headerlink" href="#module-sbsenum" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsenum</strong> provides all the enumeration used in Pysbs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ParamTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ParamTypeEnum</span></span><a class="headerlink" href="#sbsenum.ParamTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of all the types manipulated by Substance Designer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DUMMY_TYPE</span>          <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ENTRY_COLOR</span>         <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ENTRY_GRAYSCALE</span>     <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ENTRY_VARIANT</span>       <span class="o">=</span> <span class="n">ENTRY_COLOR</span> <span class="o">|</span> <span class="n">ENTRY_GRAYSCALE</span>         <span class="c1"># grayscale or color entry</span>
+<span class="n">BOOLEAN</span>             <span class="o">=</span> <span class="mi">4</span>
+<span class="n">INTEGER1</span>            <span class="o">=</span> <span class="mi">16</span>
+<span class="n">INTEGER2</span>            <span class="o">=</span> <span class="mi">32</span>
+<span class="n">INTEGER3</span>            <span class="o">=</span> <span class="mi">64</span>
+<span class="n">INTEGER4</span>            <span class="o">=</span> <span class="mi">128</span>
+<span class="n">FLOAT1</span>              <span class="o">=</span> <span class="mi">256</span>
+<span class="n">FLOAT2</span>              <span class="o">=</span> <span class="mi">512</span>
+<span class="n">FLOAT3</span>              <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">FLOAT4</span>              <span class="o">=</span> <span class="mi">2048</span>
+<span class="n">FLOAT_VARIANT</span>       <span class="o">=</span> <span class="n">FLOAT4</span> <span class="o">|</span> <span class="n">FLOAT1</span>                       <span class="c1"># grayscale or color value</span>
+<span class="n">ENTRY_COLOR_OPT</span>     <span class="o">=</span> <span class="n">ENTRY_COLOR</span> <span class="o">|</span> <span class="n">FLOAT4</span>                  <span class="c1"># optional color entry</span>
+<span class="n">ENTRY_GRAYSCALE_OPT</span> <span class="o">=</span> <span class="n">ENTRY_GRAYSCALE</span> <span class="o">|</span> <span class="n">FLOAT1</span>              <span class="c1"># optional grayscale entry</span>
+<span class="n">ENTRY_VARIANT_OPT</span>   <span class="o">=</span> <span class="n">ENTRY_COLOR_OPT</span> <span class="o">|</span> <span class="n">ENTRY_GRAYSCALE_OPT</span>
+<span class="n">ENTRY_PARAMETER</span>     <span class="o">=</span> <span class="mi">4096</span>                                  <span class="c1"># parameter graph entry (used for fx-map)</span>
+<span class="n">COMPLEX</span>             <span class="o">=</span> <span class="mi">8192</span>
+<span class="n">STRING</span>              <span class="o">=</span> <span class="mi">16384</span>
+<span class="n">PATH</span>                <span class="o">=</span> <span class="mi">32768</span>
+<span class="n">VOID_TYPE</span>           <span class="o">=</span> <span class="mi">65536</span>                                 <span class="c1"># no return type, function only</span>
+<span class="n">TEMPLATE1</span>           <span class="o">=</span> <span class="mi">131072</span>                                <span class="c1"># Template type 1, function only</span>
+<span class="n">TEMPLATE2</span>           <span class="o">=</span> <span class="mi">262144</span>                                <span class="c1"># Template type 2, function only</span>
+<span class="n">SIGNED_INTEGER1</span>     <span class="o">=</span> <span class="mi">524288</span>                                <span class="c1"># hack to support constantInt1 from sbsfunctions.py, always keep it as the last iem as it&#39;s not an official Designer type</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.InputValueTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">InputValueTypeEnum</span></span><a class="headerlink" href="#sbsenum.InputValueTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of all the types compatible with input values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BOOLEAN</span>             <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span>
+<span class="n">INTEGER1</span>            <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span>
+<span class="n">INTEGER2</span>            <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span>
+<span class="n">INTEGER3</span>            <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span>
+<span class="n">INTEGER4</span>            <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span>
+<span class="n">FLOAT1</span>              <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span>
+<span class="n">FLOAT2</span>              <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span>
+<span class="n">FLOAT3</span>              <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span>
+<span class="n">FLOAT4</span>              <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TypeMasksEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TypeMasksEnum</span></span><a class="headerlink" href="#sbsenum.TypeMasksEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper masks enumeration</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ENTRY</span>          <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_COLOR</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_GRAYSCALE</span>
+<span class="n">INTEGER</span>        <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">SIGNED_INTEGER1</span>
+<span class="n">SINGLE</span>         <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER1</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">SIGNED_INTEGER1</span>
+<span class="n">DIM2</span>           <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER2</span><span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span>
+<span class="n">DIM3</span>           <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER3</span><span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span>
+<span class="n">DIM4</span>           <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">INTEGER4</span><span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span>
+<span class="n">LIST</span>           <span class="o">=</span> <span class="n">DIM2</span> <span class="o">|</span> <span class="n">DIM3</span> <span class="o">|</span> <span class="n">DIM4</span>
+<span class="n">FLOAT</span>          <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT1</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT2</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT3</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">FLOAT4</span>
+<span class="n">NUMERIC</span>        <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span> <span class="o">|</span> <span class="n">INTEGER</span> <span class="o">|</span> <span class="n">FLOAT</span>
+<span class="n">AUTHORING</span>      <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">PATH</span>
+<span class="n">FUNCTION_ALL</span>   <span class="o">=</span> <span class="n">FLOAT</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">BOOLEAN</span> <span class="o">|</span> <span class="n">INTEGER</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">VOID_TYPE</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">PATH</span>   <span class="c1"># All functions types</span>
+<span class="n">TEMPLATE_TYPE</span>  <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE1</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">TEMPLATE2</span>                                                               <span class="c1"># Type templates (func. only)</span>
+<span class="n">VALUE_TYPES</span>    <span class="o">=</span> <span class="n">NUMERIC</span> <span class="o">|</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">STRING</span>
+<span class="n">OUTPUT_DEF</span>     <span class="o">=</span> <span class="n">ParamTypeEnum</span><span class="o">.</span><span class="n">ENTRY_VARIANT</span> <span class="o">|</span> <span class="n">VALUE_TYPES</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.AttributesEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">AttributesEnum</span></span><a class="headerlink" href="#sbsenum.AttributesEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different attributes available on a <a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> or a <a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Category</span>     <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Label</span>        <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Author</span>       <span class="o">=</span> <span class="mi">2</span>
+<span class="n">AuthorURL</span>    <span class="o">=</span> <span class="mi">3</span>
+<span class="n">Tags</span>         <span class="o">=</span> <span class="mi">4</span>
+<span class="n">Description</span>  <span class="o">=</span> <span class="mi">5</span>
+<span class="n">UserTags</span>     <span class="o">=</span> <span class="mi">6</span>
+<span class="n">Icon</span>         <span class="o">=</span> <span class="mi">7</span>
+<span class="n">HideInLibrary</span><span class="o">=</span> <span class="mi">8</span>
+<span class="n">PhysicalSize</span> <span class="o">=</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BitmapFormatEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BitmapFormatEnum</span></span><a class="headerlink" href="#sbsenum.BitmapFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the supported bitmap format</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RAW</span>        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DDS</span>        <span class="o">=</span> <span class="mi">1</span>
+<span class="n">DDSSTRIPPED</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">BMP</span>        <span class="o">=</span> <span class="mi">3</span>
+<span class="n">JPG</span>        <span class="o">=</span> <span class="mi">4</span>
+<span class="n">TGA</span>        <span class="o">=</span> <span class="mi">5</span>
+<span class="n">HDR</span>        <span class="o">=</span> <span class="mi">6</span>
+<span class="n">PPM</span>        <span class="o">=</span> <span class="mi">7</span>
+<span class="n">PFM</span>        <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.InputEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">InputEnum</span></span><a class="headerlink" href="#sbsenum.InputEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the input identifier available on the compositing node filters (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BACKGROUND</span>       <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DESTINATION</span>      <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INPUT</span>            <span class="o">=</span> <span class="mi">2</span>
+<span class="n">INPUT1</span>           <span class="o">=</span> <span class="mi">3</span>
+<span class="n">INPUT2</span>           <span class="o">=</span> <span class="mi">4</span>
+<span class="n">INPUT_GRADIENT</span>   <span class="o">=</span> <span class="mi">5</span>
+<span class="n">INPUT_INTENSITY</span>  <span class="o">=</span> <span class="mi">6</span>
+<span class="n">INPUT_NODE_OUTPUT</span><span class="o">=</span> <span class="mi">7</span>
+<span class="n">INPUT_PATTERN</span>    <span class="o">=</span> <span class="mi">8</span>
+<span class="n">MASK</span>             <span class="o">=</span> <span class="mi">9</span>
+<span class="n">OPACITY</span>          <span class="o">=</span> <span class="mi">10</span>
+<span class="n">SOURCE</span>           <span class="o">=</span> <span class="mi">11</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.OutputEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">OutputEnum</span></span><a class="headerlink" href="#sbsenum.OutputEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the output identifiers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">OUTPUT0</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">OUTPUT1</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">OUTPUT2</span><span class="o">=</span> <span class="mi">3</span>
+<span class="n">OUTPUT3</span><span class="o">=</span> <span class="mi">4</span>
+<span class="n">OUTPUTN</span><span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FilterEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FilterEnum</span></span><a class="headerlink" href="#sbsenum.FilterEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available compositing node filters (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BITMAP</span>               <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BLEND</span>                <span class="o">=</span> <span class="mi">1</span>
+<span class="n">BLUR</span>                 <span class="o">=</span> <span class="mi">2</span>
+<span class="n">COMPINSTANCE</span>         <span class="o">=</span> <span class="mi">3</span>
+<span class="n">CURVE</span>                <span class="o">=</span> <span class="mi">4</span>
+<span class="n">DIRECTIONALMOTIONBLUR</span><span class="o">=</span> <span class="mi">5</span>
+<span class="n">DIRECTIONALWARP</span>      <span class="o">=</span> <span class="mi">6</span>
+<span class="n">DISTANCE</span>             <span class="o">=</span> <span class="mi">7</span>
+<span class="n">DYNAMICGRADIENT</span>      <span class="o">=</span> <span class="mi">8</span>
+<span class="n">EMBOSS</span>               <span class="o">=</span> <span class="mi">9</span>
+<span class="n">FXMAPS</span>               <span class="o">=</span> <span class="mi">10</span>
+<span class="n">GRADIENT</span>             <span class="o">=</span> <span class="mi">11</span>
+<span class="n">GRAYSCALECONVERSION</span>  <span class="o">=</span> <span class="mi">12</span>
+<span class="n">HSL</span>                  <span class="o">=</span> <span class="mi">13</span>
+<span class="n">LEVELS</span>               <span class="o">=</span> <span class="mi">14</span>
+<span class="n">NORMAL</span>               <span class="o">=</span> <span class="mi">15</span>
+<span class="n">PIXEL_PROCESSOR</span>      <span class="o">=</span> <span class="mi">16</span>
+<span class="n">SHARPEN</span>              <span class="o">=</span> <span class="mi">17</span>
+<span class="n">SHUFFLE</span>              <span class="o">=</span> <span class="mi">18</span>
+<span class="n">SVG</span>                  <span class="o">=</span> <span class="mi">19</span>
+<span class="n">TEXT</span>                 <span class="o">=</span> <span class="mi">20</span>
+<span class="n">TRANSFORMATION</span>       <span class="o">=</span> <span class="mi">21</span>
+<span class="n">UNIFORM</span>              <span class="o">=</span> <span class="mi">22</span>
+<span class="n">VALUE_PROCESSOR</span>      <span class="o">=</span> <span class="mi">23</span>
+<span class="n">WARP</span>                 <span class="o">=</span> <span class="mi">24</span>
+<span class="n">PASSTHROUGH</span>          <span class="o">=</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BaseParamEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BaseParamEnum</span></span><a class="headerlink" href="#sbsenum.BaseParamEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the parameters (<a class="reference internal" href="params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>) associated to a graph or node
+(<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>), (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>) and FxMap node (<a class="reference internal" href="compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT_FORMAT</span>        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">OUTPUT_SIZE</span>          <span class="o">=</span> <span class="mi">1</span>
+<span class="n">PIXEL_SIZE</span>           <span class="o">=</span> <span class="mi">2</span>
+<span class="n">PIXEL_RATIO</span>          <span class="o">=</span> <span class="mi">3</span>
+<span class="n">QUALITY</span>              <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RANDOM_SEED</span>          <span class="o">=</span> <span class="mi">5</span>
+<span class="n">TILING_MODE</span>          <span class="o">=</span> <span class="mi">6</span>
+<span class="n">ITERATION</span>            <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CompNodeParamEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CompNodeParamEnum</span></span><a class="headerlink" href="#sbsenum.CompNodeParamEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the parameters (<a class="reference internal" href="params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>) associated to the compositing node filters
+(<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>) and FxMap node (<a class="reference internal" href="compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT_FORMAT</span>        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">OUTPUT_SIZE</span>          <span class="o">=</span> <span class="mi">1</span>
+<span class="n">PIXEL_SIZE</span>           <span class="o">=</span> <span class="mi">2</span>
+<span class="n">PIXEL_RATIO</span>          <span class="o">=</span> <span class="mi">3</span>
+<span class="n">QUALITY</span>              <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RANDOM_SEED</span>          <span class="o">=</span> <span class="mi">5</span>
+<span class="n">TILING_MODE</span>          <span class="o">=</span> <span class="mi">6</span>
+<span class="n">ITERATION</span>            <span class="o">=</span> <span class="mi">7</span>
+<span class="n">ALPHA_BLENDING</span>       <span class="o">=</span> <span class="mi">8</span>
+<span class="n">BACKGROUND</span>           <span class="o">=</span> <span class="mi">9</span>
+<span class="n">BACKGROUND_VALUE</span>     <span class="o">=</span> <span class="mi">10</span>
+<span class="n">BLENDING_MODE</span>        <span class="o">=</span> <span class="mi">11</span>
+<span class="n">BLUR_ANGLE</span>           <span class="o">=</span> <span class="mi">12</span>
+<span class="n">BITMAP_RESOURCE_PATH</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">BITMAP_RESIZE_METHOD</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">CHANNEL_ALPHA</span>        <span class="o">=</span> <span class="mi">15</span>
+<span class="n">CHANNEL_BLUE</span>         <span class="o">=</span> <span class="mi">16</span>
+<span class="n">CHANNEL_GREEN</span>        <span class="o">=</span> <span class="mi">17</span>
+<span class="n">CHANNEL_RED</span>          <span class="o">=</span> <span class="mi">18</span>
+<span class="n">CHANNELS_WEIGHTS</span>     <span class="o">=</span> <span class="mi">19</span>
+<span class="n">CLAMP_IN_TERM</span>        <span class="o">=</span> <span class="mi">20</span>
+<span class="n">COLOR_MODE</span>           <span class="o">=</span> <span class="mi">21</span>
+<span class="n">COMBINE_DISTANCE</span>     <span class="o">=</span> <span class="mi">22</span>
+<span class="n">CROPPING_AREA</span>        <span class="o">=</span> <span class="mi">23</span>
+<span class="n">FILTERING</span>            <span class="o">=</span> <span class="mi">24</span>
+<span class="n">FLATTEN_ALPHA</span>        <span class="o">=</span> <span class="mi">25</span>
+<span class="n">GRADIENT_ADDRESSING</span>  <span class="o">=</span> <span class="mi">26</span>
+<span class="n">GRADIENT_ORIENTATION</span> <span class="o">=</span> <span class="mi">27</span>
+<span class="n">GRADIENT_POSITION</span>    <span class="o">=</span> <span class="mi">28</span>
+<span class="n">HIGHLIGHT_COLOR</span>      <span class="o">=</span> <span class="mi">29</span>
+<span class="n">HUE</span>                  <span class="o">=</span> <span class="mi">30</span>
+<span class="n">INTENSITY</span>            <span class="o">=</span> <span class="mi">31</span>
+<span class="n">NORMAL_FORMAT</span>        <span class="o">=</span> <span class="mi">32</span>
+<span class="n">LEVEL_IN_HIGH</span>        <span class="o">=</span> <span class="mi">33</span>
+<span class="n">LEVEL_IN_LOW</span>         <span class="o">=</span> <span class="mi">34</span>
+<span class="n">LEVEL_IN_MID</span>         <span class="o">=</span> <span class="mi">35</span>
+<span class="n">LEVEL_OUT_HIGH</span>       <span class="o">=</span> <span class="mi">36</span>
+<span class="n">LEVEL_OUT_LOW</span>        <span class="o">=</span> <span class="mi">37</span>
+<span class="n">LIGHT_ANGLE</span>          <span class="o">=</span> <span class="mi">38</span>
+<span class="n">LIGHTNESS</span>            <span class="o">=</span> <span class="mi">39</span>
+<span class="n">MATTE_COLOR</span>          <span class="o">=</span> <span class="mi">40</span>
+<span class="n">MAX_DISTANCE</span>         <span class="o">=</span> <span class="mi">41</span>
+<span class="n">MIPMAP_MODE</span>          <span class="o">=</span> <span class="mi">42</span>
+<span class="n">MIPMAP_LEVEL</span>         <span class="o">=</span> <span class="mi">43</span>
+<span class="n">OPACITY</span>              <span class="o">=</span> <span class="mi">44</span>
+<span class="n">OFFSET</span>               <span class="o">=</span> <span class="mi">45</span>
+<span class="n">OUTPUT_COLOR</span>         <span class="o">=</span> <span class="mi">46</span>
+<span class="n">PER_PIXEL</span>            <span class="o">=</span> <span class="mi">47</span>
+<span class="n">FUNCTION</span>             <span class="o">=</span> <span class="mi">48</span>
+<span class="n">RENDER_REGION</span>        <span class="o">=</span> <span class="mi">49</span>
+<span class="n">ROUGHNESS</span>            <span class="o">=</span> <span class="mi">50</span>
+<span class="n">SATURATION</span>           <span class="o">=</span> <span class="mi">51</span>
+<span class="n">SHADOW_COLOR</span>         <span class="o">=</span> <span class="mi">52</span>
+<span class="n">SVG_RESOURCE_PATH</span>    <span class="o">=</span> <span class="mi">53</span>
+<span class="n">TEXT</span>                 <span class="o">=</span> <span class="mi">54</span>
+<span class="n">TEXT_ALIGN</span>           <span class="o">=</span> <span class="mi">55</span>
+<span class="n">TEXT_FONT</span>            <span class="o">=</span> <span class="mi">56</span>
+<span class="n">TEXT_FONT_SIZE</span>       <span class="o">=</span> <span class="mi">57</span>
+<span class="n">TEXT_FONT_COLOR</span>      <span class="o">=</span> <span class="mi">58</span>
+<span class="n">TEXT_POSITION</span>        <span class="o">=</span> <span class="mi">59</span>
+<span class="n">TILING_REGION</span>        <span class="o">=</span> <span class="mi">60</span>
+<span class="n">TRANSFORM_MATRIX</span>     <span class="o">=</span> <span class="mi">61</span>
+<span class="n">WARP_ANGLE</span>           <span class="o">=</span> <span class="mi">62</span>
+<span class="n">NORMAL_ALPHA_CHANNEL</span> <span class="o">=</span> <span class="mi">63</span>
+<span class="n">FX_BLENDING_MODE</span>      <span class="o">=</span> <span class="mi">64</span>
+<span class="n">FX_BRANCH_OFFSET</span>      <span class="o">=</span> <span class="mi">65</span>
+<span class="n">FX_COLOR_LUM</span>          <span class="o">=</span> <span class="mi">66</span>
+<span class="n">FX_IMAGE_ALPHA_PREMUL</span> <span class="o">=</span> <span class="mi">67</span>
+<span class="n">FX_IMAGE_FILTERING</span>    <span class="o">=</span> <span class="mi">68</span>
+<span class="n">FX_IMAGE_INDEX</span>        <span class="o">=</span> <span class="mi">69</span>
+<span class="n">FX_ITERATIONS</span>         <span class="o">=</span> <span class="mi">70</span>
+<span class="n">FX_PATTERN_OFFSET</span>     <span class="o">=</span> <span class="mi">71</span>
+<span class="n">FX_PATTERN_ROTATION</span>   <span class="o">=</span> <span class="mi">72</span>
+<span class="n">FX_PATTERN_SIZE</span>       <span class="o">=</span> <span class="mi">73</span>
+<span class="n">FX_PATTERN_TYPE</span>       <span class="o">=</span> <span class="mi">74</span>
+<span class="n">FX_PATTERN_VARIATION</span>  <span class="o">=</span> <span class="mi">75</span>
+<span class="n">FX_RANDOM_INHERITED</span>   <span class="o">=</span> <span class="mi">76</span>
+<span class="n">FX_RANDOM_SEED</span>        <span class="o">=</span> <span class="mi">77</span>
+<span class="n">FX_SELECTOR</span>           <span class="o">=</span> <span class="mi">78</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FunctionEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FunctionEnum</span></span><a class="headerlink" href="#sbsenum.FunctionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available function nodes (<a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SEQUENCE</span>      <span class="o">=</span> <span class="mi">0</span>
+<span class="n">IF_ELSE</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SET</span>           <span class="o">=</span> <span class="mi">2</span>
+<span class="n">GET_BOOL</span>      <span class="o">=</span> <span class="mi">3</span>
+<span class="n">GET_INTEGER1</span>  <span class="o">=</span> <span class="mi">4</span>
+<span class="n">GET_INTEGER2</span>  <span class="o">=</span> <span class="mi">5</span>
+<span class="n">GET_INTEGER3</span>  <span class="o">=</span> <span class="mi">6</span>
+<span class="n">GET_INTEGER4</span>  <span class="o">=</span> <span class="mi">7</span>
+<span class="n">GET_FLOAT1</span>    <span class="o">=</span> <span class="mi">8</span>
+<span class="n">GET_FLOAT2</span>    <span class="o">=</span> <span class="mi">9</span>
+<span class="n">GET_FLOAT3</span>    <span class="o">=</span> <span class="mi">10</span>
+<span class="n">GET_FLOAT4</span>    <span class="o">=</span> <span class="mi">11</span>
+<span class="n">GET_STRING</span>    <span class="o">=</span> <span class="mi">12</span>
+<span class="n">CONST_BOOL</span>    <span class="o">=</span> <span class="mi">13</span>
+<span class="n">CONST_INT</span>     <span class="o">=</span> <span class="mi">14</span>
+<span class="n">CONST_INT2</span>    <span class="o">=</span> <span class="mi">15</span>
+<span class="n">CONST_INT3</span>    <span class="o">=</span> <span class="mi">16</span>
+<span class="n">CONST_INT4</span>    <span class="o">=</span> <span class="mi">17</span>
+<span class="n">CONST_FLOAT</span>   <span class="o">=</span> <span class="mi">18</span>
+<span class="n">CONST_FLOAT2</span>  <span class="o">=</span> <span class="mi">19</span>
+<span class="n">CONST_FLOAT3</span>  <span class="o">=</span> <span class="mi">20</span>
+<span class="n">CONST_FLOAT4</span>  <span class="o">=</span> <span class="mi">21</span>
+<span class="n">CONST_STRING</span>  <span class="o">=</span> <span class="mi">22</span>
+<span class="n">INSTANCE</span>      <span class="o">=</span> <span class="mi">23</span>
+<span class="n">VECTOR2</span>       <span class="o">=</span> <span class="mi">24</span>
+<span class="n">VECTOR3</span>       <span class="o">=</span> <span class="mi">25</span>
+<span class="n">VECTOR4</span>       <span class="o">=</span> <span class="mi">26</span>
+<span class="n">SWIZZLE1</span>      <span class="o">=</span> <span class="mi">27</span>
+<span class="n">SWIZZLE2</span>      <span class="o">=</span> <span class="mi">28</span>
+<span class="n">SWIZZLE3</span>      <span class="o">=</span> <span class="mi">29</span>
+<span class="n">SWIZZLE4</span>      <span class="o">=</span> <span class="mi">30</span>
+<span class="n">VECTOR_INT2</span>   <span class="o">=</span> <span class="mi">31</span>
+<span class="n">VECTOR_INT3</span>   <span class="o">=</span> <span class="mi">32</span>
+<span class="n">VECTOR_INT4</span>   <span class="o">=</span> <span class="mi">33</span>
+<span class="n">SWIZZLE_INT1</span>  <span class="o">=</span> <span class="mi">34</span>
+<span class="n">SWIZZLE_INT2</span>  <span class="o">=</span> <span class="mi">35</span>
+<span class="n">SWIZZLE_INT3</span>  <span class="o">=</span> <span class="mi">36</span>
+<span class="n">SWIZZLE_INT4</span>  <span class="o">=</span> <span class="mi">37</span>
+<span class="n">TO_INT</span>        <span class="o">=</span> <span class="mi">38</span>
+<span class="n">TO_INT2</span>       <span class="o">=</span> <span class="mi">39</span>
+<span class="n">TO_INT3</span>       <span class="o">=</span> <span class="mi">40</span>
+<span class="n">TO_INT4</span>       <span class="o">=</span> <span class="mi">41</span>
+<span class="n">TO_FLOAT</span>      <span class="o">=</span> <span class="mi">42</span>
+<span class="n">TO_FLOAT2</span>     <span class="o">=</span> <span class="mi">43</span>
+<span class="n">TO_FLOAT3</span>     <span class="o">=</span> <span class="mi">44</span>
+<span class="n">TO_FLOAT4</span>     <span class="o">=</span> <span class="mi">45</span>
+<span class="n">ADD</span>           <span class="o">=</span> <span class="mi">46</span>
+<span class="n">SUB</span>           <span class="o">=</span> <span class="mi">47</span>
+<span class="n">MUL</span>           <span class="o">=</span> <span class="mi">48</span>
+<span class="n">MUL_SCALAR</span>    <span class="o">=</span> <span class="mi">49</span>
+<span class="n">DIV</span>           <span class="o">=</span> <span class="mi">50</span>
+<span class="n">NEG</span>           <span class="o">=</span> <span class="mi">51</span>
+<span class="n">MOD</span>           <span class="o">=</span> <span class="mi">52</span>
+<span class="n">DOT</span>           <span class="o">=</span> <span class="mi">53</span>
+<span class="n">CROSS</span>         <span class="o">=</span> <span class="mi">54</span>
+<span class="n">AND</span>           <span class="o">=</span> <span class="mi">55</span>
+<span class="n">OR</span>            <span class="o">=</span> <span class="mi">56</span>
+<span class="n">NOT</span>           <span class="o">=</span> <span class="mi">57</span>
+<span class="n">EQ</span>            <span class="o">=</span> <span class="mi">58</span>
+<span class="n">NOT_EQ</span>        <span class="o">=</span> <span class="mi">59</span>
+<span class="n">GREATER</span>       <span class="o">=</span> <span class="mi">60</span>
+<span class="n">GREATER_EQUAL</span> <span class="o">=</span> <span class="mi">61</span>
+<span class="n">LOWER</span>         <span class="o">=</span> <span class="mi">62</span>
+<span class="n">LOWER_EQUAL</span>   <span class="o">=</span> <span class="mi">63</span>
+<span class="n">ABS</span>           <span class="o">=</span> <span class="mi">64</span>
+<span class="n">FLOOR</span>         <span class="o">=</span> <span class="mi">65</span>
+<span class="n">CEIL</span>          <span class="o">=</span> <span class="mi">66</span>
+<span class="n">COS</span>           <span class="o">=</span> <span class="mi">67</span>
+<span class="n">SIN</span>           <span class="o">=</span> <span class="mi">68</span>
+<span class="n">SQRT</span>          <span class="o">=</span> <span class="mi">69</span>
+<span class="n">LOG</span>           <span class="o">=</span> <span class="mi">70</span>
+<span class="n">LOG2</span>          <span class="o">=</span> <span class="mi">71</span>
+<span class="n">EXP</span>           <span class="o">=</span> <span class="mi">72</span>
+<span class="n">POW2</span>          <span class="o">=</span> <span class="mi">73</span>
+<span class="n">TAN</span>           <span class="o">=</span> <span class="mi">74</span>
+<span class="n">ATAN2</span>         <span class="o">=</span> <span class="mi">75</span>
+<span class="n">CARTESIAN</span>     <span class="o">=</span> <span class="mi">76</span>
+<span class="n">LERP</span>          <span class="o">=</span> <span class="mi">77</span>
+<span class="n">MIN</span>           <span class="o">=</span> <span class="mi">78</span>
+<span class="n">MAX</span>           <span class="o">=</span> <span class="mi">79</span>
+<span class="n">RAND</span>          <span class="o">=</span> <span class="mi">80</span>
+<span class="n">SAMPLE_LUM</span>    <span class="o">=</span> <span class="mi">81</span>
+<span class="n">SAMPLE_COL</span>    <span class="o">=</span> <span class="mi">82</span>
+<span class="n">PASSTHROUGH</span>   <span class="o">=</span> <span class="mi">83</span>
+<span class="n">POW</span>           <span class="o">=</span> <span class="mi">84</span>
+<span class="n">WHILE</span>         <span class="o">=</span> <span class="mi">85</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FunctionInputEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FunctionInputEnum</span></span><a class="headerlink" href="#sbsenum.FunctionInputEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the input identifier of the function nodes (<a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>               <span class="o">=</span> <span class="mi">0</span>
+<span class="n">B</span>               <span class="o">=</span> <span class="mi">1</span>
+<span class="n">COMPONENTS_IN</span>   <span class="o">=</span> <span class="mi">2</span>
+<span class="n">COMPONENTS_LAST</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">CONDITION</span>       <span class="o">=</span> <span class="mi">4</span>
+<span class="n">ELSE_PATH</span>       <span class="o">=</span> <span class="mi">5</span>
+<span class="n">ENTRIES</span>         <span class="o">=</span> <span class="mi">6</span>
+<span class="n">IF_PATH</span>         <span class="o">=</span> <span class="mi">7</span>
+<span class="n">LOOP</span>            <span class="o">=</span> <span class="mi">8</span>
+<span class="n">POS</span>             <span class="o">=</span> <span class="mi">9</span>
+<span class="n">RHO</span>             <span class="o">=</span> <span class="mi">10</span>
+<span class="n">SCALAR</span>          <span class="o">=</span> <span class="mi">11</span>
+<span class="n">SEQUENCE_IN</span>     <span class="o">=</span> <span class="mi">12</span>
+<span class="n">SEQUENCE_LAST</span>   <span class="o">=</span> <span class="mi">13</span>
+<span class="n">THETA</span>           <span class="o">=</span> <span class="mi">14</span>
+<span class="n">VALUE</span>           <span class="o">=</span> <span class="mi">15</span>
+<span class="n">VECTOR</span>          <span class="o">=</span> <span class="mi">16</span>
+<span class="n">X</span>               <span class="o">=</span> <span class="mi">17</span>
+<span class="n">INPUT</span>           <span class="o">=</span> <span class="mi">18</span>
+<span class="n">INIT</span>            <span class="o">=</span> <span class="mi">19</span>
+<span class="n">COND</span>            <span class="o">=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FxMapNodeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FxMapNodeEnum</span></span><a class="headerlink" href="#sbsenum.FxMapNodeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available FxMap nodes (<code class="xref py py-class docutils literal notranslate"><span class="pre">ParamsGraphNode</span></code>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ITERATE</span>     <span class="o">=</span> <span class="mi">0</span>
+<span class="n">QUADRANT</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SWITCH</span>      <span class="o">=</span> <span class="mi">2</span>
+<span class="n">PASSTHROUGH</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TextureFormatEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TextureFormatEnum</span></span><a class="headerlink" href="#sbsenum.TextureFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of all the texture formats available in Substance Designer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEFAULT_FORMAT</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">RGBA</span>           <span class="o">=</span> <span class="mi">1</span>
+<span class="n">LUMINANCE</span>      <span class="o">=</span> <span class="mi">2</span>
+<span class="n">RGBA16</span>         <span class="o">=</span> <span class="mi">3</span>
+<span class="n">LUMINANCE16</span>    <span class="o">=</span> <span class="mi">4</span>
+<span class="n">DXT1</span>           <span class="o">=</span> <span class="mi">5</span>
+<span class="n">DXT2</span>           <span class="o">=</span> <span class="mi">6</span>
+<span class="n">DXT3</span>           <span class="o">=</span> <span class="mi">7</span>
+<span class="n">DXT4</span>           <span class="o">=</span> <span class="mi">8</span>
+<span class="n">DXT5</span>           <span class="o">=</span> <span class="mi">9</span>
+<span class="n">DXT1a</span>          <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ATI1</span>           <span class="o">=</span> <span class="mi">11</span>
+<span class="n">ATI2</span>           <span class="o">=</span> <span class="mi">12</span>
+<span class="n">RGB24</span>          <span class="o">=</span> <span class="mi">13</span>
+<span class="n">RGBA16F</span>        <span class="o">=</span> <span class="mi">14</span>
+<span class="n">LUMINANCE16F</span>   <span class="o">=</span> <span class="mi">15</span>
+<span class="n">RGBA32F</span>        <span class="o">=</span> <span class="mi">16</span>
+<span class="n">LUMINANCE32F</span>   <span class="o">=</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.MipmapEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">MipmapEnum</span></span><a class="headerlink" href="#sbsenum.MipmapEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the mipmap format available on an Output node</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FULL_PYRAMID</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NO_MIPMAP</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="n">LEVELS_2</span>     <span class="o">=</span> <span class="mi">2</span>
+<span class="n">LEVELS_3</span>     <span class="o">=</span> <span class="mi">3</span>
+<span class="n">LEVELS_4</span>     <span class="o">=</span> <span class="mi">4</span>
+<span class="n">LEVELS_5</span>     <span class="o">=</span> <span class="mi">5</span>
+<span class="n">LEVELS_6</span>     <span class="o">=</span> <span class="mi">6</span>
+<span class="n">LEVELS_7</span>     <span class="o">=</span> <span class="mi">7</span>
+<span class="n">LEVELS_8</span>     <span class="o">=</span> <span class="mi">8</span>
+<span class="n">LEVELS_9</span>     <span class="o">=</span> <span class="mi">9</span>
+<span class="n">LEVELS_10</span>    <span class="o">=</span> <span class="mi">10</span>
+<span class="n">LEVELS_11</span>    <span class="o">=</span> <span class="mi">11</span>
+<span class="n">LEVELS_12</span>    <span class="o">=</span> <span class="mi">12</span>
+<span class="n">LEVELS_13</span>    <span class="o">=</span> <span class="mi">13</span>
+<span class="n">LEVELS_14</span>    <span class="o">=</span> <span class="mi">14</span>
+<span class="n">LEVELS_15</span>    <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.UsageEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">UsageEnum</span></span><a class="headerlink" href="#sbsenum.UsageEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the usages available on an Output node</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DIFFUSE</span>           <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BASECOLOR</span>         <span class="o">=</span> <span class="mi">1</span>
+<span class="n">OPACITY</span>           <span class="o">=</span> <span class="mi">2</span>
+<span class="n">EMISSIVE</span>          <span class="o">=</span> <span class="mi">3</span>
+<span class="n">AMBIENT</span>           <span class="o">=</span> <span class="mi">4</span>
+<span class="n">AMBIENT_OCCLUSION</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MASK</span>              <span class="o">=</span> <span class="mi">6</span>
+<span class="n">NORMAL</span>            <span class="o">=</span> <span class="mi">7</span>
+<span class="n">BUMP</span>              <span class="o">=</span> <span class="mi">8</span>
+<span class="n">HEIGHT</span>            <span class="o">=</span> <span class="mi">9</span>
+<span class="n">DISPLACEMENT</span>      <span class="o">=</span> <span class="mi">10</span>
+<span class="n">SPECULAR</span>          <span class="o">=</span> <span class="mi">11</span>
+<span class="n">SPECULAR_LEVEL</span>    <span class="o">=</span> <span class="mi">12</span>
+<span class="n">SPECULAR_COLOR</span>    <span class="o">=</span> <span class="mi">13</span>
+<span class="n">GLOSSINESS</span>        <span class="o">=</span> <span class="mi">14</span>
+<span class="n">ROUGHNESS</span>         <span class="o">=</span> <span class="mi">15</span>
+<span class="n">ANISOTROPY_LEVEL</span>  <span class="o">=</span> <span class="mi">16</span>
+<span class="n">ANISOTROPY_ANGLE</span>  <span class="o">=</span> <span class="mi">17</span>
+<span class="n">TRANSMISSIVE</span>      <span class="o">=</span> <span class="mi">18</span>
+<span class="n">REFLECTION</span>        <span class="o">=</span> <span class="mi">19</span>
+<span class="n">REFRACTION</span>        <span class="o">=</span> <span class="mi">20</span>
+<span class="n">ENVIRONMENT</span>       <span class="o">=</span> <span class="mi">21</span>
+<span class="n">IOR</span>               <span class="o">=</span> <span class="mi">22</span>
+<span class="n">SCATTERING0</span>       <span class="o">=</span> <span class="mi">23</span>
+<span class="n">SCATTERING1</span>       <span class="o">=</span> <span class="mi">24</span>
+<span class="n">SCATTERING2</span>       <span class="o">=</span> <span class="mi">25</span>
+<span class="n">SCATTERING3</span>       <span class="o">=</span> <span class="mi">26</span>
+<span class="n">ANY</span>               <span class="o">=</span> <span class="mi">27</span>
+<span class="n">METALLIC</span>          <span class="o">=</span> <span class="mi">28</span>
+<span class="n">PANORAMA</span>          <span class="o">=</span> <span class="mi">29</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ComponentsEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ComponentsEnum</span></span><a class="headerlink" href="#sbsenum.ComponentsEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the components associated to a usage on an Output node</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RGBA</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">RGB</span>  <span class="o">=</span> <span class="mi">1</span>
+<span class="n">R</span>    <span class="o">=</span> <span class="mi">2</span>
+<span class="n">G</span>    <span class="o">=</span> <span class="mi">3</span>
+<span class="n">B</span>    <span class="o">=</span> <span class="mi">4</span>
+<span class="n">A</span>    <span class="o">=</span> <span class="mi">5</span>
+<span class="n">RG</span>   <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ColorSpacesEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ColorSpacesEnum</span></span><a class="headerlink" href="#sbsenum.ColorSpacesEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the color spaces associated to a usage on an Output node</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SRGB</span>             <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LINEAR</span>           <span class="o">=</span> <span class="mi">1</span>
+<span class="n">PASSTHRU</span>         <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SNORM</span>            <span class="o">=</span> <span class="mi">3</span>
+<span class="n">NORMAL_XYZ_LEFT</span>  <span class="o">=</span> <span class="mi">4</span>
+<span class="n">NORMAL_XYZ_RIGHT</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.UsageDataEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">UsageDataEnum</span></span><a class="headerlink" href="#sbsenum.UsageDataEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the data contained in a usage</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COMPONENTS</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">COLOR_SPACE</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ResourceTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ResourceTypeEnum</span></span><a class="headerlink" href="#sbsenum.ResourceTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of resources handled by the application</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NONE</span>            <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FONT</span>            <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SVG</span>             <span class="o">=</span> <span class="mi">2</span>
+<span class="n">BITMAP</span>          <span class="o">=</span> <span class="mi">3</span>
+<span class="n">M_BSDF</span>          <span class="o">=</span> <span class="mi">4</span>
+<span class="n">LIGHT_PROFILE</span>   <span class="o">=</span> <span class="mi">5</span>
+<span class="n">SCENE</span>           <span class="o">=</span> <span class="mi">6</span>
+<span class="n">OTHER</span> <span class="o">=</span> <span class="n">NONE</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ParamInheritanceEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ParamInheritanceEnum</span></span><a class="headerlink" href="#sbsenum.ParamInheritanceEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Inheritance parameter of filters</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ABSOLUTE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">PARENT</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INPUT</span>    <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TilingEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TilingEnum</span></span><a class="headerlink" href="#sbsenum.TilingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of tiling</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NO_TILING</span>      <span class="o">=</span> <span class="mi">0</span>
+<span class="n">H_TILING</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">V_TILING</span>       <span class="o">=</span> <span class="mi">2</span>
+<span class="n">H_AND_V_TILING</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.OutputFormatEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">OutputFormatEnum</span></span><a class="headerlink" href="#sbsenum.OutputFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the output format</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT_8BITS</span>        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FORMAT_16BITS</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FORMAT_16BITS_FLOAT</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">FORMAT_32BITS_FLOAT</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.OutputSizeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">OutputSizeEnum</span></span><a class="headerlink" href="#sbsenum.OutputSizeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Output size option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SIZE_1</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SIZE_2</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SIZE_4</span>    <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SIZE_8</span>    <span class="o">=</span> <span class="mi">3</span>
+<span class="n">SIZE_16</span>   <span class="o">=</span> <span class="mi">4</span>
+<span class="n">SIZE_32</span>   <span class="o">=</span> <span class="mi">5</span>
+<span class="n">SIZE_64</span>   <span class="o">=</span> <span class="mi">6</span>
+<span class="n">SIZE_128</span>  <span class="o">=</span> <span class="mi">7</span>
+<span class="n">SIZE_256</span>  <span class="o">=</span> <span class="mi">8</span>
+<span class="n">SIZE_512</span>  <span class="o">=</span> <span class="mi">9</span>
+<span class="n">SIZE_1024</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">SIZE_2048</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">SIZE_4096</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">SIZE_8192</span> <span class="o">=</span> <span class="mi">13</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.PixelRatioEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">PixelRatioEnum</span></span><a class="headerlink" href="#sbsenum.PixelRatioEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the pixel ratio option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STRETCH</span><span class="o">=</span> <span class="mi">0</span>
+<span class="n">SQUARE</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.QualityEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">QualityEnum</span></span><a class="headerlink" href="#sbsenum.QualityEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the quality property</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VERY_LOW</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LOW</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MEDIUM</span>    <span class="o">=</span> <span class="mi">2</span>
+<span class="n">HIGH</span>      <span class="o">=</span> <span class="mi">3</span>
+<span class="n">VERY_HIGH</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ColorModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ColorModeEnum</span></span><a class="headerlink" href="#sbsenum.ColorModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the color switch values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GRAYSCALE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">COLOR</span>     <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BlendBlendingModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BlendBlendingModeEnum</span></span><a class="headerlink" href="#sbsenum.BlendBlendingModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the blending mode for the Blend filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COPY</span>       <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ADD</span>        <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SUBSTRACT</span>  <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MULTIPLY</span>   <span class="o">=</span> <span class="mi">3</span>
+<span class="n">ADD_SUB</span>    <span class="o">=</span> <span class="mi">4</span>
+<span class="n">MAX</span>        <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MIN</span>        <span class="o">=</span> <span class="mi">6</span>
+<span class="n">SWITCH</span>     <span class="o">=</span> <span class="mi">7</span>
+<span class="n">DIVIDE</span>     <span class="o">=</span> <span class="mi">8</span>
+<span class="n">OVERLAY</span>    <span class="o">=</span> <span class="mi">9</span>
+<span class="n">SCREEN</span>     <span class="o">=</span> <span class="mi">10</span>
+<span class="n">SOFT_LIGHT</span> <span class="o">=</span> <span class="mi">11</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.AlphaBlendingEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">AlphaBlendingEnum</span></span><a class="headerlink" href="#sbsenum.AlphaBlendingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha blending mode for the Blend filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">USE_SOURCE_ALPHA</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">IGNORE_ALPHA</span>     <span class="o">=</span> <span class="mi">1</span>
+<span class="n">STRAIGHT_ALPHA</span>   <span class="o">=</span> <span class="mi">2</span>
+<span class="n">PREMULTIPLIED</span>    <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ChannelShuffleEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ChannelShuffleEnum</span></span><a class="headerlink" href="#sbsenum.ChannelShuffleEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha blending mode for the Blend filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INPUT1_RED</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">INPUT1_GREEN</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INPUT1_BLUE</span>  <span class="o">=</span> <span class="mi">2</span>
+<span class="n">INPUT1_ALPHA</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">INPUT2_RED</span>   <span class="o">=</span> <span class="mi">4</span>
+<span class="n">INPUT2_GREEN</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">INPUT2_BLUE</span>  <span class="o">=</span> <span class="mi">6</span>
+<span class="n">INPUT2_ALPHA</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CombineDistanceEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CombineDistanceEnum</span></span><a class="headerlink" href="#sbsenum.CombineDistanceEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the ways to combine source / distance in the Distance filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ONLY_SOURCE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">COMBINE</span>     <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CurveTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CurveTypeEnum</span></span><a class="headerlink" href="#sbsenum.CurveTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of curve available in Substance Designer for the Curve filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LUMINANCE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">RED</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GREEN</span>     <span class="o">=</span> <span class="mi">2</span>
+<span class="n">BLUE</span>      <span class="o">=</span> <span class="mi">3</span>
+<span class="n">ALPHA</span>     <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GradientAddressingEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GradientAddressingEnum</span></span><a class="headerlink" href="#sbsenum.GradientAddressingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the gradient addressing for the Dynamic Gradient and Gradient Map filters</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CLAMP</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">REPEAT</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GradientOrientationEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GradientOrientationEnum</span></span><a class="headerlink" href="#sbsenum.GradientOrientationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the gradient orientation for the Dynamic Gradient filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HORIZONTAL</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">VERTICAL</span>   <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.NormalFormatEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">NormalFormatEnum</span></span><a class="headerlink" href="#sbsenum.NormalFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the normal format for the Normal filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DIRECTX</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">OPENGL</span>  <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.NormalAlphaChannelContentEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">NormalAlphaChannelContentEnum</span></span><a class="headerlink" href="#sbsenum.NormalAlphaChannelContentEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha channel content for the Normal filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FORCE_TO_ONE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">INPUT_ALPHA</span>  <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.MipMapModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">MipMapModeEnum</span></span><a class="headerlink" href="#sbsenum.MipMapModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the mipmap mode for the Transformation 2D filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AUTOMATIC</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MANUAL</span>    <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FilteringEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FilteringEnum</span></span><a class="headerlink" href="#sbsenum.FilteringEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the filtering mode for the Transformation 2D filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NEAREST</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BILINEAR</span>  <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TextAlignEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TextAlignEnum</span></span><a class="headerlink" href="#sbsenum.TextAlignEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the text alignment enumeration for the Text filter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LEFT</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">CENTER</span>  <span class="o">=</span> <span class="mi">1</span>
+<span class="n">RIGHT</span>   <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_PatternType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_PatternType</span></span><a class="headerlink" href="#sbsenum.FX_PatternType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the pattern available on the Quadrant node of an FxMap</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NO_PATTERN</span>            <span class="o">=</span> <span class="mi">0</span>
+<span class="n">INPUT_IMAGE</span>           <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SQUARE</span>                <span class="o">=</span> <span class="mi">2</span>
+<span class="n">DISC</span>                  <span class="o">=</span> <span class="mi">3</span>
+<span class="n">PARABOLOID</span>            <span class="o">=</span> <span class="mi">4</span>
+<span class="n">BELL</span>                  <span class="o">=</span> <span class="mi">5</span>
+<span class="n">GAUSSIAN</span>              <span class="o">=</span> <span class="mi">6</span>
+<span class="n">THORN</span>                 <span class="o">=</span> <span class="mi">7</span>
+<span class="n">PYRAMID</span>               <span class="o">=</span> <span class="mi">8</span>
+<span class="n">BRICK</span>                 <span class="o">=</span> <span class="mi">9</span>
+<span class="n">GRADATION</span>             <span class="o">=</span> <span class="mi">10</span>
+<span class="n">WAVES</span>                 <span class="o">=</span> <span class="mi">11</span>
+<span class="n">HALF_BELL</span>             <span class="o">=</span> <span class="mi">12</span>
+<span class="n">RIDGED_BELL</span>           <span class="o">=</span> <span class="mi">13</span>
+<span class="n">CRESCENT</span>              <span class="o">=</span> <span class="mi">14</span>
+<span class="n">CAPSULE</span>               <span class="o">=</span> <span class="mi">15</span>
+<span class="n">CONE</span>                  <span class="o">=</span> <span class="mi">16</span>
+<span class="n">GRADATION_WITH_OFFSET</span> <span class="o">=</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_BlendingModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_BlendingModeEnum</span></span><a class="headerlink" href="#sbsenum.FX_BlendingModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the blending mode available on the Quadrant node of an FxMap</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADD_SUB</span>     <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MAX</span>         <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ALPHA_BLEND</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_InputImageAlphaEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_InputImageAlphaEnum</span></span><a class="headerlink" href="#sbsenum.FX_InputImageAlphaEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha blending mode available on the Quadrant node of an FxMap</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STRAIGHT</span>      <span class="o">=</span> <span class="mi">0</span>
+<span class="n">PREMULTIPLIED</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_InputImageFilteringEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_InputImageFilteringEnum</span></span><a class="headerlink" href="#sbsenum.FX_InputImageFilteringEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the filtering mode available on the Quadrant node of an FxMap</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BILINEAR_MIPMAP</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BILINEAR</span>        <span class="o">=</span> <span class="mi">1</span>
+<span class="n">NEAREST</span>         <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_SelectorEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_SelectorEnum</span></span><a class="headerlink" href="#sbsenum.FX_SelectorEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the selector available on the Switch node of an FxMap</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LEFT</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">RIGHT</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BitmapResizeMethodEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BitmapResizeMethodEnum</span></span><a class="headerlink" href="#sbsenum.BitmapResizeMethodEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the bitmap resize methods</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SMOOTH_STRETCH</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NEAREST_STRETCH</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.WidgetTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">WidgetTypeEnum</span></span><a class="headerlink" href="#sbsenum.WidgetTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of widget available in Substance Designer for the parameter definition</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BUTTON</span>                <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SLIDER</span>                <span class="o">=</span> <span class="mi">1</span>
+<span class="n">DROP_DOWN_LIST</span>        <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SIZE_POW_2</span>            <span class="o">=</span> <span class="mi">3</span>
+<span class="n">ANGLE</span>                 <span class="o">=</span> <span class="mi">4</span>
+<span class="n">COLOR</span>                 <span class="o">=</span> <span class="mi">5</span>
+<span class="n">TEXT</span>                  <span class="o">=</span> <span class="mi">6</span>
+<span class="n">TRANSFORMATION_INVERSE</span><span class="o">=</span> <span class="mi">7</span>
+<span class="n">TRANSFORMATION_FORWARD</span><span class="o">=</span> <span class="mi">8</span>
+<span class="n">POSITION</span>              <span class="o">=</span> <span class="mi">9</span>
+<span class="n">OFFSET</span>                <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ENUMBUTTONS</span>           <span class="o">=</span> <span class="mi">11</span>
+<span class="n">FUNCTIONBUTTON</span>        <span class="o">=</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.WidgetOptionEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">WidgetOptionEnum</span></span><a class="headerlink" href="#sbsenum.WidgetOptionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>enumeration of all the options available among the different kind of widget</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BOOL_EDITOR_TYPE</span>     <span class="o">=</span> <span class="mi">0</span>
+<span class="n">CLAMP</span>                <span class="o">=</span> <span class="mi">1</span>
+<span class="n">DEFAULT</span>              <span class="o">=</span> <span class="mi">2</span>
+<span class="n">LABEL0</span>               <span class="o">=</span> <span class="mi">3</span>
+<span class="n">LABEL1</span>               <span class="o">=</span> <span class="mi">4</span>
+<span class="n">LABEL2</span>               <span class="o">=</span> <span class="mi">5</span>
+<span class="n">LABEL3</span>               <span class="o">=</span> <span class="mi">6</span>
+<span class="n">MAX</span>                  <span class="o">=</span> <span class="mi">7</span>
+<span class="n">MIN</span>                  <span class="o">=</span> <span class="mi">8</span>
+<span class="n">PARAMETERS</span>           <span class="o">=</span> <span class="mi">9</span>
+<span class="n">STEP</span>                 <span class="o">=</span> <span class="mi">10</span>
+<span class="n">VALUE_INTERPRETATION</span> <span class="o">=</span> <span class="mi">11</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.WidgetEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">WidgetEnum</span></span><a class="headerlink" href="#sbsenum.WidgetEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of widget available in Substance Designer for the parameter definition</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BUTTON_BOOL</span>            <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SLIDER_INT1</span>            <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SLIDER_INT2</span>            <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SLIDER_INT3</span>            <span class="o">=</span> <span class="mi">3</span>
+<span class="n">SLIDER_INT4</span>            <span class="o">=</span> <span class="mi">4</span>
+<span class="n">SLIDER_FLOAT1</span>          <span class="o">=</span> <span class="mi">5</span>
+<span class="n">SLIDER_FLOAT2</span>          <span class="o">=</span> <span class="mi">6</span>
+<span class="n">SLIDER_FLOAT3</span>          <span class="o">=</span> <span class="mi">7</span>
+<span class="n">SLIDER_FLOAT4</span>          <span class="o">=</span> <span class="mi">8</span>
+<span class="n">DROPDOWN_INT1</span>          <span class="o">=</span> <span class="mi">9</span>
+<span class="n">SIZE_POW2_INT2</span>         <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ANGLE_FLOAT1</span>           <span class="o">=</span> <span class="mi">11</span>
+<span class="n">COLOR_FLOAT1</span>           <span class="o">=</span> <span class="mi">12</span>
+<span class="n">COLOR_FLOAT3</span>           <span class="o">=</span> <span class="mi">13</span>
+<span class="n">COLOR_FLOAT4</span>           <span class="o">=</span> <span class="mi">14</span>
+<span class="n">MATRIX_INVERSE_FLOAT4</span>  <span class="o">=</span> <span class="mi">15</span>
+<span class="n">MATRIX_FORWARD_FLOAT4</span>  <span class="o">=</span> <span class="mi">16</span>
+<span class="n">TEXT_STRING</span>            <span class="o">=</span> <span class="mi">17</span>
+<span class="n">POSITION_FLOAT2</span>        <span class="o">=</span> <span class="mi">18</span>
+<span class="n">OFFSET_FLOAT2</span>          <span class="o">=</span> <span class="mi">19</span>
+<span class="n">ENUM_BUTTONS</span>           <span class="o">=</span> <span class="mi">20</span>
+<span class="n">FUNCTION_BUTTON_FLOAT1</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">FUNCTION_BUTTON_FLOAT2</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">FUNCTION_BUTTON_FLOAT3</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">FUNCTION_BUTTON_FLOAT4</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="n">FUNCTION_BUTTON_INT1</span>   <span class="o">=</span> <span class="mi">25</span>
+<span class="n">FUNCTION_BUTTON_INT2</span>   <span class="o">=</span> <span class="mi">26</span>
+<span class="n">FUNCTION_BUTTON_INT3</span>   <span class="o">=</span> <span class="mi">27</span>
+<span class="n">FUNCTION_BUTTON_INT4</span>   <span class="o">=</span> <span class="mi">28</span>
+<span class="n">FUNCTION_BUTTON_BOOL</span>   <span class="o">=</span> <span class="mi">29</span>
+<span class="n">FUNCTION_BUTTON_STRING</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GUIObjectTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GUIObjectTypeEnum</span></span><a class="headerlink" href="#sbsenum.GUIObjectTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the type of GUI Objects in a compositing graph or a function graph</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CompImplementationKindEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CompImplementationKindEnum</span></span><a class="headerlink" href="#sbsenum.CompImplementationKindEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of comp implementation available for a <a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompImplementation" title="compnode.compimplementation.SBSCompImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplementation</span></code></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILTER</span>        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">INSTANCE</span>      <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INPUT</span>         <span class="o">=</span> <span class="mi">2</span>
+<span class="n">OUTPUT</span>        <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BatchToolsEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BatchToolsEnum</span></span><a class="headerlink" href="#sbsenum.BatchToolsEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different BatchTools</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AXFTOOLS</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BAKER</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="n">COOKER</span>   <span class="o">=</span> <span class="mi">2</span>
+<span class="n">MDLTOOLS</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">MUTATOR</span>  <span class="o">=</span> <span class="mi">4</span>
+<span class="n">RENDER</span>   <span class="o">=</span> <span class="mi">5</span>
+<span class="n">UPDATER</span>  <span class="o">=</span> <span class="mi">6</span>
+<span class="n">SPOTCOLORINFO</span><span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GraphTemplateEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GraphTemplateEnum</span></span><a class="headerlink" href="#sbsenum.GraphTemplateEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Substance Graph templates available in Substance Designer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EMPTY</span>                               <span class="o">=</span> <span class="mi">0</span>
+<span class="n">PBR_METALLIC_ROUGHNESS</span>              <span class="o">=</span> <span class="mi">1</span>
+<span class="n">PBR_SPECULAR_GLOSSINESS</span>             <span class="o">=</span> <span class="mi">2</span>
+<span class="n">STANDARD</span>                            <span class="o">=</span> <span class="mi">3</span>
+<span class="n">SCAN_PBR_METALLIC_ROUGHNESS</span>         <span class="o">=</span> <span class="mi">4</span>
+<span class="n">SCAN_PBR_SPECULAR_GLOSSINESS</span>        <span class="o">=</span> <span class="mi">5</span>
+<span class="n">AXF_2_PBR_METALLIC_ROUGHNESS</span>        <span class="o">=</span> <span class="mi">6</span>
+<span class="n">AXF_2_PBR_SPECULAR_GLOSSINESS</span>       <span class="o">=</span> <span class="mi">7</span>
+<span class="n">STUDIO_PANORAMA</span>                     <span class="o">=</span> <span class="mi">8</span>
+<span class="n">PAINTER_FILTER_GENERIC</span>              <span class="o">=</span> <span class="mi">9</span>
+<span class="n">PAINTER_FILTER_SPECIFIC</span>             <span class="o">=</span> <span class="mi">10</span>
+<span class="n">PAINTER_FILTER_SPECIFIC_MORE_MAPS</span>   <span class="o">=</span> <span class="mi">11</span>
+<span class="n">PAINTER_GENERATOR_MORE_MAPS</span>         <span class="o">=</span> <span class="mi">12</span>
+<span class="n">SAMPLER_FILTER</span>                      <span class="o">=</span> <span class="mi">13</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BaseTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BaseTypeEnum</span></span><a class="headerlink" href="#sbsenum.BaseTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the base types used in <a class="reference internal" href="autograph/autograph.html#module-autograph" title="autograph"><code class="xref py py-mod docutils literal notranslate"><span class="pre">autograph</span></code></a> module</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FLOAT</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">INT</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">BOOL</span>  <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.UVTileFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">UVTileFormat</span></span><a class="headerlink" href="#sbsenum.UVTileFormat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different UV tiles format supported by the API</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UDIM</span>      <span class="o">=</span> <span class="mi">0</span> <span class="c1"># &#39;1002&#39;</span>
+<span class="n">UxV</span>       <span class="o">=</span> <span class="mi">1</span> <span class="c1"># &#39;1x0&#39;</span>
+<span class="n">uU_vV</span>     <span class="o">=</span> <span class="mi">2</span> <span class="c1"># &#39;u1_v0&#39;</span>
+<span class="n">UV_LIST</span>   <span class="o">=</span> <span class="mi">3</span> <span class="c1"># [1,0]</span>
+<span class="n">UV_TUPLE</span>  <span class="o">=</span> <span class="mi">4</span> <span class="c1"># (1,0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GraphTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GraphTypeEnum</span></span><a class="headerlink" href="#sbsenum.GraphTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different graph type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UNSPECIFIED</span><span class="o">=</span> <span class="mi">0</span>
+<span class="n">MESH_BASED_GENERATOR</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">TEXTURE_GENERATOR</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">LIGHT</span><span class="o">=</span> <span class="mi">3</span>
+<span class="n">MATERIAL</span><span class="o">=</span> <span class="mi">4</span>
+<span class="n">FILTER</span><span class="o">=</span> <span class="mi">5</span>
+<span class="n">ATLAS_MATERIAL</span><span class="o">=</span> <span class="mi">6</span>
+<span class="n">DECAL_MATERIAL</span><span class="o">=</span> <span class="mi">7</span>
+<span class="n">LIGHT_TEXTURE</span><span class="o">=</span> <span class="mi">8</span>
+<span class="n">ENVIRONMENT_LIGHT</span><span class="o">=</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modulegraph/moduleoutputbridging.html" class="btn btn-neutral float-left" title="moduleoutputbridging module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbslibrary/sbslibrary.html" class="btn btn-neutral float-right" title="sbslibrary module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

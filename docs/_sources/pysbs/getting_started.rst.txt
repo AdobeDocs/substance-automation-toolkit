@@ -1,0 +1,195 @@
+Getting started with the API
+============================
+
+Pysbs provides a way to generate or modify substances without using Substance Designer Application.
+
+.. _ref-to-getting-started:
+
+Installing prerequisites and the API
+------------------------------------
+
+.. _ref-to-install-python:
+
+Installing Python
+^^^^^^^^^^^^^^^^^
+
+| Pysbs is compatible with Python 2.7 and Python 3.5, so the first thing to do is to check if one of these versions is already installed or to |installPython|.
+|
+| You may need to install pip also, the Python package installer. If so, you can follow the |installPip|.
+| Make sure to have python and its script folder added to your path.
+
+
+.. |installPython| raw:: html
+
+   <a href="https://www.python.org/downloads/" target="_blank"><b>install Python</b></a>
+
+.. |installPip| raw:: html
+
+   <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">pip installation procedure</a>
+
+
+.. _ref-to-install-sphinx:
+
+
+Installing Pysbs, the Substance Designer Scripting API package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once you have the Pysbs wheel package nstall it using pip (or pip2.7 or pip3.5 for an explicit Python version):
+
+.. code-block:: shell
+
+    pip install Pysbs-<version>-py2.py3-none-<platform>.whl
+
+In order to be able to run the demos provided with the API, you can unzip the wheel package:
+
+.. code-block:: shell
+
+    unzip Pysbs-<version>-py2.py3-none-<platform>.whl -d .
+
+The extracted result comes with the following content:
+    * The API source code, in the folder */Pysbs-2020.2.0.data/purelib/pysbs/*
+    * A set of demo scripts to test the API, in the folder */Pysbs-2020.2.0.data/purelib/pysbs_demos/*, coming with with a set of samples
+
+Or find pysbs_demos package inside your site-package location.
+
+.. _ref-to-first-step:
+
+First steps with the API
+------------------------
+
+The API provides the module pysbs, which can be imported once the API is installed:
+
+.. code-block:: python
+
+    import pysbs
+
+
+| To be able to read or write a .sbs file using the API, a Context object must be created first.
+| The API provides two ways to create the context, either by explicitly creating it in the script, as described just below, or if your script requires arguments, they can be provided by an argument file and in this case the API creates the Context object automatically.
+
+Script the declaration of the context
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The API need an execution context for its initialization, which is defined in the module :mod:`context`.
+Eventually, one may want to declare aliases for Substance Designer packages folder. 
+
+These simple lines allows to do that:
+
+.. code-block:: python
+
+    # Import context module from pysbs
+    from pysbs import context
+
+    # Creation of the context
+    aContext = context.Context()
+    # Declaration of alias 'myAlias'
+    aContext.getUrlAliasMgr().setAliasAbsPath(aAliasName = 'myAlias', aAbsPath = '<myAliasAbsolutePath>')
+
+
+The module :mod:`demohelloworld` demonstrates the use of the API in this way. To launch this script, open a command prompt on the directory *demos/*, and enter the following command:
+
+.. code-block:: shell
+
+    python demohelloworld.py
+
+The substance *sample/resultDemoHelloWorld.sbs* has been created, and the result displayed on the command prompt should be something like:
+
+.. code-block:: shell
+
+    Install path: C:\Program Files\Allegorithmic\Substance Automation Toolkit
+    Default package: C:\Program Files\Allegorithmic\Substance Automation Toolkit\resources\packages
+    => Resulting substance saved at <absolutePathToPackage>\pysbs_demos\sample\resultDemoHelloWorld.sbs
+
+| The API tries first to locate the Substance Automation Toolkit installation folder, to have access to the Batchtools executables, to the psdparse tool and also to the default Substance Designer packages library.
+| The result of this search is displayed on the first lines output by the API (see above): 'Install path' and 'Default package'.
+| If the API fails to locate this folder (it may be the case with Linux in particular), or if you want to work with another installation folder, you can specify it explicitly on the Context:
+
+.. code-block:: python
+
+    # Import context module from pysbs
+    from pysbs import context
+
+    # Set the Substance Automation Toolkit installation folder (it recomputes automatically the default package library path)
+    context.Context.setAutomationToolkitInstallPath(automationToolkitInstallPath='<myAutomationToolkitInstallationFolder>')
+
+
+
+Using an argument file
+^^^^^^^^^^^^^^^^^^^^^^
+| If a script needs input parameters (for instance, the path of the substance to use as the source and the path of the resulting substance to create), an argument file can be used to provide the input parameters to the function to call, as it is the case for all the functions in the module :mod:`demos`.
+| As soon as the __main__ of the module calls the CommandLineProcessor, an argument file can be used:
+
+.. code-block:: python
+
+    if __name__ == "__main__":
+        base.CommandLineArgsProcessor(__name__).call()
+
+In this case, the script must be called with two parameters:
+    * **fct**: the specific function to execute, contained in the executed module
+    * **args**: the arguments file to feed the function with, which can also contain the declaration of package aliases
+
+.. code-block:: shell
+
+    python moduletocall.py -fct: functionToExecute -args: pathToArgumentFile
+
+The execution context is created automatically by the API in this configuration, and is sent to the function to execute, as its first parameter.
+
+For instance, look at the signature of the function :func:`demos.demoIteration`, defined in the module :mod:`demos`:
+
+.. code-block:: python
+
+    def demoIteration(aContext, aFileAbsPath = '', aDestFileAbsPath = '')
+
+The file *sample/argsDemoIteration.xml* contains the arguments to send to the function :func:`demos.demoIteration` (*aFileAbsPath* and *aDestFileAbsPath*):
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <root>
+        <context>
+            <url_aliases/>
+        </context>
+        <fct_args>
+            <arg name="aFileAbsPath" value="sample\DemoIteration.sbs"/>
+            <arg name="aDestFileAbsPath" value="sample\resultDemoIteration.sbs"/>
+        </fct_args>
+    </root>
+
+To launch this demo, open a command prompt on the directory *demos/*, and enter the following command:
+
+.. code-block:: shell
+
+    python demos.py -fct: demoIteration -args: "sample/argsDemoIteration.xml"
+
+The execution of this command has created the substance *sample/resultDemoIteration.sbs*, which provides an example of the modification of an existing substance to generate iterations (see section :ref:`ref-to-demo-iteration`)
+
+The result displayed on the command prompt should be something like:
+
+.. code-block:: shell
+
+    Install path: C:\Program Files\Allegorithmic\Substance Automation Toolkit
+    Default package: C:\Program Files\Allegorithmic\Substance Automation Toolkit\resources\packages
+    Calling fct "demoIteration" with args {'aFileAbsPath': 'sample/DemoIteration.sbs', 'aDestFileAbsPath': 'sample/resultDemoIteration.sbs', u'aContext': <pysbs.context.Context instance at 0x040E1288>}
+    => Resulting substance saved at sample/resultDemoIteration.sbs
+
+
+| In the argument file, the <context><url_aliases> tag allows you to specify a substance package folder, which will be aliased.
+| This should correspond to the Project Preferences you have setup in Substance Designer application, in the section *Aliases*.
+
+For instance, if we want to create the alias named 'myAlias' that points to the *sample/* folder, here is how to do:
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <root>
+        <context>
+            <url_aliases>
+                <url_alias name="myAlias" path="sample"/>
+            </url_aliases>
+        </context>
+        <fct_args>
+            <arg name="aFileAbsPath" value="myAlias://DemoIteration.sbs"/>
+            <arg name="aDestFileAbsPath" value="myAlias://resultDemoIteration.sbs"/>
+        </fct_args>
+    </root>
+
+.. note:: The default package alias 'sbs://' corresponding to Substance Designer installation folder is added by default to the execution context by the API.

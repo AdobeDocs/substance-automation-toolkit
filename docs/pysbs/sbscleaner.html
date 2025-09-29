@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbscleaner module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sbsexporter module" href="sbsexporter.html" />
+    <link rel="prev" title="thumbnail module" href="batchtools/thumbnail.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanSubstance"><code class="docutils literal notranslate"><span class="pre">cleanSubstance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanUnusedDependencies"><code class="docutils literal notranslate"><span class="pre">cleanUnusedDependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanUselessNodesInDynamicValue"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInDynamicValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanUselessNodesInFunction"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanUselessNodesInGraph"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanUselessNodesInMDLGraph"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInMDLGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanUselessParametersInFunction"><code class="docutils literal notranslate"><span class="pre">cleanUselessParametersInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.cleanUselessParametersInGraph"><code class="docutils literal notranslate"><span class="pre">cleanUselessParametersInGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.getUselessNodesInDynamicValue"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInDynamicValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.getUselessNodesInFunction"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.getUselessNodesInGraph"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.getUselessNodesInMDLGraph"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInMDLGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.getUselessParametersInFunction"><code class="docutils literal notranslate"><span class="pre">getUselessParametersInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbscleaner.getUselessParametersInGraph"><code class="docutils literal notranslate"><span class="pre">getUselessParametersInGraph()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbscleaner module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbscleaner">
+<span id="sbscleaner-module"></span><h1>sbscleaner module<a class="headerlink" href="#module-sbscleaner" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanSubstance">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanSubstance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCleanGraphNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCleanFunctionNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCleanGraphParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCleanFunctionParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanSubstance" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Global clean function, that allows to clean:</dt><dd><ul class="simple">
+<li><p>Clean the useless compositing nodes in the graphs (Substance and MDL)</p></li>
+<li><p>Clean the useless function nodes in the functions and all dynamic values (dynamic nodes parameters, pixel processor function)</p></li>
+<li><p>Clean the useless graph input parameters</p></li>
+<li><p>Clean the useless function input parameters</p></li>
+<li><p>Clean the dependencies unused in the package</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – the substance to clean</p></li>
+<li><p><strong>aCleanGraphNodes</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to clean the useless compositing nodes in the substance graphs. Default to True</p></li>
+<li><p><strong>aCleanFunctionNodes</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to clean the useless function nodes in the functions. Default to True</p></li>
+<li><p><strong>aCleanGraphParameters</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to clean the useless compositing nodes in the substance graphs. Default to True</p></li>
+<li><p><strong>aCleanFunctionParameters</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to clean the useless compositing nodes in the substance graphs. Default to True</p></li>
+<li><p><strong>aCleanUnusedDependencies</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to clean the dependencies unused in the package. Default to True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanUnusedDependencies">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanUnusedDependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanUnusedDependencies" title="Link to this definition"></a></dt>
+<dd><p>Remove all the unused dependencies in the given package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – the substance to clean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanUselessNodesInDynamicValue">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanUselessNodesInDynamicValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDynamicValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanUselessNodesInDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Delete all the useless nodes in the given dynamic value, meaning the ones that are not connected to the output node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDynamicValue</strong> (<a class="reference internal" href="params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – the graph to clean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanUselessNodesInFunction">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanUselessNodesInFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanUselessNodesInFunction" title="Link to this definition"></a></dt>
+<dd><p>Delete all the useless nodes in the given function, meaning the ones that are not connected to the output node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunction</strong> (<a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – the graph to clean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanUselessNodesInGraph">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanUselessNodesInGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanUselessNodesInGraph" title="Link to this definition"></a></dt>
+<dd><p>Delete all the useless nodes in the given graph, meaning the ones that are not connected to an output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – the graph to clean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanUselessNodesInMDLGraph">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanUselessNodesInMDLGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanUselessNodesInMDLGraph" title="Link to this definition"></a></dt>
+<dd><p>Delete all the useless nodes in the given MDL graph, meaning the ones that are not connected to an output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>) – the graph to clean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanUselessParametersInFunction">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanUselessParametersInFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanUselessParametersInFunction" title="Link to this definition"></a></dt>
+<dd><p>Delete all the useless input parameters in the given function, meaning the ones that are not used by the dynamic function or a VisibleIf condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunction</strong> (<a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – the graph to clean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.cleanUselessParametersInGraph">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">cleanUselessParametersInGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.cleanUselessParametersInGraph" title="Link to this definition"></a></dt>
+<dd><p>Delete all the useless input parameters in the given graph, meaning the ones that are not used by a dynamic function or a VisibleIf condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – the graph to clean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.getUselessNodesInDynamicValue">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">getUselessNodesInDynamicValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDynamicValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.getUselessNodesInDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Get all the useless nodes in the given dynamic value, meaning the ones that are not connected to the output node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDynamicValue</strong> (<a class="reference internal" href="params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – the dynamic value to clean</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of useless <a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.getUselessNodesInFunction">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">getUselessNodesInFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.getUselessNodesInFunction" title="Link to this definition"></a></dt>
+<dd><p>Get all the useless nodes in the given function, meaning the ones that are not connected to the output node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunction</strong> (<a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – the graph to clean</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of useless <a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.getUselessNodesInGraph">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">getUselessNodesInGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.getUselessNodesInGraph" title="Link to this definition"></a></dt>
+<dd><p>Get all the useless nodes in the given graph, meaning the ones that are not connected to an output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – the graph to clean</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of useless <a class="reference internal" href="compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.getUselessNodesInMDLGraph">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">getUselessNodesInMDLGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.getUselessNodesInMDLGraph" title="Link to this definition"></a></dt>
+<dd><p>Get all the useless nodes in the given MDL graph, meaning the ones that are not connected to the output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>) – the graph to clean</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of useless <a class="reference internal" href="mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.getUselessParametersInFunction">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">getUselessParametersInFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.getUselessParametersInFunction" title="Link to this definition"></a></dt>
+<dd><p>Get all the useless input parameters in the given function, meaning the ones that are not used by the function graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunction</strong> (<a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – the function to clean</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of useless <a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbscleaner.getUselessParametersInGraph">
+<span class="sig-prename descclassname"><span class="pre">sbscleaner.</span></span><span class="sig-name descname"><span class="pre">getUselessParametersInGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscleaner.getUselessParametersInGraph" title="Link to this definition"></a></dt>
+<dd><p>Get all the useless input parameters in the given graph, meaning the ones that are not used by a dynamic function or a VisibleIf condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – the graph to clean</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of useless <a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="batchtools/thumbnail.html" class="btn btn-neutral float-left" title="thumbnail module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsexporter.html" class="btn btn-neutral float-right" title="sbsexporter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsupdater command line options &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Changelog" href="../../CHANGELOG.html" />
+    <link rel="prev" title="sbsupdater" href="sbsupdater.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sat_commandlines.html">Command Line Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker.html"> substance3d_baker — Bakes out mesh specific data such as ambient occlusion or normal data to textures.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbscooker.html"> sbscooker — Cooks .sbs files to .sbsar files ready to be rendered with sbsrender.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsmutator.html"> sbsmutator — Modifies and specializes .sbs files.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsrender.html"> sbsrender — Renders out maps from .sbsar files.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sbsupdater.html"> sbsupdater — Updates .sbs files to the current version of the batch tools.</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#"> sbsupdater command line options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="sat_commandlines.html">Command Line Tools</a></li>
+          <li class="breadcrumb-item"><a href="sbsupdater.html">sbsupdater</a></li>
+      <li class="breadcrumb-item active">sbsupdater command line options</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbsupdater-command-line-options">
+<span id="ref-to-sat-sbsupdateroptions"></span><h1>sbsupdater command line options<a class="headerlink" href="#sbsupdater-command-line-options" title="Link to this heading"></a></h1>
+<h1>
+
+  sbsupdater
+
+</h1>
+
+<h2>
+
+  Usage
+
+</h2>
+
+<ul>
+
+  <li>sbsupdater [&lt;options&gt;...]</li>
+
+</ul>
+
+<h3>
+
+  Global options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--doc-html, --doc</strong>
+
+  </dt>
+
+  <dd>
+
+    Generate basic documentation html from the option's help.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--help, -h, -?</strong>
+
+  </dt>
+
+  <dd>
+
+    Display help about given subcommand.
+
+    If no subcommand is provided, this help about global options is printed.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--opt-descr</strong>
+
+  </dt>
+
+  <dd>
+
+    Create json description of all available options
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--quiet, -q</strong>
+
+  </dt>
+
+  <dd>
+
+    Disable warning messages.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--verbose, -v</strong>
+
+  </dt>
+
+  <dd>
+
+    Enable info and debug messages.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--version, -V</strong>
+
+  </dt>
+
+  <dd>
+
+    Display version of the program.
+
+  </dd>
+
+</dl>
+
+<h2>
+
+  <a name="update">Subcommand update</a>
+
+</h2>
+
+<h3>
+
+  Description
+
+</h3>
+
+<p>
+
+  Update Substance 3D Designer files to the lastest format.
+
+</p>
+
+<h3>
+
+  Input file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--alias</strong>
+
+    <em>&lt;aliasname:&frasl;&frasl;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Define a custom alias path (e.g. 'myproject:&frasl;&frasl;path&frasl;to&frasl;myproject&frasl;library').
+
+    This option is mandatory if your filter have a dependency with some custom alias.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--inputs, --input</strong>
+
+    <em>&lt;string&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Specify a Substance 3D Designer file to mutate with sbsmutator. Can be given multiple times
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--no-dependency</strong>
+
+  </dt>
+
+  <dd>
+
+    Disable loading of dependencies.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--presets-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Path to presets library (shorthand for '--alias sbs:&frasl;&frasl;&lt;path&gt;').
+
+    This option is mandatory if your filter have a dependency to the presets library.
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--recursive, -r</strong>
+
+  </dt>
+
+  <dd>
+
+    recurse into directories to find input files
+
+  </dd>
+
+</dl>
+
+<h3>
+
+  Output file options
+
+</h3>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-name</strong>
+
+    <em>&lt;name&gt;</em>
+
+    [default: &quot;{inputName}&quot;]
+
+  </dt>
+
+  <dd>
+
+    Set the output name of the generated files, if the correct file extension is not present it will be added.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    - {inputName} : replaced by the input filename.
+
+
+
+  </dd>
+
+</dl>
+
+<dl>
+
+  <dt>
+
+    <strong>--output-path</strong>
+
+    <em>&lt;path&gt;</em>
+
+  </dt>
+
+  <dd>
+
+    Set the output path for the generated files. By default the path is empty, i.e. the files will be saved in the current directory.
+
+    You can use the following patterns that will be replaced by the program when saving the result of the process:
+
+    - {inputPath} : replaced by the input filepath.
+
+
+
+  </dd>
+
+</dl></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsupdater.html" class="btn btn-neutral float-left" title="sbsupdater" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../CHANGELOG.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

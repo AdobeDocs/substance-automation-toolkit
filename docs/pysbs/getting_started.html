@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting started with the API &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API overview" href="overview/overview.html" />
+    <link rel="prev" title="Automation Toolkit Home" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started with the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-prerequisites-and-the-api">Installing prerequisites and the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-python">Installing Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-pysbs-the-substance-designer-scripting-api-package">Installing Pysbs, the Substance Designer Scripting API package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#first-steps-with-the-api">First steps with the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#script-the-declaration-of-the-context">Script the declaration of the context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-an-argument-file">Using an argument file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting started with the API</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started-with-the-api">
+<h1>Getting started with the API<a class="headerlink" href="#getting-started-with-the-api" title="Link to this heading"></a></h1>
+<p>Pysbs provides a way to generate or modify substances without using Substance Designer Application.</p>
+<section id="installing-prerequisites-and-the-api">
+<span id="ref-to-getting-started"></span><h2>Installing prerequisites and the API<a class="headerlink" href="#installing-prerequisites-and-the-api" title="Link to this heading"></a></h2>
+<section id="installing-python">
+<span id="ref-to-install-python"></span><h3>Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">Pysbs is compatible with Python 2.7 and Python 3.5, so the first thing to do is to check if one of these versions is already installed or to <a href="https://www.python.org/downloads/" target="_blank"><b>install Python</b></a>.</div>
+<div class="line"><br /></div>
+<div class="line">You may need to install pip also, the Python package installer. If so, you can follow the <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">pip installation procedure</a>.</div>
+<div class="line">Make sure to have python and its script folder added to your path.</div>
+</div>
+</section>
+<section id="installing-pysbs-the-substance-designer-scripting-api-package">
+<span id="ref-to-install-sphinx"></span><h3>Installing Pysbs, the Substance Designer Scripting API package<a class="headerlink" href="#installing-pysbs-the-substance-designer-scripting-api-package" title="Link to this heading"></a></h3>
+<p>Once you have the Pysbs wheel package nstall it using pip (or pip2.7 or pip3.5 for an explicit Python version):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>Pysbs-&lt;version&gt;-py2.py3-none-&lt;platform&gt;.whl
+</pre></div>
+</div>
+<p>In order to be able to run the demos provided with the API, you can unzip the wheel package:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>unzip<span class="w"> </span>Pysbs-&lt;version&gt;-py2.py3-none-&lt;platform&gt;.whl<span class="w"> </span>-d<span class="w"> </span>.
+</pre></div>
+</div>
+<dl class="simple">
+<dt>The extracted result comes with the following content:</dt><dd><ul class="simple">
+<li><p>The API source code, in the folder <em>/Pysbs-2020.2.0.data/purelib/pysbs/</em></p></li>
+<li><p>A set of demo scripts to test the API, in the folder <em>/Pysbs-2020.2.0.data/purelib/pysbs_demos/</em>, coming with with a set of samples</p></li>
+</ul>
+</dd>
+</dl>
+<p>Or find pysbs_demos package inside your site-package location.</p>
+</section>
+</section>
+<section id="first-steps-with-the-api">
+<span id="ref-to-first-step"></span><h2>First steps with the API<a class="headerlink" href="#first-steps-with-the-api" title="Link to this heading"></a></h2>
+<p>The API provides the module pysbs, which can be imported once the API is installed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pysbs</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">To be able to read or write a .sbs file using the API, a Context object must be created first.</div>
+<div class="line">The API provides two ways to create the context, either by explicitly creating it in the script, as described just below, or if your script requires arguments, they can be provided by an argument file and in this case the API creates the Context object automatically.</div>
+</div>
+<section id="script-the-declaration-of-the-context">
+<h3>Script the declaration of the context<a class="headerlink" href="#script-the-declaration-of-the-context" title="Link to this heading"></a></h3>
+<p>The API need an execution context for its initialization, which is defined in the module <a class="reference internal" href="context.html#module-context" title="context"><code class="xref py py-mod docutils literal notranslate"><span class="pre">context</span></code></a>.
+Eventually, one may want to declare aliases for Substance Designer packages folder.</p>
+<p>These simple lines allows to do that:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import context module from pysbs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">context</span>
+
+<span class="c1"># Creation of the context</span>
+<span class="n">aContext</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+<span class="c1"># Declaration of alias &#39;myAlias&#39;</span>
+<span class="n">aContext</span><span class="o">.</span><span class="n">getUrlAliasMgr</span><span class="p">()</span><span class="o">.</span><span class="n">setAliasAbsPath</span><span class="p">(</span><span class="n">aAliasName</span> <span class="o">=</span> <span class="s1">&#39;myAlias&#39;</span><span class="p">,</span> <span class="n">aAbsPath</span> <span class="o">=</span> <span class="s1">&#39;&lt;myAliasAbsolutePath&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The module <a class="reference internal" href="pysbs_demos/demohelloworld.html#module-demohelloworld" title="demohelloworld"><code class="xref py py-mod docutils literal notranslate"><span class="pre">demohelloworld</span></code></a> demonstrates the use of the API in this way. To launch this script, open a command prompt on the directory <em>demos/</em>, and enter the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demohelloworld.py
+</pre></div>
+</div>
+<p>The substance <em>sample/resultDemoHelloWorld.sbs</em> has been created, and the result displayed on the command prompt should be something like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Install<span class="w"> </span>path:<span class="w"> </span>C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\A</span>llegorithmic<span class="se">\S</span>ubstance<span class="w"> </span>Automation<span class="w"> </span>Toolkit
+Default<span class="w"> </span>package:<span class="w"> </span>C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\A</span>llegorithmic<span class="se">\S</span>ubstance<span class="w"> </span>Automation<span class="w"> </span>Toolkit<span class="se">\r</span>esources<span class="se">\p</span>ackages
+<span class="o">=</span>&gt;<span class="w"> </span>Resulting<span class="w"> </span>substance<span class="w"> </span>saved<span class="w"> </span>at<span class="w"> </span>&lt;absolutePathToPackage&gt;<span class="se">\p</span>ysbs_demos<span class="se">\s</span>ample<span class="se">\r</span>esultDemoHelloWorld.sbs
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The API tries first to locate the Substance Automation Toolkit installation folder, to have access to the Batchtools executables, to the psdparse tool and also to the default Substance Designer packages library.</div>
+<div class="line">The result of this search is displayed on the first lines output by the API (see above): ‘Install path’ and ‘Default package’.</div>
+<div class="line">If the API fails to locate this folder (it may be the case with Linux in particular), or if you want to work with another installation folder, you can specify it explicitly on the Context:</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import context module from pysbs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">context</span>
+
+<span class="c1"># Set the Substance Automation Toolkit installation folder (it recomputes automatically the default package library path)</span>
+<span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="o">.</span><span class="n">setAutomationToolkitInstallPath</span><span class="p">(</span><span class="n">automationToolkitInstallPath</span><span class="o">=</span><span class="s1">&#39;&lt;myAutomationToolkitInstallationFolder&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-an-argument-file">
+<h3>Using an argument file<a class="headerlink" href="#using-an-argument-file" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">If a script needs input parameters (for instance, the path of the substance to use as the source and the path of the resulting substance to create), an argument file can be used to provide the input parameters to the function to call, as it is the case for all the functions in the module <a class="reference internal" href="pysbs_demos/demos.html#module-demos" title="demos"><code class="xref py py-mod docutils literal notranslate"><span class="pre">demos</span></code></a>.</div>
+<div class="line">As soon as the __main__ of the module calls the CommandLineProcessor, an argument file can be used:</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">base</span><span class="o">.</span><span class="n">CommandLineArgsProcessor</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>In this case, the script must be called with two parameters:</dt><dd><ul class="simple">
+<li><p><strong>fct</strong>: the specific function to execute, contained in the executed module</p></li>
+<li><p><strong>args</strong>: the arguments file to feed the function with, which can also contain the declaration of package aliases</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>moduletocall.py<span class="w"> </span>-fct:<span class="w"> </span>functionToExecute<span class="w"> </span>-args:<span class="w"> </span>pathToArgumentFile
+</pre></div>
+</div>
+<p>The execution context is created automatically by the API in this configuration, and is sent to the function to execute, as its first parameter.</p>
+<p>For instance, look at the signature of the function <a class="reference internal" href="pysbs_demos/demos.html#demos.demoIteration" title="demos.demoIteration"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoIteration()</span></code></a>, defined in the module <a class="reference internal" href="pysbs_demos/demos.html#module-demos" title="demos"><code class="xref py py-mod docutils literal notranslate"><span class="pre">demos</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">demoIteration</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">aDestFileAbsPath</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The file <em>sample/argsDemoIteration.xml</em> contains the arguments to send to the function <a class="reference internal" href="pysbs_demos/demos.html#demos.demoIteration" title="demos.demoIteration"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoIteration()</span></code></a> (<em>aFileAbsPath</em> and <em>aDestFileAbsPath</em>):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+<span class="w">    </span><span class="nt">&lt;context&gt;</span>
+<span class="w">        </span><span class="nt">&lt;url_aliases/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/context&gt;</span>
+<span class="w">    </span><span class="nt">&lt;fct_args&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;aFileAbsPath&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;sample\DemoIteration.sbs&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;aDestFileAbsPath&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;sample\resultDemoIteration.sbs&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/fct_args&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</pre></div>
+</div>
+<p>To launch this demo, open a command prompt on the directory <em>demos/</em>, and enter the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoIteration<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;sample/argsDemoIteration.xml&quot;</span>
+</pre></div>
+</div>
+<p>The execution of this command has created the substance <em>sample/resultDemoIteration.sbs</em>, which provides an example of the modification of an existing substance to generate iterations (see section <a class="reference internal" href="overview/Substances%20modification.html#ref-to-demo-iteration"><span class="std std-ref">Iteration generation</span></a>)</p>
+<p>The result displayed on the command prompt should be something like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Install<span class="w"> </span>path:<span class="w"> </span>C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\A</span>llegorithmic<span class="se">\S</span>ubstance<span class="w"> </span>Automation<span class="w"> </span>Toolkit
+Default<span class="w"> </span>package:<span class="w"> </span>C:<span class="se">\P</span>rogram<span class="w"> </span>Files<span class="se">\A</span>llegorithmic<span class="se">\S</span>ubstance<span class="w"> </span>Automation<span class="w"> </span>Toolkit<span class="se">\r</span>esources<span class="se">\p</span>ackages
+Calling<span class="w"> </span>fct<span class="w"> </span><span class="s2">&quot;demoIteration&quot;</span><span class="w"> </span>with<span class="w"> </span>args<span class="w"> </span><span class="o">{</span><span class="s1">&#39;aFileAbsPath&#39;</span>:<span class="w"> </span><span class="s1">&#39;sample/DemoIteration.sbs&#39;</span>,<span class="w"> </span><span class="s1">&#39;aDestFileAbsPath&#39;</span>:<span class="w"> </span><span class="s1">&#39;sample/resultDemoIteration.sbs&#39;</span>,<span class="w"> </span>u<span class="s1">&#39;aContext&#39;</span>:<span class="w"> </span>&lt;pysbs.context.Context<span class="w"> </span>instance<span class="w"> </span>at<span class="w"> </span>0x040E1288&gt;<span class="o">}</span>
+<span class="o">=</span>&gt;<span class="w"> </span>Resulting<span class="w"> </span>substance<span class="w"> </span>saved<span class="w"> </span>at<span class="w"> </span>sample/resultDemoIteration.sbs
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">In the argument file, the &lt;context&gt;&lt;url_aliases&gt; tag allows you to specify a substance package folder, which will be aliased.</div>
+<div class="line">This should correspond to the Project Preferences you have setup in Substance Designer application, in the section <em>Aliases</em>.</div>
+</div>
+<p>For instance, if we want to create the alias named ‘myAlias’ that points to the <em>sample/</em> folder, here is how to do:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+<span class="w">    </span><span class="nt">&lt;context&gt;</span>
+<span class="w">        </span><span class="nt">&lt;url_aliases&gt;</span>
+<span class="w">            </span><span class="nt">&lt;url_alias</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;myAlias&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;sample&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/url_aliases&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/context&gt;</span>
+<span class="w">    </span><span class="nt">&lt;fct_args&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;aFileAbsPath&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;myAlias://DemoIteration.sbs&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;aDestFileAbsPath&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;myAlias://resultDemoIteration.sbs&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/fct_args&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default package alias ‘sbs://’ corresponding to Substance Designer installation folder is added by default to the execution context by the API.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Automation Toolkit Home" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overview/overview.html" class="btn btn-neutral float-right" title="API overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

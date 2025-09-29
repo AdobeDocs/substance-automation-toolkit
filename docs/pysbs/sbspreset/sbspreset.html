@@ -1,0 +1,931 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbspreset module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project Manager How To" href="../sbsproject/projectmgrdoc.html" />
+    <link rel="prev" title="mdllibclasses module" href="../mdl/mdllibclasses.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbspreset module: Preset file management (.sbsprs)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset"><code class="docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresetInput"><code class="docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresets"><code class="docutils literal notranslate"><span class="pre">SBSPRSPresets</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSTypes"><code class="docutils literal notranslate"><span class="pre">SBSPRSTypes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbspreset module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbspreset-module">
+<h1>sbspreset module<a class="headerlink" href="#sbspreset-module" title="Link to this heading"></a></h1>
+<p>Content included in sbspreset module:</p>
+<div class="toctree-wrapper compound">
+</div>
+<p id="module-sbspreset.sbspreset">Module <strong>sbspreset</strong> aims to define sbsprs files, with helpers for making them interact
+with compgraphs</p>
+<dl class="simple">
+<dt>Classes</dt><dd><p><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresets" title="sbspreset.sbspreset.SBSPRSPresets"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresets</span></code></a>
+<a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset" title="sbspreset.sbspreset.SBSPRSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a>
+<a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="sbspreset.sbspreset.SBSPRSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a>
+<a class="reference internal" href="#sbspreset.sbspreset.SBSPRSTypes" title="sbspreset.sbspreset.SBSPRSTypes"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSTypes</span></code></a></p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPkgUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Preset</span></code></p>
+<p>Class representing an SBSPRS preset</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mDescription  (str): Description of thew preset</p></li>
+<li><p>mLabel        (str): Preset label</p></li>
+<li><p>mPkgUrl       (str): Reference to which graph in the package the preset belongs to</p></li>
+<li><p>mPresetInputs (list of <a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="sbspreset.sbspreset.SBSPRSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a>): Values for parameters in presets</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.addPresetInput">
+<span class="sig-name descname"><span class="pre">addPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.addPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Adds a preset input to the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="sbspreset.sbspreset.SBSPRSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a>) – The preset to add</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.addToGraph">
+<span class="sig-name descname"><span class="pre">addToGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.addToGraph" title="Link to this definition"></a></dt>
+<dd><p>Adds this preset to an SBSGraph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The graph to add it to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.createPresetInput">
+<span class="sig-name descname"><span class="pre">createPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.createPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Creates and adds a preset input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – The identifier for the preset input</p></li>
+<li><p><strong>aUID</strong> (<em>int</em>) – The UID for the preset input</p></li>
+<li><p><strong>aValue</strong> (<em>str</em>) – The value for the preset input</p></li>
+<li><p><strong>aType</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSType</span></code>) – The type for the preset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span> <span class="pre">representing</span> <span class="pre">the</span> <span class="pre">new</span> <span class="pre">input</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.createPresetInputFromSBSInput">
+<span class="sig-name descname"><span class="pre">createPresetInputFromSBSInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.createPresetInputFromSBSInput" title="Link to this definition"></a></dt>
+<dd><p>Creates and adds a preset input from an SBSParamInput</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a>) – The input to create a preset from</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span> <span class="pre">representing</span> <span class="pre">the</span> <span class="pre">new</span> <span class="pre">input</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getDescription">
+<span class="sig-name descname"><span class="pre">getDescription</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getDescription" title="Link to this definition"></a></dt>
+<dd><p>Gets the description of the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>description as str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getInputValue">
+<span class="sig-name descname"><span class="pre">getInputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getInputValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the given ParamInput in this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputUID</strong> (<em>str</em>) – UID of the input to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input value in this preset if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getLabel">
+<span class="sig-name descname"><span class="pre">getLabel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getLabel" title="Link to this definition"></a></dt>
+<dd><p>Gets the label for the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>type as str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getPkgUrl">
+<span class="sig-name descname"><span class="pre">getPkgUrl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getPkgUrl" title="Link to this definition"></a></dt>
+<dd><p>Gets the type package url for the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>package url as str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getPresetInput">
+<span class="sig-name descname"><span class="pre">getPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Get the preset of the given input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParam</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code> or str) – the input parameter as ParamInput or identified by its uid</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.PresetInput" title="common_interfaces.package.PresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getPresetInputByIndex">
+<span class="sig-name descname"><span class="pre">getPresetInputByIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getPresetInputByIndex" title="Link to this definition"></a></dt>
+<dd><p>Gets the preset at the specified index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIndex</strong> (<em>int</em>) – The index</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="sbspreset.sbspreset.SBSPRSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getPresetInputCount">
+<span class="sig-name descname"><span class="pre">getPresetInputCount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getPresetInputCount" title="Link to this definition"></a></dt>
+<dd><p>Gets the number of preset inputs on the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getPresetInputFromIdentifier">
+<span class="sig-name descname"><span class="pre">getPresetInputFromIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getPresetInputFromIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the preset of the given input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – the input parameter identified by its identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.PresetInput" title="common_interfaces.package.PresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getPresetInputs">
+<span class="sig-name descname"><span class="pre">getPresetInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getPresetInputs" title="Link to this definition"></a></dt>
+<dd><p>Get the list of preset inputs defined in this preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.PresetInput" title="common_interfaces.package.PresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.getUsertags">
+<span class="sig-name descname"><span class="pre">getUsertags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.getUsertags" title="Link to this definition"></a></dt>
+<dd><p>Gets the usertags for the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>usertags as str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.removePresetInput">
+<span class="sig-name descname"><span class="pre">removePresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPresetInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.removePresetInput" title="Link to this definition"></a></dt>
+<dd><p>Removes an input preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPresetInput</strong> (<a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="sbspreset.sbspreset.SBSPRSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a>) – The preset to remove</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.setDescription">
+<span class="sig-name descname"><span class="pre">setDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDescription</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.setDescription" title="Link to this definition"></a></dt>
+<dd><p>Sets the description for the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDescription</strong> (<em>str</em>) – The new description</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.setLabel">
+<span class="sig-name descname"><span class="pre">setLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.setLabel" title="Link to this definition"></a></dt>
+<dd><p>Sets the label for the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLabel</strong> (<em>str</em>) – The new label</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.setPkgUrl">
+<span class="sig-name descname"><span class="pre">setPkgUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPkgUrl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.setPkgUrl" title="Link to this definition"></a></dt>
+<dd><p>Sets the pkgurl the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPkgUrl</strong> (<em>str</em>) – The pkgurl. Should contain pkg://</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.setUsertags">
+<span class="sig-name descname"><span class="pre">setUsertags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.setUsertags" title="Link to this definition"></a></dt>
+<dd><p>setLabel(aUsertags)
+Sets the usertags for the preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsertags</strong> (<em>str</em>) – The new label</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></p>
+<p>Class representing an SBSPRS preset</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier   (str): Identifier for the value</p></li>
+<li><p>mUID          (str): Uid for the value</p></li>
+<li><p>mValue        (str): The value to set</p></li>
+<li><p>mType         (str): The type of the value</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Gets the identifier of the preset input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>identifier as string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.getType" title="Link to this definition"></a></dt>
+<dd><p>Gets the type of the preset input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>type as <cite>:class:</cite>.SBSPRSType`</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.getTypedValue">
+<span class="sig-name descname"><span class="pre">getTypedValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.getTypedValue" title="Link to this definition"></a></dt>
+<dd><p>Gets the value of the preset as a value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value as float, string, int array of int or float depending on type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.getUID">
+<span class="sig-name descname"><span class="pre">getUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.getUID" title="Link to this definition"></a></dt>
+<dd><p>Gets the uid of the preset input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>uid as int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.getValue" title="Link to this definition"></a></dt>
+<dd><p>Gets the value of the preset as string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value as string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.setIdentifier">
+<span class="sig-name descname"><span class="pre">setIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.setIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Sets the identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIdentifier</strong> (<em>string</em>) – The new identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.setType">
+<span class="sig-name descname"><span class="pre">setType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.setType" title="Link to this definition"></a></dt>
+<dd><p>Sets the type for the input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<cite>:class:</cite>.SBSPRSType`) – The new type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.setUID">
+<span class="sig-name descname"><span class="pre">setUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.setUID" title="Link to this definition"></a></dt>
+<dd><p>Sets the UID for the input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>int</em>) – The new UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.setValue" title="Link to this definition"></a></dt>
+<dd><p>Sets the value for the input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>string</em>) – The new value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPresets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormatVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class representing the preset datastructure.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mContext        (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>): Execution context, with alias definition</p></li>
+<li><p>mFileAbsPath    (str): Absolute path of the package</p></li>
+<li><p>mFormatVersion  (str): version of the format</p></li>
+<li><p>mPresets        (list of <a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset" title="sbspreset.sbspreset.SBSPRSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a>): Presets to add</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.addPreset">
+<span class="sig-name descname"><span class="pre">addPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.addPreset" title="Link to this definition"></a></dt>
+<dd><p>Add preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPreset</strong> (<a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPreset" title="graph.inputparameters.SBSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPreset</span></code></a>) – The label to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.addSBSPresetFromGraph">
+<span class="sig-name descname"><span class="pre">addSBSPresetFromGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPreset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.addSBSPresetFromGraph" title="Link to this definition"></a></dt>
+<dd><p>Adds a preset from a graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aPreset</strong> (<a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPreset" title="graph.inputparameters.SBSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPreset</span></code></a>) – The preset to add</p></li>
+<li><p><strong>aGraph</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The graph to add from</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset" title="sbspreset.sbspreset.SBSPRSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.createPreset">
+<span class="sig-name descname"><span class="pre">createPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPkgUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.createPreset" title="Link to this definition"></a></dt>
+<dd><p>Creates a new preset and returns it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aLabel</strong> (<em>str</em>) – The label for new preset</p></li>
+<li><p><strong>aDescription</strong> (<em>str</em>) – The description for the new preset</p></li>
+<li><p><strong>aUsertags</strong> (<em>str</em>) – Semi-colon separated tags for the preset</p></li>
+<li><p><strong>aGraph</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The graph to make the preset apply to. Can’t be used if specifying aPkgUrl</p></li>
+<li><p><strong>aPkgUrl</strong> (<em>str</em>) – The pkgurl to apply the the preset to. Can’t be used if specifying aGraph</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset" title="sbspreset.sbspreset.SBSPRSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.getPresetByIndex">
+<span class="sig-name descname"><span class="pre">getPresetByIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.getPresetByIndex" title="Link to this definition"></a></dt>
+<dd><p>Gets a preset at the specified index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIndex</strong> (<em>int</em>) – The index to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPreset" title="graph.inputparameters.SBSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPreset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.getPresetByLabel">
+<span class="sig-name descname"><span class="pre">getPresetByLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.getPresetByLabel" title="Link to this definition"></a></dt>
+<dd><p>Gets a preset with the specified label</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLabel</strong> (<em>str</em>) – The label to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPreset" title="graph.inputparameters.SBSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPreset</span></code></a> or None if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.getPresetCount">
+<span class="sig-name descname"><span class="pre">getPresetCount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.getPresetCount" title="Link to this definition"></a></dt>
+<dd><p>Gets the total number of presets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.importAllPresetsFromGraph">
+<span class="sig-name descname"><span class="pre">importAllPresetsFromGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.importAllPresetsFromGraph" title="Link to this definition"></a></dt>
+<dd><p>Adds a all presets from a graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The graph to add from</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of <a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset" title="sbspreset.sbspreset.SBSPRSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.insertAllPresetsInSBS">
+<span class="sig-name descname"><span class="pre">insertAllPresetsInSBS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDoc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.insertAllPresetsInSBS" title="Link to this definition"></a></dt>
+<dd><p>Inserts all presets from the preset to an SBS document
+Ignores presets on graphs not present in the sbsdocument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDoc</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – the document to add presets to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.parseDoc">
+<span class="sig-name descname"><span class="pre">parseDoc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.parseDoc" title="Link to this definition"></a></dt>
+<dd><p>Parse the SBSPRS File content</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if succeed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.removePreset">
+<span class="sig-name descname"><span class="pre">removePreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPreset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.removePreset" title="Link to this definition"></a></dt>
+<dd><p>Removes a preset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPreset</strong> (<a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset" title="sbspreset.sbspreset.SBSPRSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a>) – The preset to remove</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets.writeDoc">
+<span class="sig-name descname"><span class="pre">writeDoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNewFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets.writeDoc" title="Link to this definition"></a></dt>
+<dd><p>Write the SBSPRS document in Element Tree structure and write it on the disk.
+If aNewFileAbsPath is provided, the document is saved at this location, otherwise it is save on the current file location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNewFileAbsPath</strong> – The final location of the document. By default, the document is saved at the same location that the one provided when creating the document.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSTypes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSTypes</span></span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSTypes" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration for sbsprs preset types</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FLOAT1</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FLOAT2</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FLOAT3</span>   <span class="o">=</span> <span class="mi">2</span>
+<span class="n">FLOAT4</span>   <span class="o">=</span> <span class="mi">3</span>
+<span class="n">INTEGER1</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">STRING</span>   <span class="o">=</span> <span class="mi">6</span>
+<span class="n">INTEGER2</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">INTEGER3</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">INTEGER4</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../mdl/mdllibclasses.html" class="btn btn-neutral float-left" title="mdllibclasses module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sbsproject/projectmgrdoc.html" class="btn btn-neutral float-right" title="Project Manager How To" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

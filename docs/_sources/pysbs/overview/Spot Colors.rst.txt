@@ -1,0 +1,171 @@
+.. _ref-to-overview-spotcolor:
+
+SAT and Spot colors
+^^^^^^^^^^^^^^^^^^^
+
+Spot colors with spotcolorinfo
+""""""""""""""""""""""""""""""
+
+From the 11.1 version Substance Designer and SAT introduced spot colors concept. Spot colors allows users
+to pick color from color books, like Pantone. In this version several Pantone books are shipped with
+SD and SAT but it's also possible to add your own Spot colors books.
+:link to spotcolors SD doc:
+
+SAT 11.1 has a Spot colors utility batchtool, `spotcolorinfo(.exe)`. This batchtool allows users to get various
+information for a given Spot color or a color name from a book.
+It's split into three sub command:
+
+- `spotcolorinfo from-names` get information from a color and its book name
+
+- `spotcolorinfo from-ids` get information from Spot color ID and a book ID
+
+- `spotcolorinfo list` get a Spot color info list from a book name
+
+Some examples with the color `PANTONE Cool Gray 4 U` from the book `PANTONE solid uncoated`:
+
+.. code-block:: shell
+
+    # --book-color-name  value must be under form <bookname>|<colorname>
+    ~$ spotcolorinfo from-names --book-color-name "PANTONE solid uncoated|PANTONE Cool Gray 4 U"
+    {
+        "PANTONE solid uncoated|PANTONE Cool Gray 4 U": {
+            "bookid": 3005,
+            "bookname": "PANTONE solid uncoated",
+            "colorengine": "legacy",
+            "colorid": "  CG4U",
+            "colormodel": 0,
+            "colorname": "PANTONE Cool Gray 4 U",
+            "rgba": [
+                0.7144664525985718,
+                0.7144691944122314,
+                0.714465856552124,
+                1
+            ]
+        }
+    }
+
+    # --spotcolor  value must be under form <bookid>|<colorid>, colorid is always composed of 6 chars (spaces matters)
+    ~$ spotcolorinfo from-ids --spotcolor "3005|  CG4U"
+    {
+        "PANTONE solid uncoated|PANTONE Cool Gray 4 U": {
+            "bookid": 3005,
+            "bookname": "PANTONE solid uncoated",
+            "colorengine": "legacy",
+            "colorid": "  CG4U",
+            "colormodel": 0,
+            "colorname": "PANTONE Cool Gray 4 U",
+            "rgba": [
+                0.7144664525985718,
+                0.7144691944122314,
+                0.714465856552124,
+                1
+            ]
+        }
+    }
+
+    ~$ spotcolorinfo list --book-name "PANTONE solid uncoated"
+    {
+    "PANTONE solid uncoated|PANTONE 100 U": {
+        "bookid": 3005,
+        "bookname": "PANTONE solid uncoated",
+        "colorengine": "legacy",
+        "colorid": "  100U",
+        "colormodel": 0,
+        "colorname": "PANTONE 100 U",
+        "rgba": [
+            0.9859546422958374,
+            0.9317296743392944,
+            0.468885213136673,
+            1
+        ]
+    },
+    "PANTONE solid uncoated|PANTONE 101 U": {
+        "bookid": 3005,
+        "bookname": "PANTONE solid uncoated",
+        "colorengine": "legacy",
+        "colorid": "  101U",
+        "colormodel": 0,
+        "colorname": "PANTONE 101 U",
+        "rgba": [
+            0.9922541975975037,
+            0.9378421306610107,
+            0.4005987346172333,
+            1
+        ]
+    }
+    ...
+
+For each commands, the flag `--colorbooks` can be used to precise another
+books collection directory.
+
+It's also possible to used an ACE color profile to get corresponding Spot color info.
+
+.. code-block:: shell
+
+    ~$ spotcolorinfo from-names --ace --ace-render-intent saturation --ace-working-space srgb --book-color-name "PANTONE solid uncoated|PANTONE Cool Gray 4 U"
+    {
+        "PANTONE solid uncoated|PANTONE Cool Gray 4 U": {
+            "acesettings": {
+                "renderintent": "saturation",
+                "workspace": "srgb"
+            },
+            "bookid": 3005,
+            "bookname": "PANTONE solid uncoated",
+            "colorengine": "ace",
+            "colorid": "  CG4U",
+            "colormodel": 0,
+            "colorname": "PANTONE Cool Gray 4 U",
+            "rgba": [
+                0.719413161277771,
+                0.7131832242012024,
+                0.7109392285346985,
+                1
+            ]
+        }
+    }
+
+
+.. _ref-to-overview-spotcolor-pysbs:
+
+Spot colors with PySBS
+""""""""""""""""""""""
+
+PySBS fully supports Spot color, it wraps the `spotcolorinfo` command line to manipulate Spot color
+transparently.
+
+Set Compnode's parameter with Spot color value:
+
+.. code-block:: python
+
+    node = graph.getAllFiltersOfKind(sbsenum.FilterEnum.UNIFORM)
+    node.setParameterSpotColorValueFromNames("outputcolor", "PANTONE solid uncoated", "PANTONE Cool Gray 4 U")
+    node.setParameterSpotColorValueFromIds("outputcolor", "3005", "  CG4U")
+
+Set Graph's input parameter with Spot color value:
+
+.. code-block:: python
+
+    input_param = graph.addInputParameter("spotcolor", sbsenum.WidgetEnum.COLOR_FLOAT4)
+    input_param.setSpotColorFromNames('PANTONE solid uncoated', 'PANTONE Cool Gray 4 U')
+    input_param.setSpotColorValueFromIds("3005", "  CG4U")
+
+For each set Spot color a SBSParamSpotColorInfo is created as the parameter value, this value can be get:
+
+.. code-block:: python
+
+    # compnode
+    param = node.getDefinedParameters()[0]
+    spotcolorparam = param.getSpotColorInfo()
+    info = spotcolorparam.getInfo()
+    or_info_as_dict = spotcolorparam.getInfoAsDict()
+
+    #graph input param
+    param = node.getParameterValue
+    input_param = graph.getInputParameter("spotcolor")
+    spotcolorparam = in_param.getSpotColorInfo()
+    info = spotcolorparam.getInfo()
+    or_info_as_dict = spotcolorparam.getInfoAsDict()
+
+
+:class:`.SBSParamSpotColorInfo`
+

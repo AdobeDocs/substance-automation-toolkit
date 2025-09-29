@@ -1,0 +1,445 @@
+.. _ref-to-sat-sbscookeroptions:
+
+sbscooker command line options
+==============================
+
+.. raw:: html
+
+    <h1>
+      sbscooker
+    </h1>
+    <h2>
+      Usage
+    </h2>
+    <ul>
+      <li>sbscooker [&lt;options&gt;...]</li>
+    </ul>
+    <h3>
+      Global options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--doc-html, --doc</strong>
+      </dt>
+      <dd>
+        Generate basic documentation html from the option's help.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--help, -h, -?</strong>
+      </dt>
+      <dd>
+        Display help about given subcommand.
+        If no subcommand is provided, this help about global options is printed.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--help-advanced</strong>
+      </dt>
+      <dd>
+        Display full help about every options of given subcommand.
+        If no subcommand is provided, help about global options is printed.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--opt-descr</strong>
+      </dt>
+      <dd>
+        Create json description of all available options
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--quiet, -q</strong>
+      </dt>
+      <dd>
+        Disable warning messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--verbose, -v</strong>
+      </dt>
+      <dd>
+        Enable info and debug messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--version, -V</strong>
+      </dt>
+      <dd>
+        Display version of the program.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--version-cooker</strong>
+      </dt>
+      <dd>
+        Display the version of the cooker.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--version-linker</strong>
+      </dt>
+      <dd>
+        Display the version of the linker.
+      </dd>
+    </dl>
+    <h2>
+      <a name="cook">Subcommand cook</a>
+    </h2>
+    <h3>
+      I&frasl;O options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--alias</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Add an alias definition.
+        syntax of &lt;arg&gt;: '&lt;alias&gt;:&frasl;&frasl;&lt;path&gt;'
+        Every occurence of &lt;arg&gt; in every url of every input file with be replaced with &lt;path&gt; before cooking.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable-icons</strong>
+      </dt>
+      <dd>
+        Include graph icons files in the SBSAR if they exist.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Paths to the Substance 3D Designer files to cook (in the .sbs file format).
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--merge</strong>
+      </dt>
+      <dd>
+        Merge all the results in one file
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--no-archive</strong>
+      </dt>
+      <dd>
+        Generate non packaged SBSASM and XML.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-name</strong>
+        <em>&lt;name&gt;</em>
+        [default: &quot;{inputName}&quot;]
+      </dt>
+      <dd>
+        Set the output name of the generated files, if the correct file extension is not present it will be added.&quot;The name is &quot;{inputName}&quot; by default.
+        You can use the following patterns that will be replaced by the program when saving the result of the process:
+          {inputName}  Replaced by the name of the first processed sbs file.
+          {udim}  Replaced by the UDIM id of the cooked tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-path</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Set the output path for the generated files.
+        By default the path is empty, i.e. the files will be saved in the current directory. You can use the following patterns that will be replaced by the program when saving the result of the process:
+          {inputPath}  Replaced by the path of the first processed sbs file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--presets-path, --includes</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        --presets-path&frasl;includes is deprecated, built-in packages location is auto-detected next to the sbscooker executable. If you need to use another location please use the --alias sbs:&frasl;&frasl;&lt;path&gt; option.
+      </dd>
+    </dl>
+    <h3>
+      Cooking options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--ace</strong>
+      </dt>
+      <dd>
+        Use Adobe ACE color management engine.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--ace-render-intent</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Render intent to use when using Adobe ACE.
+        The default value if not specified is relative-colorimetric.
+        Valid options include perceptual, saturation, relative-colorimetric and absolute-colorimetric
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--ace-working-space</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Working color space to use when using Adobe ACE.
+        The default value if not specified is srgb.
+        Valid options include srgb, linear-srgb, acescg and linear-adobe-rgb-1998
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--compression-mode</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        Set the compression mode : specify '0' for &quot;auto&quot;, '1' for &quot;best&quot; and '2' for &quot;none&quot;.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--consistent-header</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;no&quot;]
+      </dt>
+      <dd>
+        For a given substance, every cooked sbsar will be identical (versioning software will consider them as unmodified) ('0' = &quot;no&quot;, '1' = &quot;yes&quot;).
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--expose-output-size</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Expose output size ? ('0' = &quot;no&quot;, '1' = &quot;yes&quot;).
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--expose-pixel-size</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;no&quot;]
+      </dt>
+      <dd>
+        Expose pixel size ? ('0' = &quot;no&quot;, '1' = &quot;yes&quot;).
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--expose-random-seed</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Expose random seed ? ('0' = &quot;no&quot;, '1' = &quot;yes&quot;).
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--icc-profiles-dir</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Specify the directory to search for user ICC profiles.
+        Only used when ACE color management is enabled.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--no-optimization</strong>
+      </dt>
+      <dd>
+        Disable optimization.
+        Check advanced parameters for finer tweaks with optimization.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--ocio</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Specify the OpenColorIO configuration file to use for managing bitmap resources.
+        When not set, the legacy mode is used.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--size-limit</strong>
+        <em>&lt;exponent&gt;</em>
+      </dt>
+      <dd>
+        Maximum width and height of all compositing nodes,given as the exponent of a power in base 2.In other words, you must provide the logarithm in base 2 of the actual width&frasl;height.
+        For example '--size-limit 10' means nodes have a size limit of 1024x1024 pixels.
+        [Default value: Engine specific]
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;udim&gt;</em>
+      </dt>
+      <dd>
+        Coordinates of the uv tile to compute, given as a UDIM id (MARI convention) (e.g &quot;1022&quot;).
+        [default: &quot;1001&quot;]
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv-tile</strong>
+        <em>&lt;u&gt;,&lt;v&gt;</em>
+      </dt>
+      <dd>
+        Coordinates of the uv tile to compute, given as two zero-based indices, e.g. &quot;1,2&quot;.
+        [default: &quot;0,0&quot;]
+      </dd>
+    </dl>
+    <h3>
+      Linking options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--link</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Call linker to generate .sbsbin file for an engine identified with the &lt;engine_id&gt; or &lt;engine_short_name&gt; parameter.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--link-output-name</strong>
+        <em>&lt;name&gt;</em>
+        [default: &quot;{outputName}_{engineName}&quot;]
+      </dt>
+      <dd>
+        Set the output name of the generated linked files, without the extension.The name is &quot;{outputName}_{engineName}&quot; by default.
+        You can use the following patterns that will be replaced by the program when saving the result of the process:
+        - {inputName}  Replaced by the name of the processed sbs.
+        - {engineName}  Replaced by the name of the engine used to link the sbs.
+        - {outputName}  Replaced by the output name specified by the --output-name command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--link-output-path</strong>
+        <em>&lt;path&gt;</em>
+        [default: &quot;{outputPath}&quot;]
+      </dt>
+      <dd>
+        Set the output path of the generated linked files.The path is &quot;{outputPath}&quot; by default.
+        program when saving the result of the process:
+        - {inputPath}  Replaced by the path of the processed sbs.
+        - {engineName}  Replaced by the name of the engine used to link the sbs.
+        - {outputPath}  Replaced by the output path specified by the --output-path command.
+        
+      </dd>
+    </dl>
+    <h3>
+      Watermarking options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--post-filter</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Post-filter Substance 3D Designer file to apply (in the .sbs file format).
+      </dd>
+    </dl>
+    <h3>
+      Cooking optimization options
+    </h3>
+    <p>
+      &lt;bool&gt; can either be &quot;0&quot;, &quot;off&quot;, &quot;no&quot; or &quot;false&quot; to disable the optimizationor &quot;1&quot;, &quot;on&quot;, &quot;yes&quot; or &quot;true&quot; to turn it on.
+    </p>
+    <dl>
+      <dt>
+        <strong>--crc</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        Reduce cooking time.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--full</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;1&quot;]
+      </dt>
+      <dd>
+        Full optimizations options. Best performance and memory footprint, slower cooking process.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--merge-data</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        Reduce binary size.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--merge-graph</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        Best performance.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--reordering</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        Reduce memory footprint.
+      </dd>
+    </dl>
+    <h3>
+      Other options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--internal</strong>
+        <em>&lt;uint&gt;</em>
+      </dt>
+      <dd>
+        
+      </dd>
+    </dl>
+    
+

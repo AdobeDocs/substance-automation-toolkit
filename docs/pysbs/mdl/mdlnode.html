@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mdlnode module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mdlnodeimpl module" href="mdlnodeimpl.html" />
+    <link rel="prev" title="mdlgraph module" href="mdlgraph.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.html">mdl module: MDL graph definition and all objects related to MDL</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mdlmanager.html">mdlmanager module: MDL manager, handles the MDL library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlgraph.html">mdlgraph module: MDL graph definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdlnode module: MDL node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdloperand.html">mdloperand module: MDL operand definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlannotation.html">mdlannotation module: MDL annotation definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlenum.html">mdlenum module: list of enumerations used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdllibclasses.html">mdllibclasses module: provides the classes used to create the MDL library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="mdl.html">mdl module</a></li>
+      <li class="breadcrumb-item active">mdlnode module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-mdl.mdlnode">
+<span id="mdlnode-module"></span><h1>mdlnode module<a class="headerlink" href="#module-mdl.mdlnode" title="Link to this heading"></a></h1>
+<p>Module <strong>mdlnode</strong> aims to define the class <a class="reference internal" href="#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a> which corresponds to the nodes of a <a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdlnode.</span></span><span class="sig-name descname"><span class="pre">MDLNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUILayout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aConnections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMDLImplementation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></p>
+<p>Class that contains information on a MDL node as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mUID                (str): node unique identifier in the MDLGraph context.</p></li>
+<li><p>mGUILayout          (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUILayout" title="sbscommon.gui.SBSGUILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayout</span></code></a>): GUI position/options</p></li>
+<li><p>mConnections        (list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a>, optional): input connections list.</p></li>
+<li><p>mMDLImplementation  (<a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation" title="mdl.mdlnodeimpl.MDLImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplementation</span></code></a>): implementation of the MDL node.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.changeDependencyUID">
+<span class="sig-name descname"><span class="pre">changeDependencyUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oldDepUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newDepUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.changeDependencyUID" title="Link to this definition"></a></dt>
+<dd><p>Change the UID of the dependency referenced by this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The root document, required to reset all the internal links to the referenced graph</p></li>
+<li><p><strong>oldDepUID</strong> (<em>str</em>) – The new dependency UID</p></li>
+<li><p><strong>newDepUID</strong> (<em>str</em>) – The previous dependency UID</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.changeResourcePath">
+<span class="sig-name descname"><span class="pre">changeResourcePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oldPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.changeResourcePath" title="Link to this definition"></a></dt>
+<dd><p>Change the referenced resource path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oldPath</strong> (<em>str</em>) – The old resource path</p></li>
+<li><p><strong>newPath</strong> (<em>str</em>) – The new resource path</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentContainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.classify" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Use the definition of the two nodes to classify them, and their GUI position if they have the same definition.</div>
+<div class="line">To classify the different kind of MDLImplementation, this order is specify:</div>
+<div class="line">Constant &lt; Selector &lt; MDLInstance &lt; MDLGraphInstance &lt; SBSInstance.</div>
+<div class="line">For two identical implementation kind, the names or the paths of the nodes are used to compare the lexicographic order.</div>
+<div class="line">At a final option, the GUI position is used, and in this case, mostLeft &lt; mostRight and then mostUp &lt; mostDown.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOther</strong> (<a class="reference internal" href="#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a>) – The node to compare to.</p></li>
+<li><p><strong>aParentContainer</strong> (<a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>, optional) – The graph containing the nodes to classify</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if itself is considered greater than the other node, -1 for the opposite. 0 in case of equality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getConnectedNodesUID">
+<span class="sig-name descname"><span class="pre">getConnectedNodesUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getConnectedNodesUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UIDs of the nodes connected to this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The UIDs as a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getConnectionOnPin">
+<span class="sig-name descname"><span class="pre">getConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPinIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Get the connection defined on the given input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<em>str</em>) – identifier of the input pin (for <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>, <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> and <a class="reference internal" href="#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a>) or of the output pin(for <a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a> object corresponding to the connection defined on the given pin. None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getConnections">
+<span class="sig-name descname"><span class="pre">getConnections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getConnections" title="Link to this definition"></a></dt>
+<dd><p>Get the connections defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getConnectionsFromNode">
+<span class="sig-name descname"><span class="pre">getConnectionsFromNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getConnectionsFromNode" title="Link to this definition"></a></dt>
+<dd><p>Get all the connections coming from the given left node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – The node to look for in the incoming connections of this node, as an object or a UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the node definition (Inputs, Outputs, Parameters) accordingly to the MDL node implementation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef" title="mdl.mdllibclasses.MDLNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDef</span></code></a> object if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getDisplayName" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name of this node as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getInputDefinition">
+<span class="sig-name descname"><span class="pre">getInputDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getInputDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the input definition corresponding to the given identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str, optional) – The identifier to get. If let None, the primary input will be returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input definition as a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getMDLImplConstant">
+<span class="sig-name descname"><span class="pre">getMDLImplConstant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getMDLImplConstant" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant" title="mdl.mdlnodeimpl.MDLImplConstant"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplConstant</span></code></a> object if this node is a MDL constant, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getMDLImplMDLGraphInstance">
+<span class="sig-name descname"><span class="pre">getMDLImplMDLGraphInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getMDLImplMDLGraphInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance" title="mdl.mdlnodeimpl.MDLImplMDLGraphInstance"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance</span></code></a> object if this node is a MDL graph instance, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getMDLImplMDLInstance">
+<span class="sig-name descname"><span class="pre">getMDLImplMDLInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getMDLImplMDLInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance" title="mdl.mdlnodeimpl.MDLImplMDLInstance"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplMDLInstance</span></code></a> object if this node is a native MDL instance, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getMDLImplSBSInstance">
+<span class="sig-name descname"><span class="pre">getMDLImplSBSInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getMDLImplSBSInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance" title="mdl.mdlnodeimpl.MDLImplSBSInstance"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplSBSInstance</span></code></a> object if this node is a Substance graph instance, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getMDLImplSelector">
+<span class="sig-name descname"><span class="pre">getMDLImplSelector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getMDLImplSelector" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector" title="mdl.mdlnodeimpl.MDLImplSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplSelector</span></code></a> object if this node is a MDL selector, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getMDLImplementation">
+<span class="sig-name descname"><span class="pre">getMDLImplementation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getMDLImplementation" title="Link to this definition"></a></dt>
+<dd><p>Get the appropriate implementation depending on the MDL node kind</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl" title="mdl.mdlcommon.MDLNodeImpl"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeImpl</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getOffsetPosition">
+<span class="sig-name descname"><span class="pre">getOffsetPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getOffsetPosition" title="Link to this definition"></a></dt>
+<dd><p>Compute the position of this node offset by the given offset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – the offset to apply to the node’s current position. Default to [0,0]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the offset position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getOutputType">
+<span class="sig-name descname"><span class="pre">getOutputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getOutputType" title="Link to this definition"></a></dt>
+<dd><p>Get the output type of this node given the output identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – The output identifier to look for. If None, the first output will be considered</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The node output type as a string (color or float) if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getParameter">
+<span class="sig-name descname"><span class="pre">getParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getParameter" title="Link to this definition"></a></dt>
+<dd><p>Get a parameter with the given name in the appropriate MDL node implementation.
+The parameter can be:
+- None in case of a Constant or Selector node, where there is only one parameter.
+- Simply the name of the parameter to get
+- A set of names separated by ‘/’ to access a sub member of the root member, for instance ‘surface/intensity’
+- A name with an operator [] to access a particular item of a parameter array, for instance ‘color[2]’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<em>str</em><em>, </em><em>optional</em>) – Parameter identifier (name of the operand). Can be None in case of a MDLImplConstant or a MDLImplSelector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter if found (<a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter" title="mdl.mdlsbsbridge.MDLParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLParameter</span></code></a> or <a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a>), None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getParameterValue">
+<span class="sig-name descname"><span class="pre">getParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter with the given name in the appropriate MDL node implementation, and return its value.
+The parameter can be:
+- None in case of a Constant or Selector node, where there is only one parameter.
+- Simply the name of the parameter to get
+- A set of names separated by ‘/’ to access a sub member of the root member, for instance ‘surface/intensity’
+- A name with an operator [] to access a particular item of a parameter array, for instance ‘color[2]’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<em>str</em><em>, </em><em>optional</em>) – Parameter identifier (name of the operand). Can be None in case of a MDLImplConstant or a MDLImplSelector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter value if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getPosition">
+<span class="sig-name descname"><span class="pre">getPosition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getPosition" title="Link to this definition"></a></dt>
+<dd><p>Get the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of 3 float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getRect">
+<span class="sig-name descname"><span class="pre">getRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getRect" title="Link to this definition"></a></dt>
+<dd><p>Return the rectangle of this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The rectangle as a <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getResourcesPath">
+<span class="sig-name descname"><span class="pre">getResourcesPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getResourcesPath" title="Link to this definition"></a></dt>
+<dd><p>If this node uses resources in its parameters, returns the list of resources used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of resources used by this node, as internal paths. Return an empty list otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.hasAReferenceOnDependency">
+<span class="sig-name descname"><span class="pre">hasAReferenceOnDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.hasAReferenceOnDependency" title="Link to this definition"></a></dt>
+<dd><p>Check if this node directly references the given dependency.         For instance if it instantiates a graph or a resource included in this dependency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDependency</strong> (str or <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – The dependency to look for (UID or object)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references this dependency, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.hasAReferenceOnInternalPath">
+<span class="sig-name descname"><span class="pre">hasAReferenceOnInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInternalPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.hasAReferenceOnInternalPath" title="Link to this definition"></a></dt>
+<dd><p>Check if this node references the given internal path (pkg:///).         For instance if it instantiates the graph or the resource pointed at the given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInternalPath</strong> (<em>str</em>) – The internal path to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references the given internal path, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isAConstant">
+<span class="sig-name descname"><span class="pre">isAConstant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isAConstant" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is a constant node implementation, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isAPassthrough">
+<span class="sig-name descname"><span class="pre">isAPassthrough</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isAPassthrough" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is passthrough (e.g. an implementation of a special node that allows to organize graph connection layout), False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isAPotentialOutput">
+<span class="sig-name descname"><span class="pre">isAPotentialOutput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isAPotentialOutput" title="Link to this definition"></a></dt>
+<dd><p>Check if this node can be set as an output of the MDLGraph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is a MDL instance of kind ‘mdl::material(bool,material_surface,material_surface,color,material_volume,material_geometry)’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isASelector">
+<span class="sig-name descname"><span class="pre">isASelector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isASelector" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is selector (e.g. an implementation of a special node that allows access to struct members), False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isAnInput">
+<span class="sig-name descname"><span class="pre">isAnInput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isAnInput" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is an input of the graph (e.g. exposed constant node), False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isConnectedTo">
+<span class="sig-name descname"><span class="pre">isConnectedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isConnectedTo" title="Link to this definition"></a></dt>
+<dd><p>Check if the node is connected to the given node, in the direction aLeftNode -&gt; self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the nodes are connected, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isDocked">
+<span class="sig-name descname"><span class="pre">isDocked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isDocked" title="Link to this definition"></a></dt>
+<dd><p>Check if this node is docked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this node is docked, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isMDLGraphInstance">
+<span class="sig-name descname"><span class="pre">isMDLGraphInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isMDLGraphInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is a MDL graph instance, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isMDLInstance">
+<span class="sig-name descname"><span class="pre">isMDLInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isMDLInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is a native function or native material node implementation, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.isSBSInstance">
+<span class="sig-name descname"><span class="pre">isSBSInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.isSBSInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the MDLNode is a Substance graph instance, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.removeConnectionOnPin">
+<span class="sig-name descname"><span class="pre">removeConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.removeConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Remove the connection on the given input pin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str) – identifier of the input pin (for <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> and <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>) or of the output pin(for <a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>) to disconnect</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a connection is removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.removeConnectionsFrom">
+<span class="sig-name descname"><span class="pre">removeConnectionsFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.removeConnectionsFrom" title="Link to this definition"></a></dt>
+<dd><p>Remove all the connections from aLeftNode to this node (in the direction aLeftNode -&gt; self)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.resetParameter">
+<span class="sig-name descname"><span class="pre">resetParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.resetParameter" title="Link to this definition"></a></dt>
+<dd><p>Reset the given parameter to its default value.
+The parameter can be:
+- None in case of a Constant or Selector node, where there is only one parameter.
+- Simply the name of the parameter to get
+- A set of names separated by ‘/’ to access a sub member of the root member, for instance ‘surface/intensity’
+- A name with an operator [] to access a particular item of a parameter array, for instance ‘color[2]’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<em>str</em><em>, </em><em>optional</em>) – identifier of the parameter to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code> if the node has no implementation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.setParameterValue">
+<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.setParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Set the parameter to the appropriate MDL node implementation
+The parameter can be:
+- Simply the name of the parameter to set
+- A set of names separated by ‘/’ to access a sub member of the root member, for instance ‘surface/intensity’
+- A name with an operator [] to access a particular item of a parameter array, for instance ‘color[2]’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<em>str</em>) – identifier of the parameter to set</p></li>
+<li><p><strong>aParamValue</strong> (<em>any parameter type</em>) – value of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code> if the node has no implementation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.setPinVisibilityForParameter">
+<span class="sig-name descname"><span class="pre">setPinVisibilityForParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aVisible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.setPinVisibilityForParameter" title="Link to this definition"></a></dt>
+<dd><p>Set the visibility of the input pin associated to the given parameter.
+Only available for MDL instances and MDL Graph instances</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<em>str</em>) – The parameter to edit</p></li>
+<li><p><strong>aVisible</strong> (<em>bool</em>) – The visibility to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.setPosition">
+<span class="sig-name descname"><span class="pre">setPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.setPosition" title="Link to this definition"></a></dt>
+<dd><p>Set the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPosition</strong> (<em>a list</em><em> of </em><em>3 float</em>) – The position to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.useResource">
+<span class="sig-name descname"><span class="pre">useResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aResourcePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.useResource" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the node uses the given resource (bsdf measurement, ies profile or texture), False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdlnode.MDLNode.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdlnode.MDLNode.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mdlgraph.html" class="btn btn-neutral float-left" title="mdlgraph module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mdlnodeimpl.html" class="btn btn-neutral float-right" title="mdlnodeimpl module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

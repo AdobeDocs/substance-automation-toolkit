@@ -1,0 +1,847 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsdictionaries module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbslibclasses module" href="sbslibclasses.html" />
+    <link rel="prev" title="sbslibrary module" href="sbslibrary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbslibrary.html">sbslibrary module: Substance libraries</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsdictionaries module: Dictionaries of all strings used in the libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibclasses.html">sbslibclasses module: Classes used by the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfunctions.html">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfxmapnodes.html">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbswidgets.html">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.__convertToEnum"><code class="docutils literal notranslate"><span class="pre">__convertToEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType"><code class="docutils literal notranslate"><span class="pre">getAllWidgetFunctionButtonByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAngleWidgetByType"><code class="docutils literal notranslate"><span class="pre">getAngleWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getButtonWidgetByType"><code class="docutils literal notranslate"><span class="pre">getButtonWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getColorWidgetByType"><code class="docutils literal notranslate"><span class="pre">getColorWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDefaultWidget"><code class="docutils literal notranslate"><span class="pre">getDefaultWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDropDownWidgetByType"><code class="docutils literal notranslate"><span class="pre">getDropDownWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getEnumButtonsWidgetByType"><code class="docutils literal notranslate"><span class="pre">getEnumButtonsWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterDefinition"><code class="docutils literal notranslate"><span class="pre">getFilterDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterEnum"><code class="docutils literal notranslate"><span class="pre">getFilterEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionDefinition"><code class="docutils literal notranslate"><span class="pre">getFunctionDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeDefinition"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getInputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getInputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getIterationParamInput"><code class="docutils literal notranslate"><span class="pre">getIterationParamInput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOffsetWidgetByType"><code class="docutils literal notranslate"><span class="pre">getOffsetWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOutputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getOutputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getPositionWidgetByType"><code class="docutils literal notranslate"><span class="pre">getPositionWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getSliderWidgetByType"><code class="docutils literal notranslate"><span class="pre">getSliderWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationForwardWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationForwardWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationInverseWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationInverseWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getWidgetByType"><code class="docutils literal notranslate"><span class="pre">getWidgetByType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbslibrary.html">sbslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsdictionaries module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbslibrary.sbsdictionaries">
+<span id="sbsdictionaries-module"></span><h1>sbsdictionaries module<a class="headerlink" href="#module-pysbs.sbslibrary.sbsdictionaries" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsdictionaries</strong> provides the dictionaries to have the mapping between the enumerations in <a class="reference internal" href="../sbsenum.html#module-sbsenum" title="sbsenum"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsenum</span></code></a> and the
+corresponding string identifier used by Substance Designer.</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt><strong>Dictionaries:</strong></dt><dd><ul>
+<li><p>__dict_Attributes: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_Attributes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Category</span>      <span class="p">:</span> <span class="s1">&#39;category&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Label</span>         <span class="p">:</span> <span class="s1">&#39;label&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Author</span>        <span class="p">:</span> <span class="s1">&#39;author&#39;</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">AuthorURL</span>     <span class="p">:</span> <span class="s1">&#39;authorURL&#39;</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Tags</span>          <span class="p">:</span> <span class="s1">&#39;tags&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Description</span>   <span class="p">:</span> <span class="s1">&#39;description&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">UserTags</span>      <span class="p">:</span> <span class="s1">&#39;usertags&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Icon</span>          <span class="p">:</span> <span class="s1">&#39;icon&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">HideInLibrary</span> <span class="p">:</span> <span class="s1">&#39;hideInLibrary&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">PhysicalSize</span>  <span class="p">:</span> <span class="s1">&#39;physicalSize&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_CommonUsageComponents: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.ComponentsEnum" title="sbsenum.ComponentsEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentsEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_CommonUsageComponents</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span> <span class="p">:</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGB</span>  <span class="p">:</span> <span class="s1">&#39;RGB&#39;</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">R</span>    <span class="p">:</span> <span class="s1">&#39;R&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">G</span>    <span class="p">:</span> <span class="s1">&#39;G&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">B</span>    <span class="p">:</span> <span class="s1">&#39;B&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">A</span>    <span class="p">:</span> <span class="s1">&#39;A&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RG</span>   <span class="p">:</span> <span class="s1">&#39;RG&#39;</span>  
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_CommonUsages: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_CommonUsages</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">DIFFUSE</span>           <span class="p">:</span> <span class="s1">&#39;diffuse&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">BASECOLOR</span>         <span class="p">:</span> <span class="s1">&#39;baseColor&#39;</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">OPACITY</span>           <span class="p">:</span> <span class="s1">&#39;opacity&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">EMISSIVE</span>          <span class="p">:</span> <span class="s1">&#39;emissive&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">AMBIENT</span>           <span class="p">:</span> <span class="s1">&#39;ambient&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">AMBIENT_OCCLUSION</span> <span class="p">:</span> <span class="s1">&#39;ambientOcclusion&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">MASK</span>              <span class="p">:</span> <span class="s1">&#39;mask&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">NORMAL</span>            <span class="p">:</span> <span class="s1">&#39;normal&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">BUMP</span>              <span class="p">:</span> <span class="s1">&#39;bump&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">HEIGHT</span>            <span class="p">:</span> <span class="s1">&#39;height&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">DISPLACEMENT</span>      <span class="p">:</span> <span class="s1">&#39;displacement&#39;</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">SPECULAR</span>          <span class="p">:</span> <span class="s1">&#39;specular&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">SPECULAR_LEVEL</span>    <span class="p">:</span> <span class="s1">&#39;specularLevel&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">SPECULAR_COLOR</span>    <span class="p">:</span> <span class="s1">&#39;specularColor&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">GLOSSINESS</span>        <span class="p">:</span> <span class="s1">&#39;glossiness&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ROUGHNESS</span>         <span class="p">:</span> <span class="s1">&#39;roughness&#39;</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ANISOTROPY_LEVEL</span>  <span class="p">:</span> <span class="s1">&#39;anisotropyLevel&#39;</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ANISOTROPY_ANGLE</span>  <span class="p">:</span> <span class="s1">&#39;anisotropyAngle&#39;</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">TRANSMISSIVE</span>      <span class="p">:</span> <span class="s1">&#39;transmissive&#39;</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">REFLECTION</span>        <span class="p">:</span> <span class="s1">&#39;reflection&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">REFRACTION</span>        <span class="p">:</span> <span class="s1">&#39;refraction&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ENVIRONMENT</span>       <span class="p">:</span> <span class="s1">&#39;environment&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">IOR</span>               <span class="p">:</span> <span class="s1">&#39;IOR&#39;</span>             <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">SCATTERING0</span>       <span class="p">:</span> <span class="s1">&#39;scattering0&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">SCATTERING1</span>       <span class="p">:</span> <span class="s1">&#39;scattering1&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">SCATTERING2</span>       <span class="p">:</span> <span class="s1">&#39;scattering2&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">SCATTERING3</span>       <span class="p">:</span> <span class="s1">&#39;scattering3&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ANY</span>               <span class="p">:</span> <span class="s1">&#39;any&#39;</span>             <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">METALLIC</span>          <span class="p">:</span> <span class="s1">&#39;metallic&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">PANORAMA</span>          <span class="p">:</span> <span class="s1">&#39;panorama&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_CompNodeInputs: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_CompNodeInputs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">BACKGROUND</span>        <span class="p">:</span> <span class="s1">&#39;background&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">DESTINATION</span>       <span class="p">:</span> <span class="s1">&#39;destination&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT</span>             <span class="p">:</span> <span class="s1">&#39;input&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT1</span>            <span class="p">:</span> <span class="s1">&#39;input1&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT2</span>            <span class="p">:</span> <span class="s1">&#39;input2&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT_GRADIENT</span>    <span class="p">:</span> <span class="s1">&#39;inputgradient&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT_INTENSITY</span>   <span class="p">:</span> <span class="s1">&#39;inputintensity&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT_NODE_OUTPUT</span> <span class="p">:</span> <span class="s1">&#39;inputNodeOutput&#39;</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT_PATTERN</span>     <span class="p">:</span> <span class="s1">&#39;inputpattern&#39;</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">MASK</span>              <span class="p">:</span> <span class="s1">&#39;mask&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">OPACITY</span>           <span class="p">:</span> <span class="s1">&#39;opacity&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">SOURCE</span>            <span class="p">:</span> <span class="s1">&#39;source&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_CompNodeOutputs: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_CompNodeOutputs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT</span>  <span class="p">:</span> <span class="s1">&#39;output&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT0</span> <span class="p">:</span> <span class="s1">&#39;output0&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT1</span> <span class="p">:</span> <span class="s1">&#39;output1&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT2</span> <span class="p">:</span> <span class="s1">&#39;output2&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUT3</span> <span class="p">:</span> <span class="s1">&#39;output3&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputEnum</span><span class="o">.</span><span class="n">OUTPUTN</span> <span class="p">:</span> <span class="s1">&#39;outputn&#39;</span>  <span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_CompNodeParameters: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_CompNodeParameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span>         <span class="p">:</span> <span class="s1">&#39;format&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span>           <span class="p">:</span> <span class="s1">&#39;outputsize&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">PIXEL_SIZE</span>            <span class="p">:</span> <span class="s1">&#39;pixelsize&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">PIXEL_RATIO</span>           <span class="p">:</span> <span class="s1">&#39;pixelratio&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">QUALITY</span>               <span class="p">:</span> <span class="s1">&#39;quality&#39;</span>             <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">RANDOM_SEED</span>           <span class="p">:</span> <span class="s1">&#39;randomseed&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TILING_MODE</span>           <span class="p">:</span> <span class="s1">&#39;tiling&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">ITERATION</span>             <span class="p">:</span> <span class="s1">&#39;iteration&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">ALPHA_BLENDING</span>        <span class="p">:</span> <span class="s1">&#39;colorblending&#39;</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BACKGROUND</span>            <span class="p">:</span> <span class="s1">&#39;background&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BACKGROUND_VALUE</span>      <span class="p">:</span> <span class="s1">&#39;mattelevel&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BITMAP_RESOURCE_PATH</span>  <span class="p">:</span> <span class="s1">&#39;bitmapresourcepath&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BITMAP_RESIZE_METHOD</span>  <span class="p">:</span> <span class="s1">&#39;resizemethod&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BLENDING_MODE</span>         <span class="p">:</span> <span class="s1">&#39;blendingmode&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BLUR_ANGLE</span>            <span class="p">:</span> <span class="s1">&#39;mblurangle&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">CHANNEL_ALPHA</span>         <span class="p">:</span> <span class="s1">&#39;channelalpha&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">CHANNEL_BLUE</span>          <span class="p">:</span> <span class="s1">&#39;channelgreen&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">CHANNEL_GREEN</span>         <span class="p">:</span> <span class="s1">&#39;channelblue&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">CHANNEL_RED</span>           <span class="p">:</span> <span class="s1">&#39;channelred&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">CHANNELS_WEIGHTS</span>      <span class="p">:</span> <span class="s1">&#39;channelsweights&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">CLAMP_IN_TERM</span>         <span class="p">:</span> <span class="s1">&#39;clampinterm&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span>            <span class="p">:</span> <span class="s1">&#39;colorswitch&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COMBINE_DISTANCE</span>      <span class="p">:</span> <span class="s1">&#39;combinedistance&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">CROPPING_AREA</span>         <span class="p">:</span> <span class="s1">&#39;maskrectangle&#39;</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FILTERING</span>             <span class="p">:</span> <span class="s1">&#39;filtering&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FLATTEN_ALPHA</span>         <span class="p">:</span> <span class="s1">&#39;alphamult&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">GRADIENT_ADDRESSING</span>   <span class="p">:</span> <span class="s1">&#39;addressingrepeat&#39;</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">GRADIENT_ORIENTATION</span>  <span class="p">:</span> <span class="s1">&#39;uvselector&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">GRADIENT_POSITION</span>     <span class="p">:</span> <span class="s1">&#39;coordinate&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">HIGHLIGHT_COLOR</span>       <span class="p">:</span> <span class="s1">&#39;highlightcolor&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">HUE</span>                   <span class="p">:</span> <span class="s1">&#39;hue&#39;</span>                 <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">INTENSITY</span>             <span class="p">:</span> <span class="s1">&#39;intensity&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">NORMAL_FORMAT</span>         <span class="p">:</span> <span class="s1">&#39;inversedy&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">LEVEL_IN_HIGH</span>         <span class="p">:</span> <span class="s1">&#39;levelinhigh&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">LEVEL_IN_LOW</span>          <span class="p">:</span> <span class="s1">&#39;levelinlow&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">LEVEL_IN_MID</span>          <span class="p">:</span> <span class="s1">&#39;levelinmid&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">LEVEL_OUT_HIGH</span>        <span class="p">:</span> <span class="s1">&#39;levelouthigh&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">LEVEL_OUT_LOW</span>         <span class="p">:</span> <span class="s1">&#39;leveloutlow&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">LIGHT_ANGLE</span>           <span class="p">:</span> <span class="s1">&#39;lightangle&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">LIGHTNESS</span>             <span class="p">:</span> <span class="s1">&#39;luminosity&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">MIPMAP_LEVEL</span>          <span class="p">:</span> <span class="s1">&#39;manualmiplevel&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">MATTE_COLOR</span>           <span class="p">:</span> <span class="s1">&#39;mattecolor&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">MAX_DISTANCE</span>          <span class="p">:</span> <span class="s1">&#39;distance&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">MIPMAP_MODE</span>           <span class="p">:</span> <span class="s1">&#39;mipmapmode&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OPACITY</span>               <span class="p">:</span> <span class="s1">&#39;opacitymult&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OFFSET</span>                <span class="p">:</span> <span class="s1">&#39;offset&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span>          <span class="p">:</span> <span class="s1">&#39;outputcolor&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">PER_PIXEL</span>             <span class="p">:</span> <span class="s1">&#39;perpixel&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FUNCTION</span>              <span class="p">:</span> <span class="s1">&#39;function&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">RENDER_REGION</span>         <span class="p">:</span> <span class="s1">&#39;renderroi&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">ROUGHNESS</span>             <span class="p">:</span> <span class="s1">&#39;hurst&#39;</span>               <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">SATURATION</span>            <span class="p">:</span> <span class="s1">&#39;saturation&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">SHADOW_COLOR</span>          <span class="p">:</span> <span class="s1">&#39;shadowcolor&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">SVG_RESOURCE_PATH</span>     <span class="p">:</span> <span class="s1">&#39;vectorresourcepath&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TEXT</span>                  <span class="p">:</span> <span class="s1">&#39;text&#39;</span>                <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TEXT_ALIGN</span>            <span class="p">:</span> <span class="s1">&#39;alignment&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TEXT_FONT</span>             <span class="p">:</span> <span class="s1">&#39;fontdata&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TEXT_FONT_SIZE</span>        <span class="p">:</span> <span class="s1">&#39;fontsize&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TEXT_FONT_COLOR</span>       <span class="p">:</span> <span class="s1">&#39;frontcolor&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TEXT_POSITION</span>         <span class="p">:</span> <span class="s1">&#39;position&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TILING_REGION</span>         <span class="p">:</span> <span class="s1">&#39;tilingroi&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TRANSFORM_MATRIX</span>      <span class="p">:</span> <span class="s1">&#39;matrix22&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">WARP_ANGLE</span>            <span class="p">:</span> <span class="s1">&#39;warpangle&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">NORMAL_ALPHA_CHANNEL</span>  <span class="p">:</span> <span class="s1">&#39;input2alpha&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_BLENDING_MODE</span>      <span class="p">:</span> <span class="s1">&#39;blendingmode&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_BRANCH_OFFSET</span>      <span class="p">:</span> <span class="s1">&#39;branchoffset&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_COLOR_LUM</span>          <span class="p">:</span> <span class="s1">&#39;opacity&#39;</span>             <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_IMAGE_ALPHA_PREMUL</span> <span class="p">:</span> <span class="s1">&#39;imagepremul&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_IMAGE_FILTERING</span>    <span class="p">:</span> <span class="s1">&#39;imagefiltering&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_IMAGE_INDEX</span>        <span class="p">:</span> <span class="s1">&#39;imageindex&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_ITERATIONS</span>         <span class="p">:</span> <span class="s1">&#39;numberadded&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_OFFSET</span>     <span class="p">:</span> <span class="s1">&#39;frameoffset&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_ROTATION</span>   <span class="p">:</span> <span class="s1">&#39;patternrotation&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_SIZE</span>       <span class="p">:</span> <span class="s1">&#39;patternsize&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_TYPE</span>       <span class="p">:</span> <span class="s1">&#39;patterntype&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_VARIATION</span>  <span class="p">:</span> <span class="s1">&#39;patternsuppl&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_INHERITED</span>   <span class="p">:</span> <span class="s1">&#39;randominherited&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_RANDOM_SEED</span>        <span class="p">:</span> <span class="s1">&#39;randomseed&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_SELECTOR</span>           <span class="p">:</span> <span class="s1">&#39;switch&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_CurveTypes: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.CurveTypeEnum" title="sbsenum.CurveTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_CurveTypes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CurveTypeEnum</span><span class="o">.</span><span class="n">LUMINANCE</span> <span class="p">:</span> <span class="s1">&#39;curveluminance&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CurveTypeEnum</span><span class="o">.</span><span class="n">RED</span>       <span class="p">:</span> <span class="s1">&#39;curvered&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CurveTypeEnum</span><span class="o">.</span><span class="n">GREEN</span>     <span class="p">:</span> <span class="s1">&#39;curvegreen&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CurveTypeEnum</span><span class="o">.</span><span class="n">BLUE</span>      <span class="p">:</span> <span class="s1">&#39;curveblue&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">CurveTypeEnum</span><span class="o">.</span><span class="n">ALPHA</span>     <span class="p">:</span> <span class="s1">&#39;curvealpha&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_FunctionInputs: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_FunctionInputs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span>               <span class="p">:</span> <span class="s1">&#39;a&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span>               <span class="p">:</span> <span class="s1">&#39;b&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span>   <span class="p">:</span> <span class="s1">&#39;componentsin&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span> <span class="p">:</span> <span class="s1">&#39;componentslast&#39;</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">CONDITION</span>       <span class="p">:</span> <span class="s1">&#39;condition&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">ELSE_PATH</span>       <span class="p">:</span> <span class="s1">&#39;elsepath&#39;</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">ENTRIES</span>         <span class="p">:</span> <span class="s1">&#39;entries&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">IF_PATH</span>         <span class="p">:</span> <span class="s1">&#39;ifpath&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">LOOP</span>            <span class="p">:</span> <span class="s1">&#39;loop&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">POS</span>             <span class="p">:</span> <span class="s1">&#39;pos&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">RHO</span>             <span class="p">:</span> <span class="s1">&#39;rho&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SCALAR</span>          <span class="p">:</span> <span class="s1">&#39;scalar&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SEQUENCE_IN</span>     <span class="p">:</span> <span class="s1">&#39;seqin&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SEQUENCE_LAST</span>   <span class="p">:</span> <span class="s1">&#39;seqlast&#39;</span>        <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">THETA</span>           <span class="p">:</span> <span class="s1">&#39;theta&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VALUE</span>           <span class="p">:</span> <span class="s1">&#39;value&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">VECTOR</span>          <span class="p">:</span> <span class="s1">&#39;vector&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">X</span>               <span class="p">:</span> <span class="s1">&#39;x&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">INPUT</span>           <span class="p">:</span> <span class="s1">&#39;input&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">INIT</span>            <span class="p">:</span> <span class="s1">&#39;init&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COND</span>            <span class="p">:</span> <span class="s1">&#39;cond&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_GUIObjectTypes: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.GUIObjectTypeEnum" title="sbsenum.GUIObjectTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIObjectTypeEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_GUIObjectTypes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GUIObjectTypeEnum</span><span class="o">.</span><span class="n">COMMENT</span> <span class="p">:</span> <span class="s1">&#39;COMMENT&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GUIObjectTypeEnum</span><span class="o">.</span><span class="n">PIN</span>     <span class="p">:</span> <span class="s1">&#39;PIN&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_ResourceTypes: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_ResourceTypes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">NONE</span>           <span class="p">:</span> <span class="s1">&#39;&#39;</span>                <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">FONT</span>           <span class="p">:</span> <span class="s1">&#39;font&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">SVG</span>            <span class="p">:</span> <span class="s1">&#39;svg&#39;</span>             <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">BITMAP</span>         <span class="p">:</span> <span class="s1">&#39;bitmap&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">M_BSDF</span>         <span class="p">:</span> <span class="s1">&#39;bsdfmeasurement&#39;</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">LIGHT_PROFILE</span>  <span class="p">:</span> <span class="s1">&#39;lightprofile&#39;</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">SCENE</span>          <span class="p">:</span> <span class="s1">&#39;scene&#39;</span>           <span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_WidgetTypes: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetTypeEnum" title="sbsenum.WidgetTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_WidgetTypes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">BUTTON</span>                 <span class="p">:</span> <span class="s1">&#39;buttons&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SLIDER</span>                 <span class="p">:</span> <span class="s1">&#39;slider&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">DROP_DOWN_LIST</span>         <span class="p">:</span> <span class="s1">&#39;dropdownlist&#39;</span>     <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">SIZE_POW_2</span>             <span class="p">:</span> <span class="s1">&#39;sizepow2&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">ANGLE</span>                  <span class="p">:</span> <span class="s1">&#39;angle&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">COLOR</span>                  <span class="p">:</span> <span class="s1">&#39;color&#39;</span>            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">TEXT</span>                   <span class="p">:</span> <span class="s1">&#39;text&#39;</span>             <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">TRANSFORMATION_INVERSE</span> <span class="p">:</span> <span class="s1">&#39;transformation&#39;</span>   <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">TRANSFORMATION_FORWARD</span> <span class="p">:</span> <span class="s1">&#39;straighttransform&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">POSITION</span>               <span class="p">:</span> <span class="s1">&#39;position&#39;</span>         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">OFFSET</span>                 <span class="p">:</span> <span class="s1">&#39;reverseposition&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">ENUMBUTTONS</span>            <span class="p">:</span> <span class="s1">&#39;enumbuttons&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetTypeEnum</span><span class="o">.</span><span class="n">FUNCTIONBUTTON</span>         <span class="p">:</span> <span class="s1">&#39;functionbutton&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_WidgetOptions: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_WidgetOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">BOOL_EDITOR_TYPE</span>     <span class="p">:</span> <span class="s1">&#39;booleditortype&#39;</span>       <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">CLAMP</span>                <span class="p">:</span> <span class="s1">&#39;clamp&#39;</span>                <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">DEFAULT</span>              <span class="p">:</span> <span class="s1">&#39;default&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL0</span>               <span class="p">:</span> <span class="s1">&#39;label0&#39;</span>               <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL1</span>               <span class="p">:</span> <span class="s1">&#39;label1&#39;</span>               <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL2</span>               <span class="p">:</span> <span class="s1">&#39;label2&#39;</span>               <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">LABEL3</span>               <span class="p">:</span> <span class="s1">&#39;label3&#39;</span>               <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MAX</span>                  <span class="p">:</span> <span class="s1">&#39;max&#39;</span>                  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">MIN</span>                  <span class="p">:</span> <span class="s1">&#39;min&#39;</span>                  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">PARAMETERS</span>           <span class="p">:</span> <span class="s1">&#39;parameters&#39;</span>           <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">STEP</span>                 <span class="p">:</span> <span class="s1">&#39;step&#39;</span>                 <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetOptionEnum</span><span class="o">.</span><span class="n">VALUE_INTERPRETATION</span> <span class="p">:</span> <span class="s1">&#39;valueInterpretation&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>__dict_SubstanceGraphTemplate: dictionary relative to <a class="reference internal" href="../sbsenum.html#sbsenum.GraphTemplateEnum" title="sbsenum.GraphTemplateEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphTemplateEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__dict_SubstanceGraphTemplate</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">EMPTY</span>                              <span class="p">:</span> <span class="s1">&#39;sbs://../templates/01_empty.sbs/empty&#39;</span>                                                  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">PBR_METALLIC_ROUGHNESS</span>             <span class="p">:</span> <span class="s1">&#39;sbs://../templates/02_pbr_metallic_roughness.sbs/metallic_roughness&#39;</span>                <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">PBR_SPECULAR_GLOSSINESS</span>            <span class="p">:</span> <span class="s1">&#39;sbs://../templates/03_pbr_specular_glossiness.sbs/specular_glossiness&#39;</span>              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">STANDARD</span>                           <span class="p">:</span> <span class="s1">&#39;sbs://../templates/04_blinn.sbs/blinn&#39;</span>                                            <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">SCAN_PBR_METALLIC_ROUGHNESS</span>        <span class="p">:</span> <span class="s1">&#39;sbs://../templates/05_scan_pbr_metallic_roughness.sbs/scan_metallic_roughness&#39;</span>      <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">SCAN_PBR_SPECULAR_GLOSSINESS</span>       <span class="p">:</span> <span class="s1">&#39;sbs://../templates/06_scan_pbr_specular_glossiness.sbs/scan_specular_glossiness&#39;</span>    <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">AXF_2_PBR_METALLIC_ROUGHNESS</span>       <span class="p">:</span> <span class="s1">&#39;sbs://../templates/07_axf_to_pbr_metallic_roughness.sbs/axf_to_metallic_roughness&#39;</span>  <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">AXF_2_PBR_SPECULAR_GLOSSINESS</span>      <span class="p">:</span> <span class="s1">&#39;sbs://../templates/08_axf_to_pbr_specular_glossiness.sbs/axf_to_specular_glossiness&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">STUDIO_PANORAMA</span>                    <span class="p">:</span> <span class="s1">&#39;sbs://../templates/09_studio_panorama.sbs/studio_panorama&#39;</span>                              <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">PAINTER_FILTER_GENERIC</span>             <span class="p">:</span> <span class="s1">&#39;sbs://../templates/10_substance_painter.sbs/sp_filter_generic&#39;</span>                          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">PAINTER_FILTER_SPECIFIC</span>            <span class="p">:</span> <span class="s1">&#39;sbs://../templates/10_substance_painter.sbs/sp_filter_specific&#39;</span>                         <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">PAINTER_FILTER_SPECIFIC_MORE_MAPS</span>  <span class="p">:</span> <span class="s1">&#39;sbs://../templates/10_substance_painter.sbs/sp_filter_channel_additional_maps&#39;</span>          <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">PAINTER_GENERATOR_MORE_MAPS</span>        <span class="p">:</span> <span class="s1">&#39;sbs://../templates/10_substance_painter.sbs/sp_generator_additional_maps&#39;</span><span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">GraphTemplateEnum</span><span class="o">.</span><span class="n">SAMPLER_FILTER</span>                     <span class="p">:</span> <span class="s1">&#39;sbs://../templates/11_substance_sampler.sbs/sampler_filter&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getAttribute">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttribute</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttribute</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getColorSpace">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getColorSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColorSpace)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getColorSpace" title="Link to this definition"></a></dt>
+<dd><p>Get the given color space name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aColorSpace</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ColorSpacesEnum" title="sbsenum.ColorSpacesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorSpacesEnum</span></code></a>) – color space identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the color space as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getColorSpaceEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getColorSpaceEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColorSpaceName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getColorSpaceEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aColorSpaceName</strong> (<em>str</em>) – parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the parameter as a <a class="reference internal" href="../sbsenum.html#sbsenum.ColorSpacesEnum" title="sbsenum.ColorSpacesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorSpacesEnum</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCompNodeInput">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCompNodeInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCompNodeInput" title="Link to this definition"></a></dt>
+<dd><p>Get the given compositing node input name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a>) – input identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCompNodeInputEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCompNodeInputEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCompNodeInputEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputName</strong> (<em>str</em>) – input identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input as a <a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCompNodeOutput">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCompNodeOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCompNodeOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the given compositing node output name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a>) – output identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the output as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCompNodeOutputEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCompNodeOutputEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCompNodeOutputEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputName</strong> (<em>str</em>) – output identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the output as a <a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCompNodeParam">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCompNodeParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCompNodeParam" title="Link to this definition"></a></dt>
+<dd><p>Get the given compositing node parameter name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) – parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the parameter as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCompNodeParamEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCompNodeParamEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameterName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCompNodeParamEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameterName</strong> (<em>str</em>) – parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the parameter as a <a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getComponents">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getComponents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aComponents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getComponents" title="Link to this definition"></a></dt>
+<dd><p>Get the given components name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aComponents</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ComponentsEnum" title="sbsenum.ComponentsEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComponentsEnum</span></code></a>) – components identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the components as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCurveName">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCurveName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCurveType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCurveName" title="Link to this definition"></a></dt>
+<dd><p>Get the given curve type name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCurveType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CurveTypeEnum" title="sbsenum.CurveTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a>) – curve type identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the curve type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getCurveTypeEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getCurveTypeEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCurveName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getCurveTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given curve name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCurveName</strong> (<em>str</em>) – curve name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the curve type as a <a class="reference internal" href="../sbsenum.html#sbsenum.CurveTypeEnum" title="sbsenum.CurveTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getFunctionGetType">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getFunctionGetType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getFunctionGetType" title="Link to this definition"></a></dt>
+<dd><p>Get the appropriate function GET_&lt;&gt; depending on the type of the input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – the type of data to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the function GET_&lt;&gt; corresponding to the given type if succeed, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getFunctionInput">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getFunctionInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getFunctionInput" title="Link to this definition"></a></dt>
+<dd><p>Get the given function node input name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a>) – input identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getFunctionInputEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getFunctionInputEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getFunctionInputEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given function input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputName</strong> (<em>str</em>) – input identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input as a <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getFunctionOutput">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getFunctionOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getFunctionOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the given function node output name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a>) – output identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getFunctionOutputEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getFunctionOutputEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getFunctionOutputEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given function output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputName</strong> (<em>str</em>) – output identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input as a <a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getGUIObjectTypeEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getGUIObjectTypeEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGUIObjectTypeName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getGUIObjectTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given curve name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGUIObjectTypeName</strong> (<em>str</em>) – GUI object type name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the curve type as a <a class="reference internal" href="../sbsenum.html#sbsenum.GUIObjectTypeEnum" title="sbsenum.GUIObjectTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIObjectTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getGUIObjectTypeName">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getGUIObjectTypeName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGUIObjectType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getGUIObjectTypeName" title="Link to this definition"></a></dt>
+<dd><p>Get the given GUI object type name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGUIObjectType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.GUIObjectTypeEnum" title="sbsenum.GUIObjectTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIObjectTypeEnum</span></code></a>) – GUI object type identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the GUI object type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getResourceTypeEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getResourceTypeEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aResourceName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getResourceTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given resource name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aResourceName</strong> (<em>str</em>) – resource name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the curve type as a <a class="reference internal" href="../sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getResourceTypeName">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getResourceTypeName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aResourceType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getResourceTypeName" title="Link to this definition"></a></dt>
+<dd><p>Get the given resource type name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aResourceType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a>) – resource type identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the curve type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getSubstanceGraphTemplatePath">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getSubstanceGraphTemplatePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTemplateEnum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getSubstanceGraphTemplatePath" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the given Substance Graph template</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aTemplateEnum</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.GraphTemplateEnum" title="sbsenum.GraphTemplateEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphTemplateEnum</span></code></a>) – Substance Graph template</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the path to the template as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getSubstanceGraphType">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getSubstanceGraphType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTypeEnum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getSubstanceGraphType" title="Link to this definition"></a></dt>
+<dd><p>Get the type value of the given Substance Graph type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aTypeEnum</strong> – Substance Graph type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the graph type value as str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getUsage">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getUsage" title="Link to this definition"></a></dt>
+<dd><p>Get the given usage name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a>) – usage identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the usage as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getWidgetName">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getWidgetName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aWidgetType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getWidgetName" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget type name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aWidgetType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetTypeEnum" title="sbsenum.WidgetTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a>) – widget type identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the widget type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getWidgetOptionName">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getWidgetOptionName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aWidgetOption</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getWidgetOptionName" title="Link to this definition"></a></dt>
+<dd><p>Get the given widget option name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aWidgetOption</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>) – widget option identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the widget option as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getWidgetTypeEnum">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getWidgetTypeEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aWidgetName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getWidgetTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given widget name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aWidgetName</strong> (<em>str</em>) – widget name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the widget type as a <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetTypeEnum" title="sbsenum.WidgetTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbslibrary.html" class="btn btn-neutral float-left" title="sbslibrary module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbslibclasses.html" class="btn btn-neutral float-right" title="sbslibclasses module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

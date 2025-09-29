@@ -1,0 +1,567 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsbakersenum module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsbakersdictionaries module" href="sbsbakersdictionaries.html" />
+    <link rel="prev" title="sbsbakerslibrary module" href="sbsbakerslibrary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdef.html">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdefaultprops.html">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverterparam.html">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier"><code class="docutils literal notranslate"><span class="pre">getBakerDefaultIdentifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefinition"><code class="docutils literal notranslate"><span class="pre">getBakerDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerEnum"><code class="docutils literal notranslate"><span class="pre">getBakerEnum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsbakerslibrary.html">sbsbakerslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsbakersenum module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbsbakers.sbsbakersenum">
+<span id="sbsbakersenum-module"></span><h1>sbsbakersenum module<a class="headerlink" href="#module-pysbs.sbsbakers.sbsbakersenum" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsbakersenum</strong> provides all the enumeration used by the bakers in Substance Designer.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available bakers of a Scene resource in Substance Designer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AMBIENT_OCCLUSION</span>             <span class="o">=</span> <span class="mi">0</span>
+<span class="n">AMBIENT_OCCLUSION_FROM_MESH</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">BENT_NORMALS_FROM_MESH</span>        <span class="o">=</span> <span class="mi">2</span>
+<span class="n">COLOR_MAP_FROM_MESH</span>           <span class="o">=</span> <span class="mi">3</span>
+<span class="n">CONVERT_UV_TO_SVG</span>             <span class="o">=</span> <span class="mi">4</span>
+<span class="n">CURVATURE</span>                     <span class="o">=</span> <span class="mi">5</span>
+<span class="n">CURVATURE_MAP_FROM_MESH</span>       <span class="o">=</span> <span class="mi">6</span>
+<span class="n">HEIGHT_MAP_FROM_MESH</span>          <span class="o">=</span> <span class="mi">7</span>
+<span class="n">NORMAL_MAP_FROM_MESH</span>          <span class="o">=</span> <span class="mi">8</span>
+<span class="n">OPACITY_MASK_FROM_MESH</span>        <span class="o">=</span> <span class="mi">9</span>
+<span class="n">POSITION</span>                      <span class="o">=</span> <span class="mi">10</span>
+<span class="n">POSITION_MAP_FROM_MESH</span>        <span class="o">=</span> <span class="mi">11</span>
+<span class="n">THICKNESS_MAP_FROM_MESH</span>       <span class="o">=</span> <span class="mi">12</span>
+<span class="n">TRANSFERRED_TEXTURE_FROM_MESH</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">WORLD_SPACE_DIRECTION</span>         <span class="o">=</span> <span class="mi">14</span>
+<span class="n">WORLD_SPACE_NORMALS</span>           <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakingStructureTagEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakingStructureTagEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakingStructureTagEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the properties available on a Converter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BAKING</span>                        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">RESOURCE_MODEL</span>                <span class="o">=</span> <span class="mi">1</span>
+<span class="n">RESOURCE_DEFAULT_VALUES_MODEL</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">RESOURCE_MESHES_MODEL</span>         <span class="o">=</span> <span class="mi">3</span>
+<span class="n">RESOURCE_OUTPUT_MODEL</span>         <span class="o">=</span> <span class="mi">4</span>
+<span class="n">CONVERTERS</span>                    <span class="o">=</span> <span class="mi">5</span>
+<span class="n">FIRST</span>                         <span class="o">=</span> <span class="mi">6</span>
+<span class="n">FORMAT</span>                        <span class="o">=</span> <span class="mi">7</span>
+<span class="n">GUI_PROPERTIES</span>                <span class="o">=</span> <span class="mi">8</span>
+<span class="n">IDENTIFIER</span>                    <span class="o">=</span> <span class="mi">9</span>
+<span class="n">IS_OVERRIDEN</span>                  <span class="o">=</span> <span class="mi">10</span>
+<span class="n">IS_SELECTED</span>                   <span class="o">=</span> <span class="mi">11</span>
+<span class="n">MESH_CONVERTER_ID</span>             <span class="o">=</span> <span class="mi">12</span>
+<span class="n">PROPERTIES</span>                    <span class="o">=</span> <span class="mi">13</span>
+<span class="n">SCENE_SELECTION_MODE</span>          <span class="o">=</span> <span class="mi">14</span>
+<span class="n">SECOND</span>                        <span class="o">=</span> <span class="mi">15</span>
+<span class="n">SELECTIONS</span>                    <span class="o">=</span> <span class="mi">16</span>
+<span class="n">SUBMESH_COLORS</span>                <span class="o">=</span> <span class="mi">17</span>
+<span class="n">SUBMESH_COLOR</span>                 <span class="o">=</span> <span class="mi">18</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">ConverterParamEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the properties available on a Converter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADDITIONAL__INVERT_GREEN</span>                           <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ADDITIONAL__NORMAL_MAP</span>                             <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ADDITIONAL__NORMAL_WORLD_SPACE</span>                     <span class="o">=</span> <span class="mi">2</span>
+<span class="n">COMMON__APPLY_DIFFUSION</span>                            <span class="o">=</span> <span class="mi">3</span>
+<span class="n">COMMON__DILATION_WIDTH</span>                             <span class="o">=</span> <span class="mi">4</span>
+<span class="n">COMMON__UV_TILE</span>                                    <span class="o">=</span> <span class="mi">5</span>
+<span class="n">COMMON__UVSET</span>                                      <span class="o">=</span> <span class="mi">6</span>
+<span class="n">CURVATURE__CURVATURE_MULTIPLIER</span>                    <span class="o">=</span> <span class="mi">7</span>
+<span class="n">CURVATURE__ENABLE_SEAMS</span>                            <span class="o">=</span> <span class="mi">8</span>
+<span class="n">CURVATURE__PER_VERTEX</span>                              <span class="o">=</span> <span class="mi">9</span>
+<span class="n">CURVATURE__SEAMS_POWER</span>                             <span class="o">=</span> <span class="mi">10</span>
+<span class="n">DEFAULT__APPLY_DIFFUSION</span>                           <span class="o">=</span> <span class="mi">11</span>
+<span class="n">DEFAULT__AVERAGE_NORMALS</span>                           <span class="o">=</span> <span class="mi">12</span>
+<span class="n">DEFAULT__DILATION_WIDTH</span>                            <span class="o">=</span> <span class="mi">13</span>
+<span class="n">DEFAULT__FORMAT</span>                                    <span class="o">=</span> <span class="mi">14</span>
+<span class="n">DEFAULT__OUTPUT_HEIGHT</span>                             <span class="o">=</span> <span class="mi">15</span>
+<span class="n">DEFAULT__OUTPUT_WIDTH</span>                              <span class="o">=</span> <span class="mi">16</span>
+<span class="n">DEFAULT__SUB_SAMPLING</span>                              <span class="o">=</span> <span class="mi">17</span>
+<span class="n">DEFAULT__UV_TILE</span>                                   <span class="o">=</span> <span class="mi">18</span>
+<span class="n">DEFAULT__UVSET</span>                                     <span class="o">=</span> <span class="mi">19</span>
+<span class="n">DETAIL__FILTER_METHOD</span>                              <span class="o">=</span> <span class="mi">20</span>
+<span class="n">DETAIL__IGNORE_BACKFACE</span>                            <span class="o">=</span> <span class="mi">21</span>
+<span class="n">DETAIL__INVERT_SKEW_CORRECTION</span>                     <span class="o">=</span> <span class="mi">22</span>
+<span class="n">DETAIL__LOW_AS_HIGH</span>                                <span class="o">=</span> <span class="mi">23</span>
+<span class="n">DETAIL__MAX_DEPTH</span>                                  <span class="o">=</span> <span class="mi">24</span>
+<span class="n">DETAIL__MAX_HEIGHT</span>                                 <span class="o">=</span> <span class="mi">25</span>
+<span class="n">DETAIL__RELATIVE_SCALE</span>                             <span class="o">=</span> <span class="mi">26</span>
+<span class="n">DETAIL__SKEW_CORRECTION</span>                            <span class="o">=</span> <span class="mi">27</span>
+<span class="n">DETAIL__SKEW_MAP</span>                                   <span class="o">=</span> <span class="mi">28</span>
+<span class="n">DETAIL__SMOOTH_NORMALS</span>                             <span class="o">=</span> <span class="mi">29</span>
+<span class="n">DETAIL__SUB_SAMPLING</span>                               <span class="o">=</span> <span class="mi">30</span>
+<span class="n">DETAIL__USE_CAGE</span>                                   <span class="o">=</span> <span class="mi">31</span>
+<span class="n">DETAIL_AO__ATTENUATION</span>                             <span class="o">=</span> <span class="mi">32</span>
+<span class="n">DETAIL_COLOR__COLOR_GENERATOR</span>                      <span class="o">=</span> <span class="mi">33</span>
+<span class="n">DETAIL_COLOR__COLOR_SOURCE</span>                         <span class="o">=</span> <span class="mi">34</span>
+<span class="n">DETAIL_CURVATURE__INTENSITY</span>                        <span class="o">=</span> <span class="mi">35</span>
+<span class="n">DETAIL_CURVATURE__MAXIMIZE_RANGE</span>                   <span class="o">=</span> <span class="mi">36</span>
+<span class="n">DETAIL_CURVATURE__SOFT_SATURATE</span>                    <span class="o">=</span> <span class="mi">37</span>
+<span class="n">DETAIL_DISTANCE__MAXIMIZE_RANGE</span>                    <span class="o">=</span> <span class="mi">38</span>
+<span class="n">DETAIL_NORMAL_COMMON__INVERT_GREEN</span>                 <span class="o">=</span> <span class="mi">39</span>
+<span class="n">DETAIL_NORMAL_COMMON__RESULT_TYPE</span>                  <span class="o">=</span> <span class="mi">40</span>
+<span class="n">DETAIL_SECONDARY_COMMON__DISTRIBUTION</span>              <span class="o">=</span> <span class="mi">41</span>
+<span class="n">DETAIL_SECONDARY_COMMON__FILTER_METHOD</span>             <span class="o">=</span> <span class="mi">42</span>
+<span class="n">DETAIL_SECONDARY_COMMON__IGNORE_BACKFACE_SECONDARY</span> <span class="o">=</span> <span class="mi">43</span>
+<span class="n">DETAIL_SECONDARY_COMMON__MAX_DISTANCE</span>              <span class="o">=</span> <span class="mi">44</span>
+<span class="n">DETAIL_SECONDARY_COMMON__MIN_DISTANCE</span>              <span class="o">=</span> <span class="mi">45</span>
+<span class="n">DETAIL_SECONDARY_COMMON__NB_SECONDARY</span>              <span class="o">=</span> <span class="mi">46</span>
+<span class="n">DETAIL_SECONDARY_COMMON__RELATIVE_SCALE</span>            <span class="o">=</span> <span class="mi">47</span>
+<span class="n">DETAIL_SECONDARY_COMMON__SPREAD</span>                    <span class="o">=</span> <span class="mi">48</span>
+<span class="n">DETAIL_TEXTURE__FILTERING_MODE</span>                     <span class="o">=</span> <span class="mi">49</span>
+<span class="n">DETAIL_TEXTURE__HIGH_POLY_UV_SET</span>                   <span class="o">=</span> <span class="mi">50</span>
+<span class="n">DETAIL_TEXTURE__IS_NORMAL_MAP</span>                      <span class="o">=</span> <span class="mi">51</span>
+<span class="n">DETAIL_TEXTURE__TEXTURE_FILE</span>                       <span class="o">=</span> <span class="mi">52</span>
+<span class="n">MESH__CAGE_PATH</span>                                    <span class="o">=</span> <span class="mi">53</span>
+<span class="n">MESH__DISTANCE_WITH</span>                                <span class="o">=</span> <span class="mi">54</span>
+<span class="n">MESH__HIGH_DEF_MESHES</span>                              <span class="o">=</span> <span class="mi">55</span>
+<span class="n">MESH__HIGH_DEF_MESHES_MESH</span>                         <span class="o">=</span> <span class="mi">56</span>
+<span class="n">MESH__IGNORE_BACKFACE</span>                              <span class="o">=</span> <span class="mi">57</span>
+<span class="n">MESH__INVERT_SKEW_CORRECTION</span>                       <span class="o">=</span> <span class="mi">58</span>
+<span class="n">MESH__MATCH_METHOD</span>                                 <span class="o">=</span> <span class="mi">59</span>
+<span class="n">MESH__MAX_FRONTAL_DISTANCE</span>                         <span class="o">=</span> <span class="mi">60</span>
+<span class="n">MESH__MAX_REAR_DISTANCE</span>                            <span class="o">=</span> <span class="mi">61</span>
+<span class="n">MESH__RELATIVE_TO_BB</span>                               <span class="o">=</span> <span class="mi">62</span>
+<span class="n">MESH__SKEW_PATH</span>                                    <span class="o">=</span> <span class="mi">63</span>
+<span class="n">MESH__USE_CAGE</span>                                     <span class="o">=</span> <span class="mi">64</span>
+<span class="n">MESH__USE_LOW_AS_HIGH_POLY</span>                         <span class="o">=</span> <span class="mi">65</span>
+<span class="n">MESH__USE_SKEW</span>                                     <span class="o">=</span> <span class="mi">66</span>
+<span class="n">NORMAL_WORLD_SPACE__BAKE_TYPE</span>                      <span class="o">=</span> <span class="mi">67</span>
+<span class="n">OUTPUT__FOLDER</span>                                     <span class="o">=</span> <span class="mi">68</span>
+<span class="n">OUTPUT__IN_SUBFOLDER</span>                               <span class="o">=</span> <span class="mi">69</span>
+<span class="n">OUTPUT__RESOURCE_METHOD</span>                            <span class="o">=</span> <span class="mi">70</span>
+<span class="n">OUTPUT__RESOURCE_NAME</span>                              <span class="o">=</span> <span class="mi">71</span>
+<span class="n">POSITION__AXIS</span>                                     <span class="o">=</span> <span class="mi">72</span>
+<span class="n">POSITION__MODE</span>                                     <span class="o">=</span> <span class="mi">73</span>
+<span class="n">POSITION__NORMALIZATION</span>                            <span class="o">=</span> <span class="mi">74</span>
+<span class="n">POSITION__NORMALIZATION_SCALE</span>                      <span class="o">=</span> <span class="mi">75</span>
+<span class="n">SEAO__DISTANCE_FADE</span>                                <span class="o">=</span> <span class="mi">76</span>
+<span class="n">SEAO__ERROR_BIAS</span>                                   <span class="o">=</span> <span class="mi">77</span>
+<span class="n">SEAO__INVERT_NORMALS</span>                               <span class="o">=</span> <span class="mi">78</span>
+<span class="n">SEAO__QUALITY</span>                                      <span class="o">=</span> <span class="mi">79</span>
+<span class="n">SEAO__USE_NEIGHBORS</span>                                <span class="o">=</span> <span class="mi">80</span>
+<span class="n">UV2SVG__COLOR_MODE</span>                                 <span class="o">=</span> <span class="mi">81</span>
+<span class="n">UV2SVG__PADDING</span>                                    <span class="o">=</span> <span class="mi">82</span>
+<span class="n">WORLD_DIRECTION__CONST_DIRECTION</span>                   <span class="o">=</span> <span class="mi">83</span>
+<span class="n">WORLD_DIRECTION__DIRECTION_MAP</span>                     <span class="o">=</span> <span class="mi">84</span>
+<span class="n">WORLD_DIRECTION__X</span>                                 <span class="o">=</span> <span class="mi">85</span>
+<span class="n">WORLD_DIRECTION__Y</span>                                 <span class="o">=</span> <span class="mi">86</span>
+<span class="n">WORLD_DIRECTION__Z</span>                                 <span class="o">=</span> <span class="mi">87</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.SceneSelectionModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">SceneSelectionModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.SceneSelectionModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the scene resource selection mode option</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SUB_MESH</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MATERIAL</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerAOAttenuationEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerAOAttenuationEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerAOAttenuationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Attenuation option in the Ambient Occlusion From Mesh Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NONE</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SMOOTH</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">LINEAR</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerAOQualityEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerAOQualityEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerAOQualityEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Quality option in the Ambient Occlusion Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOW</span>      <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MEDIUM</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">HIGH</span>     <span class="o">=</span> <span class="mi">2</span>
+<span class="n">VERYHIGH</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerBakingTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerBakingTypeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerBakingTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Baking Type option in the World Space Normals Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NORMAL</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">TANGENT</span>  <span class="o">=</span> <span class="mi">1</span>
+<span class="n">BINORMAL</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerColorGeneratorEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerColorGeneratorEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerColorGeneratorEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Color Generator option in the Color Map Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RANDOM</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HUE_SHIFT</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GREYSCALE</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerColorModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerColorModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerColorModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Color Mode option in the Converter UV to SVG Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RANDOM</span>      <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HUE_SHIFT</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GREYSCALE</span>   <span class="o">=</span> <span class="mi">2</span>
+<span class="n">UNIFORM</span>     <span class="o">=</span> <span class="mi">3</span>
+<span class="n">MATERIAL_ID</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerColorSourceEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerColorSourceEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerColorSourceEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Color Source option in the Color Map Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VERTEX_COLOR</span>         <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MATERIAL_COLOR</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MESH_ID</span>              <span class="o">=</span> <span class="mi">2</span>
+<span class="n">POLYGROUP_SUBMESH_ID</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerCurvatureAlgoEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerCurvatureAlgoEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerCurvatureAlgoEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Algorithm option in the Curvature Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PER_PIXEL</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">PER_VERTEX</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerDistributionEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerDistributionEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerDistributionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Distribution option in the Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UNIFORM</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">COSINE</span>   <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFilteringModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFilteringModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFilteringModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Filtering mode option in the Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NEAREST</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BILINEAR</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFromMeshDistanceWithEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFromMeshDistanceWithEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshDistanceWithEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the ‘Set distance with’ option in the Mesh options</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VALUES</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">CAGE</span>      <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFromMeshMatchEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFromMeshMatchEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshMatchEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Match method option in the ‘from mesh’ Bakers (Used for Match and SelfOcclusion)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ALWAYS</span>       <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BY_MESH_NAME</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFromMeshSubSamplingEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFromMeshSubSamplingEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshSubSamplingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Antialiasing option in the ‘from mesh’ Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NONE</span>            <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SUBSAMPLING_2x2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SUBSAMPLING_4x4</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SUBSAMPLING_8x8</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerInputDirectionEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerInputDirectionEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerInputDirectionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Input Direction option in the World Space Direction Baker</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM_TEXTURE</span>        <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FROM_UNIFORM_VECTOR</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerMapTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerMapTypeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerMapTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Map type option in the Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WORLD_SPACE</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">TANGENT_SPACE</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerNormalOrientationEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerNormalOrientationEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerNormalOrientationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the normal format for the Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OPENGL</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DIRECTX</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerOutputFormatEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerOutputFormatEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerOutputFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the output Format option of the Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PSD</span>       <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DDS</span>       <span class="o">=</span> <span class="mi">1</span>
+<span class="n">WEBP</span>      <span class="o">=</span> <span class="mi">2</span>
+<span class="n">HDR</span>       <span class="o">=</span> <span class="mi">3</span>
+<span class="n">EXR</span>       <span class="o">=</span> <span class="mi">4</span>
+<span class="n">JPEG</span>      <span class="o">=</span> <span class="mi">5</span>
+<span class="n">JPEG_XR</span>   <span class="o">=</span> <span class="mi">6</span>
+<span class="n">JPEG_2000</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">PNG</span>       <span class="o">=</span> <span class="mi">8</span>
+<span class="n">SVG</span>       <span class="o">=</span> <span class="mi">9</span>
+<span class="n">TIF</span>       <span class="o">=</span> <span class="mi">10</span>
+<span class="n">TGA</span>       <span class="o">=</span> <span class="mi">11</span>
+<span class="n">ICO</span>       <span class="o">=</span> <span class="mi">12</span>
+<span class="n">BMP</span>       <span class="o">=</span> <span class="mi">13</span>
+<span class="n">WAP</span>       <span class="o">=</span> <span class="mi">14</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerPositionAxisEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerPositionAxisEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerPositionAxisEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Axis option in the Position Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AXIS_X</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">AXIS_Y</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">AXIS_Z</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerPositionModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerPositionModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerPositionModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Mode option in the Position Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ALL_AXIS</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ONE_AXIS</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerPositionNormalizationEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerPositionNormalizationEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerPositionNormalizationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Normalization option in the Position Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BBOX</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BSPHERE</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerResourceMethodEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerResourceMethodEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerResourceMethodEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Resource method option in the Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EMBEDDED</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LINKED</span>   <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerUVSetEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerUVSetEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerUVSetEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the UV set option in the Bakers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UV_0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">UV_1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">UV_2</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">UV_3</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">UV_4</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">UV_5</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">UV_6</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">UV_7</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsbakerslibrary.html" class="btn btn-neutral float-left" title="sbsbakerslibrary module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsbakersdictionaries.html" class="btn btn-neutral float-right" title="sbsbakersdictionaries module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

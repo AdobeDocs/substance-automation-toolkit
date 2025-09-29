@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Substance creation &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Substances modification" href="Substances%20modification.html" />
+    <link rel="prev" title="Basic manipulation of a Substance" href="Basic%20manipulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creation of a Substance from scratch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-1-hello-world">Sample 1: Hello World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-2-full-creation-demonstration">Sample 2: Full creation demonstration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-3-mdl-graph-creation">Sample 3: MDL Graph creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#highlights-on-the-most-important-modules-and-classes-of-the-api">Highlights on the most important modules and classes of the API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SAT%20demos.html">SAT demos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">API overview</a></li>
+      <li class="breadcrumb-item active">Substance creation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="substance-creation">
+<span id="ref-to-api-creation"></span><h1>Substance creation<a class="headerlink" href="#substance-creation" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">This API allows starting from scratch to create a new .sbs file, including the creation of compositing graphs with basic filters, instance of graphs, reference to bitmaps, pixel processor and the definition of the inputs and outputs.</div>
+<div class="line">The input parameters of the graph can also be defined.</div>
+<div class="line">The node parameters can be tweaked, and they can be set as dynamic, by creating the function that handles the parameter value.</div>
+<div class="line">Function graphs can also be created, and can be referenced in another function or dynamic parameter or Pixel processor function.</div>
+</div>
+<section id="sample-1-hello-world">
+<h2>Sample 1: Hello World<a class="headerlink" href="#sample-1-hello-world" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demohelloworld.html#demohelloworld.demoHelloWorld" title="demohelloworld.demoHelloWorld"><code class="xref py py-func docutils literal notranslate"><span class="pre">demohelloworld.demoHelloWorld()</span></code></a> is a good starting point to visualize how to use the API in order to create substances.</div>
+<div class="line">It demonstrates the creation of a very simple substance, which defines a material with BaseColor, Roughness and Metallic as three Uniform colors.</div>
+</div>
+<a class="reference internal image-reference" href="../../_images/HelloWorldCube.png"><img alt="../../_images/HelloWorldCube.png" class="align-center" src="../../_images/HelloWorldCube.png" style="width: 200px;" />
+</a>
+<p>Launch the script with this command line, from the folder <em>demos/</em>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demoHelloWorld.py
+</pre></div>
+</div>
+<p>And check the result by opening the generated file <em>sample/resultDemoHelloWorld.sbs</em>:</p>
+<a class="reference internal image-reference" href="../../_images/HelloWorld.png"><img alt="../../_images/HelloWorld.png" class="align-center" src="../../_images/HelloWorld.png" style="width: 300px;" />
+</a>
+</section>
+<section id="sample-2-full-creation-demonstration">
+<h2>Sample 2: Full creation demonstration<a class="headerlink" href="#sample-2-full-creation-demonstration" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoCreation" title="demos.demoCreation"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoCreation()</span></code></a> is a complete demonstration of what this API allows to create.</div>
+<div class="line">Launch the script with this command line, from the folder <em>demos/</em>:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoCreation<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;../sample/argsDemoCreation.xml&quot;</span>
+</pre></div>
+</div>
+<p>And check the result by opening the generated file <em>sample/resultDemoCreation.sbs</em>:</p>
+<a class="reference internal image-reference" href="../../_images/Graph2.png"><img alt="../../_images/Graph2.png" class="align-center" src="../../_images/Graph2.png" style="width: 930px;" />
+</a>
+<p>Here is the detail of the objects created by this script:</p>
+<ul class="simple">
+<li><p>A package (e.g a new substance document: <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>)</p></li>
+<li><dl class="simple">
+<dt>A first graph (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>), which will be used in the second one, with:</dt><dd><ul>
+<li><p>The definition of its exposed parameters and the widget associated to them.</p></li>
+<li><p>An input node.</p></li>
+<li><p>Two simple Filters with their parameters (one is dynamic and set as the value of one of the graph input parameters).</p></li>
+<li><p>An output node, with the definition of its usages.</p></li>
+<li><p>The connections for all these nodes.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/Graph1.png"><img alt="../../_images/Graph1.png" class="align-center" src="../../_images/Graph1.png" style="width: 400px;" />
+</a>
+<ul class="simple">
+<li><dl class="simple">
+<dt>A function (<a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>), with:</dt><dd><ul>
+<li><p>The definition of its input parameters.</p></li>
+<li><p>Some function nodes provided by Substance Designer library.</p></li>
+<li><p>A instance of a function (Pi) included in the default package (<em>sbs://</em>).</p></li>
+<li><p>The definition of the connections, and the output node of the function.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/Function.png"><img alt="../../_images/Function.png" class="align-center" src="../../_images/Function.png" style="width: 250px;" />
+</a>
+<ul class="simple">
+<li><dl class="simple">
+<dt>A second graph (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>), with:</dt><dd><ul>
+<li><p>An input parameter.</p></li>
+<li><p>A FxMap node, with the definition of the FxMap graph and some dynamic parameters.</p></li>
+<li><p>A gradient filter with the definition of the key values.</p></li>
+<li><p>An instance of the first graph created before, and drive one of its parameter by a function:
+The function retrieves the value of the graph input parameter and pass as the input value of an instance of the function created above.</p></li>
+<li><p>An instance of the substance <em>Blur HQ</em> provided in the default substance package.</p></li>
+<li><p>A svg node, which references an external resource included in the folder <em>sample/</em>.</p></li>
+<li><p>An output node.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="sample-3-mdl-graph-creation">
+<h2>Sample 3: MDL Graph creation<a class="headerlink" href="#sample-3-mdl-graph-creation" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoCreationMDL" title="demos.demoCreationMDL"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoCreationMDL()</span></code></a> shows specifically the creation of a MDL Graph using the API.</div>
+<div class="line">Launch the script with this command line, from the folder <em>demos/</em>:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoCreationMDL<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;sample/argsDemoCreationMDL.xml&quot;</span>
+</pre></div>
+</div>
+<p>And check the result by opening the generated file <em>sample/resultDemoCreationMDL.sbs</em>:</p>
+<a class="reference internal image-reference" href="../../_images/GraphMDL.png"><img alt="../../_images/GraphMDL.png" class="align-center" src="../../_images/GraphMDL.png" style="width: 700px;" />
+</a>
+<dl class="simple">
+<dt>This script creates a new MDL Graph from scratch, mostly identical to a metallic material but with an emissive part:</dt><dd><ul class="simple">
+<li><p>It declares some constants as input parameters of the graph.</p></li>
+<li><p>It instantiates some native mdl nodes, such as ‘material_emission’ and ‘material_surface’.</p></li>
+<li><p>It creates a new light profile resource and uses it to handle the emissive term of the material.</p></li>
+</ul>
+</dd>
+</dl>
+<p>All the objects, libraries and functions related to MDL are included in the module <a class="reference internal" href="../mdl/mdl.html#module-mdl" title="mdl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdl</span></code></a>.</p>
+</section>
+<section id="highlights-on-the-most-important-modules-and-classes-of-the-api">
+<h2>Highlights on the most important modules and classes of the API<a class="headerlink" href="#highlights-on-the-most-important-modules-and-classes-of-the-api" title="Link to this heading"></a></h2>
+<p>The objects are created from the parent object that contains them, so the majority of creation methods are located in the following classes:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>: creation of groups (e.g. folders), graphs and functions.</p></li>
+<li><p><a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>: creation of compositing nodes and definition of input parameters.</p></li>
+<li><p><a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>: creation of function nodes and definition of input parameters.</p></li>
+<li><p><a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>: creation of function nodes and definition of input parameters.</p></li>
+<li><p><a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a>: creation of FxMap nodes.</p></li>
+</ul>
+<p>The module <a class="reference internal" href="../sbslibrary/sbslibrary.html#module-sbslibrary.sbslibrary" title="sbslibrary.sbslibrary"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbslibrary</span></code></a> contains the definition of all the content available in Substance Designer:</p>
+<ul class="simple">
+<li><p><strong>a library of Filters</strong>, their definition (inputs, outputs, parameters) being defined in module <a class="reference internal" href="../sbslibrary/sbsfilters.html#module-pysbs.sbslibrary.sbsfilters" title="pysbs.sbslibrary.sbsfilters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbslibrary.sbsfilters</span></code></a>.</p></li>
+<li><p><strong>a library of Functions</strong>, their definition (inputs, outputs, parameters) being defined in module <a class="reference internal" href="../sbslibrary/sbsfunctions.html#module-pysbs.sbslibrary.sbsfunctions" title="pysbs.sbslibrary.sbsfunctions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbslibrary.sbsfunctions</span></code></a>.</p></li>
+<li><p><strong>a library of FxMap</strong>, their definition (inputs, outputs, parameters) being defined in module <a class="reference internal" href="../sbslibrary/sbsfxmapnodes.html#module-pysbs.sbslibrary.sbsfxmapnodes" title="pysbs.sbslibrary.sbsfxmapnodes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbslibrary.sbsfxmapnodes</span></code></a>.</p></li>
+</ul>
+<p>The module <a class="reference internal" href="../sbslibrary/sbsdictionaries.html#module-pysbs.sbslibrary.sbsdictionaries" title="pysbs.sbslibrary.sbsdictionaries"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbslibrary.sbsdictionaries</span></code></a> contains the dictionaries allowing the mapping between enumeration values (defined in the module <a class="reference internal" href="../sbsenum.html#module-sbsenum" title="sbsenum"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsenum</span></code></a>) and the associated string.e <a class="reference internal" href="../sbsenum.html#module-sbsenum" title="sbsenum"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsenum</span></code></a>.</p>
+<p>This example shows the different creation capabilities:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">context</span><span class="p">,</span> <span class="n">sbsenum</span><span class="p">,</span> <span class="n">sbsgenerator</span>
+
+<span class="c1"># Init the context</span>
+<span class="n">myContext</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+
+<span class="c1"># Substance Creation</span>
+<span class="c1">####################</span>
+
+<span class="c1"># Create a new Substance with a graph called &#39;DemoGraph&#39;</span>
+<span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">sbsgenerator</span><span class="o">.</span><span class="n">createSBSDocument</span><span class="p">(</span><span class="n">aContext</span> <span class="o">=</span> <span class="n">myContext</span><span class="p">,</span>
+                    <span class="n">aFileAbsPath</span> <span class="o">=</span> <span class="s1">&#39;my/New/Package/Absolute/Path.sbs&#39;</span><span class="p">,</span>
+                    <span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoGraph&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create another graph in this Substance, with some parameters</span>
+<span class="n">secondGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;SecondGraph&#39;</span><span class="p">,</span>
+                    <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputFormatEnum</span><span class="o">.</span><span class="n">FORMAT_16BITS</span><span class="p">},</span>
+                    <span class="n">aInheritance</span><span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">})</span>
+
+<span class="c1"># Create a function and put it under a new folder &#39;Functions&#39;</span>
+<span class="n">myFunction</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createFunction</span><span class="p">(</span><span class="n">aFunctionIdentifier</span> <span class="o">=</span> <span class="s1">&#39;myFct&#39;</span><span class="p">,</span> <span class="n">aParentFolder</span> <span class="o">=</span> <span class="s1">&#39;Functions&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create a new graph from a template</span>
+<span class="c1"># All the content of the template graph and its resources / dependencies will be added to the edited Substance</span>
+<span class="n">copyGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;CopyGraph&#39;</span><span class="p">,</span>
+                    <span class="n">aTemplate</span> <span class="o">=</span> <span class="s1">&#39;my/Template/Absolute/Path.sbs/graphToCopy&#39;</span><span class="p">,</span>
+                    <span class="n">searchForExistingReferenceByIdentifier</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="n">copyInternalReferencedObjects</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Resource creation</span>
+<span class="n">myRes</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createLinkedResource</span><span class="p">(</span><span class="n">aResourcePath</span> <span class="o">=</span> <span class="s1">&#39;my/Resource/Absolute/Path.png&#39;</span><span class="p">,</span>
+                    <span class="n">aResourceTypeEnum</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">BITMAP</span><span class="p">)</span>
+
+<span class="c1"># Graph edition</span>
+<span class="c1">###############</span>
+<span class="n">xOffset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Get the graph created with the document</span>
+<span class="n">demoGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoGraph&#39;</span><span class="p">)</span>
+
+<span class="c1"># - Bitmap node that uses the previously created resource</span>
+<span class="c1"># (this method can also create the resource if an absolute path is given)</span>
+<span class="n">bitmapNode</span> <span class="o">=</span> <span class="n">demoGraph</span><span class="o">.</span><span class="n">createBitmapNode</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                    <span class="n">aResourcePath</span> <span class="o">=</span> <span class="n">myRes</span><span class="o">.</span><span class="n">getPkgResourcePath</span><span class="p">(),</span>
+                    <span class="n">aParameters</span>   <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ColorModeEnum</span><span class="o">.</span><span class="n">COLOR</span><span class="p">})</span>
+
+<span class="c1"># - Instance of Blur HQ from the default package library</span>
+<span class="n">blurHQNode</span> <span class="o">=</span> <span class="n">demoGraph</span><span class="o">.</span><span class="n">createCompInstanceNodeFromPath</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                    <span class="n">aPath</span>       <span class="o">=</span> <span class="s1">&#39;sbs://blur_hq.sbs/blur_hq&#39;</span><span class="p">,</span>
+                    <span class="n">aGUIPos</span>     <span class="o">=</span> <span class="n">bitmapNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                    <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Intensity&#39;</span><span class="p">:</span><span class="mf">3.2</span><span class="p">})</span>
+
+<span class="c1"># - Output node with the usage baseColor</span>
+<span class="n">outputNode</span> <span class="o">=</span> <span class="n">demoGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoOutput&#39;</span><span class="p">,</span>
+                    <span class="n">aGUIPos</span>       <span class="o">=</span> <span class="n">blurHQNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                    <span class="n">aOutputFormat</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TextureFormatEnum</span><span class="o">.</span><span class="n">DEFAULT_FORMAT</span><span class="p">,</span>
+                    <span class="n">aUsages</span>       <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">BASECOLOR</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span><span class="p">})</span>
+
+<span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">bitmapNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">blurHQNode</span><span class="p">)</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">blurHQNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">outputNode</span><span class="p">)</span>
+
+<span class="c1"># Write the document</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Basic%20manipulation.html" class="btn btn-neutral float-left" title="Basic manipulation of a Substance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Substances%20modification.html" class="btn btn-neutral float-right" title="Substances modification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

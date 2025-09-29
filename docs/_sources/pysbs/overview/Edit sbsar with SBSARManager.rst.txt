@@ -1,0 +1,16 @@
+.. _ref-to-overview-sbsarmanager:
+
+Edit substance archive with SBSARManager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+With PySBS 2021.0 it's possible to edit a substance archive file (.sbsar).
+
+Use :class:`.SBSARManager` with the `with` statement:
+
+.. code-block:: python
+
+    sbsar = sbsarchive.SBSArchive(context.Context(), "archive.sbsar")
+    sbsar.parseDoc()
+    with sbsar.enterSBSARManager() as edit:
+        edit.addIcon("aGraphIdentifier", "thumbnail.png", replaceIfExists=True)
+        edit.save()
+

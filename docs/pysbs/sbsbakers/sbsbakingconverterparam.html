@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsbakingconverterparam module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsbakingconverter module" href="sbsbakingconverter.html" />
+    <link rel="prev" title="sbsbakersdefaultprops module" href="sbsbakersdefaultprops.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersenum.html">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdef.html">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdefaultprops.html">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier"><code class="docutils literal notranslate"><span class="pre">getBakerDefaultIdentifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefinition"><code class="docutils literal notranslate"><span class="pre">getBakerDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerEnum"><code class="docutils literal notranslate"><span class="pre">getBakerEnum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsbakerslibrary.html">sbsbakerslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsbakingconverterparam module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbsbakers.sbsbakingconverterparam">
+<span id="sbsbakingconverterparam-module"></span><h1>sbsbakingconverterparam module<a class="headerlink" href="#module-pysbs.sbsbakers.sbsbakingconverterparam" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsbakingconverterparam</strong> provides the definition of the BakingConverterParam object.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakingconverterparam.</span></span><span class="sig-name descname"><span class="pre">BakingParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aQtVariant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class provide the common interface for BakingConverterParam and BakingGlobalParam</p>
+<dl class="simple">
+<dt>Members</dt><dd><ul class="simple">
+<li><p>mIdentifier (<a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum" title="pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConverterParamEnum</span></code></a>): identifier of the property</p></li>
+<li><p>mQtVariant (<a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>): value of the property (type + value)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The type of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object, as a <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariantTypeEnum" title="qtclasses.qtclasses.QtVariantTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getValueStr">
+<span class="sig-name descname"><span class="pre">getValueStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getValueStr" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object converted into a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.setValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (any type compatible with the type of the <a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object) – The value to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.isAResourceParam">
+<span class="sig-name descname"><span class="pre">isAResourceParam</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.isAResourceParam" title="Link to this definition"></a></dt>
+<dd><p>Return True if this BakingConverterParam is a resource parameter (e.g. Normal map, Texture file, Direction file, Cage file) with a type STRING.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if it is a resource parameter, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.fromSBSTree">
+<span class="sig-name descname"><span class="pre">fromSBSTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionPrefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSTree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.fromSBSTree" title="Link to this definition"></a></dt>
+<dd><p>Read options from aSBSTree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOptionPrefix</strong> (<em>str</em>) – the option prefix</p></li>
+<li><p><strong>aSBSTree</strong> (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSTree" title="sbscommon.values.SBSTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSTree</span></code></a>) – the tree of options</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.toSBSOptionList">
+<span class="sig-name descname"><span class="pre">toSBSOptionList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionPrefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.toSBSOptionList" title="Link to this definition"></a></dt>
+<dd><p>Convert this property into a list of SBSOption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOptionPrefix</strong> (<em>str</em>) – the option prefix</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a> allowing to fully declare this parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingConverterParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakingconverterparam.</span></span><span class="sig-name descname"><span class="pre">BakingConverterParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aQtVariant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingConverterParam" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam" title="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParam</span></code></a></p>
+<p>This class provide the definition of a BakingConverterParam</p>
+<dl class="simple">
+<dt>Members</dt><dd><ul class="simple">
+<li><p>mIdentifier (<a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum" title="pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConverterParamEnum</span></code></a>): identifier of the property</p></li>
+<li><p>mQtVariant (<a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>): value of the property (type + value)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingConverterParam.toSBSOptionList">
+<span class="sig-name descname"><span class="pre">toSBSOptionList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionPrefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingConverterParam.toSBSOptionList" title="Link to this definition"></a></dt>
+<dd><p>Convert this property into a tree of options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOptionPrefix</strong> (<em>str</em>) – the option prefix</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a> allowing to fully declare this parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakingconverterparam.</span></span><span class="sig-name descname"><span class="pre">BakingGlobalParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aQtVariant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam" title="pysbs.sbsbakers.sbsbakingconverterparam.BakingParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParam</span></code></a></p>
+<p>This class provide the definition of a property of a Global Baking parameter</p>
+<dl class="simple">
+<dt>Members</dt><dd><ul class="simple">
+<li><p>mIdentifier (<a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum" title="pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConverterParamEnum</span></code></a>): identifier of the property</p></li>
+<li><p>mQtVariant (<a class="reference internal" href="../qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>): value of the property (type + value)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam.fromSBSTree">
+<span class="sig-name descname"><span class="pre">fromSBSTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam.fromSBSTree" title="Link to this definition"></a></dt>
+<dd><p>Initialize the baking settings from the given tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aTree</strong> (tree of options of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSTree" title="sbscommon.values.SBSTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSTree</span></code></a>) – the tree of options</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam.toSBSOptionList">
+<span class="sig-name descname"><span class="pre">toSBSOptionList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionPrefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam.toSBSOptionList" title="Link to this definition"></a></dt>
+<dd><p>Convert this property into am options tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOptionPrefix</strong> (<em>str</em>) – the option prefix</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a> allowing to fully declare this parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsbakersdefaultprops.html" class="btn btn-neutral float-left" title="sbsbakersdefaultprops module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsbakingconverter.html" class="btn btn-neutral float-right" title="sbsbakingconverter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
