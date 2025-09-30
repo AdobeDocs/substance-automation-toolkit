@@ -1,3 +1,102 @@
+# Sphinx doc CSS injection & GitHub pages deployment
+- ---
+
+  > **If '_static/custom.css' file already exists, 
+    Jump to step 3.**
+
+### -1/ Create ```_static/custom.css``` file and add these lines:
+
+``` css
+/* custom.css */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+h1, h2, h3 {
+    color: #2c3e50;
+}
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+code {
+    background: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+```
+
+
+### -2/ Edit conf.html:
+
+- Delete these stylesheet lines in ```<head>```:
+  - ```<link rel="stylesheet" type="text/css" href="../_static/pygments.css" />```
+  - ```<link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />```
+- Right above ```</head>``` closing line, add this line (with 1 indent):
+  - ```<link rel="stylesheet" href="../_static/custom.css">```
+
+
+### -3/ Create GitHub pages custom Workflow file: 
+  - Name it ```deploy_saws_doc.yml```
+  - Paste the workflow file content from below:
+ ``` yaml
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["doc_release"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload folder content to GitHub Pages
+          path: 'docs'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+### Now push all changes to the ```doc_release``` branch will trigger the GitHub action to deploy to GitHub pages.
+Cheers!
+
+- ---
+- ---
+- ---
+
 # Adobe I/O Documentation Template
 
 This is a site template built with the [Adobe I/O Theme](https://github.com/adobe/aio-theme).
