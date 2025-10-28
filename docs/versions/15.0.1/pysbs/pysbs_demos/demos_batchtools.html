@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>demos_batchtools module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="script_update_with_sbsupdater script" href="script_update_with_sbsupdater.html" />
+    <link rel="prev" title="demos module" href="demos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview/overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview/Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview/SAT%20demos.html">SAT demos</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="demohelloworld.html">demohelloworld module: A very simple function that creates a basic Substance, which uses the API without argument file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="demos.html">demos module: Set a sample functions to demonstrate the use of the API, using argument files</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">demos_batchtools module: Set a sample functions to demonstrate the use of the API with the batchtools, using argument files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#demos_batchtools.demoUdimPipeline"><code class="docutils literal notranslate"><span class="pre">demoUdimPipeline()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="script_update_with_sbsupdater.html">script_update_with_sbsupdater: Script allowing to update all Substances in a folder using the Batch Tool SBSUpdater</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview/overview.html">API overview</a></li>
+          <li class="breadcrumb-item"><a href="../overview/SAT%20demos.html">SAT demos</a></li>
+      <li class="breadcrumb-item active">demos_batchtools module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-demos_batchtools">
+<span id="demos-batchtools-module"></span><span id="ref-to-demo-batchtools"></span><h1>demos_batchtools module<a class="headerlink" href="#module-demos_batchtools" title="Link to this heading"></a></h1>
+<p>Module <strong>demos_batchtools</strong> provides samples of usage of Pysbs in particular with the module batchtools.py.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="demos_batchtools.demoUdimPipeline">
+<span class="sig-prename descclassname"><span class="pre">demos_batchtools.</span></span><span class="sig-name descname"><span class="pre">demoUdimPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTemplateSbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestSbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMeshPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUdimList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputBakingPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputRenderPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputSbsarPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos_batchtools.demoUdimPipeline" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Demonstrates an automated pipeline implying a mesh with udim, executing this process:</div>
+<div class="line">substance3d_baker =&gt; fill template .sbs with Pysbs =&gt; sbscooker =&gt; sbsrender</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aTemplateSbsPath</strong> (<em>str</em>) – The absolute path of the template .sbs file</p></li>
+<li><p><strong>aDestSbsPath</strong> (<em>str</em>) – The absolute path of the .sbs file specified for the mesh.</p></li>
+<li><p><strong>aMeshPath</strong> (<em>str</em>) – The absolute path of the mesh to use to specify this template Substance</p></li>
+<li><p><strong>aUdimList</strong> (<em>str</em>) – The list of UDIM ids (MARI convention: “1001”) available on this mesh. For instance “1001,1002”</p></li>
+<li><p><strong>aOutputSize</strong> (<em>str</em>) – Output size</p></li>
+<li><p><strong>aOutputBakingPath</strong> (<em>str</em>) – Folder path where to save the output of the baking process for each udim</p></li>
+<li><p><strong>aOutputRenderPath</strong> (<em>str</em>) – Folder path where to save the output renderings of the Substance graph for each udim</p></li>
+<li><p><strong>aOutputSbsarPath</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder path where to save the output .sbsar specialized for each udim. Keep the value to None if there is no need to keep the .sbsar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+</dl>
+<p>Here is the code of function demoUdimPipeline:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bakeUdim</span><span class="p">(</span><span class="n">_meshPath</span><span class="p">,</span> <span class="n">_outputSize</span><span class="p">,</span> <span class="n">_outputFormat</span><span class="p">,</span> <span class="n">_outputBakingPath</span><span class="p">,</span> <span class="n">_bakerName</span><span class="p">,</span> <span class="n">_udim</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Call substance3d_baker with the provided udim</span>
+
+<span class="sd">    :param _meshPath: Path to the mesh</span>
+<span class="sd">    :param _outputSize: Output size</span>
+<span class="sd">    :param _outputFormat: Output format of the baked map (e.g. extension)</span>
+<span class="sd">    :param _outputBakingPath: Output folder path</span>
+<span class="sd">    :param _bakerName: Name of the baker</span>
+<span class="sd">    :param _udim: The udim to process</span>
+<span class="sd">    :type _meshPath: str</span>
+<span class="sd">    :type _outputSize: int</span>
+<span class="sd">    :type _outputFormat: str</span>
+<span class="sd">    :type _outputBakingPath: str</span>
+<span class="sd">    :type _bakerName: str</span>
+<span class="sd">    :type _udim: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_outputName</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">_bakerName</span><span class="p">,</span><span class="n">_udim</span><span class="p">)</span>
+    <span class="n">batchtools</span><span class="o">.</span><span class="n">substance3d_baker_curvature_raytraced</span><span class="p">(</span><span class="n">_meshPath</span><span class="p">,</span>
+                                                     <span class="n">use_lowdef_as_highdef</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                  <span class="n">output_size</span><span class="o">=</span><span class="p">[</span><span class="n">_outputSize</span><span class="p">,</span><span class="n">_outputSize</span><span class="p">],</span>
+                                  <span class="n">output_format</span><span class="o">=</span><span class="n">_outputFormat</span><span class="p">,</span>
+                                  <span class="n">output_path</span><span class="o">=</span><span class="n">_outputBakingPath</span><span class="p">,</span>
+                                  <span class="n">udim</span><span class="o">=</span><span class="n">_udim</span><span class="p">,</span>
+                                  <span class="n">output_name</span><span class="o">=</span><span class="n">_outputName</span><span class="p">)</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cookAndRender</span><span class="p">(</span><span class="n">_context</span><span class="p">,</span> <span class="n">_inputSbs</span><span class="p">,</span> <span class="n">_inputGraphPath</span><span class="p">,</span> <span class="n">_outputCookPath</span><span class="p">,</span> <span class="n">_outputRenderPath</span><span class="p">,</span> <span class="n">_outputSize</span><span class="p">,</span> <span class="n">_udim</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Call sbscooker with the provided udim, and then sbsrender on the resulting .sbsar</span>
+
+<span class="sd">    :param _context: API execution context</span>
+<span class="sd">    :param _inputSbs: Path to the .sbs file to cook</span>
+<span class="sd">    :param _inputGraphPath: Internal path of the graph to render</span>
+<span class="sd">    :param _context: Path to the default packages folder</span>
+<span class="sd">    :param _outputCookPath: Output folder path of the .sbsar</span>
+<span class="sd">    :param _outputRenderPath: Output folder path of the rendered maps</span>
+<span class="sd">    :param _outputSize: Output size</span>
+<span class="sd">    :param _udim: The udim to process</span>
+<span class="sd">    :type _context: :class:`context.Context`</span>
+<span class="sd">    :type _inputSbs: str</span>
+<span class="sd">    :type _inputGraphPath: str</span>
+<span class="sd">    :type _outputCookPath: str</span>
+<span class="sd">    :type _outputRenderPath: str</span>
+<span class="sd">    :type _outputSize: int</span>
+<span class="sd">    :type _udim: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_sbsarName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">_inputSbs</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">_outputName</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">_sbsarName</span><span class="p">,</span><span class="n">_udim</span><span class="p">)</span>
+
+    <span class="n">batchtools</span><span class="o">.</span><span class="n">sbscooker</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">_inputSbs</span><span class="p">,</span>
+                         <span class="n">includes</span><span class="o">=</span><span class="n">_context</span><span class="o">.</span><span class="n">getDefaultPackagePath</span><span class="p">(),</span>
+                         <span class="n">alias</span><span class="o">=</span><span class="n">_context</span><span class="o">.</span><span class="n">getUrlAliasMgr</span><span class="p">()</span><span class="o">.</span><span class="n">getAllAliases</span><span class="p">(),</span>
+                         <span class="n">udim</span><span class="o">=</span><span class="n">_udim</span><span class="p">,</span>
+                         <span class="n">output_path</span><span class="o">=</span><span class="n">_outputCookPath</span><span class="p">,</span>
+                         <span class="n">output_name</span><span class="o">=</span><span class="n">_outputName</span><span class="p">,</span>
+                         <span class="n">compression_mode</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+    <span class="n">batchtools</span><span class="o">.</span><span class="n">sbsrender_render</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_outputCookPath</span><span class="p">,</span> <span class="n">_outputName</span><span class="o">+</span><span class="s1">&#39;.sbsar&#39;</span><span class="p">),</span>
+                                <span class="n">input_graph</span><span class="o">=</span><span class="n">_inputGraphPath</span><span class="p">,</span>
+                                <span class="n">output_path</span><span class="o">=</span><span class="n">_outputRenderPath</span><span class="p">,</span>
+                                <span class="n">output_name</span><span class="o">=</span><span class="n">_outputName</span><span class="p">,</span>
+                                <span class="n">set_value</span><span class="o">=</span><span class="s1">&#39;$outputsize@</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">_outputSize</span><span class="p">,</span><span class="n">_outputSize</span><span class="p">),</span>
+                                <span class="n">png_format_compression</span><span class="o">=</span><span class="s2">&quot;best_speed&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="ow">not</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="n">aTemplateSbsPath</span><span class="p">,</span> <span class="n">aDestSbsPath</span><span class="p">,</span> <span class="n">aMeshPath</span><span class="p">,</span> <span class="n">aUdimList</span><span class="p">,</span> <span class="n">aOutputSize</span><span class="p">,</span> <span class="n">aOutputBakingPath</span><span class="p">,</span> <span class="n">aOutputRenderPath</span><span class="p">]]):</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide all the appropriate arguments for demoUdimPipeline &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Get information from the mesh: materials and uvset count</span>
+    <span class="n">materials</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">uvsetCount</span> <span class="o">=</span> <span class="n">batchtools</span><span class="o">.</span><span class="n">substance3d_baker_info_get_mesh_info</span><span class="p">(</span><span class="n">aMeshPath</span><span class="p">)</span>
+
+    <span class="c1"># Bake mesh information</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Baking into </span><span class="si">%s</span><span class="s1"> ...&#39;</span> <span class="o">%</span> <span class="n">aOutputBakingPath</span><span class="p">)</span>
+
+    <span class="n">python_helpers</span><span class="o">.</span><span class="n">createFolderIfNotExists</span><span class="p">(</span><span class="n">aOutputBakingPath</span><span class="p">)</span>
+    <span class="n">bakerName</span> <span class="o">=</span> <span class="n">sbsbakers</span><span class="o">.</span><span class="n">getBakerDefaultIdentifier</span><span class="p">(</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">CURVATURE</span><span class="p">)</span>
+    <span class="n">bitmapExt</span> <span class="o">=</span> <span class="s1">&#39;png&#39;</span>
+    <span class="n">aOutputSize</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">aOutputSize</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">udim</span> <span class="ow">in</span> <span class="n">aUdimList</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+        <span class="n">bakeUdim</span><span class="p">(</span><span class="n">aMeshPath</span><span class="p">,</span> <span class="n">aOutputSize</span><span class="p">,</span> <span class="n">bitmapExt</span><span class="p">,</span> <span class="n">aOutputBakingPath</span><span class="p">,</span> <span class="n">bakerName</span><span class="p">,</span> <span class="n">udim</span><span class="p">)</span>
+
+    <span class="c1"># Parse the .sbs file and get required data</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aTemplateSbsPath</span><span class="p">)</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraphList</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">graphPath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getObjectInternalPath</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">mUID</span><span class="p">,</span> <span class="n">addDependencyUID</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">bitmapRes</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSResourceList</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Init a scene resource with the mesh information</span>
+    <span class="n">sceneRes</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createSceneResource</span><span class="p">(</span><span class="n">aResourcePath</span><span class="o">=</span><span class="n">aMeshPath</span><span class="p">,</span> <span class="n">aIdentifier</span><span class="o">=</span><span class="s1">&#39;mesh&#39;</span><span class="p">,</span> <span class="n">isUDIM</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Proper configuration for the .sbs output so that it is correctly set for SD. This is not required if using only the batchtools:</span>
+    <span class="c1"># - Set the material entries</span>
+    <span class="n">sceneRes</span><span class="o">.</span><span class="n">setMaterialMapEntries</span><span class="p">(</span><span class="n">aMaterialsList</span> <span class="o">=</span> <span class="n">materials</span><span class="p">,</span> <span class="n">nbUVSet</span><span class="o">=</span><span class="n">uvsetCount</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">matMapEntry</span> <span class="ow">in</span> <span class="n">sceneRes</span><span class="o">.</span><span class="n">getMaterialMapEntries</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">uvset</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">uvsetCount</span><span class="p">):</span>
+            <span class="n">matMapEntry</span><span class="o">.</span><span class="n">assignDefaultSBSGraph</span><span class="p">(</span><span class="n">aGraphPath</span><span class="o">=</span><span class="n">graphPath</span><span class="p">,</span> <span class="n">aUVSet</span><span class="o">=</span><span class="n">uvset</span><span class="p">)</span>
+
+    <span class="c1"># - Define the bitmap resource as the result of the mesh baking process</span>
+    <span class="n">bitmapRes</span><span class="o">.</span><span class="n">setResourceIsBakingOutput</span><span class="p">(</span><span class="n">sceneRes</span><span class="p">,</span> <span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">CURVATURE_MAP_FROM_MESH</span><span class="p">)</span>
+
+    <span class="c1"># Relocate the resource so that it points to the baking output</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">relocateResource</span><span class="p">(</span><span class="n">aResource</span><span class="o">=</span><span class="n">bitmapRes</span><span class="p">,</span>
+                            <span class="n">aNewPath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aOutputBakingPath</span><span class="p">,</span> <span class="n">bakerName</span><span class="o">+</span><span class="s1">&#39;_$(udim).&#39;</span><span class="o">+</span><span class="n">bitmapExt</span><span class="p">)),</span>
+                            <span class="n">checkPathExists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Write the output Substance specialised for the given mesh</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span><span class="o">=</span><span class="n">aDestSbsPath</span><span class="p">,</span> <span class="n">aUpdateRelativePaths</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Save the .sbsar in a temporary folder if aOutputSbsarPath is not specified</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">aOutputSbsarPath</span><span class="p">:</span>
+        <span class="n">destSbsar</span> <span class="o">=</span> <span class="n">aContext</span><span class="o">.</span><span class="n">getUrlAliasMgr</span><span class="p">()</span><span class="o">.</span><span class="n">buildTmpFolderPath</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">mIdentifier</span><span class="o">+</span><span class="s1">&#39;_OutputSbsar&#39;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">destSbsar</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">destSbsar</span> <span class="o">=</span> <span class="n">aOutputSbsarPath</span>
+
+    <span class="c1"># Create output directories if necessary</span>
+    <span class="n">python_helpers</span><span class="o">.</span><span class="n">createFolderIfNotExists</span><span class="p">(</span><span class="n">destSbsar</span><span class="p">)</span>
+    <span class="n">python_helpers</span><span class="o">.</span><span class="n">createFolderIfNotExists</span><span class="p">(</span><span class="n">aOutputRenderPath</span><span class="p">)</span>
+
+    <span class="c1"># Cook the substance for each Udim and render each resulting .sbsar</span>
+    <span class="c1"># Run this on several threads with a task queue</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Rendering into </span><span class="si">%s</span><span class="s1"> ...&#39;</span> <span class="o">%</span> <span class="n">aOutputRenderPath</span><span class="p">)</span>
+    <span class="n">graphPath</span> <span class="o">=</span> <span class="s1">&#39;pkg://&#39;</span><span class="o">+</span><span class="n">graph</span><span class="o">.</span><span class="n">mIdentifier</span>
+    <span class="k">for</span> <span class="n">udim</span> <span class="ow">in</span> <span class="n">aUdimList</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+        <span class="n">cookAndRender</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aDestSbsPath</span><span class="p">,</span> <span class="n">graphPath</span><span class="p">,</span> <span class="n">destSbsar</span><span class="p">,</span> <span class="n">aOutputRenderPath</span><span class="p">,</span> <span class="n">aOutputSize</span><span class="p">,</span> <span class="n">udim</span><span class="p">)</span>
+
+    <span class="c1"># Remove temporary folder</span>
+    <span class="k">if</span> <span class="n">aOutputSbsarPath</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">destSbsar</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;All renders have been generated&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoUdimPipeline] Failed to process mesh </span><span class="si">%s</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="n">aMeshPath</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="demos.html" class="btn btn-neutral float-left" title="demos module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="script_update_with_sbsupdater.html" class="btn btn-neutral float-right" title="script_update_with_sbsupdater script" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

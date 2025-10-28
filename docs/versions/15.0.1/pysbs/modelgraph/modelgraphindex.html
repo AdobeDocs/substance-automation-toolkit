@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelgraphindex module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="modelgraph module" href="modelgraph.html" />
+    <link rel="prev" title="sbsproject module" href="../sbsproject/sbsproject.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modelgraph.html">modelgraph module: ModelGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelannotationnames.html">modelannotationnames module: List all name for ModelGraph annotations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelgraphgenerator.html">modelgraphgenerator module: Handle all function to generate ModelGraph's objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelgraphimplementation.html">modelgraphimplementation module: Handle basic values definition for the graph implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modelnodenames.html">modelnodenames module: List all node names available into ModelGraph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modeloperand.html">modeloperand module: Operands definition for all ModelGraph operand's types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">modelgraphindex module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modelgraphindex-module">
+<h1>modelgraphindex module<a class="headerlink" href="#modelgraphindex-module" title="Link to this heading"></a></h1>
+<p>Content included in ModelGraph package:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modelgraph.html">modelgraph module: ModelGraph definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph"><code class="docutils literal notranslate"><span class="pre">ModelGraph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.addGraphAnnotation"><code class="docutils literal notranslate"><span class="pre">ModelGraph.addGraphAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.connectNodes"><code class="docutils literal notranslate"><span class="pre">ModelGraph.connectNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.createNode"><code class="docutils literal notranslate"><span class="pre">ModelGraph.createNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.exposeNode"><code class="docutils literal notranslate"><span class="pre">ModelGraph.exposeNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.fromJson"><code class="docutils literal notranslate"><span class="pre">ModelGraph.fromJson()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.fromXmpIter"><code class="docutils literal notranslate"><span class="pre">ModelGraph.fromXmpIter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getAllInputGroups"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getAllInputGroups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getAllInputs"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getAllInputsInGroup"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getAllInputsInGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getAttribute"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getIdentifier"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInput"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInputFromUID"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInputFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInputImage"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInputImageWithUsage"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInputImageWithUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInputImages"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInputImages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInputParameter"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInputParameterFromUID"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInputParameterFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getInputParameters"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getInputParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getNode"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getNodeByPath"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getNodeByPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getNodeList"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getNodeList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelGraph.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.parse"><code class="docutils literal notranslate"><span class="pre">ModelGraph.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setAuthor"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setAuthor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setCopyright"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setCopyright()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setDescription"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setDescription()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setDisplayName"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setHidden"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setHidden()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setInGroup"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setInGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setKeywords"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setKeywords()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.setNodeAsRoot"><code class="docutils literal notranslate"><span class="pre">ModelGraph.setNodeAsRoot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraph.html#modelgraph.modelgraph.ModelGraph.write"><code class="docutils literal notranslate"><span class="pre">ModelGraph.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modelannotationnames.html">modelannotationnames module: List all name for ModelGraph annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelgraphgenerator.html">modelgraphgenerator module: Handle all function to generate ModelGraph's objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelgraphgenerator.html#modelgraph.modelgraphgenerator.createGraph"><code class="docutils literal notranslate"><span class="pre">createGraph()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modelgraphimplementation.html">modelgraphimplementation module: Handle basic values definition for the graph implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.GraphDefinition"><code class="docutils literal notranslate"><span class="pre">GraphDefinition</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.GraphDefinition.equals"><code class="docutils literal notranslate"><span class="pre">GraphDefinition.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.GraphDefinition.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">GraphDefinition.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.GraphDefinition.parse"><code class="docutils literal notranslate"><span class="pre">GraphDefinition.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.GraphDefinition.write"><code class="docutils literal notranslate"><span class="pre">GraphDefinition.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.ModelGraphImplementation"><code class="docutils literal notranslate"><span class="pre">ModelGraphImplementation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.ModelGraphImplementation.equals"><code class="docutils literal notranslate"><span class="pre">ModelGraphImplementation.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.ModelGraphImplementation.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelGraphImplementation.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.ModelGraphImplementation.parse"><code class="docutils literal notranslate"><span class="pre">ModelGraphImplementation.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modelgraphimplementation.html#modelgraph.modelgraphimplementation.ModelGraphImplementation.write"><code class="docutils literal notranslate"><span class="pre">ModelGraphImplementation.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modelnodenames.html">modelnodenames module: List all node names available into ModelGraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeloperand.html">modeloperand module: Operands definition for all ModelGraph operand's types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBaseOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelBaseOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelBoolOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelBoolOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.setType"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.setType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelEnumOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelEnumOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.equals"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.parse"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.promote"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat2Operand.write"><code class="docutils literal notranslate"><span class="pre">ModelFloat2Operand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.equals"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.parse"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.promote"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloat3Operand.write"><code class="docutils literal notranslate"><span class="pre">ModelFloat3Operand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelFloatOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelFloatOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelIntegerOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelIntegerOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand"><code class="docutils literal notranslate"><span class="pre">ModelListOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelListOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelListOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelSceneTreeOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelSceneTreeOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.equals"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.getValue"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.parse"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.promote"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.promote()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.setMetaDataAcceptConnection"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.setMetaDataAcceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.setValue"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.switchMetaDataDefault"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.switchMetaDataDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modeloperand.html#modelgraph.modeloperand.ModelStringOperand.write"><code class="docutils literal notranslate"><span class="pre">ModelStringOperand.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sbsproject/sbsproject.html" class="btn btn-neutral float-left" title="sbsproject module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modelgraph.html" class="btn btn-neutral float-right" title="modelgraph module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

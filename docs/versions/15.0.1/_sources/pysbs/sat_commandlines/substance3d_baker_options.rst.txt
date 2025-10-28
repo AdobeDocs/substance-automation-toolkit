@@ -1,0 +1,6176 @@
+.. _ref-to-sat-substance3d_bakeroptions:
+
+substance3d_baker command line options
+======================================
+
+.. raw:: html
+
+    <h1>
+      substance3d_baker
+    </h1>
+    <h2>
+      Usage
+    </h2>
+    <ul>
+      <li>
+        <a href="#AmbientOcclusion.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] AmbientOcclusion.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Color.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] Color.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Curvature.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] Curvature.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Height.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] Height.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Normal.BentNormals">
+          substance3d_baker [&lt;global_options&gt;...] Normal.BentNormals [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Normal.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] Normal.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Normal.TangentToWorld">
+          substance3d_baker [&lt;global_options&gt;...] Normal.TangentToWorld [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Normal.WorldToTangent">
+          substance3d_baker [&lt;global_options&gt;...] Normal.WorldToTangent [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Opacity.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] Opacity.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Position.Rasterised">
+          substance3d_baker [&lt;global_options&gt;...] Position.Rasterised [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Position.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] Position.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#TextureTransfer.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] TextureTransfer.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#Thickness.Raytraced">
+          substance3d_baker [&lt;global_options&gt;...] Thickness.Raytraced [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#info">
+          substance3d_baker [&lt;global_options&gt;...] info [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#run">
+          substance3d_baker [&lt;global_options&gt;...] run [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#update">
+          substance3d_baker [&lt;global_options&gt;...] update [&lt;options&gt;...]
+        </a>
+      </li>
+    </ul>
+    <h3>
+      Global options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--doc-html, --doc</strong>
+      </dt>
+      <dd>
+        Generate basic documentation html from the option's help.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--help, -h, -?</strong>
+      </dt>
+      <dd>
+        Display help about given subcommand.
+        If no subcommand is provided, this help about global options is printed.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--opt-descr</strong>
+      </dt>
+      <dd>
+        Create json description of all available options
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--quiet, -q</strong>
+      </dt>
+      <dd>
+        Disable warning messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--verbose, -v</strong>
+      </dt>
+      <dd>
+        Enable info and debug messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--version, -V</strong>
+      </dt>
+      <dd>
+        Display version of the program.
+      </dd>
+    </dl>
+    <h2>
+      <a name="AmbientOcclusion.Raytraced">Subcommand AmbientOcclusion.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Computes soft shadowing in occluded areas and stores the ambient lighting intensities in a grayscale image, where brighter areas receive more ambient light.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--attenuation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;linear&quot;]
+      </dt>
+      <dd>
+        The method of attenuation applied to occlusion shadows according to the occluder distance.
+        Available options:
+          - none
+          - smooth
+          - linear
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--culling_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;never&quot;]
+      </dt>
+      <dd>
+        The rule followed by occlusion rays for ignoring backfacing triangles in the high poly meshes.
+        Available options:
+          - never : No backfaces are ignored.
+          - always : All backfaces are ignored.
+          - match_mesh_name : Backfaces are only ignored for meshes which name includes the &quot;_ignorebf&quot; dedicated suffix.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_ground_plane</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        If enabled, adds an infinite occluding plane at the lowest mesh point in the scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--ground_offset</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        Vertical offset applied to the ground plane, relative to the lowest mesh point in the scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the normal map.
+        Only used in combination with the &quot;normal_map_path&quot; option.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the external normal map providing additional surface details.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_space</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;tangent_space&quot;]
+      </dt>
+      <dd>
+        The coordinate space used by the normal map.
+        Only used in combination with the &quot;normal_map_path&quot; option.
+        Available options:
+          - world_space
+          - tangent_space
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.max_distance</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;1&quot;]
+      </dt>
+      <dd>
+        Maximum distance of other detected surfaces. Surfaces farther than that distance are ignored.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The rule for detecting meshes in the high poly scene.
+        Available options:
+          - match_all : all meshes in the high poly scene are detected.
+          - match_mesh_name : only meshes in the high poly scene with the same name as the source mesh in the low poly scene are detected.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.min_distance</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;1e-05&quot;]
+      </dt>
+      <dd>
+        Minimum distance of other detected surfaces. Surfaces closer than that distance are ignored.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the &quot;min_distance&quot; and &quot;max_distance&quot; values as multipliers of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sample_count</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;64&quot;]
+      </dt>
+      <dd>
+        Number of secondary rays.
+        Range: [1; 256]
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sample_distribution</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;cosine&quot;]
+      </dt>
+      <dd>
+        The angular distribution of rays.
+        Available options:
+          - uniform
+          - cosine
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.spread_angle</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;180&quot;]
+      </dt>
+      <dd>
+        The maximum spread angle of rays.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Color.Raytraced">Subcommand Color.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Computes an ID map used to select and mask triangles according to specified criteria. An ID map groups triangles by color value.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--color_generator</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;hue_shift&quot;]
+      </dt>
+      <dd>
+        The method used to generate color IDs.
+        Available options:
+          - random : Assign a random RGB value.
+          - hue_shift : Assign a random RGB value where hue is random while saturation and luminance are both constant.
+          - grayscale : Assign a random luminance value.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--color_source</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;mesh_color&quot;]
+      </dt>
+      <dd>
+        The source of data used to assign IDs.
+        Available options:
+          - vertex : Use the vertex colors from the meshes in the high poly scene(s) as IDs.
+          - mesh_color : Use the material colors from the meshes in the high poly scene(s) as IDs (FBX files only).
+          - scene_id : assigns an ID per mesh in the high poly scene(s).
+          - mesh_index : Assigns an ID per subobject (also called element) from the meshes in the high poly scene(s).
+          - contiguous_triangles_2d : Assigns an ID per contiguous UV island.
+          - contiguous_triangles_3d : Assigns an ID per contiguous 3D sub-mesh.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Curvature.Raytraced">Subcommand Curvature.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Computes the curvature of meshes and stores it in a grayscale image, where concave areas are brighter and convex areas are darker.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--auto_minmax</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute tonemapping bounds per UV tile. I.e., use the minimum and maximum values or each individual tile to remap their values in the [0;1] range.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the normal map.
+        Only used in combination with the &quot;normal_map_path&quot; option.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the external normal map providing additional surface details.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_space</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;tangent_space&quot;]
+      </dt>
+      <dd>
+        The coordinate space used by the normal map.
+        Only used in combination with the &quot;normal_map_path&quot; option.
+        Available options:
+          - world_space
+          - tangent_space
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The rule for detecting meshes in the high poly scene.
+        Available options:
+          - match_all : all meshes in the high poly scene are detected.
+          - match_mesh_name : only meshes in the high poly scene with the same name as the source mesh in the low poly scene are detected.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the &quot;min_distance&quot; and &quot;max_distance&quot; values as multipliers of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sample_count</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;32&quot;]
+      </dt>
+      <dd>
+        Number of secondary rays. Range: [1; 256]
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sampling_radius</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.001&quot;]
+      </dt>
+      <dd>
+        The radius of the disk to get surface samples from, around the hit position of a projection ray.
+        A larger radius results in wider curvature gradients.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--value_bounds</strong>
+        <em>&lt;double&gt;,&lt;double&gt;</em>
+        [default: &quot;-1,1&quot;]
+      </dt>
+      <dd>
+        The bounds of the desired curvature value range.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Height.Raytraced">Subcommand Height.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Extracts the vertical position of a mesh surface and stores it in a grayscale image, where higher areas are brighter and lower areas are darker.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--divisor</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;1&quot;]
+      </dt>
+      <dd>
+        Divide the raw extracted height by this value.
+        Only used when the &quot;maximize_range&quot; option is set to &quot;manual&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--maximize_range</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;low_poly_distance&quot;]
+      </dt>
+      <dd>
+        The value remapping applied to the extracted heights, if any. I.e., how to map the values to a specified range.
+        Available options:
+          - ray_distance : Remap the values to the range of distances of ray hits.
+          - low_poly_distance : No normalization. The distance from the low poly meshes' surfaces to the high poly's are stored as is.
+          - min_max : Remap the values from 0 to 1 where 0 is the lowest high poly mesh point and 1 is the highest.
+          - manual : Scales the values using a user-specified divisor.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Normal.BentNormals">Subcommand Normal.BentNormals</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Computes the average directions of ambient lighting and stores them as normalised vectors in a color image, where (X, Y, Z) coordinates are mapped to the image's (R, G, B) channels.
+      The computation is very similar to the AmbientOcclusion.Raytraced baker.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--culling_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;never&quot;]
+      </dt>
+      <dd>
+        The rule followed by occlusion rays for ignoring backfacing triangles in the high poly meshes.
+        Available options:
+          - never : No backfaces are ignored.
+          - always : All backfaces are ignored.
+          - match_mesh_name : Backfaces are only ignored for meshes which name includes the dedicated suffix (Default: &quot;_ignorebf&quot;)
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_texture_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the computed normal map.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_texture_space</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;tangent_space&quot;]
+      </dt>
+      <dd>
+        The coordinate space used by the computed normal map.
+        Available options:
+          - world_space
+          - tangent_space
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.max_distance</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;1&quot;]
+      </dt>
+      <dd>
+        Maximum distance of other detected surfaces. Surfaces farther than that distance are ignored.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The rule for detecting meshes in the high poly scene.
+        Available options:
+          - match_all : all meshes in the high poly scene are detected.
+          - match_mesh_name : only meshes in the high poly scene with the same name as the source mesh in the low poly scene are detected.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.min_distance</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;1e-05&quot;]
+      </dt>
+      <dd>
+        Minimum distance of other detected surfaces. Surfaces closer than that distance are ignored.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the &quot;min_distance&quot; and &quot;max_distance&quot; values as multipliers of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sample_count</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;64&quot;]
+      </dt>
+      <dd>
+        Number of secondary rays.
+        Range: [1; 256]
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sample_distribution</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;cosine&quot;]
+      </dt>
+      <dd>
+        The angular distribution of rays.
+        Available options:
+          - uniform
+          - cosine
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.spread_angle</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;180&quot;]
+      </dt>
+      <dd>
+        The maximum spread angle of rays.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Normal.Raytraced">Subcommand Normal.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Extracts the normals of meshes in a high poly scene and computes a normal map, where (X, Y, Z) coordinates are mapped to the image's (R, G, B) channels.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--output_texture_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the computed normal map.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_texture_space</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;tangent_space&quot;]
+      </dt>
+      <dd>
+        The coordinate space used by the computed normal map.
+        Available options:
+          - world_space
+          - tangent_space
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Normal.TangentToWorld">Subcommand Normal.TangentToWorld</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Extracts the surface direction vectors of meshes and stores them in a color image, where (X, Y, Z) coordinates are mapped to the image's (R, G, B) channels.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--bake_type</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;normal&quot;]
+      </dt>
+      <dd>
+        The direction vector to be baked.
+        Available options:
+          - normal
+          - tangent
+          - binormal
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the normal map.
+        Only used in combination with the &quot;normal_map_path&quot; option.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the external normal map providing additional surface details.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_space</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;tangent_space&quot;]
+      </dt>
+      <dd>
+        The coordinate space used by the normal map.
+        Only used in combination with the &quot;normal_map_path&quot; option.
+        Available options:
+          - world_space
+          - tangent_space
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Normal.WorldToTangent">Subcommand Normal.WorldToTangent</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Transforms surface directions of meshes from world space into tangent space and stores them in a color image, where (X, Y, Z) coordinates are mapped to the image's (R, G, B) channels.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--direction</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;from_texture&quot;]
+      </dt>
+      <dd>
+        Select the input method of the world space direction vector(s) which should be transformed into tangent space.
+        Available options:
+          - from_texture : use a specified world space normal map.
+          - from_uniform_vector : use a uniform vector which coordinates are specified in dedicated options.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normal_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the external world space normal map providing the per-pixel directions which should be transformed into tangent space.
+        Only used in combination with the &quot;direction&quot; option set to &quot;from_texture&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_texture_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the computed normal map.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--world_direction_x</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The X component of the world space direction vector.
+        Only used in combination with the &quot;direction&quot; option set to &quot;from_uniform_vector&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--world_direction_y</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;-1&quot;]
+      </dt>
+      <dd>
+        The Y component of the world space direction vector.
+        Only used in combination with the &quot;direction&quot; option set to &quot;from_uniform_vector&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--world_direction_z</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The Z component of the world space direction vector.
+        Only used in combination with the &quot;direction&quot; option set to &quot;from_uniform_vector&quot;.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Opacity.Raytraced">Subcommand Opacity.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Computes an opacity map where ray hits are white and ray misses are black. I.e., any ray hitting a mesh surface in the high poly scene will result in a white pixel.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <h2>
+      <a name="Position.Rasterised">Subcommand Position.Rasterised</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Extracts the world space positions of the meshes' vertices in the low poly scene, and stores them in a grayscale or color image, according to the specified scope.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--axis</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;x&quot;]
+      </dt>
+      <dd>
+        The axis along which the vertex positions should be extracted.
+        Only used in combination with the &quot;mode&quot; option set to &quot;single_axis&quot;.
+        Available options:
+          - x
+          - y
+          - z
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;all_axes&quot;]
+      </dt>
+      <dd>
+        Select the scope of the positions which should be extracted.
+        Available options:
+          - all_axes : extract positions along all axes, resulting in a color image where (X, Y, Z) coordinates are mapped to the image's (R, G, B) channels.
+          - single_axis : extract positions along a specified single axis, resulting in a grayscale image.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normalization</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;bsphere&quot;]
+      </dt>
+      <dd>
+        The normalization method applied to the extracted positions. I.e., remaps the values to a specified range.
+        Available options:
+          - bbox : The coordinate range of the scene's bounding box (Bbox)
+          - bsphere : The coordinate range of the scene's bounding sphere (Bsphere)
+          - none : No normalization is applied.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normalization_scale</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;full_scene&quot;]
+      </dt>
+      <dd>
+        The scope of the scene used to set the bounds of the bounding volumes used in the normalization process.
+        Only used in combination with the &quot;normalization&quot; option.
+        Available options:
+          - selection : Only consider the meshes selected using the &quot;selected_meshes&quot; options.
+          - full_scene : Consider all the meshes in the scene.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Position.Raytraced">Subcommand Position.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Extracts the world space positions of the meshes' vertices in the high poly scene(s), and stores them in a grayscale or color image, according to the specified scope.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--axis</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;x&quot;]
+      </dt>
+      <dd>
+        The axis along which the vertex positions should be extracted.
+        Only used in combination with the &quot;mode&quot; option set to &quot;single_axis&quot;.
+        Available options:
+          - x
+          - y
+          - z
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;all_axes&quot;]
+      </dt>
+      <dd>
+        Select the scope of the positions which should be extracted.
+        Available options:
+          - all_axes : extract positions along all axes, resulting in a color image where (X, Y, Z) coordinates are mapped to the image's (R, G, B) channels.
+          - single_axis : extract positions along a specified single axis, resulting in a grayscale image.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normalization</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;bsphere&quot;]
+      </dt>
+      <dd>
+        The normalization method applied to the extracted positions. I.e., remaps the values to a specified range.
+        Available options:
+          - bbox : The coordinate range of the scene's bounding box (Bbox)
+          - bsphere : The coordinate range of the scene's bounding sphere (Bsphere)
+          - none : No normalization is applied.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--normalization_scale</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;full_scene&quot;]
+      </dt>
+      <dd>
+        The scope of the scene used to set the bounds of the bounding volumes used in the normalization process.
+        Only used in combination with the &quot;normalization&quot; option.
+        Available options:
+          - selection : Only consider the meshes selected using the &quot;selected_meshes&quot; options.
+          - full_scene : Consider all the meshes in the scene.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="TextureTransfer.Raytraced">Subcommand TextureTransfer.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Projects a source texture from the meshes in the high poly scene(s) onto the meshes in the low poly scene.
+      Can also be used to transfer a texture across UV sets on a same mesh.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--filtering_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;bilinear&quot;]
+      </dt>
+      <dd>
+        The method of interpolating the pixels in the texture projection.
+        Available options:
+          - nearest : No interpolation, colors are applied as is to the destination pixels nearest to the source.
+          - bilinear : Colors are interpolated in the destination pixels using bilinear filtering.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--highpoly_uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The UV set used to map the source texture on the meshes in the high poly scene(s).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_texture_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the computed normal map.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--source_texture_isnormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Specifies whether the source texture is a normal map.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--source_texture_orientation</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;directx&quot;]
+      </dt>
+      <dd>
+        The orientation of the source normal map.
+        Only used when the &quot;source_texture_isnormal&quot; option is set to &quot;true&quot;.
+        Available options:
+          - opengl
+          - directx
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--source_texture_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the projected texture.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--source_texture_space</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;tangent_space&quot;]
+      </dt>
+      <dd>
+        The coordinate space used by the source normal map.
+        Only used when the &quot;source_texture_isnormal&quot; option is set to &quot;true&quot;.
+        Available options:
+          - world_space
+          - tangent_space
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="Thickness.Raytraced">Subcommand Thickness.Raytraced</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Computes the thickness of the meshes in the high poly scene(s) and stores it in a grayscale image, where brighter areas represent thicker volumes.
+      The computation is very similar to the AmbientOcclusion.Raytraced baker, except the rays are cast in the direction opposite of the surface normal (I.e., inward) and hit an opposite surface.
+      
+    </p>
+    <h3>
+      Common options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--base.uv_set</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;0&quot;]
+      </dt>
+      <dd>
+        The target UV set of the meshes in the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--enable_mip_diffusion</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Applies a diffusion post-process to the baked image, after padding.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;string;string;string;...&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process, which hold the low poly meshes.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_high</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_high&quot;]
+      </dt>
+      <dd>
+        Suffix used by the high poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--name_suffix_low</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;_low&quot;]
+      </dt>
+      <dd>
+        Suffix used by the low poly meshes in the scene.
+        Used by the options matching meshes by name, such as &quot;projection.mesh_match_mode&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_format</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for the output image file.
+        Supported formats: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_name</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;{scenename}_{bakername}&quot;]
+      </dt>
+      <dd>
+        Output name of the output image files, without the extension. Macros may be used to tailor the name to the context of a bake.
+        Available macros:
+          - {scenename} : Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
+          - {bakername} : Replaced by the current baker's name
+          - {udim} : Replaced by the UDIM ID of the current tile (MARI convention).
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_path</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;.&frasl;&quot;]
+      </dt>
+      <dd>
+        Path of the destination directory for the output image files.
+        Available macros:
+         - {inputPath} : Replaced by the path of the directory hosting the first input 3D scene file.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output_size</strong>
+        <em>&lt;uint&gt;,&lt;uint&gt;</em>
+        [default: &quot;2048,2048&quot;]
+      </dt>
+      <dd>
+        Size of the output image files, in pixels.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--padding_radius</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;2&quot;]
+      </dt>
+      <dd>
+        Width of the dilation post-process applied to the borders of UV islands in the output images, in pixels. Dilation is applied before diffusion.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--per_fragment_binormal</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Selects the source of data for computing the binormal of the tangent frame:
+          - true : fragment shader.
+          - false : vertex shader.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--recompute_tangents</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Forces the recomputation of tangents, dismissing those from the mesh. Computed tangents use the MikkT standard.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--selected_meshes</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Selects meshes to include in the baking process.
+        Expects the full path of a selected mesh in the input scene(s). If unused or empty, all meshes are selected. Use 'info' subcommand to list meshes and their full paths in an input scene.
+        The option should be repeated for each selected mesh.
+        E.g.: --selected_meshes &quot;&frasl;root&frasl;firstMesh&quot; --selected_meshes &quot;&frasl;root&frasl;secondMesh&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--udim</strong>
+        <em>&lt;int&gt;</em>
+        [default: &quot;1001&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile to compute, as a UDIM ID using the MARI convention.
+        E.g.: &quot;1022&quot;
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--uv_tiles</strong>
+        <em>&lt;int&gt;,&lt;int&gt;</em>
+        [default: &quot;uint2(0,0)&quot;]
+      </dt>
+      <dd>
+        Coordinates of the UV tile(s) to compute, as two zero-based indices.
+        E.g.: &quot;1,2&quot;
+        
+      </dd>
+    </dl>
+    <h3>
+      Projection options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--cage_scene_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the 3D scene hosting the meshes that rays are casted from.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--high_scene_paths</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path(s) of the 3D scene(s) from which information should be baked onto the input scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.cull_backfaces</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Ignore backfacing triangles when trying to match low poly and high poly meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.hit_strategy</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;inward&quot;]
+      </dt>
+      <dd>
+        The method of selecting the intersection of rays with high poly meshes.
+        Available options:
+          - inward: Suited to capture floater geometry
+          - closest_from_source: Take extra steps to select the closest low poly point
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_depth</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum rear distance for raytracing. I.e., the distance behind the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.max_height</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.01&quot;]
+      </dt>
+      <dd>
+        Maximum frontal distance for raytracing. I.e., the distance in front of the surface of the low poly mesh.
+        This option has no effect when the &quot;use_cage&quot; option is set to &quot;true&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The method of matching the low poly and high poly meshes.
+        - match_all : Intersections with any mesh in the high poly scene are used.
+        - match_mesh_name : Only intersections with meshes of the same name than the low poly are used. E.g.: the &quot;clock_low&quot; mesh is only matched with &quot;clock_high&quot; mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the max distances as a factor of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.offset_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of a grayscale texture which values are added to the distance or the rays' source.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.sampling_rate</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;none&quot;]
+      </dt>
+      <dd>
+        The supersampling ratio used to improve the quality of the output images. &quot;none&quot; means no supersampling is applied.
+        Available options:
+          - none
+          - 2x2
+          - 4x4
+          - 8x8
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_invert</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Invert the values of the skew map, such that bright areas in the skew map describe averaged directions while dark areas describe straightened directions.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.skew_map_path</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        The path of the skew map.
+        This option has no effect when the &quot;skew_correction&quot; option is not provided or set to &quot;false&quot;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--projection.smooth_normals</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Compute the rays' directions based on the averaged normals of the low poly mesh.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--skew_correction</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the straightening of the rays' directions based on a grayscale texture: the skew map, which is used to specify the areas of the low poly meshes where the direction of rays should be smoothed (dark areas) or straightened (bright areas).
+        This is useful to avoid projection deformation.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cage</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Enable the use of a dedicated scene which meshes are used as a source for the projection rays.
+        When set to &quot;false&quot;, the &quot;projection.max_depth&quot; and &quot;projection.max_height&quot; options are used to set arbitrary values for all meshes.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_lowdef_as_highdef</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;false&quot;]
+      </dt>
+      <dd>
+        Use the low poly scene as the high poly scene.
+        This is meant for using most bakers without adding extra detail from other scenes.
+        
+      </dd>
+    </dl>
+    <h3>
+      Baker options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--maximize_range</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;min_max&quot;]
+      </dt>
+      <dd>
+        The normalization method applied to the computed image, if any. I.e., how to map the values to a specified range.
+        Available options:
+          - ray_distance : Remap the values to the range of distances of ray hits.
+          - min_max : Remap the values from 0 to 1 where 0 is the thinnest high poly mesh volume and 1 is the thickest.
+          - none : No normalization is applied.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.max_distance</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;0.1&quot;]
+      </dt>
+      <dd>
+        Maximum distance of other detected surfaces. Surfaces farther than that distance are ignored.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.mesh_match_mode</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;match_all&quot;]
+      </dt>
+      <dd>
+        The rule for detecting meshes in the high poly scene.
+        Available options:
+          - match_all : all meshes in the high poly scene are detected.
+          - match_mesh_name : only meshes in the high poly scene with the same name as the source mesh in the low poly scene are detected.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.min_distance</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;1e-05&quot;]
+      </dt>
+      <dd>
+        Minimum distance of other detected surfaces. Surfaces closer than that distance are ignored.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.normalized_distance</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;true&quot;]
+      </dt>
+      <dd>
+        Interpret the &quot;min_distance&quot; and &quot;max_distance&quot; values as multipliers of the mesh bounding box.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sample_count</strong>
+        <em>&lt;uint&gt;</em>
+        [default: &quot;64&quot;]
+      </dt>
+      <dd>
+        Number of secondary rays.
+        Range: [1; 256]
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.sample_distribution</strong>
+        <em>&lt;string&gt;</em>
+        [default: &quot;cosine&quot;]
+      </dt>
+      <dd>
+        The angular distribution of rays.
+        Available options:
+          - uniform
+          - cosine
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--secondary.spread_angle</strong>
+        <em>&lt;double&gt;</em>
+        [default: &quot;180&quot;]
+      </dt>
+      <dd>
+        The maximum spread angle of rays.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="info">Subcommand info</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Prints information about 3D scene(s): meshes, UVs, materials, etc.
+      
+    </p>
+    <h3>
+      Input options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--inputs</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        The 3D scene file(s) to process.
+        Alternatively, a list of paths may be provided without the '--inputs' option at the end of the command.
+      </dd>
+    </dl>
+    <h3>
+      Specific options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--hide-bounding-box</strong>
+      </dt>
+      <dd>
+        Do not print the bounding box information of entities in the scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--hide-location</strong>
+      </dt>
+      <dd>
+        Do not print the location of entities in the scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--list-all</strong>
+      </dt>
+      <dd>
+        Print information of all entities in the scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--list-uv-tiles</strong>
+      </dt>
+      <dd>
+        List all UV tiles used by each entity in the scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--print-camera</strong>
+      </dt>
+      <dd>
+        Print information about camera entities in the scene.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--print-lighting</strong>
+      </dt>
+      <dd>
+        Print information about lighting entities in the scene.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="run">Subcommand run</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Executes a list of bakers described in a JSON file.
+      JSON execution plans may be exported from Substance 3D Designer's baking interface.
+      
+    </p>
+    <h3>
+      Batch options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--backends</strong>
+        <em>&lt;string,...&gt;</em>
+      </dt>
+      <dd>
+        Specifies the prioritization order of the raytracing backends, from first to last, as an ordered list. Defaults to the &quot;SAL&quot; GPU backend if unused.
+        Available backends:
+          - GPU: SAL
+          - CPU: Embree, SoRa
+        E.g.: --backends SAL,SoRa,Embree
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu</strong>
+      </dt>
+      <dd>
+        Run the bakers exclusively on the CPU.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--json</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        The JSON file describing an execution plan, which contains a list of bakers with global and discrete options.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use_cache</strong>
+        <em>&lt;bool&gt;</em>
+        [default: &quot;yes&quot;]
+      </dt>
+      <dd>
+        Keep the meshes in memory between bakes.
+        
+      </dd>
+    </dl>
+    <h2>
+      <a name="update">Subcommand update</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Updates a JSON file describing an execution plan to the format used by this version of the Substance 3D bakers.
+      
+    </p>
+    <h3>
+      Options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--input</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        The JSON file to update.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Specify the path of the output JSON file.
+        If not specified the input file is updated in place.
+        
+      </dd>
+    </dl>
+    
+
+

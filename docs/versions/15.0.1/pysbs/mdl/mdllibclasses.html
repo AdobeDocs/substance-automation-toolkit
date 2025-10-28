@@ -1,0 +1,907 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mdllibclasses module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbspreset module" href="../sbspreset/sbspreset.html" />
+    <link rel="prev" title="mdlenum module" href="mdlenum.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="mdl.html">mdl module: MDL graph definition and all objects related to MDL</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mdlmanager.html">mdlmanager module: MDL manager, handles the MDL library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlgraph.html">mdlgraph module: MDL graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnode.html">mdlnode module: MDL node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdloperand.html">mdloperand module: MDL operand definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlannotation.html">mdlannotation module: MDL annotation definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlenum.html">mdlenum module: list of enumerations used for MDL objects</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdllibclasses module: provides the classes used to create the MDL library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="mdl.html">mdl module</a></li>
+      <li class="breadcrumb-item active">mdllibclasses module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-mdl.mdllibclasses">
+<span id="mdllibclasses-module"></span><h1>mdllibclasses module<a class="headerlink" href="#module-mdl.mdllibclasses" title="Link to this heading"></a></h1>
+<p>Module <strong>mdllibclasses</strong> provides all the classes used by the MDL library for the definition of all MDL entities.
+In particular, it defines the classes:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDef" title="mdl.mdllibclasses.MDLNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDef</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefInput" title="mdl.mdllibclasses.MDLNodeDefInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefInput</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefOutput" title="mdl.mdllibclasses.MDLNodeDefOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefOutput</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefParam" title="mdl.mdllibclasses.MDLNodeDefParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefParam</span></code></a></p></li>
+<li><p><a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefParamValue" title="mdl.mdllibclasses.MDLNodeDefParamValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefParamValue</span></code></a></p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLAnnotationDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLAnnotationDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLAnnotationDef" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL node annotation.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mPath        (str): path of the mdl node</p></li>
+<li><p>mParameters  (list of <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefParamValue" title="mdl.mdllibclasses.MDLNodeDefParamValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefParamValue</span></code></a>): the parameters available on this node.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLAnnotationDef.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLAnnotationDef.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLAnnotationDef.fromMDLAnnotation">
+<span class="sig-name descname"><span class="pre">fromMDLAnnotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAnnotation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLAnnotationDef.fromMDLAnnotation" title="Link to this definition"></a></dt>
+<dd><p>Build the MDLAnnotationDef from a MDLAnnotation object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAnnotation</strong> (<a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation" title="mdl.mdlannotation.MDLAnnotation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotation</span></code></a>) – The operand to use to build this parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLAnnotationDef.toMDLAnnotation">
+<span class="sig-name descname"><span class="pre">toMDLAnnotation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLAnnotationDef.toMDLAnnotation" title="Link to this definition"></a></dt>
+<dd><p>Build the MDLAnnotation from this MDLAnnotationDef object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation" title="mdl.mdlannotation.MDLAnnotation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotation</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLLibObject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLLibObject</span></span><a class="headerlink" href="#mdl.mdllibclasses.MDLLibObject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class of all MDL library classes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLLibObject.fromJSON">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLLibObject.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLNodeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAnnotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsSelector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsMaterial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsPassthrough</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mPath          (str): path of the mdl node</p></li>
+<li><p>mAnnotations   (list of <a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation" title="mdl.mdlannotation.MDLAnnotation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotation</span></code></a>): the annotations of the node.</p></li>
+<li><p>mParameters    (list of <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefParam" title="mdl.mdllibclasses.MDLNodeDefParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefParam</span></code></a>): the parameters available on this node.</p></li>
+<li><p>mInputs        (list of <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefInput" title="mdl.mdllibclasses.MDLNodeDefInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefInput</span></code></a>): the outputs of this node.</p></li>
+<li><p>mOutputs       (list of <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefOutput" title="mdl.mdllibclasses.MDLNodeDefOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefOutput</span></code></a>): the outputs of this node.</p></li>
+<li><p>mIsSelector    (bool): Define if this node is a selector node</p></li>
+<li><p>mIsMaterial    (bool): Define if this node is a material</p></li>
+<li><p>mIsPassthrough (bool): Define if this node is a passthrough node (NOTE: not an actual MDL definition)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getAllInputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllInputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getAllInputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the input identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getAllInputs">
+<span class="sig-name descname"><span class="pre">getAllInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getAllInputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the inputs in this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefInput" title="mdl.mdllibclasses.MDLNodeDefInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getAllOutputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllOutputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getAllOutputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the output identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getAllOutputs">
+<span class="sig-name descname"><span class="pre">getAllOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getAllOutputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the outputs in this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefOutput" title="mdl.mdllibclasses.MDLNodeDefOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefOutput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getAllParameterIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllParameterIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getAllParameterIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameter identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getAllParameters">
+<span class="sig-name descname"><span class="pre">getAllParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getAllParameters" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameters in this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefParam" title="mdl.mdllibclasses.MDLNodeDefParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefParam</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getDefaultOperands">
+<span class="sig-name descname"><span class="pre">getDefaultOperands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getDefaultOperands" title="Link to this definition"></a></dt>
+<dd><p>Get the list of default operands corresponding to the parameters available on this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCheckType</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to check the default connection visibility depending on the type of the operand. Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getFirstInputOfType">
+<span class="sig-name descname"><span class="pre">getFirstInputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getFirstInputOfType" title="Link to this definition"></a></dt>
+<dd><p>Get the first MDLInputDef with the given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<em>str</em>) – mdl path of the required type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">MDLInputDef</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getFirstOutputOfType">
+<span class="sig-name descname"><span class="pre">getFirstOutputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getFirstOutputOfType" title="Link to this definition"></a></dt>
+<dd><p>Get the first MDLOutputDef with the given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<em>str</em>) – mdl path of the required type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOutputDef</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getInput" title="Link to this definition"></a></dt>
+<dd><p>Get the input with the given identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<em>str</em>) – The required input</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefInput" title="mdl.mdllibclasses.MDLNodeDefInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the output with the given identifier. If aOutput is None, return the first output if it exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutput</strong> (<em>str</em>) – The required output</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefOutput" title="mdl.mdllibclasses.MDLNodeDefOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefOutput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDef.getParameter">
+<span class="sig-name descname"><span class="pre">getParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDef.getParameter" title="Link to this definition"></a></dt>
+<dd><p>Get the required parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<em>str</em>) – The name of the parameter to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefParam" title="mdl.mdllibclasses.MDLNodeDefParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefParam</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLNodeDefInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'input'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL node input.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier  (str): identifier of the output</p></li>
+<li><p>mType        (<a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefType" title="mdl.mdllibclasses.MDLNodeDefType"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefType</span></code></a>): type of the output</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefInput.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefInput.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefInput.fromMDLInputBridging">
+<span class="sig-name descname"><span class="pre">fromMDLInputBridging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputBridging</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefInput.fromMDLInputBridging" title="Link to this definition"></a></dt>
+<dd><p>Build the MDLNodeDefInput from a MDLInputBridging object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputBridging</strong> (<a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLInputBridging" title="mdl.mdlsbsbridge.MDLInputBridging"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLInputBridging</span></code></a>) – The operand to use to build this input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefInput.fromMDLOperand">
+<span class="sig-name descname"><span class="pre">fromMDLOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOperand</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefInput.fromMDLOperand" title="Link to this definition"></a></dt>
+<dd><p>Build the MDLNodeDefInput from a MDLOperand object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOperand</strong> (<a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a>) – The operand to use to build this input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefInput.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefInput.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Gets the identifier of the input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefInput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefInput.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the mdl path of the type of this input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mdl type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLNodeDefOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'output'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefOutput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL node output.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier  (str): identifier of the output</p></li>
+<li><p>mType        (<a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefType" title="mdl.mdllibclasses.MDLNodeDefType"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefType</span></code></a>): type of the output</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefOutput.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefOutput.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefOutput.fromMDLOutputBridging">
+<span class="sig-name descname"><span class="pre">fromMDLOutputBridging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputBridging</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefOutput.fromMDLOutputBridging" title="Link to this definition"></a></dt>
+<dd><p>Build the MDLNodeDefOutput from a MDLOutputBridging object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOutputBridging</strong> (<a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLInputBridging" title="mdl.mdlsbsbridge.MDLInputBridging"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLInputBridging</span></code></a>) – The operand to use to build this input</p></li>
+<li><p><strong>aSBSGraph</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The Substance Graph referenced by the input bridging</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefOutput.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefOutput.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Gets the identifier of the output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefOutput.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefOutput.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the mdl path of the type of this output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mdl type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLNodeDefParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAnnotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultMDLValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValueType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTypeName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTypePath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTypeModifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL node parameter.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName         (str): name of the parameter</p></li>
+<li><p>mAnnotations  (list of <a class="reference internal" href="#mdl.mdllibclasses.MDLAnnotationDef" title="mdl.mdllibclasses.MDLAnnotationDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotationDef</span></code></a>): annotations associated to this parameter</p></li>
+<li><p>DefaultValue  (str or <a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a>):  the default value of this parameter</p></li>
+<li><p>mType         (<a class="reference internal" href="#mdl.mdllibclasses.MDLNodeDefType" title="mdl.mdllibclasses.MDLNodeDefType"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNodeDefType</span></code></a>): type of the parameter</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam.fromMDLOperand">
+<span class="sig-name descname"><span class="pre">fromMDLOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOperand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copyValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam.fromMDLOperand" title="Link to this definition"></a></dt>
+<dd><p>Build the MDLNodeDefParam from a MDLOperand object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOperand</strong> (<a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a>) – The operand to use to build this parameter</p></li>
+<li><p><strong>copyValue</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to set the value of the operand as the default parameter value. Default to False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam.fromMDLParameter">
+<span class="sig-name descname"><span class="pre">fromMDLParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copyValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam.fromMDLParameter" title="Link to this definition"></a></dt>
+<dd><p>fromSBSParameter(aParameter, copyValue=False)
+Build the MDLNodeDefParam from a MDLParameter object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter" title="mdl.mdlsbsbridge.MDLParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLParameter</span></code></a>) – The operand to use to build this parameter</p></li>
+<li><p><strong>copyValue</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to set the value of the parameter as the default parameter value. Default to False</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam.getAnnotation">
+<span class="sig-name descname"><span class="pre">getAnnotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAnnotation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam.getAnnotation" title="Link to this definition"></a></dt>
+<dd><p>Get the annotation definition of the given annotation if defined in the parameter definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAnnotation</strong> (<a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLAnnotationEnum" title="mdl.mdlenum.MDLAnnotationEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotationEnum</span></code></a>) – The annotation to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The annotation as a <a class="reference internal" href="#mdl.mdllibclasses.MDLAnnotationDef" title="mdl.mdllibclasses.MDLAnnotationDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotationDef</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam.getDefaultValue">
+<span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam.getDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Get the default value of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The default value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the mdl path of the type of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mdl type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParam.toMDLOperand">
+<span class="sig-name descname"><span class="pre">toMDLOperand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParam.toMDLOperand" title="Link to this definition"></a></dt>
+<dd><p>Convert this parameter definition to the appropriate MDLOperand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParamValue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLNodeDefParamValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParamValue" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL node parameter value.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName     (str): name of the parameter</p></li>
+<li><p>mValue    (str): value of the parameter</p></li>
+<li><p>mType     (str): type of the parameter</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParamValue.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParamValue.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefParamValue.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefParamValue.getType" title="Link to this definition"></a></dt>
+<dd><p>Get the mdl path of the type of this parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The mdl type as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLNodeDefType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aModifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL type.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName      (str): name of the parameter</p></li>
+<li><p>mPath      (str): value of the parameter</p></li>
+<li><p>mModifier  (str, optional): type of the parameter. Default to ‘auto’</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLNodeDefType.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLNodeDefType.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLTypeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aKind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aComponentType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aComponentCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRowCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColumnCount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aArrayDeferredSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aArraySizeIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aEnumValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aStructMembers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTextureShape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL type.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mPath                (str): mdl path of the type</p></li>
+<li><p>mKind                (<a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLTypeDefKindEnum" title="mdl.mdlenum.MDLTypeDefKindEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLTypeDefKindEnum</span></code></a>): kind of type (‘atomic’, ‘enum’, ‘struct’, ‘vector’, …)</p></li>
+<li><p>mComponentType       (str, optional): For compound types, mdl path of the type of component</p></li>
+<li><p>mComponentCount      (int, optional): For compound types, the number of components required</p></li>
+<li><p>mRowCount            (int, optional): For matrix type, the number of rows</p></li>
+<li><p>mColumnCount         (int, optional): For matrix type, the number of columns</p></li>
+<li><p>mArrayDeferredSize   (bool, optional): For array type, defines if the size is known or deferred</p></li>
+<li><p>mArraySizeIdentifier (str, optional): For array type, the size identifier</p></li>
+<li><p>mEnumValues          (dict {key(str):value(int)}, optional: enumeration type definition</p></li>
+<li><p>mStructMembers       (list of <a class="reference internal" href="#mdl.mdllibclasses.MDLTypeStructMemberDef" title="mdl.mdllibclasses.MDLTypeStructMemberDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLTypeStructMemberDef</span></code></a>, optional): struct type definition</p></li>
+<li><p>mTextureShape        (str, optional): For texture type, the shape of the texture</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.getModuleName">
+<span class="sig-name descname"><span class="pre">getModuleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.getModuleName" title="Link to this definition"></a></dt>
+<dd><p>Get the module name, which is the last part of the type’s mdl path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The module name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.getModulePath">
+<span class="sig-name descname"><span class="pre">getModulePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.getModulePath" title="Link to this definition"></a></dt>
+<dd><p>Get the module path, which is the beginning of the type’s mdl path, without the last module name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The module path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isArray">
+<span class="sig-name descname"><span class="pre">isArray</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isArray" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is an array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is an array, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isAtomic">
+<span class="sig-name descname"><span class="pre">isAtomic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isAtomic" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is atomic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is atomic, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isCall">
+<span class="sig-name descname"><span class="pre">isCall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isCall" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is a call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is a call, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isCompound">
+<span class="sig-name descname"><span class="pre">isCompound</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isCompound" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is a compound (vector, color, matrix).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is a compound, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isEnum">
+<span class="sig-name descname"><span class="pre">isEnum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isEnum" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type an enum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is an enum, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isMaterial">
+<span class="sig-name descname"><span class="pre">isMaterial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isMaterial" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is a material.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is a material, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isReference">
+<span class="sig-name descname"><span class="pre">isReference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isReference" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is a reference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is a reference, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isResource">
+<span class="sig-name descname"><span class="pre">isResource</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isResource" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is a resource of any kind (texture, bsdf_measurement, …).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is a resource, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isString">
+<span class="sig-name descname"><span class="pre">isString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isString" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is a string, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.isStruct">
+<span class="sig-name descname"><span class="pre">isStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.isStruct" title="Link to this definition"></a></dt>
+<dd><p>Check whether the type is a struct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the type is a struct, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeDef.toMDLOperand">
+<span class="sig-name descname"><span class="pre">toMDLOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeDef.toMDLOperand" title="Link to this definition"></a></dt>
+<dd><p>Convert this type definition to the appropriate MDLOperand, with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aName</strong> (<em>str</em><em>, </em><em>optional</em>) – name of the operand. If None, the default name is used</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand" title="mdl.mdloperand.MDLOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLOperand</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeStructMemberDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mdl.mdllibclasses.</span></span><span class="sig-name descname"><span class="pre">MDLTypeStructMemberDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeStructMemberDef" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mdl.mdllibclasses.MDLLibObject" title="mdl.mdllibclasses.MDLLibObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a></p>
+<p>This class contains the definition of a MDL type of kind struct.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName (str): name of the struct member</p></li>
+<li><p>mType (str): mdl path of the type</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mdl.mdllibclasses.MDLTypeStructMemberDef.fromJSON">
+<span class="sig-name descname"><span class="pre">fromJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mdl.mdllibclasses.MDLTypeStructMemberDef.fromJSON" title="Link to this definition"></a></dt>
+<dd><p>Build the object from the given JSON data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>jsonData</strong> (<em>dict</em>) – JSON data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mdlenum.html" class="btn btn-neutral float-left" title="mdlenum module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sbspreset/sbspreset.html" class="btn btn-neutral float-right" title="sbspreset module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

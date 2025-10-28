@@ -1,0 +1,466 @@
+.. _ref-to-sat-sbsrenderoptions:
+
+sbsrender command line options
+==============================
+
+.. raw:: html
+
+    <h1>
+      sbsrender
+    </h1>
+    <h2>
+      Usage
+    </h2>
+    <ul>
+      <li>
+        <a href="#info">
+          sbsrender [&lt;global_options&gt;...] info [&lt;options&gt;...]
+        </a>
+      </li>
+      <li>
+        <a href="#render">
+          sbsrender [&lt;global_options&gt;...] render [&lt;options&gt;...]
+        </a>
+      </li>
+    </ul>
+    <h3>
+      Global options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--doc-html, --doc</strong>
+      </dt>
+      <dd>
+        Generate basic documentation html from the option's help.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--help, -h, -?</strong>
+      </dt>
+      <dd>
+        Display help about given subcommand.
+        If no subcommand is provided, this help about global options is printed.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--opt-descr</strong>
+      </dt>
+      <dd>
+        Create json description of all available options
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--quiet, -q</strong>
+      </dt>
+      <dd>
+        Disable warning messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--verbose, -v</strong>
+      </dt>
+      <dd>
+        Enable info and debug messages.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--version, -V</strong>
+      </dt>
+      <dd>
+        Display version of the program.
+      </dd>
+    </dl>
+    <h2>
+      <a name="info">Subcommand info</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Return description of a Substance 3D asset file.
+    </p>
+    <h3>
+      I&frasl;O options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--input</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Substance 3D asset file described.
+        This option is implicit, so you can just provide a filepath at the end of your arguments, they will be interpreted as input.
+      </dd>
+    </dl>
+    <h2>
+      <a name="render">Subcommand render</a>
+    </h2>
+    <h3>
+      Description
+    </h3>
+    <p>
+      Render outputs of a Substance 3D asset file to image files.
+    </p>
+    <h3>
+      I&frasl;O options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--exr-format-compression</strong>
+        <em>&lt;format&gt;</em>
+        [default: &quot;piz&quot;]
+      </dt>
+      <dd>
+        EXR compression to use for output image.
+        Default='piz'.
+        Compressions Supported:
+        - none: no compression.
+        - zip: zlib compression, in blocks of 16 scan lines.
+        - piz: piz-based wavelet compression.
+        - pxr24: lossy 24-bit float compression.
+        - b44: lossy 44% float compression - goes to 22% when combined with EXR_LC.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--exr-format-use-float</strong>
+      </dt>
+      <dd>
+        Save EXR image data as float instead of as half.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--input, --inputs</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        The Substance 3D asset file to render.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--input-graph</strong>
+        <em>&lt;graph_url&gt;</em>
+      </dt>
+      <dd>
+        Select specific graph to be rendered.
+        If no graph are selected, all graphs are rendered.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--input-graph-output</strong>
+        <em>&lt;name&gt;</em>
+      </dt>
+      <dd>
+        Select output to be rendered.
+        If no output are selected, all outputs are rendered.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--input-graph-output-usage</strong>
+        <em>&lt;name&gt;</em>
+      </dt>
+      <dd>
+        Select output to be rendered by giving usage name.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--no-report</strong>
+      </dt>
+      <dd>
+        Inhibits writing of JSON output to stdout.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-bit-depth</strong>
+        <em>&lt;name&gt;</em>
+      </dt>
+      <dd>
+        Change the bit depth of the result image. The computation is still done in the bit depth the cooked graph uses. This option only affects the bit depth of the output image.
+        &lt;name&gt; can be set to &quot;8&quot; (or &quot;int8&quot;), &quot;16&quot; (or &quot;int16&quot;),&quot;16f&quot; (or &quot;float16&quot;) or &quot;32f&quot; (or &quot;float32&quot;).
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-colorspace</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Specify the colorspace name for outputs. --output-colorspace sRGB.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-format</strong>
+        <em>&lt;format&gt;</em>
+        [default: &quot;png&quot;]
+      </dt>
+      <dd>
+        Format to use for output image file.
+        Default='png'.
+        Formats Supported: surface, dds, bmp, jpg, jif, jpeg, jpe, png, tga, targa, tif, tiff, psd, psb, hdr, exr, webp.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-format-compression</strong>
+        <em>&lt;format&gt;</em>
+        [default: &quot;raw&quot;]
+      </dt>
+      <dd>
+        Dds compression to use for output image.
+        Default='raw'.
+        Compressions Supported: raw, dxt1, dxt3, dxt5.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-name</strong>
+        <em>&lt;name&gt;</em>
+        [default: &quot;{inputName}_{inputGraphUrl}_{outputNodeName}&quot;]
+      </dt>
+      <dd>
+        Output file name, if the correct file extension is not present it will be added.
+        Default='{inputName}_{inputGraphUrl}_{outputNodeName}'.
+        You can use the following patterns that will be replaced by the program when saving the result of the process:
+        - {inputName} replaced by the archive filename.
+        - {inputGraphUrl} replaced by the graph url.
+        - {outputNodeName} replaced by the output name.
+        - {colorspace} replaced by the output colorspace.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--output-path</strong>
+        <em>&lt;path&gt;</em>
+      </dt>
+      <dd>
+        Output file path.
+        Default path is empty.
+        You can use the following patterns that will be replaced by the program when saving the result of the process:
+        -{inputPath} replaced by the input filepath.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--png-format-compression</strong>
+        <em>&lt;format&gt;</em>
+        [default: &quot;default&quot;]
+      </dt>
+      <dd>
+        PNG compression to use for output image.
+        Default='default'.
+        Compressions Supported: default, best_speed, best_compression, none.
+        
+      </dd>
+    </dl>
+    <h3>
+      Specific options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--set-entry</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Set image data to an image input.
+        Format of &lt;arg&gt;: &lt;input_identifier&gt;@&lt;filepath_of_image&gt;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--set-entry-colorspace</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Specify the colorspace name for an input. --set-entry-colorspace input_id@sRGB.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--set-entry-usage</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Set image data to an image input given by usage name. If --set-entry option is used --set-entry-usage will be ignored.
+        Format of &lt;arg&gt;: &lt;input_usage&gt;@&lt;filepath_of_image&gt;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--set-output-bit-depth</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Change the bit depth of an output node.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--set-output-colorspace</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Specify the colorspace name for an output. --set-output-colorspace output_id@sRGB.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--set-output-format</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Change the image format of an output node.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--set-value</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Set value to a numerical input parameter.
+        Format of &lt;arg&gt; : &lt;input_identifier&gt;@&lt;value&gt;.
+        
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--use-preset</strong>
+        <em>&lt;name&gt;</em>
+      </dt>
+      <dd>
+        Use a specific preset to set values.
+        &lt;name&gt; is the name of preset that must be included in the input sbsar file.
+      </dd>
+    </dl>
+    <h3>
+      Runtime options
+    </h3>
+    <dl>
+      <dt>
+        <strong>--ace</strong>
+      </dt>
+      <dd>
+        Use Adobe ACE color management engine.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--ace-render-intent</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Render intent to use when using Adobe ACE.
+        The default value if not specified is relative-colorimetric.
+        Valid options include perceptual, saturation, relative-colorimetric and absolute-colorimetric
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--ace-working-space</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Working color space to use when using Adobe ACE.
+        The default value if not specified is srgb.
+        Valid options include srgb, linear-srgb, acescg and linear-adobe-rgb-1998
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cache-dir</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Sets the folder where intermediate render results will be stored.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--cpu-count</strong>
+        <em>&lt;uint&gt;</em>
+      </dt>
+      <dd>
+        Set the maximum amount of CPU cores that the Substance Engine is allowed to use.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--engine</strong>
+        <em>&lt;arg&gt;</em>
+      </dt>
+      <dd>
+        Switch to specific engine implementation.
+        format of &lt;arg&gt; : &lt;dynamic_library_filepath&gt;
+        		or &lt;engine_version_basename_substring&gt;
+        GPU engine: vk (linux, windows), ogl3 (linux, macos), mtl (macos), d3d11 (windows)
+        CPU engine: sse2 (linux, windows), neon (macos)
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--gpu</strong>
+        <em>&lt;uint&gt;</em>
+      </dt>
+      <dd>
+        Select a GPU to perform renders.
+        Use --gpu-list to find the correct index for a given GPU (Windows-only)
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--gpu-list</strong>
+      </dt>
+      <dd>
+        List the various GPUs found in the machine (Windows-only)
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--icc-profiles-dir</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Specify the directory to search for user ICC profiles.
+        Only used when ACE color management is enabled.
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--memory-budget</strong>
+        <em>&lt;uint&gt;</em>
+      </dt>
+      <dd>
+        Set the maximum amount of memory that the Substance Engine is allowed to use. In MB (default 1000 MB).
+      </dd>
+    </dl>
+    <dl>
+      <dt>
+        <strong>--ocio</strong>
+        <em>&lt;string&gt;</em>
+      </dt>
+      <dd>
+        Specify an OpenColorIO configuration to use.
+        
+      </dd>
+    </dl>
+    

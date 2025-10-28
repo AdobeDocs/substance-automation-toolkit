@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qtclasses module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="qtvariantreader module" href="qtvariantreader.html" />
+    <link rel="prev" title="psdparser module" href="../psdparser.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">qtclasses module: Helpers classes to read/write PyQt objects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="qtvariantreader.html">qtvariantreader module: Defininition of the class QtVariantReader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtvariantwriter.html">qtvariantwriter module: Defininition of the class QtVariantWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qtclasses.qtclasses.QtVariantTypeEnum"><code class="docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qtclasses.qtclasses.QtVariant"><code class="docutils literal notranslate"><span class="pre">QtVariant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qtclasses.qtclasses.QtVariantMap"><code class="docutils literal notranslate"><span class="pre">QtVariantMap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qtclasses.qtclasses.QtColor"><code class="docutils literal notranslate"><span class="pre">QtColor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">qtclasses module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qtclasses-module">
+<h1>qtclasses module<a class="headerlink" href="#qtclasses-module" title="Link to this heading"></a></h1>
+<p>Content included in qtclasses module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="qtvariantreader.html">qtvariantreader module: Defininition of the class QtVariantReader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader"><code class="docutils literal notranslate"><span class="pre">QtVariantReader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToBool"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.bytesToBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToChar"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.bytesToChar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.bytesToInt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt16"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.bytesToInt16()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.bytesToInt8"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.bytesToInt8()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.getFromBase64String"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.getFromBase64String()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.getFromByteArray"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.getFromByteArray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readBool"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readByteArray"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readByteArray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readChar"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readChar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readDouble"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readDouble()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readInt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt16"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readInt16()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readInt8"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readInt8()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readKey"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readKey()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariant"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readQtVariant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantList"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readQtVariantList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantMap"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readQtVariantMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantString"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readQtVariantString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readQtVariantValue"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readQtVariantValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readSize"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readSize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readString"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readStringList"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readStringList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantreader.html#pysbs.qtclasses.qtvariantreader.QtVariantReader.readURL"><code class="docutils literal notranslate"><span class="pre">QtVariantReader.readURL()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qtvariantwriter.html">qtvariantwriter module: Defininition of the class QtVariantWriter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.boolToBytes"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.boolToBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.charToBytes"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.charToBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.doubleToBytes"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.doubleToBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int16ToBytes"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.int16ToBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int32ToBytes"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.int32ToBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int8ToBytes"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.int8ToBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.toBase64String"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.toBase64String()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.toByteArrayString"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.toByteArrayString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeBool"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeByteArray"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeByteArray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeChar"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeChar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeDouble"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeDouble()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeInt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt16"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeInt16()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt8"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeInt8()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariant"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeQtVariant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantList"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeQtVariantList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantMap"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeQtVariantMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantString"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeQtVariantString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantValue"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeQtVariantValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeSize"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeSize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeString"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeStringList"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeStringList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtvariantwriter.html#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeURL"><code class="docutils literal notranslate"><span class="pre">QtVariantWriter.writeURL()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p id="module-qtclasses.qtclasses">Module <strong>qtclasses</strong> provides an implementation of a very small subset of classes present in PyQt API, in particular the QVariant object,
+in order to handle the objects serialized in the .sbs file from a Qt object, as it is the case for the Baking Parameters.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariantTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qtclasses.qtclasses.</span></span><span class="sig-name descname"><span class="pre">QtVariantTypeEnum</span></span><a class="headerlink" href="#qtclasses.qtclasses.QtVariantTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><a class="reference external" href="http://pyqt.sourceforge.net/Docs/PyQt4/qvariant.html#QVariantList-typedef">http://pyqt.sourceforge.net/Docs/PyQt4/qvariant.html#QVariantList-typedef</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NONE</span>            <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BOOL</span>            <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INT</span>             <span class="o">=</span> <span class="mi">2</span>
+<span class="n">DOUBLE</span>          <span class="o">=</span> <span class="mi">6</span>
+<span class="n">VARIANT_MAP</span>     <span class="o">=</span> <span class="mi">8</span>
+<span class="n">VARIANT_LIST</span>    <span class="o">=</span> <span class="mi">9</span>
+<span class="n">STRING</span>          <span class="o">=</span> <span class="mi">10</span>
+<span class="n">STRING_LIST</span>     <span class="o">=</span> <span class="mi">11</span>
+<span class="n">BYTE_ARRAY</span>      <span class="o">=</span> <span class="mi">12</span>
+<span class="n">URL</span>             <span class="o">=</span> <span class="mi">17</span>
+<span class="n">SIZE</span>            <span class="o">=</span> <span class="mi">21</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariant">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qtclasses.qtclasses.</span></span><span class="sig-name descname"><span class="pre">QtVariant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariant" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class QtVariant provides the definition of a variant object.</p>
+<dl class="simple">
+<dt>Members</dt><dd><ul class="simple">
+<li><p>mType (<a class="reference internal" href="#qtclasses.qtclasses.QtVariantTypeEnum" title="qtclasses.qtclasses.QtVariantTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a>): type of the variant object</p></li>
+<li><p>mValue (any type): value</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariant.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariant.getValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the variant object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the variant object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariant.getValueStr">
+<span class="sig-name descname"><span class="pre">getValueStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariant.getValueStr" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the variant object converted into a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of the variant object, as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariant.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariant.setValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of the variant object, without modifying its type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aValue</strong> (<em>any type compatible with the current type</em><em> of </em><em>the variant object</em>) – The value to set</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>TypeError if the type of the value is incompatible with the type of the variant object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariantMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qtclasses.qtclasses.</span></span><span class="sig-name descname"><span class="pre">QtVariantMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariantMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class QtVariantMap provides the definition of a variant map, which has a dictionary associating a key to a <a class="reference internal" href="#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>.</p>
+<dl class="simple">
+<dt>Members</dt><dd><ul class="simple">
+<li><p>mMap (dictionary with the format {key(str):value(<a class="reference internal" href="#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>)}: the dictionary of variant objects.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariantMap.getItem">
+<span class="sig-name descname"><span class="pre">getItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aKey</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariantMap.getItem" title="Link to this definition"></a></dt>
+<dd><p>Get the variant object of the given key in the map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aKey</strong> (<em>str</em>) – The key to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The variant object with this key if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariantMap.getItemValue">
+<span class="sig-name descname"><span class="pre">getItemValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aKey</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariantMap.getItemValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the given key in the map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aKey</strong> (<em>str</em>) – The key to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the variant object with this key if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariantMap.getSize">
+<span class="sig-name descname"><span class="pre">getSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariantMap.getSize" title="Link to this definition"></a></dt>
+<dd><p>Get the size of the map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The size of the map as an integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariantMap.setItem">
+<span class="sig-name descname"><span class="pre">setItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariantMap.setItem" title="Link to this definition"></a></dt>
+<dd><p>Set the given item with the given key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aKey</strong> (<em>str</em>) – The key to add</p></li>
+<li><p><strong>aValue</strong> (<a class="reference internal" href="#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>) – The item to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The size of the map as an integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtVariantMap.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefault</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtVariantMap.pop" title="Link to this definition"></a></dt>
+<dd><p>Remove the item at the given key and return it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aKey</strong> (<em>str</em>) – The key to remove</p></li>
+<li><p><strong>aDefault</strong> (<em>any type</em>) – The default value to return if not found</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The item removed if found, of the given default value if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qtclasses.qtclasses.</span></span><span class="sig-name descname"><span class="pre">QtColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAlpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aC1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aC2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aC3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aC4</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtColor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class QtColor provides the definition of a color.</p>
+<dl class="simple">
+<dt>Members</dt><dd><ul class="simple">
+<li><p>mMode  (<a class="reference internal" href="#qtclasses.qtclasses.QtColor.QtColorModeEnum" title="qtclasses.qtclasses.QtColor.QtColorModeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtColorModeEnum</span></code></a>)}: the color mode.</p></li>
+<li><p>mAlpha (int): Alpha component value</p></li>
+<li><p>mC1    (int): First component value</p></li>
+<li><p>mC2    (int): Second component value</p></li>
+<li><p>mC3    (int): Third component value</p></li>
+<li><p>mC4    (int): Fourth component value</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtColor.QtColorModeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QtColorModeEnum</span></span><a class="headerlink" href="#qtclasses.qtclasses.QtColor.QtColorModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Color mode enumeration</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NONE</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ARGB</span>  <span class="o">=</span> <span class="mi">1</span>
+<span class="n">AHSV</span>  <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ACMYK</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">AHSL</span>  <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtColor.getColor">
+<span class="sig-name descname"><span class="pre">getColor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtColor.getColor" title="Link to this definition"></a></dt>
+<dd><p>Get the color in the appropriate format depending on the color mode (RGB or HSV)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The color as a list of 4 int [R,G,B,A] or [H,S,V,A]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtColor.isRGBA">
+<span class="sig-name descname"><span class="pre">isRGBA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtColor.isRGBA" title="Link to this definition"></a></dt>
+<dd><p>Check if the color is defined as an RGBA color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if RGBA, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtColor.isHSVA">
+<span class="sig-name descname"><span class="pre">isHSVA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtColor.isHSVA" title="Link to this definition"></a></dt>
+<dd><p>Check if the color is defined as an HSVA color</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if HSVA, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtColor.setColorRGBA">
+<span class="sig-name descname"><span class="pre">setColorRGBA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColorRGBA</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtColor.setColorRGBA" title="Link to this definition"></a></dt>
+<dd><p>Set the RGBA color with the provided values.
+R, G, B, and A component must be in the range [0;255]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aColorRGBA</strong> (<em>list</em><em> of </em><em>4 int in the range</em><em> [</em><em>0;255</em><em>]</em>) – The RGBA color to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="qtclasses.qtclasses.QtColor.setColorHSVA">
+<span class="sig-name descname"><span class="pre">setColorHSVA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColorHSVA</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#qtclasses.qtclasses.QtColor.setColorHSVA" title="Link to this definition"></a></dt>
+<dd><p>Set the HSV and Alpha color with the provided values.
+H component must be in the range [0;359]
+S, V, and A component must be in the range [0;255]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aColorHSVA</strong> (<em>list</em><em> of </em><em>4 int. H in the range</em><em> [</em><em>0;359</em><em>]</em><em>, </em><em>S</em><em>, </em><em>V and A in the range</em><em> [</em><em>0;255</em><em>]</em>) – The HSVA color to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../psdparser.html" class="btn btn-neutral float-left" title="psdparser module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="qtvariantreader.html" class="btn btn-neutral float-right" title="qtvariantreader module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

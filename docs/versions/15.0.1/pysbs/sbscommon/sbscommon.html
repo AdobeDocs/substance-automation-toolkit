@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbscommon module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="nodes module" href="nodes.html" />
+    <link rel="prev" title="paramnode module" href="../params/paramnode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbscommon module: Common classes related to SBS package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nodes.html">nodes module: Base class of all nodes (compositing nodes, function nodes) and facilities for nodes list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connections.html">connections module: Connections between nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gui.html">gui module: GUI objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="values.html">values module: Constant values, data type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbscommon module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbscommon-module">
+<h1>sbscommon module<a class="headerlink" href="#sbscommon-module" title="Link to this heading"></a></h1>
+<p>Content included in sbscommon module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nodes.html">nodes module: Base class of all nodes (compositing nodes, function nodes) and facilities for nodes list</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList"><code class="docutils literal notranslate"><span class="pre">NodeList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.computeConnectionsInsidePattern"><code class="docutils literal notranslate"><span class="pre">NodeList.computeConnectionsInsidePattern()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.computePatternInputsAndOutputs"><code class="docutils literal notranslate"><span class="pre">NodeList.computePatternInputsAndOutputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.computeSortedIndicesOfDAG"><code class="docutils literal notranslate"><span class="pre">NodeList.computeSortedIndicesOfDAG()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.contains"><code class="docutils literal notranslate"><span class="pre">NodeList.contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.copyNode"><code class="docutils literal notranslate"><span class="pre">NodeList.copyNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.deleteNode"><code class="docutils literal notranslate"><span class="pre">NodeList.deleteNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.duplicateNode"><code class="docutils literal notranslate"><span class="pre">NodeList.duplicateNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getConnectionsFromNode"><code class="docutils literal notranslate"><span class="pre">NodeList.getConnectionsFromNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getConnectionsToNode"><code class="docutils literal notranslate"><span class="pre">NodeList.getConnectionsToNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getNode"><code class="docutils literal notranslate"><span class="pre">NodeList.getNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getNodeList"><code class="docutils literal notranslate"><span class="pre">NodeList.getNodeList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getNodesConnectedFrom"><code class="docutils literal notranslate"><span class="pre">NodeList.getNodesConnectedFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getNodesConnectedTo"><code class="docutils literal notranslate"><span class="pre">NodeList.getNodesConnectedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getNodesDockedTo"><code class="docutils literal notranslate"><span class="pre">NodeList.getNodesDockedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.getRect"><code class="docutils literal notranslate"><span class="pre">NodeList.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.isAPathBetween"><code class="docutils literal notranslate"><span class="pre">NodeList.isAPathBetween()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.sortListLexicographically"><code class="docutils literal notranslate"><span class="pre">NodeList.sortListLexicographically()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.NodeList.sortNodesAsDAG"><code class="docutils literal notranslate"><span class="pre">NodeList.sortNodesAsDAG()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode"><code class="docutils literal notranslate"><span class="pre">SBSNode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.equals"><code class="docutils literal notranslate"><span class="pre">SBSNode.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getConnectedNodesUID"><code class="docutils literal notranslate"><span class="pre">SBSNode.getConnectedNodesUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">SBSNode.getConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getConnections"><code class="docutils literal notranslate"><span class="pre">SBSNode.getConnections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getConnectionsFromNode"><code class="docutils literal notranslate"><span class="pre">SBSNode.getConnectionsFromNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSNode.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSNode.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">SBSNode.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getOffsetPosition"><code class="docutils literal notranslate"><span class="pre">SBSNode.getOffsetPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getPosition"><code class="docutils literal notranslate"><span class="pre">SBSNode.getPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getRect"><code class="docutils literal notranslate"><span class="pre">SBSNode.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSNode.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.hasAReferenceOnDependency"><code class="docutils literal notranslate"><span class="pre">SBSNode.hasAReferenceOnDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.hasAReferenceOnInternalPath"><code class="docutils literal notranslate"><span class="pre">SBSNode.hasAReferenceOnInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.isConnectedTo"><code class="docutils literal notranslate"><span class="pre">SBSNode.isConnectedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.isDocked"><code class="docutils literal notranslate"><span class="pre">SBSNode.isDocked()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.parse"><code class="docutils literal notranslate"><span class="pre">SBSNode.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.removeConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">SBSNode.removeConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.removeConnectionsFrom"><code class="docutils literal notranslate"><span class="pre">SBSNode.removeConnectionsFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.setPosition"><code class="docutils literal notranslate"><span class="pre">SBSNode.setPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode.write"><code class="docutils literal notranslate"><span class="pre">SBSNode.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connections.html">connections module: Connections between nodes definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection"><code class="docutils literal notranslate"><span class="pre">SBSConnection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection.equals"><code class="docutils literal notranslate"><span class="pre">SBSConnection.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection.getConnectedNodeOutputUID"><code class="docutils literal notranslate"><span class="pre">SBSConnection.getConnectedNodeOutputUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection.getConnectedNodeUID"><code class="docutils literal notranslate"><span class="pre">SBSConnection.getConnectedNodeUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSConnection.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection.parse"><code class="docutils literal notranslate"><span class="pre">SBSConnection.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection.setConnection"><code class="docutils literal notranslate"><span class="pre">SBSConnection.setConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection.write"><code class="docutils literal notranslate"><span class="pre">SBSConnection.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnectionSplitpoint"><code class="docutils literal notranslate"><span class="pre">SBSConnectionSplitpoint</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnectionSplitpoint.equals"><code class="docutils literal notranslate"><span class="pre">SBSConnectionSplitpoint.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnectionSplitpoint.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSConnectionSplitpoint.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnectionSplitpoint.parse"><code class="docutils literal notranslate"><span class="pre">SBSConnectionSplitpoint.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSConnectionSplitpoint.write"><code class="docutils literal notranslate"><span class="pre">SBSConnectionSplitpoint.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connections.html#sbscommon.connections.SBSGUIConnection"><code class="docutils literal notranslate"><span class="pre">SBSGUIConnection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSGUIConnection.equals"><code class="docutils literal notranslate"><span class="pre">SBSGUIConnection.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSGUIConnection.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSGUIConnection.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSGUIConnection.parse"><code class="docutils literal notranslate"><span class="pre">SBSGUIConnection.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSGUIConnection.write"><code class="docutils literal notranslate"><span class="pre">SBSGUIConnection.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connections.html#sbscommon.connections.SBSRouting"><code class="docutils literal notranslate"><span class="pre">SBSRouting</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSRouting.equals"><code class="docutils literal notranslate"><span class="pre">SBSRouting.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSRouting.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSRouting.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSRouting.parse"><code class="docutils literal notranslate"><span class="pre">SBSRouting.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="connections.html#sbscommon.connections.SBSRouting.write"><code class="docutils literal notranslate"><span class="pre">SBSRouting.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">gui module: GUI objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList"><code class="docutils literal notranslate"><span class="pre">GUIObjectList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.createComment"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.createComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.createFrame"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.createFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.createFrameAroundNodes"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.createFrameAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.createNavigationPin"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.createNavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.deleteGUIObject"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.deleteGUIObject()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.getAllComments"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.getAllComments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.getAllFrames"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.getAllFrames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.getAllGUIObjects"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.getAllGUIObjects()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.getAllNavigationPins"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.getAllNavigationPins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.getFrameRectAroundNodes"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.getFrameRectAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.getGUIObject"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.getGUIObject()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.getNodesInFrame"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.getNodesInFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.GUIObjectList.reframeAroundNodes"><code class="docutils literal notranslate"><span class="pre">GUIObjectList.reframeAroundNodes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui.html#sbscommon.gui.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.Rect.containsPoint"><code class="docutils literal notranslate"><span class="pre">Rect.containsPoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.Rect.getCorners"><code class="docutils literal notranslate"><span class="pre">Rect.getCorners()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.Rect.overlapsWith"><code class="docutils literal notranslate"><span class="pre">Rect.overlapsWith()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.Rect.union"><code class="docutils literal notranslate"><span class="pre">Rect.union()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayout"><code class="docutils literal notranslate"><span class="pre">SBSGUILayout</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayout.equals"><code class="docutils literal notranslate"><span class="pre">SBSGUILayout.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayout.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSGUILayout.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayout.parse"><code class="docutils literal notranslate"><span class="pre">SBSGUILayout.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayout.write"><code class="docutils literal notranslate"><span class="pre">SBSGUILayout.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayoutComp"><code class="docutils literal notranslate"><span class="pre">SBSGUILayoutComp</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayoutComp.equals"><code class="docutils literal notranslate"><span class="pre">SBSGUILayoutComp.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayoutComp.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSGUILayoutComp.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayoutComp.parse"><code class="docutils literal notranslate"><span class="pre">SBSGUILayoutComp.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayoutComp.write"><code class="docutils literal notranslate"><span class="pre">SBSGUILayoutComp.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.equals"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.getDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.getDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.getRect"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.hasDependencyOn"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.hasDependencyOn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.isAComment"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.isAComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.isAFrame"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.isAFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.isANavigationPin"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.isANavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.parse"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.sDefaultColor"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.sDefaultColor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.html#sbscommon.gui.SBSGUIObject.write"><code class="docutils literal notranslate"><span class="pre">SBSGUIObject.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="values.html">values module: Constant values, data type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes"><code class="docutils literal notranslate"><span class="pre">SBSAttributes</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.equals"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.getAttribute"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.hasAttributes"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.hasAttributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.parse"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.setAttribute"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.setAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.setAttributes"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.setAttributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSAttributes.write"><code class="docutils literal notranslate"><span class="pre">SBSAttributes.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.equals"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.getType"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.getValue"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.isValidValue"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.isValidValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.parse"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.setConstantValue"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.setConstantValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.updateConstantValue"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.updateConstantValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSConstantValue.write"><code class="docutils literal notranslate"><span class="pre">SBSConstantValue.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSIcon"><code class="docutils literal notranslate"><span class="pre">SBSIcon</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSIcon.equals"><code class="docutils literal notranslate"><span class="pre">SBSIcon.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSIcon.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSIcon.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSIcon.parse"><code class="docutils literal notranslate"><span class="pre">SBSIcon.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSIcon.write"><code class="docutils literal notranslate"><span class="pre">SBSIcon.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSOption"><code class="docutils literal notranslate"><span class="pre">SBSOption</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSOption.equals"><code class="docutils literal notranslate"><span class="pre">SBSOption.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSOption.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSOption.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSOption.parse"><code class="docutils literal notranslate"><span class="pre">SBSOption.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSOption.write"><code class="docutils literal notranslate"><span class="pre">SBSOption.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSTree"><code class="docutils literal notranslate"><span class="pre">SBSTree</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.asOptionList"><code class="docutils literal notranslate"><span class="pre">SBSTree.asOptionList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.asStringList"><code class="docutils literal notranslate"><span class="pre">SBSTree.asStringList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.equals"><code class="docutils literal notranslate"><span class="pre">SBSTree.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.getChildByName"><code class="docutils literal notranslate"><span class="pre">SBSTree.getChildByName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.getChildByPath"><code class="docutils literal notranslate"><span class="pre">SBSTree.getChildByPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSTree.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.parse"><code class="docutils literal notranslate"><span class="pre">SBSTree.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.setChildByPath"><code class="docutils literal notranslate"><span class="pre">SBSTree.setChildByPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTree.write"><code class="docutils literal notranslate"><span class="pre">SBSTree.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeList"><code class="docutils literal notranslate"><span class="pre">SBSTreeList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeList.equals"><code class="docutils literal notranslate"><span class="pre">SBSTreeList.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeList.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSTreeList.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeList.parse"><code class="docutils literal notranslate"><span class="pre">SBSTreeList.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeList.write"><code class="docutils literal notranslate"><span class="pre">SBSTreeList.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeStr"><code class="docutils literal notranslate"><span class="pre">SBSTreeStr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeStr.equals"><code class="docutils literal notranslate"><span class="pre">SBSTreeStr.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeStr.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSTreeStr.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeStr.parse"><code class="docutils literal notranslate"><span class="pre">SBSTreeStr.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeStr.write"><code class="docutils literal notranslate"><span class="pre">SBSTreeStr.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeUrl"><code class="docutils literal notranslate"><span class="pre">SBSTreeUrl</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeUrl.equals"><code class="docutils literal notranslate"><span class="pre">SBSTreeUrl.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeUrl.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSTreeUrl.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeUrl.parse"><code class="docutils literal notranslate"><span class="pre">SBSTreeUrl.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="values.html#sbscommon.values.SBSTreeUrl.write"><code class="docutils literal notranslate"><span class="pre">SBSTreeUrl.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-sbscommon"></span></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../params/paramnode.html" class="btn btn-neutral float-left" title="paramnode module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nodes.html" class="btn btn-neutral float-right" title="nodes module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modulegraph module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="modulegraphgenerator module" href="modulegraphgenerator.html" />
+    <link rel="prev" title="modulegraphindex module" href="modulegraphindex.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">modulegraph module: ModuleGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulegraphgenerator.html">modulegraphgenerator module: Handle all function to generate ModuleGraph's objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulegraphimplementation.html">modulegraphimplementation module: Provide an interface for derived implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulenode.html">modulenode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulenodeimplementation.html">modulenodeimplementation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulenodeinstance.html">modulenodeinstance module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleparaminput.html">moduleparaminput module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleoperand.html">moduleoperand module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleannotation.html">moduleannotation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleconnection.html">moduleconnection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulegraphlibrary.html">modulegraphlibrary module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modulegraphregister.html">modulegraphregister module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="moduleoutputbridging.html">moduleoutputbridging module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="modulegraphindex.html">modulegraphindex module</a></li>
+      <li class="breadcrumb-item active">modulegraph module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modulegraph.modulegraph">
+<span id="modulegraph-module"></span><h1>modulegraph module<a class="headerlink" href="#module-modulegraph.modulegraph" title="Link to this heading"></a></h1>
+<p>Module <strong>modulegraph</strong> aims to define SBSObjects that are relative to a module graph,
+mostly <a class="reference internal" href="#modulegraph.modulegraph.ModuleGraph" title="modulegraph.modulegraph.ModuleGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraph</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modulegraph.modulegraph.</span></span><span class="sig-name descname"><span class="pre">ModuleGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRoot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphImplementation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAnnotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphDefinitionId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphImplementationValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRegister</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseGraph</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></p>
+<p>Class that contains information on a Module graph as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier           (str): name of the graph (name of the definition and the instance if applicable).</p></li>
+<li><p>mUID                  (str): unique identifier in the package/ context.</p></li>
+<li><p>mParamInputs          (list of <code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraphInput</span></code>): list of exposed parameters of the graph.</p></li>
+<li><p>mNodes                (list of <code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraphNode</span></code>): the list of Module node of the graph.</p></li>
+<li><p>mRoot                 (str, optional): UID of the root node of the graph (the output)</p></li>
+<li><p>mGraphImplementation  (<a class="reference internal" href="modulegraphimplementation.html#modulegraph.modulegraphimplementation.ModuleGraphImplementation" title="modulegraph.modulegraphimplementation.ModuleGraphImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraphImplementation</span></code></a>): Module Graph Implementation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.addGraphAnnotation">
+<span class="sig-name descname"><span class="pre">addGraphAnnotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aKey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModuleAnnotation</span></span></span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.addGraphAnnotation" title="Link to this definition"></a></dt>
+<dd><p>Create an Annotation object and add it to the given graph
+Annotation handle graph information attributes like description, author, tags…</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraph</strong> (<a class="reference internal" href="#modulegraph.modulegraph.ModuleGraph" title="modulegraph.modulegraph.ModuleGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraph</span></code></a>) – the graph where the node will be created</p></li>
+<li><p><strong>aKey</strong> (<em>str</em>) – the key word, title, path of the annotation, can be ‘description’, ‘author’ …</p></li>
+<li><p><strong>aValue</strong> (<em>str</em>) – the string value of the annotation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>annotation obj</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="moduleannotation.html#modulegraph.moduleannotation.ModuleAnnotation" title="modulegraph.moduleannotation.ModuleAnnotation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleAnnotation</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.connectNodes">
+<span class="sig-name descname"><span class="pre">connectNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeLeft</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModuleNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeRight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModuleNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputIdentifer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputIdentifer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModuleConnection</span></span></span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.connectNodes" title="Link to this definition"></a></dt>
+<dd><p>Connect two nodes by their outputs to inputs, in model graph all inputs are operands.
+If output and input identifier are not set first of each will be used.
+Currently there is no type check during the connection, so as long as the output and input exists the connection
+will be done but could be not valid for the evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNodeLeft</strong> (<a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a>) – the left node</p></li>
+<li><p><strong>aNodeRight</strong> (<a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a>) – the right node, which received connection</p></li>
+<li><p><strong>aOutputIdentifer</strong> (<em>str</em>) – the output pin’s identifier, in the case where the left node has several output</p></li>
+<li><p><strong>aInputIdentifer</strong> (<em>str</em>) – the input pin’s identifier, in the case where the right node has several input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the connection object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="moduleconnection.html#modulegraph.moduleconnection.ModuleConnection" title="modulegraph.moduleconnection.ModuleConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.createNode">
+<span class="sig-name descname"><span class="pre">createNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#modulegraph.modulegraph.ModuleGraph" title="modulegraph.modulegraph.ModuleGraph"><span class="pre">modulegraph.ModuleGraph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.createNode" title="Link to this definition"></a></dt>
+<dd><p>Top def to create an atomic node (not an instance) by given a node id
+createNode(aModelgraph, “Structure::NodeBool”)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNodeId</strong> – the path id of the node</p></li>
+<li><p><strong>aPos</strong> – a x, y, z position value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.exposeNode">
+<span class="sig-name descname"><span class="pre">exposeNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ModuleNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInGroup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisplayName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGammaType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphDefinitionId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSoftRange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aHardRange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ModuleParamInput</span></span></span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.exposeNode" title="Link to this definition"></a></dt>
+<dd><p>Expose as a graph input parameter a constant node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraph</strong> (<a class="reference internal" href="#modulegraph.modulegraph.ModuleGraph" title="modulegraph.modulegraph.ModuleGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraph</span></code></a>) – the graph where the input parameter will be created</p></li>
+<li><p><strong>aNode</strong> (<a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a>) – the constant node to exposed as graph input</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – the identifier of the graph input parameter</p></li>
+<li><p><strong>aDescription</strong> (<em>str</em>) – Graph input description</p></li>
+<li><p><strong>aInGroup</strong> (<em>str</em>) – Graph input group</p></li>
+<li><p><strong>aDisplayName</strong> (<em>str</em>) – Graph input display name</p></li>
+<li><p><strong>aGammaType</strong> (<em>str</em>) – Graph input gamma type</p></li>
+<li><p><strong>aSoftRange</strong> (<em>list</em>) – a soft range for the graph parameter</p></li>
+<li><p><strong>aHardRange</strong> (<em>list</em>) – a hard range for the graph parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="moduleparaminput.html#modulegraph.moduleparaminput.ModuleParamInput" title="modulegraph.moduleparaminput.ModuleParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.fromJson">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aJsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.fromJson" title="Link to this definition"></a></dt>
+<dd><p>Classmethod to build a <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTree" title="common_interfaces.metadata.SBSMetaDataTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></a> from the old json file. Here to support old package without xmp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aJsonData</strong> – a json dict</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTree" title="common_interfaces.metadata.SBSMetaDataTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.fromXmpIter">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromXmpIter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetaDataIter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.fromXmpIter" title="Link to this definition"></a></dt>
+<dd><p>Classmethod to build a <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTree" title="common_interfaces.metadata.SBSMetaDataTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></a> from a xmp <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataIter</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aMetaDataIter</strong> – a xmp <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataIter</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTree" title="common_interfaces.metadata.SBSMetaDataTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getAllInputGroups">
+<span class="sig-name descname"><span class="pre">getAllInputGroups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getAllInputGroups" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all groups used for the inputs of the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of groups as strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getAllInputs">
+<span class="sig-name descname"><span class="pre">getAllInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getAllInputs" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all inputs (images and parameters) defined on this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of inputs as <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getAllInputsInGroup">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAllInputsInGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getAllInputsInGroup" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Get the list of all inputs (images and parameters) contained in the given group.</div>
+<div class="line">If aGroup is None, returns all the parameters that are not included in a group.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGroup</strong> (<a class="reference internal" href="../sbsarchive/sbsargui.html#sbsarchive.sbsargui.SBSARGuiGroup" title="sbsarchive.sbsargui.SBSARGuiGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGuiGroup</span></code></a> or str) – The group of parameter to consider, given a SBSARGuiGroup object or a Group identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of inputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>getIdentifer()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str identifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInput" title="Link to this definition"></a></dt>
+<dd><p>Get the ParamInput with the given identifier, among the input images and parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputIdentifier</strong> (<em>str</em>) – input parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInputFromUID">
+<span class="sig-name descname"><span class="pre">getInputFromUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInputFromUID" title="Link to this definition"></a></dt>
+<dd><p>Get the ParamInput with the given UID, among the input images and parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputUID</strong> (<em>str</em>) – input parameter UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInputImage">
+<span class="sig-name descname"><span class="pre">getInputImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputImageIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInputImage" title="Link to this definition"></a></dt>
+<dd><p>Get the image input with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputImageIdentifier</strong> (<em>str</em>) – input image identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInputImageWithUsage">
+<span class="sig-name descname"><span class="pre">getInputImageWithUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInputImageWithUsage" title="Link to this definition"></a></dt>
+<dd><p>Get the first image input which has the given usage defined</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUsage</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a> or str) – usage to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInputImages">
+<span class="sig-name descname"><span class="pre">getInputImages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInputImages" title="Link to this definition"></a></dt>
+<dd><p>Get the list of image inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of image inputs as ParamInput</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInputParameter">
+<span class="sig-name descname"><span class="pre">getInputParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Get the input parameter with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – input parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInputParameterFromUID">
+<span class="sig-name descname"><span class="pre">getInputParameterFromUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInputParameterFromUID" title="Link to this definition"></a></dt>
+<dd><p>Get the input parameter with the given UID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamUID</strong> (<em>str</em>) – input parameter UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getInputParameters">
+<span class="sig-name descname"><span class="pre">getInputParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getInputParameters" title="Link to this definition"></a></dt>
+<dd><p>Get the list of input parameters (not image)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getNode">
+<span class="sig-name descname"><span class="pre">getNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getNode" title="Link to this definition"></a></dt>
+<dd><p>Search for the given compositing node in the node list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> or str) – node to get, identified by its uid or as a <a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getNodeByPath">
+<span class="sig-name descname"><span class="pre">getNodeByPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getNodeByPath" title="Link to this definition"></a></dt>
+<dd><p>Search for the given compositing node in the node list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>str</em>) – node’s ID path ex ‘Structure::NodeVector3Lerp’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getNodeList">
+<span class="sig-name descname"><span class="pre">getNodeList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodesList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getNodeList" title="Link to this definition"></a></dt>
+<dd><p>Get all the compositing nodes of this graph, or look for the given nodes if aNodesList is not None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodesList</strong> (list of str or list of <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>, optional) – list of node to look for, might be identifiers or .SBSNode</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> included in the graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.parse" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.setNodeAsRoot">
+<span class="sig-name descname"><span class="pre">setNodeAsRoot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.setNodeAsRoot" title="Link to this definition"></a></dt>
+<dd><p>Set this node as root node, the “last” node that will be used as root during the evaluation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> or str) – the node or the identifier of this node that will be root</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modulegraph.modulegraph.ModuleGraph.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulegraph.modulegraph.ModuleGraph.write" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modulegraphindex.html" class="btn btn-neutral float-left" title="modulegraphindex module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modulegraphgenerator.html" class="btn btn-neutral float-right" title="modulegraphgenerator module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

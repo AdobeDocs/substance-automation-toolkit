@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automation Toolkit Home &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/custom_rtd.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting started with the API" href="pysbs/getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            SAT PySBS
+              <img src="_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/overview/overview.html">API overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Automation Toolkit Home</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="automation-toolkit-home">
+<h1>Automation Toolkit Home<a class="headerlink" href="#automation-toolkit-home" title="Link to this heading"></a></h1>
+<p>The Substance Automation Toolkit provides features for automating Substance based tasks. It has two main components:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="pysbs/sat_commandlines/sat_commandlines.html#ref-to-sat-commandlines"><span class="std std-ref">Command Line Tools</span></a>, these are a set of command line tools for baking maps for meshes, doing simple modifications to substances, creating substance archives and rendering out maps.</p></li>
+<li><p><a class="reference internal" href="pysbs/overview/overview.html#ref-to-api-overview"><span class="std std-ref">Pysbs - Python API</span></a>, the Python API is a python package for reading and modifying sbs files such as assembling composite materials from multiple substances or batch renaming nodes in files.</p></li>
+</ul>
+<p>The combination of these two packages allows you to fully automating the task of generating maps for large sets of assets based on rules and build your own tools for Substance related tasks.</p>
+<section id="welcome-to-pysbs-documentation-the-python-api-for-sbs-files">
+<h2>Welcome to Pysbs documentation, the Python API for .sbs files !<a class="headerlink" href="#welcome-to-pysbs-documentation-the-python-api-for-sbs-files" title="Link to this heading"></a></h2>
+<p>Pysbs provides a way to get information on substances (.sbs and .sbsar files), and to generate or modify substances without using Substance Designer Application, but by scripting in Python.</p>
+<dl class="simple">
+<dt>The API can be used for different purposes related to creation content pipeline and automation, for instance:</dt><dd><ul class="simple">
+<li><p>Dependency and asset management</p></li>
+<li><p>Substance variation creation</p></li>
+<li><p>Substance automatic generation using bakers output map for instance</p></li>
+</ul>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">The API allows to reading both .sbs and .sbsar files.</div>
+<div class="line">It allows starting from scratch to create a new .sbs file, including the creation of compositing graphs with basic filters, instance of graphs, reference to bitmaps, pixel processor and the definition of the inputs and outputs.</div>
+<div class="line">The input parameters of the graph can also be specified, including the widget definition.</div>
+<div class="line">The node parameters can be tweaked, and they can be set as dynamic, by creating the function that handles the parameter value.</div>
+<div class="line">Function graphs can also be created, and can be referenced in another function or dynamic parameter or Pixel processor function.</div>
+<div class="line"><br /></div>
+<div class="line">This API can also be used to modify existing substances, to script the modification to apply on substances instead of doing them manually.</div>
+<div class="line">In particular, it allows creating an iteration of a node or of a pattern, inside a graph or a function.</div>
+</div>
+<section id="detailed-documentation">
+<h3>Detailed documentation<a class="headerlink" href="#detailed-documentation" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/getting_started.html">Getting started with the API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/getting_started.html#installing-prerequisites-and-the-api">Installing prerequisites and the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/getting_started.html#installing-python">Installing Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/getting_started.html#installing-pysbs-the-substance-designer-scripting-api-package">Installing Pysbs, the Substance Designer Scripting API package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/getting_started.html#first-steps-with-the-api">First steps with the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/getting_started.html#script-the-declaration-of-the-context">Script the declaration of the context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/getting_started.html#using-an-argument-file">Using an argument file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/overview/overview.html">API overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Basic%20manipulation.html">Basic manipulation of a Substance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Basic%20manipulation.html#opening-and-writing-a-substance">Opening and writing a substance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Basic%20manipulation.html#requesting-information-on-a-substance">Requesting information on a Substance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Substance%20creation.html">Creation of a Substance from scratch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Substance%20creation.html#sample-1-hello-world">Sample 1: Hello World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Substance%20creation.html#sample-2-full-creation-demonstration">Sample 2: Full creation demonstration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Substance%20creation.html#sample-3-mdl-graph-creation">Sample 3: MDL Graph creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Substance%20creation.html#highlights-on-the-most-important-modules-and-classes-of-the-api">Highlights on the most important modules and classes of the API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Substances%20modification.html">Modification of Substances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Substances%20modification.html#massive-modification-of-substances">Massive modification of Substances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Substances%20modification.html#baking-parameters-modification">Baking Parameters modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Substances%20modification.html#iteration-generation">Iteration generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/overview/Substances%20modification.html#sample-1-compositing-node-iteration">Sample 1: Compositing node iteration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/overview/Substances%20modification.html#sample-2-iteration-inside-a-pixel-processor">Sample 2: Iteration inside a Pixel Processor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/overview/Substances%20modification.html#sample-3-iteration-inside-a-function-and-use-of-variables">Sample 3: Iteration inside a function, and use of variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Dependencies%20management.html#dependencies-management">Dependencies management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Dependencies%20management.html#exporting-a-package-with-its-dependencies">Exporting a package with its dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Dependencies%20management.html#impact-propagation">Impact propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Dependencies%20management.html#get-all-substance-dependencies-recursively">Get all substance dependencies recursively</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Dependencies%20management.html#dependency-path-resolution-method">Dependency path resolution method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html#batchtool-s-outputhandlers">batchtool’s OutputHandlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html#render-animation-sequence">render animation sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html#command-only-option">command_only option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html#generate-thumbnails">Generate thumbnails</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/metadata%20manipulation.html">Package metadata manipulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/metadata%20manipulation.html#metadata-from-a-sbsar">Metadata from a sbsar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/metadata%20manipulation.html#resource-of-type-other">Resource of type OTHER</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Spot%20Colors.html">SAT and Spot colors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Spot%20Colors.html#spot-colors-with-spotcolorinfo">Spot colors with spotcolorinfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Spot%20Colors.html#spot-colors-with-pysbs">Spot colors with PySBS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Thumbnail%20creation%20with%20SAT.html#generate-thumbnail-with-pysbs-batchtools-thumbnail">Generate thumbnail with pysbs.batchtools.thumbnail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Thumbnail%20creation%20with%20SAT.html#setup-a-graph-correctly-to-be-render-as-thumbnail">Setup a graph correctly to be render as thumbnail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/overview/Thumbnail%20creation%20with%20SAT.html#generating-and-embedding-thumbnail-directly-from-a-substance-or-substance-archive">Generating and embedding thumbnail directly from a substance or substance archive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/overview/SAT%20demos.html">SAT demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/demohelloworld.html">demohelloworld module: A very simple function that creates a basic Substance, which uses the API without argument file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demohelloworld.html#demohelloworld.demoHelloWorld"><code class="docutils literal notranslate"><span class="pre">demoHelloWorld()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demohelloworld.html#demohelloworld.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/demos.html">demos module: Set a sample functions to demonstrate the use of the API, using argument files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoBakingParameters"><code class="docutils literal notranslate"><span class="pre">demoBakingParameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoBuildSBSFromPainterBitmaps"><code class="docutils literal notranslate"><span class="pre">demoBuildSBSFromPainterBitmaps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoCreation"><code class="docutils literal notranslate"><span class="pre">demoCreation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoCreationMDL"><code class="docutils literal notranslate"><span class="pre">demoCreationMDL()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoExportWithDependencies"><code class="docutils literal notranslate"><span class="pre">demoExportWithDependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoIteration"><code class="docutils literal notranslate"><span class="pre">demoIteration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoIterationFlame"><code class="docutils literal notranslate"><span class="pre">demoIterationFlame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoIterationPixProc"><code class="docutils literal notranslate"><span class="pre">demoIterationPixProc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoMassiveModification"><code class="docutils literal notranslate"><span class="pre">demoMassiveModification()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoReadWriteSBS"><code class="docutils literal notranslate"><span class="pre">demoReadWriteSBS()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/demos_batchtools.html">demos_batchtools module: Set a sample functions to demonstrate the use of the API with the batchtools, using argument files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos_batchtools.html#demos_batchtools.demoUdimPipeline"><code class="docutils literal notranslate"><span class="pre">demoUdimPipeline()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/script_update_with_sbsupdater.html">script_update_with_sbsupdater: Script allowing to update all Substances in a folder using the Batch Tool SBSUpdater</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/script_update_with_sbsupdater.html#script_update_with_sbsupdater.scriptUpdatePackagesVersion"><code class="docutils literal notranslate"><span class="pre">scriptUpdatePackagesVersion()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/modules.html">API Content</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/modules.html#demos">Demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/demohelloworld.html">demohelloworld module: A very simple function that creates a basic Substance, which uses the API without argument file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demohelloworld.html#demohelloworld.demoHelloWorld"><code class="docutils literal notranslate"><span class="pre">demoHelloWorld()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demohelloworld.html#demohelloworld.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/demos.html">demos module: Set a sample functions to demonstrate the use of the API, using argument files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoBakingParameters"><code class="docutils literal notranslate"><span class="pre">demoBakingParameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoBuildSBSFromPainterBitmaps"><code class="docutils literal notranslate"><span class="pre">demoBuildSBSFromPainterBitmaps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoCreation"><code class="docutils literal notranslate"><span class="pre">demoCreation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoCreationMDL"><code class="docutils literal notranslate"><span class="pre">demoCreationMDL()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoExportWithDependencies"><code class="docutils literal notranslate"><span class="pre">demoExportWithDependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoIteration"><code class="docutils literal notranslate"><span class="pre">demoIteration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoIterationFlame"><code class="docutils literal notranslate"><span class="pre">demoIterationFlame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoIterationPixProc"><code class="docutils literal notranslate"><span class="pre">demoIterationPixProc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoMassiveModification"><code class="docutils literal notranslate"><span class="pre">demoMassiveModification()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos.html#demos.demoReadWriteSBS"><code class="docutils literal notranslate"><span class="pre">demoReadWriteSBS()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/demos_batchtools.html">demos_batchtools module: Set a sample functions to demonstrate the use of the API with the batchtools, using argument files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/demos_batchtools.html#demos_batchtools.demoUdimPipeline"><code class="docutils literal notranslate"><span class="pre">demoUdimPipeline()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/pysbs_demos/script_update_with_sbsupdater.html">script_update_with_sbsupdater: Script allowing to update all Substances in a folder using the Batch Tool SBSUpdater</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/pysbs_demos/script_update_with_sbsupdater.html#script_update_with_sbsupdater.scriptUpdatePackagesVersion"><code class="docutils literal notranslate"><span class="pre">scriptUpdatePackagesVersion()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/modules.html#substance-definition">Substance definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/common_interfaces/sbsarobject.html">sbsarobject module: Base class of all SBSAR objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/common_interfaces/sbsobject.html">sbsobject module: Base class of all SBS objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/common_interfaces/package.html">package module: Common interfaces related to sbs and sbsar packages (Package, ParamInput, GraphOutput, Preset)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/common_interfaces/basegraph.html">basegraph module: Common interfaces related to graphs in sbs and sbsar packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/common_interfaces/metadata.html">metadata module: Common interfaces related to metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsargraph.html">sbsargraph module: SBSARGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsarmanager.html">sbsarmanager module: SBSAR file manipulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsarmetadata.html">sbsarmetadata module: SBSAR file metadata interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsargui.html">sbsargui module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsarguiwidgets.html">sbsarguiwidgets module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsarenum.html">sbsarenum module: SBSAR format enumeration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsarchive.html#sbsarchive.sbsarchive.SBSARGlobalVar"><code class="docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsarchive/sbsarchive.html#sbsarchive.sbsarchive.SBSArchive"><code class="docutils literal notranslate"><span class="pre">SBSArchive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/substance/substance.html">substance module: Substance definition (.sbs)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/substance/content.html">content module: Package content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/substance/resource.html">resource module: Resource definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/substance/substance.html#substance.substance.FeatureVersionsOption"><code class="docutils literal notranslate"><span class="pre">FeatureVersionsOption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/substance/substance.html#substance.substance.SBSDependency"><code class="docutils literal notranslate"><span class="pre">SBSDependency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/substance/substance.html#substance.substance.SBSDocument"><code class="docutils literal notranslate"><span class="pre">SBSDocument</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/graph/graph.html">graph module: Graph and Function definition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/graph/function.html">function module: Function graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/graph/inputparameters.html">inputparameters module: Input parameters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/graph/output.html">output module: Graph output definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/graph/graph.html#graph.graph.SBSGraph"><code class="docutils literal notranslate"><span class="pre">SBSGraph</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/compnode/compnode.html">compnode module: Compositing node definitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/compnode/compimplementation.html">compimplementation module: Compositing node implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/compnode/paramgraph.html">paramgraph module: FxMaps graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/compnode/common.html">common module: Common classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/compnode/compnode.html#compnode.compnode.SBSCompNode"><code class="docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/params/params.html">params module: Parameters definition (dynamic or constant)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/params/dynamicvalue.html">dynamicvalue module: Function graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/params/paramnode.html">paramnode module: Function node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/params/params.html#params.params.SBSParamSpotColorInfo"><code class="docutils literal notranslate"><span class="pre">SBSParamSpotColorInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/params/params.html#params.params.SBSParamValue"><code class="docutils literal notranslate"><span class="pre">SBSParamValue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/params/params.html#params.params.SBSParameter"><code class="docutils literal notranslate"><span class="pre">SBSParameter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/params/params.html#params.params.SBSParamsArray"><code class="docutils literal notranslate"><span class="pre">SBSParamsArray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/params/params.html#params.params.SBSParamsArrayCell"><code class="docutils literal notranslate"><span class="pre">SBSParamsArrayCell</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscommon/nodes.html">nodes module: Base class of all nodes (compositing nodes, function nodes) and facilities for nodes list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscommon/connections.html">connections module: Connections between nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscommon/gui.html">gui module: GUI objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscommon/values.html">values module: Constant values, data type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlmanager.html">mdlmanager module: MDL manager, handles the MDL library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlgraph.html">mdlgraph module: MDL graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlnode.html">mdlnode module: MDL node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdloperand.html">mdloperand module: MDL operand definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlannotation.html">mdlannotation module: MDL annotation definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdlenum.html">mdlenum module: list of enumerations used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/mdl/mdllibclasses.html">mdllibclasses module: provides the classes used to create the MDL library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbspreset/sbspreset.html#sbspreset.sbspreset.SBSPRSPreset"><code class="docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbspreset/sbspreset.html#sbspreset.sbspreset.SBSPRSPresetInput"><code class="docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbspreset/sbspreset.html#sbspreset.sbspreset.SBSPRSPresets"><code class="docutils literal notranslate"><span class="pre">SBSPRSPresets</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbspreset/sbspreset.html#sbspreset.sbspreset.SBSPRSTypes"><code class="docutils literal notranslate"><span class="pre">SBSPRSTypes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsproject/projectmgrdoc.html#project-manager">Project Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsproject/projectmgrdoc.html#sbsproject-module">sbsproject module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modelgraph/modelgraph.html">modelgraph module: ModelGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modelgraph/modelannotationnames.html">modelannotationnames module: List all name for ModelGraph annotations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modelgraph/modelgraphgenerator.html">modelgraphgenerator module: Handle all function to generate ModelGraph's objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modelgraph/modelgraphimplementation.html">modelgraphimplementation module: Handle basic values definition for the graph implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modelgraph/modelnodenames.html">modelnodenames module: List all node names available into ModelGraph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modelgraph/modeloperand.html">modeloperand module: Operands definition for all ModelGraph operand's types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulegraph.html">modulegraph module: ModuleGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulegraphgenerator.html">modulegraphgenerator module: Handle all function to generate ModuleGraph's objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulegraphimplementation.html">modulegraphimplementation module: Provide an interface for derived implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulenode.html">modulenode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulenodeimplementation.html">modulenodeimplementation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulenodeinstance.html">modulenodeinstance module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/moduleparaminput.html">moduleparaminput module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/moduleoperand.html">moduleoperand module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/moduleannotation.html">moduleannotation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/moduleconnection.html">moduleconnection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulegraphlibrary.html">modulegraphlibrary module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/modulegraphregister.html">modulegraphregister module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/modulegraph/moduleoutputbridging.html">moduleoutputbridging module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/modules.html#libraries">Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsenum.html">sbsenum module: Types and enumeration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.ParamTypeEnum"><code class="docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.InputValueTypeEnum"><code class="docutils literal notranslate"><span class="pre">InputValueTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.TypeMasksEnum"><code class="docutils literal notranslate"><span class="pre">TypeMasksEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.AttributesEnum"><code class="docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.BitmapFormatEnum"><code class="docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.InputEnum"><code class="docutils literal notranslate"><span class="pre">InputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.OutputEnum"><code class="docutils literal notranslate"><span class="pre">OutputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FilterEnum"><code class="docutils literal notranslate"><span class="pre">FilterEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.BaseParamEnum"><code class="docutils literal notranslate"><span class="pre">BaseParamEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.CompNodeParamEnum"><code class="docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FunctionEnum"><code class="docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FunctionInputEnum"><code class="docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.TextureFormatEnum"><code class="docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.MipmapEnum"><code class="docutils literal notranslate"><span class="pre">MipmapEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.UsageEnum"><code class="docutils literal notranslate"><span class="pre">UsageEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.ComponentsEnum"><code class="docutils literal notranslate"><span class="pre">ComponentsEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.ColorSpacesEnum"><code class="docutils literal notranslate"><span class="pre">ColorSpacesEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.UsageDataEnum"><code class="docutils literal notranslate"><span class="pre">UsageDataEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.ResourceTypeEnum"><code class="docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.ParamInheritanceEnum"><code class="docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.TilingEnum"><code class="docutils literal notranslate"><span class="pre">TilingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.OutputFormatEnum"><code class="docutils literal notranslate"><span class="pre">OutputFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.OutputSizeEnum"><code class="docutils literal notranslate"><span class="pre">OutputSizeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.PixelRatioEnum"><code class="docutils literal notranslate"><span class="pre">PixelRatioEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.QualityEnum"><code class="docutils literal notranslate"><span class="pre">QualityEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.ColorModeEnum"><code class="docutils literal notranslate"><span class="pre">ColorModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.BlendBlendingModeEnum"><code class="docutils literal notranslate"><span class="pre">BlendBlendingModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.AlphaBlendingEnum"><code class="docutils literal notranslate"><span class="pre">AlphaBlendingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.ChannelShuffleEnum"><code class="docutils literal notranslate"><span class="pre">ChannelShuffleEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.CombineDistanceEnum"><code class="docutils literal notranslate"><span class="pre">CombineDistanceEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.CurveTypeEnum"><code class="docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.GradientAddressingEnum"><code class="docutils literal notranslate"><span class="pre">GradientAddressingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.GradientOrientationEnum"><code class="docutils literal notranslate"><span class="pre">GradientOrientationEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.NormalFormatEnum"><code class="docutils literal notranslate"><span class="pre">NormalFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.NormalAlphaChannelContentEnum"><code class="docutils literal notranslate"><span class="pre">NormalAlphaChannelContentEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.MipMapModeEnum"><code class="docutils literal notranslate"><span class="pre">MipMapModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FilteringEnum"><code class="docutils literal notranslate"><span class="pre">FilteringEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.TextAlignEnum"><code class="docutils literal notranslate"><span class="pre">TextAlignEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FX_PatternType"><code class="docutils literal notranslate"><span class="pre">FX_PatternType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FX_BlendingModeEnum"><code class="docutils literal notranslate"><span class="pre">FX_BlendingModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FX_InputImageAlphaEnum"><code class="docutils literal notranslate"><span class="pre">FX_InputImageAlphaEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FX_InputImageFilteringEnum"><code class="docutils literal notranslate"><span class="pre">FX_InputImageFilteringEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.FX_SelectorEnum"><code class="docutils literal notranslate"><span class="pre">FX_SelectorEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.BitmapResizeMethodEnum"><code class="docutils literal notranslate"><span class="pre">BitmapResizeMethodEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.WidgetTypeEnum"><code class="docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.WidgetOptionEnum"><code class="docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.WidgetEnum"><code class="docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.GUIObjectTypeEnum"><code class="docutils literal notranslate"><span class="pre">GUIObjectTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.CompImplementationKindEnum"><code class="docutils literal notranslate"><span class="pre">CompImplementationKindEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.BatchToolsEnum"><code class="docutils literal notranslate"><span class="pre">BatchToolsEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.GraphTemplateEnum"><code class="docutils literal notranslate"><span class="pre">GraphTemplateEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.BaseTypeEnum"><code class="docutils literal notranslate"><span class="pre">BaseTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.UVTileFormat"><code class="docutils literal notranslate"><span class="pre">UVTileFormat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsenum.html#sbsenum.GraphTypeEnum"><code class="docutils literal notranslate"><span class="pre">GraphTypeEnum</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbsdictionaries.html">sbsdictionaries module: Dictionaries of all strings used in the libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibclasses.html">sbslibclasses module: Classes used by the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbsfunctions.html">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbsfxmapnodes.html">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbswidgets.html">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.__convertToEnum"><code class="docutils literal notranslate"><span class="pre">__convertToEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType"><code class="docutils literal notranslate"><span class="pre">getAllWidgetFunctionButtonByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getAngleWidgetByType"><code class="docutils literal notranslate"><span class="pre">getAngleWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getButtonWidgetByType"><code class="docutils literal notranslate"><span class="pre">getButtonWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getColorWidgetByType"><code class="docutils literal notranslate"><span class="pre">getColorWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getDefaultWidget"><code class="docutils literal notranslate"><span class="pre">getDefaultWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getDropDownWidgetByType"><code class="docutils literal notranslate"><span class="pre">getDropDownWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getEnumButtonsWidgetByType"><code class="docutils literal notranslate"><span class="pre">getEnumButtonsWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getFilterDefinition"><code class="docutils literal notranslate"><span class="pre">getFilterDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getFilterEnum"><code class="docutils literal notranslate"><span class="pre">getFilterEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getFunctionDefinition"><code class="docutils literal notranslate"><span class="pre">getFunctionDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getFunctionEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeDefinition"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getInputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getInputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getIterationParamInput"><code class="docutils literal notranslate"><span class="pre">getIterationParamInput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getOffsetWidgetByType"><code class="docutils literal notranslate"><span class="pre">getOffsetWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getOutputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getOutputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getPositionWidgetByType"><code class="docutils literal notranslate"><span class="pre">getPositionWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getSliderWidgetByType"><code class="docutils literal notranslate"><span class="pre">getSliderWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getTransformationForwardWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationForwardWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getTransformationInverseWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationInverseWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbslibrary/sbslibrary.html#sbslibrary.sbslibrary.getWidgetByType"><code class="docutils literal notranslate"><span class="pre">getWidgetByType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakersenum.html">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakersdef.html">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakersdefaultprops.html">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakingconverterparam.html">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier"><code class="docutils literal notranslate"><span class="pre">getBakerDefaultIdentifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefinition"><code class="docutils literal notranslate"><span class="pre">getBakerDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsbakers/sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerEnum"><code class="docutils literal notranslate"><span class="pre">getBakerEnum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/modules.html#helpers">Helpers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/autograph/ag_functions.html">ag_functions module: Definition of the function context and the mathematical operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/autograph/ag_types.html">ag_types module: Definition of all data types used by the automatic generation of function graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/autograph/ag_layout.html">ag_layout module: Functions for automatically laying out graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/batchtools/info_mesh_parser.html"> info mesh parser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/batchtools/batchtools.html"> batchtools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/batchtools/output_handlers.html"> output handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/batchtools/substance3d_baker_info_handlers.html"> substance3d_baker info handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/batchtools/sbsrender_render_handlers.html"> sbsrender render handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/batchtools/spotcolorinfo_handlers.html"> spotcolorinfo handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/batchtools/thumbnail.html"> thumbnail</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanSubstance"><code class="docutils literal notranslate"><span class="pre">cleanSubstance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanUnusedDependencies"><code class="docutils literal notranslate"><span class="pre">cleanUnusedDependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanUselessNodesInDynamicValue"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInDynamicValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanUselessNodesInFunction"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanUselessNodesInGraph"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanUselessNodesInMDLGraph"><code class="docutils literal notranslate"><span class="pre">cleanUselessNodesInMDLGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanUselessParametersInFunction"><code class="docutils literal notranslate"><span class="pre">cleanUselessParametersInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.cleanUselessParametersInGraph"><code class="docutils literal notranslate"><span class="pre">cleanUselessParametersInGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.getUselessNodesInDynamicValue"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInDynamicValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.getUselessNodesInFunction"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.getUselessNodesInGraph"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.getUselessNodesInMDLGraph"><code class="docutils literal notranslate"><span class="pre">getUselessNodesInMDLGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.getUselessParametersInFunction"><code class="docutils literal notranslate"><span class="pre">getUselessParametersInFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbscleaner.html#sbscleaner.getUselessParametersInGraph"><code class="docutils literal notranslate"><span class="pre">getUselessParametersInGraph()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsexporter.html#sbsexporter.SBSExporter"><code class="docutils literal notranslate"><span class="pre">SBSExporter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsgenerator.html">sbsgenerator module: Substance generator helper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createCompFilterNode"><code class="docutils literal notranslate"><span class="pre">createCompFilterNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createCompInstanceNode"><code class="docutils literal notranslate"><span class="pre">createCompInstanceNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createCurveParamsArray"><code class="docutils literal notranslate"><span class="pre">createCurveParamsArray()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createEmbeddedSVG"><code class="docutils literal notranslate"><span class="pre">createEmbeddedSVG()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createFunction"><code class="docutils literal notranslate"><span class="pre">createFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createFunctionInstanceNode"><code class="docutils literal notranslate"><span class="pre">createFunctionInstanceNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createFunctionNode"><code class="docutils literal notranslate"><span class="pre">createFunctionNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createGUIObject"><code class="docutils literal notranslate"><span class="pre">createGUIObject()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createGradientMapParamsArray"><code class="docutils literal notranslate"><span class="pre">createGradientMapParamsArray()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createGraph"><code class="docutils literal notranslate"><span class="pre">createGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createGroup"><code class="docutils literal notranslate"><span class="pre">createGroup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createIcon"><code class="docutils literal notranslate"><span class="pre">createIcon()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createImportedBitmap"><code class="docutils literal notranslate"><span class="pre">createImportedBitmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createImportedResource"><code class="docutils literal notranslate"><span class="pre">createImportedResource()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createInputNode"><code class="docutils literal notranslate"><span class="pre">createInputNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createInputParameter"><code class="docutils literal notranslate"><span class="pre">createInputParameter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createIterationOnPattern"><code class="docutils literal notranslate"><span class="pre">createIterationOnPattern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createLinkedResource"><code class="docutils literal notranslate"><span class="pre">createLinkedResource()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createMDLGraph"><code class="docutils literal notranslate"><span class="pre">createMDLGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createMDLNode"><code class="docutils literal notranslate"><span class="pre">createMDLNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createOutputNode"><code class="docutils literal notranslate"><span class="pre">createOutputNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createPreset"><code class="docutils literal notranslate"><span class="pre">createPreset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createResourceNode"><code class="docutils literal notranslate"><span class="pre">createResourceNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createSBSDocument"><code class="docutils literal notranslate"><span class="pre">createSBSDocument()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsgenerator.html#sbsgenerator.createSBSParamInputFromSBSARInput"><code class="docutils literal notranslate"><span class="pre">createSBSParamInputFromSBSARInput()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsimpactmanager.html#sbsimpactmanager.DependencyStatus"><code class="docutils literal notranslate"><span class="pre">DependencyStatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsimpactmanager.html#sbsimpactmanager.SBSImpactManager"><code class="docutils literal notranslate"><span class="pre">SBSImpactManager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsimpactmanager.html#sbsimpactmanager.imRawInput"><code class="docutils literal notranslate"><span class="pre">imRawInput()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsparser.html#sbsparser.FileTypeEnum"><code class="docutils literal notranslate"><span class="pre">FileTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbsparser.html#sbsparser.SBSParser"><code class="docutils literal notranslate"><span class="pre">SBSParser</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sbswriter.html#sbswriter.SBSWriter"><code class="docutils literal notranslate"><span class="pre">SBSWriter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/psdparser.html#psdparser.PSDLayer"><code class="docutils literal notranslate"><span class="pre">PSDLayer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/psdparser.html#psdparser.extractCompositeTo"><code class="docutils literal notranslate"><span class="pre">extractCompositeTo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/psdparser.html#psdparser.extractLayerTo"><code class="docutils literal notranslate"><span class="pre">extractLayerTo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/psdparser.html#psdparser.getLayers"><code class="docutils literal notranslate"><span class="pre">getLayers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/psdparser.html#psdparser.getPsdLayerFromList"><code class="docutils literal notranslate"><span class="pre">getPsdLayerFromList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/psdparser.html#psdparser.getPsdLayerNameFromResource"><code class="docutils literal notranslate"><span class="pre">getPsdLayerNameFromResource()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/qtclasses/qtvariantreader.html">qtvariantreader module: Defininition of the class QtVariantReader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/qtclasses/qtvariantwriter.html">qtvariantwriter module: Defininition of the class QtVariantWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariantTypeEnum"><code class="docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariant"><code class="docutils literal notranslate"><span class="pre">QtVariant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/qtclasses/qtclasses.html#qtclasses.qtclasses.QtVariantMap"><code class="docutils literal notranslate"><span class="pre">QtVariantMap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/qtclasses/qtclasses.html#qtclasses.qtclasses.QtColor"><code class="docutils literal notranslate"><span class="pre">QtColor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/modules.html#execution-context">Execution context</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/context.html">context module: Execution context</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/context.html#context.Context"><code class="docutils literal notranslate"><span class="pre">Context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/context.html#context.ProjectMgr"><code class="docutils literal notranslate"><span class="pre">ProjectMgr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/context.html#context.UrlAliasMgr"><code class="docutils literal notranslate"><span class="pre">UrlAliasMgr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/functions.html">functions module: Entry point for functions called by Substance Designer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/functions.html#functions.getGraphExportOptions"><code class="docutils literal notranslate"><span class="pre">getGraphExportOptions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/functions.html#functions.onAfterFileSaved"><code class="docutils literal notranslate"><span class="pre">onAfterFileSaved()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/functions.html#functions.onBeforeFileSaved"><code class="docutils literal notranslate"><span class="pre">onBeforeFileSaved()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/sat_commandlines/sat_commandlines.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker.html"> substance3d_baker — Bakes out mesh specific data such as ambient occlusion or normal data to textures.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker_options.html"> substance3d_baker command line options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker_examples.html"> substance3d_baker Example Command Lines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker_examples.html#bake-1024x1024-normal-map-for-a-mesh">Bake 1024x1024 normal map for a mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker_examples.html#bake-512x512-material-color-map-from-a-high-resolution-map-to-the-texture-space-of-a-low-resolution-mesh">Bake 512x512 material color map from a high resolution map to the texture space of a low resolution mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker_examples.html#bake-512x512-material-color-map-from-a-low-resolution-mesh">Bake 512x512 material color map from a low resolution mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker_examples.html#bake-512x512-curvature-map-and-control-the-name-and-the-image-file-type">Bake 512x512 curvature map and control the name and the image file type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/substance3d_baker_examples.html#substance3d-baker-run-use-a-designer-baker-preset-file-as-input">substance3d_baker run, use a Designer baker preset file as input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/sat_commandlines/sbscooker.html"> sbscooker — Cooks .sbs files to .sbsar files ready to be rendered with sbsrender.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbscooker_options.html"> sbscooker command line options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbscooker_pattern.html"> sbscooker pattern variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/sat_commandlines/sbsmutator.html"> sbsmutator — Modifies and specializes .sbs files.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbsmutator_options.html"> sbsmutator command line options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbsmutator_examples.html"> sbsmutator Example Command Lines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/sbsmutator_examples.html#modify-an-sbs-file-to-connect-bitmap-to-input-nodes-of-a-graph">Modify an SBS file to connect bitmap to input nodes of a graph</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/sat_commandlines/sbsrender.html"> sbsrender — Renders out maps from .sbsar files.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbsrender_options.html"> sbsrender command line options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbsrender_examples.html"> sbsrender example command lines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/sbsrender_examples.html#opencolorio-with-sbsrender">OpenColorIO with sbsrender</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbsrender_pattern.html"> sbsrender base parameters and pattern variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/sbsrender_pattern.html#base-parameters">Base parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pysbs/sat_commandlines/sbsrender_pattern.html#pattern-variables">Pattern variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pysbs/sat_commandlines/sbsupdater.html"> sbsupdater — Updates .sbs files to the current version of the batch tools.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pysbs/sat_commandlines/sbsupdater_options.html"> sbsupdater command line options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pysbs/getting_started.html" class="btn btn-neutral float-right" title="Getting started with the API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
