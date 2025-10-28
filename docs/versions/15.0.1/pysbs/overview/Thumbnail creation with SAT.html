@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thumbnail creation with SAT &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Edit substance archive with SBSARManager" href="Edit%20sbsar%20with%20SBSARManager.html" />
+    <link rel="prev" title="SAT and Spot colors" href="Spot%20Colors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generate thumbnails</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generate-thumbnail-with-pysbs-batchtools-thumbnail">Generate thumbnail with pysbs.batchtools.thumbnail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-a-graph-correctly-to-be-render-as-thumbnail">Setup a graph correctly to be render as thumbnail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-and-embedding-thumbnail-directly-from-a-substance-or-substance-archive">Generating and embedding thumbnail directly from a substance or substance archive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SAT%20demos.html">SAT demos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">API overview</a></li>
+      <li class="breadcrumb-item active">Thumbnail creation with SAT</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="thumbnail-creation-with-sat">
+<span id="ref-to-overview-thumbnail"></span><h1>Thumbnail creation with SAT<a class="headerlink" href="#thumbnail-creation-with-sat" title="Link to this heading"></a></h1>
+<section id="generate-thumbnail-with-pysbs-batchtools-thumbnail">
+<span id="ref-to-overview-thumbnailbatchtools"></span><h2>Generate thumbnail with pysbs.batchtools.thumbnail<a class="headerlink" href="#generate-thumbnail-with-pysbs-batchtools-thumbnail" title="Link to this heading"></a></h2>
+<p>A helper function is available to render thumbnail from a .sbs or a .sbsar easily <cite>thumbnail.generate()</cite></p>
+<p>To get more details on the different options check the definition <a class="reference internal" href="../batchtools/thumbnail.html#ref-to-thumbnail"><span class="std std-ref">thumbnail module</span></a></p>
+<p>By default <cite>thumbnail.generate</cite> uses an internal graph that uses PBRRender node. Only two parameters are
+mandatory, an input file .sbs or .sbsar and an output path:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs.batchtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">thumbnail</span>
+<span class="n">thumbnail_path</span> <span class="o">=</span> <span class="n">thumbnail</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">&quot;input.sbs&quot;</span><span class="p">,</span> <span class="n">aOutputPath</span><span class="o">=</span><span class="s2">&quot;thumbnail.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kind of generated thumbnail:</p>
+<a class="reference internal image-reference" href="../../_images/thumbnail.png"><img alt="../../_images/thumbnail.png" class="align-center" src="../../_images/thumbnail.png" style="width: 400px;" />
+</a>
+<p>Example, generate thumbnail for each graph and each presets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">substance</span><span class="p">,</span> <span class="n">context</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pysbs.batchtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">thumbnail</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">(),</span> <span class="s2">&quot;lib_woodtoys.sbs&quot;</span><span class="p">)</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">graph</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">getSBSGraphList</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">preset</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">mPresets</span><span class="p">:</span>
+        <span class="n">thumbnail</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">mFileAbsPath</span><span class="p">,</span> <span class="n">aGraphIdentifier</span><span class="o">=</span><span class="n">graph</span><span class="o">.</span><span class="n">mIdentifier</span><span class="p">,</span>
+                           <span class="n">aPreset</span><span class="o">=</span><span class="n">preset</span><span class="o">.</span><span class="n">mLabel</span><span class="p">,</span>
+                           <span class="n">aOutputPath</span><span class="o">=</span><span class="n">doc</span><span class="o">.</span><span class="n">mFileAbsPath</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;lib_woodtoys.sbs&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-</span><span class="si">{}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">mIdentifier</span><span class="p">,</span> <span class="n">preset</span><span class="o">.</span><span class="n">mLabel</span><span class="p">)))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/thumbnails.png"><img alt="../../_images/thumbnails.png" class="align-center" src="../../_images/thumbnails.png" style="width: 400px;" />
+</a>
+</section>
+<section id="setup-a-graph-correctly-to-be-render-as-thumbnail">
+<h2>Setup a graph correctly to be render as thumbnail<a class="headerlink" href="#setup-a-graph-correctly-to-be-render-as-thumbnail" title="Link to this heading"></a></h2>
+<p>The process can not guess what each outputs does, that’s why Usages must used. <cite>thumbnail.generate</cite>
+will used the output’s Usages to find out which output should be connected to the corresponding input.</p>
+<p>It’s also possible to precise a PhysicalSize to gained quality. PhysicalSize can be set in graph attribute or
+with a output value node.</p>
+<p>Example of correct outputs, each graph’s outputs has a correct Usage to defined the output type:</p>
+<a class="reference internal image-reference" href="../../_images/graph_usages.png"><img alt="../../_images/graph_usages.png" class="align-center" src="../../_images/graph_usages.png" style="width: 400px;" />
+</a>
+<p>Two different ways to setup a PhysicalSize:</p>
+<a class="reference internal image-reference" href="../../_images/physicalsize.png"><img alt="../../_images/physicalsize.png" class="align-center" src="../../_images/physicalsize.png" style="width: 400px;" />
+</a>
+</section>
+<section id="generating-and-embedding-thumbnail-directly-from-a-substance-or-substance-archive">
+<span id="ref-to-overview-thumbnailpysbs"></span><h2>Generating and embedding thumbnail directly from a substance or substance archive<a class="headerlink" href="#generating-and-embedding-thumbnail-directly-from-a-substance-or-substance-archive" title="Link to this heading"></a></h2>
+<p>A great improvement of PySBS is the possibility to edit a .sbsar file and the first functionality is to add
+a thumbnail to a substance archive file.
+Whatever it’s a substance or an archive, generating and embedding a thumbnail is super simple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="n">sbsarchive</span><span class="o">.</span><span class="n">SBSArchive</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">(),</span> <span class="s2">&quot;my_sbsar_without_thumbnail.sbsar&quot;</span><span class="p">)</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">generateThumbnail</span><span class="p">(</span><span class="n">saveArchiveAs</span><span class="o">=</span><span class="s2">&quot;my_sbsar_with_thumbnail.sbsar&quot;</span><span class="p">)</span>
+<span class="c1"># it will generate it for all graph except if you give a graph identifier as arg</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;my_sbsar_without_thumbnail.sbs&quot;</span><span class="p">)</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">generateThumbnail</span><span class="p">()</span>
+<span class="c1"># it will generate it for all graph except if you give a graph identifier as arg</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="s2">&quot;my_sbsar_with_thumbnail.sbs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To get more details check the substance definition here: <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument.generateThumbnail" title="substance.substance.SBSDocument.generateThumbnail"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSDocument.generateThumbnail()</span></code></a></p>
+<p>and check the substance archive definition here: <a class="reference internal" href="../sbsarchive/sbsarchive.html#sbsarchive.sbsarchive.SBSArchive.generateThumbnail" title="sbsarchive.sbsarchive.SBSArchive.generateThumbnail"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSArchive.generateThumbnail()</span></code></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Spot%20Colors.html" class="btn btn-neutral float-left" title="SAT and Spot colors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Edit%20sbsar%20with%20SBSARManager.html" class="btn btn-neutral float-right" title="Edit substance archive with SBSARManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

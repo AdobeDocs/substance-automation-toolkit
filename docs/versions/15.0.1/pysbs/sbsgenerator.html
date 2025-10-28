@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsgenerator module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sbsimpactmanager module" href="sbsimpactmanager.html" />
+    <link rel="prev" title="sbsexporter module" href="sbsexporter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbsgenerator module: Substance generator helper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createCompFilterNode"><code class="docutils literal notranslate"><span class="pre">createCompFilterNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createCompInstanceNode"><code class="docutils literal notranslate"><span class="pre">createCompInstanceNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createCurveParamsArray"><code class="docutils literal notranslate"><span class="pre">createCurveParamsArray()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createEmbeddedSVG"><code class="docutils literal notranslate"><span class="pre">createEmbeddedSVG()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createFunction"><code class="docutils literal notranslate"><span class="pre">createFunction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createFunctionInstanceNode"><code class="docutils literal notranslate"><span class="pre">createFunctionInstanceNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createFunctionNode"><code class="docutils literal notranslate"><span class="pre">createFunctionNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createGUIObject"><code class="docutils literal notranslate"><span class="pre">createGUIObject()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createGradientMapParamsArray"><code class="docutils literal notranslate"><span class="pre">createGradientMapParamsArray()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createGraph"><code class="docutils literal notranslate"><span class="pre">createGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createGroup"><code class="docutils literal notranslate"><span class="pre">createGroup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createIcon"><code class="docutils literal notranslate"><span class="pre">createIcon()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createImportedBitmap"><code class="docutils literal notranslate"><span class="pre">createImportedBitmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createImportedResource"><code class="docutils literal notranslate"><span class="pre">createImportedResource()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createInputNode"><code class="docutils literal notranslate"><span class="pre">createInputNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createInputParameter"><code class="docutils literal notranslate"><span class="pre">createInputParameter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createIterationOnPattern"><code class="docutils literal notranslate"><span class="pre">createIterationOnPattern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createLinkedResource"><code class="docutils literal notranslate"><span class="pre">createLinkedResource()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createMDLGraph"><code class="docutils literal notranslate"><span class="pre">createMDLGraph()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createMDLNode"><code class="docutils literal notranslate"><span class="pre">createMDLNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createOutputNode"><code class="docutils literal notranslate"><span class="pre">createOutputNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createPreset"><code class="docutils literal notranslate"><span class="pre">createPreset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createResourceNode"><code class="docutils literal notranslate"><span class="pre">createResourceNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createSBSDocument"><code class="docutils literal notranslate"><span class="pre">createSBSDocument()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createSBSParamInputFromSBSARInput"><code class="docutils literal notranslate"><span class="pre">createSBSParamInputFromSBSARInput()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbsgenerator module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbsgenerator">
+<span id="sbsgenerator-module"></span><h1>sbsgenerator module<a class="headerlink" href="#module-sbsgenerator" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsgenerator</strong> aims to provide useful functions to create/duplicate/connect SBSObjects</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createCompFilterNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createCompFilterNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFilter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createCompFilterNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new compositing node filter with the given parameters.
+For a Bitmap or Svg node, use createResourceNode instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – graph which will contain the created CompFilter node</p></li>
+<li><p><strong>aFilter</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.FilterEnum" title="sbsenum.FilterEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEnum</span></code></a> or str) – type of filter to create</p></li>
+<li><p><strong>aParameters</strong> (dictionary in the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterValue(str)}, optional) – parameters of the filter node</p></li>
+<li><p><strong>aInheritance</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterInheritance(<a class="reference internal" href="sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>)}, optional) – Inheritance of the parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createCompInstanceNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createCompInstanceNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createCompInstanceNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new compositing node instance with the given parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – graph which will contain the created comp instance node</p></li>
+<li><p><strong>aGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – graph to instantiate in the compositing node</p></li>
+<li><p><strong>aDependency</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – dependency associated to the referenced object (himself or external)</p></li>
+<li><p><strong>aPath</strong> (<em>str</em>) – path of the graph definition</p></li>
+<li><p><strong>aParameters</strong> (dictionary in the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterValue(str)}) – parameters of the filter node</p></li>
+<li><p><strong>aInheritance</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterInheritance(<a class="reference internal" href="sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>)}) – Inheritance of the parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createCurveParamsArray">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createCurveParamsArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCompFilter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCurveDefinition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createCurveParamsArray" title="Link to this definition"></a></dt>
+<dd><p>Create the hierarchy of SBSObject necessary to describe the given gradient key values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aCompFilter</strong> (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>) – the Gradient map filter</p></li>
+<li><p><strong>aCurveDefinition</strong> (<a class="reference internal" href="sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CurveDefinition" title="pysbs.sbslibrary.sbslibclasses.CurveDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveDefinition</span></code></a>) – the curve definition to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the new <a class="reference internal" href="params/params.html#params.params.SBSParamsArray" title="params.params.SBSParamsArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsArray</span></code></a> if success, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createEmbeddedSVG">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createEmbeddedSVG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourcePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Resources'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedQuality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createEmbeddedSVG" title="Link to this definition"></a></dt>
+<dd><p>Process the given resource: Create a new SBSResource in the folder ResourceGroup if the resource is not already in.
+Create the SBSGroup ResourceGroup if necessary.
+Create the dependency ‘?himself’ if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – reference document</p></li>
+<li><p><strong>aResourcePath</strong> (<em>str</em>) – relative or absolute path to the resource</p></li>
+<li><p><strong>aResourceGroup</strong> (<a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or str, optional) – <a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or identifier of the group where the resource will be added (the group is created if necessary).    Default to ‘Resources’. Put None to create the resource at the root of the package.</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – Identifier of the resource. If None, the identifier is taken from the resource path</p></li>
+<li><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value(str)}, optional) – attributes of the resource</p></li>
+<li><p><strong>aCookedQuality</strong> (<em>float between 0 and 1</em><em>, </em><em>optional</em>) – bitmap compression quality (only for BITMAP and SVG). Default value is 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createFunction">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunctionIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createFunction" title="Link to this definition"></a></dt>
+<dd><p>Create a new function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentObject</strong> (<a class="reference internal" href="common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – reference to the parent object that will contain this function</p></li>
+<li><p><strong>aFunctionIdentifier</strong> (<em>str</em>) – name of the function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createFunctionInstanceNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createFunctionInstanceNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDynamicValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createFunctionInstanceNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new function node instance of the given function, and set the parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDynamicValue</strong> (<a class="reference internal" href="params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – the dynamic value which will contain the created ParamNode</p></li>
+<li><p><strong>aFunction</strong> (<em>graph.SBSFunction</em>) – the function that will be instantiated with the instance node</p></li>
+<li><p><strong>aPath</strong> (<em>str</em>) – path of the function definition</p></li>
+<li><p><strong>aDependency</strong> – dependency associated to the referenced object (himself or external)</p></li>
+<li><p><strong>aDependency</strong> – <a class="reference internal" href="substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createFunctionNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createFunctionNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDynamicValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createFunctionNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new function node (SBSParamNode) with the given parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDynamicValue</strong> (<a class="reference internal" href="params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – the dynamic value which will contain the created ParamNode</p></li>
+<li><p><strong>aFunction</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a> or str) – type of function to create</p></li>
+<li><p><strong>aParameters</strong> (dictionary in the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a>) : parameterValue(str)}) – parameters of the function node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createGUIObject">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createGUIObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aObjectType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsTitleVisible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsFrameVisible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createGUIObject" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentObject</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> or <a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – The parent graph / function that will contain the GUI object</p></li>
+<li><p><strong>aObjectType</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.GUIObjectTypeEnum" title="sbsenum.GUIObjectTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GUIObjectTypeEnum</span></code></a>) – Kind of GUI Object to create</p></li>
+<li><p><strong>aGUIName</strong> (<em>str</em>) – The GUI object textual content</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em>) – The position of the GUI object</p></li>
+<li><p><strong>aGUIDependency</strong> (<em>str</em><em>, </em><em>optional</em>) – The GUI dependency value (‘NODE?&lt;uid&gt;’), if this GUI object is linked to another object in the graph</p></li>
+<li><p><strong>aSize</strong> (<em>list</em><em> of </em><em>2 float</em>) – The size of the GUI object</p></li>
+<li><p><strong>aTitle</strong> – The title of the GUI object (only for framed comments)</p></li>
+<li><p><strong>aColor</strong> (<em>list</em><em> of </em><em>4 float</em><em>, </em><em>optional</em>) – The color of the GUI object (only for framed comments)</p></li>
+<li><p><strong>aIsTitleVisible</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to display the title of a framed comment. Default to False</p></li>
+<li><p><strong>aIsFrameVisible</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True in case of a framed comment. Default to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createGradientMapParamsArray">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createGradientMapParamsArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCompFilter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aKeyValues</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createGradientMapParamsArray" title="Link to this definition"></a></dt>
+<dd><p>Create the hierarchy of SBSObject necessary to describe the given gradient key values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aCompFilter</strong> (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>) – the Gradient map filter</p></li>
+<li><p><strong>aKeyValues</strong> (list of <a class="reference internal" href="sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.GradientKey" title="pysbs.sbslibrary.sbslibclasses.GradientKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradientKey</span></code></a>) – the gradient map key values to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the new <a class="reference internal" href="params/params.html#params.params.SBSParamsArray" title="params.params.SBSParamsArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsArray</span></code></a> if success, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createGraph">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createGraph" title="Link to this definition"></a></dt>
+<dd><p>Create a new graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentObject</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> or <a class="reference internal" href="substance/content.html#substance.content.SBSContent" title="substance.content.SBSContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSContent</span></code></a>) – reference to the parent object that will contain this graph</p></li>
+<li><p><strong>aGraphIdentifier</strong> (<em>str</em>) – name of the graph</p></li>
+<li><p><strong>aParameters</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterValue(str)}, optional) – parameters of the graph (among the sbslibrary.sbslibclasses.BaseParameters only)</p></li>
+<li><p><strong>aInheritance</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterInheritance(<a class="reference internal" href="sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>)}, optional) – Inheritance of the parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createGroup">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGroupIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createGroup" title="Link to this definition"></a></dt>
+<dd><p>Create a new group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentObject</strong> (<a class="reference internal" href="common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – reference to the parent object that will contain this graph</p></li>
+<li><p><strong>aGroupIdentifier</strong> (<em>str</em>) – name of the group</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createIcon">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createIcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIconAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createIcon" title="Link to this definition"></a></dt>
+<dd><p>Create a SBSIcon from the given image path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIconAbsPath</strong> (<em>str</em>) – The absolute path of the image to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="sbscommon/values.html#sbscommon.values.SBSIcon" title="sbscommon.values.SBSIcon"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSIcon</span></code></a> object created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createImportedBitmap">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createImportedBitmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourcePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Resources'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedQuality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createImportedBitmap" title="Link to this definition"></a></dt>
+<dd><p>Process the given resource: Create a new SBSResource in the folder ResourceGroup if the resource is not already in.
+Create the SBSGroup ResourceGroup if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – reference document</p></li>
+<li><p><strong>aResourcePath</strong> (<em>str</em>) – relative or absolute path to the resource</p></li>
+<li><p><strong>aResourceGroup</strong> (<a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or str, optional) – <a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or identifier of the group where the resource will be added (the group is created if necessary).     ‘Resources’ by default. Put None to create the resource at the root of the package.</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – Identifier of the resource. If None, the identifier is taken from the resource path</p></li>
+<li><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value(str)}, optional) – attributes of the resource</p></li>
+<li><p><strong>aCookedFormat</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.BitmapFormatEnum" title="sbsenum.BitmapFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a>, optional) – bitmap format (JPEG/RAW) (only for BITMAP). Default value is RAW</p></li>
+<li><p><strong>aCookedQuality</strong> (<em>float between 0 and 1</em><em>, </em><em>optional</em>) – bitmap compression quality (only for BITMAP and SVG). Default value is 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createImportedResource">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createImportedResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceTypeEnum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourcePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Resources'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createImportedResource" title="Link to this definition"></a></dt>
+<dd><p>Process the given resource (font, light profile or bsdf measurement): Create a new SBSResource in the folder ResourceGroup if the resource is not already in.
+Create the SBSGroup ResourceGroup if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – reference document</p></li>
+<li><p><strong>aResourceTypeEnum</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceKindEnum</span></code>) – resource kind, among FONT/LIGHT_PROFILE/M_BSDF</p></li>
+<li><p><strong>aResourcePath</strong> (<em>str</em>) – relative or absolute path to the resource</p></li>
+<li><p><strong>aResourceGroup</strong> (<a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or str, optional) – <a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or identifier of the group where the resource will be added (the group is created if necessary).    Default to ‘Resources’. Put None to create the resource at the root of the package.</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – Identifier of the resource. If None, the identifier is taken from the resource path</p></li>
+<li><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value(str)}, optional) – attributes of the resource</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createInputNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createInputNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sbsenum.ColorModeEnum.COLOR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSetAsPrimary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aVisibleIf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createInputNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new compositing node input with the appropriate color.
+Declare it as PrimaryInput if this is the first input node.
+Declare the new <a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – graph which will contain the created Output node</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – output identifier</p></li>
+<li><p><strong>aColorMode</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.ColorModeEnum" title="sbsenum.ColorModeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColorModeEnum</span></code></a>, optional) – color or grayscale. Default is color</p></li>
+<li><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value(str)}, optional) – attributes of the output node</p></li>
+<li><p><strong>aUsages</strong> (dictionary in the format: {<a class="reference internal" href="sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a> : {<a class="reference internal" href="sbsenum.html#sbsenum.UsageDataEnum" title="sbsenum.UsageDataEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageDataEnum</span></code></a> : string}, optional) – usages of this output</p></li>
+<li><p><strong>aSetAsPrimary</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to define this input as the PrimaryInput of the graph. Even if False, the input will be set as the PrimaryInput if this is the first input of the graph. Default to False</p></li>
+<li><p><strong>aParameters</strong> (dictionary {parameter(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterValue(str)}, optional) – parameters of the input node</p></li>
+<li><p><strong>aInheritance</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterInheritance(<a class="reference internal" href="sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>)}, optional) – Inheritance of the parameters</p></li>
+<li><p><strong>aGroup</strong> (<em>str</em><em>, </em><em>optional</em>) – GUI group name. Can uses path with ‘/’ separators.</p></li>
+<li><p><strong>aVisibleIf</strong> (<em>str</em><em>, </em><em>optional</em>) – Condition of visibility of this input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createInputParameter">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createInputParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aWidget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aVisibleIf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Create a <a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> with the given parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUID</strong> (<em>str</em>) – UID of the input parameter</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – identifier of the input parameter</p></li>
+<li><p><strong>aWidget</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a>) – widget to use for this parameter</p></li>
+<li><p><strong>aDefaultValue</strong> (<em>str</em><em>, </em><em>optional</em>) – default value</p></li>
+<li><p><strong>aIsConnectable</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether this parameter can be connected for value computation</p></li>
+<li><p><strong>aOptions</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>: value(str)}, optional) – options</p></li>
+<li><p><strong>aDescription</strong> (<em>str</em><em>, </em><em>optional</em>) – textual description</p></li>
+<li><p><strong>aLabel</strong> (<em>str</em><em>, </em><em>optional</em>) – GUI label for this input parameter</p></li>
+<li><p><strong>aGroup</strong> (<em>str</em><em>, </em><em>optional</em>) – string that contains a group name. Can uses path with ‘/’ separators.</p></li>
+<li><p><strong>aUserData</strong> (<em>str</em><em>, </em><em>optional</em>) – user tags</p></li>
+<li><p><strong>aVisibleIf</strong> (<em>str</em><em>, </em><em>optional</em>) – string boolean expression based on graph inputs values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created <a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> object</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createIterationOnPattern">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createIterationOnPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNbIteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs_NextPattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aForceRandomSeed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIncrementIteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createIterationOnPattern" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Duplicate NbIteration times the given pattern of compositing nodes, and connect each pattern with the previous one
+to create this kind of connection:</div>
+<div class="line">Pattern -&gt; Pattern_1 -&gt; Pattern_2 -&gt; … -&gt; Pattern_N</div>
+<div class="line">It allows to completely define the way two successive patterns are connected.</div>
+<div class="line">For instance, provide aNodeUIDs = [A, B, C] and aNodeUIDs_NextPattern = [A’],
+if the pattern is A -&gt; B -&gt; C, and if C is connected to A’</div>
+<div class="line">If aNodeUIDs_NextPattern is let empty, the function will try to connect the successive patterns
+by the most obvious way, respecting the input / output type (color / grayscale)</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentObject</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> or <a class="reference internal" href="params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – reference SBSObject where the iteration is created</p></li>
+<li><p><strong>aNbIteration</strong> (<em>positive integer</em>) – number of time the pattern must be duplicated</p></li>
+<li><p><strong>aNodeUIDs</strong> (<em>list</em><em> of </em><em>str</em>) – list of node’s UID that constitute the pattern to duplicate</p></li>
+<li><p><strong>aNodeUIDs_NextPattern</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – list of node’s UID that correspond to the inputs of the next pattern, which must be connected to the given pattern. Default to []</p></li>
+<li><p><strong>aForceRandomSeed</strong> (<em>bool</em><em>, </em><em>optional</em>) – specify if a different random seed must be generated for each iteration. Default to False</p></li>
+<li><p><strong>aIncrementIteration</strong> (<em>bool</em><em>, </em><em>optional</em>) – specify if the parameter ‘iteration’ must be incremented at each iteration. Default to False</p></li>
+<li><p><strong>aGUIOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – pattern position offset. Default to [150, 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of <a class="reference internal" href="compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> objects created (including the nodes given in aNodeUIDs_NextPattern), None if failed</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createLinkedResource">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createLinkedResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourcePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceTypeEnum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sbsenum.ResourceTypeEnum.BITMAP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Resources'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedQuality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isUDIM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aForceNew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createLinkedResource" title="Link to this definition"></a></dt>
+<dd><p>Process the given resource: Create a new SBSResource in the folder ResourceGroup if the resource is not already in.
+Create the SBSGroup ResourceGroup if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – reference document</p></li>
+<li><p><strong>aResourcePath</strong> (<em>str</em>) – relative or absolute path to the resource</p></li>
+<li><p><strong>aResourceTypeEnum</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a>) – type of the resource (BITMAP/SVG/SCENE). Default is BITMAP</p></li>
+<li><p><strong>aResourceGroup</strong> (<a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or str, optional) – <a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or identifier of the group where the resource will be added (the group is created if necessary).     ‘Resources’ by default. None to put the resource at the root of the package.</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – Identifier of the resource. If None, the identifier is taken from the resource path</p></li>
+<li><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value(str)}, optional) – attributes of the resource</p></li>
+<li><p><strong>aCookedFormat</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.BitmapFormatEnum" title="sbsenum.BitmapFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a>, optional) – bitmap format (JPEG/RAW) (only for BITMAP). Default value is RAW</p></li>
+<li><p><strong>aCookedQuality</strong> (<em>float between 0 and 1</em><em>, </em><em>optional</em>) – bitmap compression quality (only for BITMAP and SVG). Default value is 0</p></li>
+<li><p><strong>isUDIM</strong> (<em>bool</em><em>, </em><em>optional</em>) – (only for SCENE) True to use UDIMs on this scene resource. Default to False</p></li>
+<li><p><strong>aForceNew</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to force the resource creation even if it is already included in the package. Default to False</p></li>
+<li><p><strong>isRelToPackage</strong> (<em>bool</em><em>, </em><em>optional</em>) – the given path is relative, if isRelToPackage is True it is relative to the sbs package otherwise it is relative to cwd.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createMDLGraph">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createMDLGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createMDLGraph" title="Link to this definition"></a></dt>
+<dd><p>Create a new MDL graph with an output node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentObject</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> or <a class="reference internal" href="substance/content.html#substance.content.SBSContent" title="substance.content.SBSContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSContent</span></code></a>) – reference to the parent object that will contain this graph</p></li>
+<li><p><strong>aGraphIdentifier</strong> (<em>str</em>) – name of the graph</p></li>
+<li><p><strong>aCreateOutputNode</strong> (<em>bool</em>) – True to create the output node. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createMDLNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createMDLNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createMDLNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new MDL node with the given parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>) – graph which will contain the created MDL node</p></li>
+<li><p><strong>aImplementationKind</strong> (<a class="reference internal" href="mdl/mdlenum.html#mdl.mdlenum.MDLImplementationKindEnum" title="mdl.mdlenum.MDLImplementationKindEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplementationKindEnum</span></code></a>) – kind of mdl node implementation to create</p></li>
+<li><p><strong>aPath</strong> (<em>str</em><em>, </em><em>optional</em>) – mdl path of the node to create</p></li>
+<li><p><strong>aParameters</strong> (<em>dictionary in the format {parameterName</em><em>(</em><em>str</em><em>) </em><em>: parameterValue</em><em>(</em><em>str</em><em>)</em><em>}</em><em>, </em><em>optional</em>) – parameters of the mdl node</p></li>
+<li><p><strong>aCstAnnotations</strong> (dictionary in the format {annotation(<a class="reference internal" href="mdl/mdlenum.html#mdl.mdlenum.MDLAnnotationEnum" title="mdl.mdlenum.MDLAnnotationEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotationEnum</span></code></a>),annotationValue(str)}, optional) – for a constant: annotations of the mdl node</p></li>
+<li><p><strong>aCstIsExposed</strong> (<em>bool</em><em>, </em><em>optional</em>) – for a constant: defines if this constant is exposed as an input parameter of the graph</p></li>
+<li><p><strong>aCstName</strong> (<em>str</em><em>, </em><em>optional</em>) – for a constant: name of the constant. If None, a name is affected by default using the constant type</p></li>
+<li><p><strong>aCstValue</strong> (<em>any type</em><em>, </em><em>optional</em>) – for a constant: value of the constant</p></li>
+<li><p><strong>aCstTypeModifier</strong> (<a class="reference internal" href="mdl/mdlenum.html#mdl.mdlenum.MDLTypeModifierEnum" title="mdl.mdlenum.MDLTypeModifierEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLTypeModifierEnum</span></code></a>) – for a constant: type modifier to set. Default to ‘auto’</p></li>
+<li><p><strong>aInstanceOfGraph</strong> (<a class="reference internal" href="common_interfaces/basegraph.html#common_interfaces.basegraph.BaseGraph" title="common_interfaces.basegraph.BaseGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseGraph</span></code></a>) – for a Substance or MDL graph instance: the instantiated graph</p></li>
+<li><p><strong>aInstanceDependency</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – for a Substance or MDL graph instance: the associated dependency</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a> object</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createOutputNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createOutputNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sbsenum.TextureFormatEnum.DEFAULT_FORMAT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMipmaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsages</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aVisibleIf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createOutputNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new compositing node output.
+Declare the new <a class="reference internal" href="graph/output.html#graph.output.SBSRootOutput" title="graph.output.SBSRootOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSRootOutput</span></code></a> and <a class="reference internal" href="graph/output.html#graph.output.SBSGraphOutput" title="graph.output.SBSGraphOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraphOutput</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – graph which will contain the created Output node</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – output identifier</p></li>
+<li><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value(str)}, optional) – attributes of the output node</p></li>
+<li><p><strong>aOutputFormat</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.TextureFormatEnum" title="sbsenum.TextureFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a>, optional) – output format. default value is DEFAULT_FORMAT</p></li>
+<li><p><strong>aMipmaps</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.MipmapEnum" title="sbsenum.MipmapEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MipmapEnum</span></code></a>, optional) – default value is FULL_PYRAMID</p></li>
+<li><p><strong>aUsages</strong> (dictionary in the format: {<a class="reference internal" href="sbsenum.html#sbsenum.UsageEnum" title="sbsenum.UsageEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageEnum</span></code></a> : {<a class="reference internal" href="sbsenum.html#sbsenum.UsageDataEnum" title="sbsenum.UsageDataEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsageDataEnum</span></code></a> : string}, optional) – usages of this output</p></li>
+<li><p><strong>aGroup</strong> (<em>str</em><em>, </em><em>optional</em>) – GUI group of this output</p></li>
+<li><p><strong>aVisibleIf</strong> (<em>str</em><em>, </em><em>optional</em>) – Condition of visibility of this output</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createPreset">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createPreset" title="Link to this definition"></a></dt>
+<dd><p>Create a new empty preset with the given label and usertags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The graph associated to the preset to create</p></li>
+<li><p><strong>aLabel</strong> (<em>str</em>) – The label of this preset</p></li>
+<li><p><strong>aUsertags</strong> (<em>str</em><em>, </em><em>optional</em>) – The usertags of this preset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the created preset as a <a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSPreset" title="graph.inputparameters.SBSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPreset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createResourceNode">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createResourceNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourcePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResourceGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Resources'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedQuality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createResourceNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new ‘bitmap’ node using the provided resourcePath. Create the referenced resource if necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFilter</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.FilterEnum" title="sbsenum.FilterEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEnum</span></code></a>) – Filter type: BITMAP or SVG</p></li>
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – reference document</p></li>
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – graph which will contain the created Bitmap node</p></li>
+<li><p><strong>aResourcePath</strong> (<em>str</em>) – internal (<em>pkg:///MyGroup/MyResourceIdentifier</em>), relative (to the current package) or absolute path to the bitmap resource to use as resource</p></li>
+<li><p><strong>aParameters</strong> (dictionary in the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterValue(str)}, optional) – parameters of the Bitmap node</p></li>
+<li><p><strong>aInheritance</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterInheritance(<a class="reference internal" href="sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>)}, optional) – Inheritance of the parameters</p></li>
+<li><p><strong>aResourceGroup</strong> (<a class="reference internal" href="substance/content.html#substance.content.SBSGroup" title="substance.content.SBSGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGroup</span></code></a> or str, optional) – SBSGroup or identifier of the group where the resource will be added (the group is created if necessary).     Default to ‘Resources’. Put None to create the resource at the root of the package.</p></li>
+<li><p><strong>aCookedFormat</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.BitmapFormatEnum" title="sbsenum.BitmapFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a>, optional) – resource bitmap format (JPEG/RAW). default value is RAW</p></li>
+<li><p><strong>aCookedQuality</strong> (<em>float between 0 and 1</em><em>, </em><em>optional</em>) – resource bitmap compression quality. default value is 0</p></li>
+<li><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value(str)}, optional) – attributes of the resource</p></li>
+<li><p><strong>aAutodetectImageParameters</strong> (<em>bool</em><em>, </em><em>optional</em>) – Autodetect and set resolution and bitdepth for the bitmap. Default to False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> object</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createSBSDocument">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createSBSDocument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createSBSDocument" title="Link to this definition"></a></dt>
+<dd><p>Create a new sbs document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – initialized context (contains alias information)</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – destination file of the sbs document (.sbs extension)</p></li>
+<li><p><strong>aGraphIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – name of the graph to create by default. if None, no graph is created</p></li>
+<li><p><strong>aParameters</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterValue(str)}, optional) – parameters of the graph (among the sbslibrary.sbslibclasses.BaseParameters only)</p></li>
+<li><p><strong>aInheritance</strong> (dictionary with the format {parameterName(<a class="reference internal" href="sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>) : parameterInheritance(<a class="reference internal" href="sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>)}, optional) – Inheritance of the parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsgenerator.createSBSParamInputFromSBSARInput">
+<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createSBSParamInputFromSBSARInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSARInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createSBSParamInputFromSBSARInput" title="Link to this definition"></a></dt>
+<dd><p>Create a <a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> by giving a <a class="reference internal" href="sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a>. If an identifier, label or default value is not 
+given the aSBSARInput’s values will be used instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – the graph that will receive the parameter</p></li>
+<li><p><strong>aSBSARInput</strong> (<a class="reference internal" href="sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a>) – An input from a SBSAR file. SBSParamInput attributes will be derived from it.</p></li>
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – given if the new SBSParamInput’s identifier must be different than the aSBSARInput’s identifier</p></li>
+<li><p><strong>aLabel</strong> (<em>str</em>) – given if the new SBSParamInput’s label must be different than the aSBSARInput’s label</p></li>
+<li><p><strong>aDefaultValue</strong> (<em>str</em>) – given if the new SBSParamInput’s default value must be different than the aSBSARInput one</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsexporter.html" class="btn btn-neutral float-left" title="sbsexporter module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsimpactmanager.html" class="btn btn-neutral float-right" title="sbsimpactmanager module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

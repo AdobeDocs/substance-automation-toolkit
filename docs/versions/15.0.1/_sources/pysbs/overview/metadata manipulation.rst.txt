@@ -1,0 +1,169 @@
+.. _ref-to-sbsmetadata :
+
+Package's metadata
+^^^^^^^^^^^^^^^^^^
+Since 2019.2, Substance Designer allow users to add metadata to substance files.
+
+It's possible to add metadata for packages, graph and input / output nodes. For each of them a common interface is shared to manipulate
+metadata. :ref:`ref-to-common_interfaces.metadata`
+
+
+It's possible to create two type of metadata:
+
+- String:
+
+.. code-block:: python
+
+    # create a new doc
+    sbs_doc = sbsgenerator.createSBSDocument(context.Context(), "foo.sbs")
+
+    # add two new string metadata to the package (doc)
+    sbs_doc.createMetaDataStr("foo", "bar")
+    sbs_doc.createMetaDataStr("fooz", "baz")
+
+
+- Resources:
+
+.. code-block:: python
+
+    # create a new doc
+    sbs_doc = sbsgenerator.createSBSDocument(context.Context(), "foo.sbs")
+    # link a resource
+    res = sbs_doc.createLinkedResource(aResourceTypeEnum=sbsenum.ResourceTypeEnum.BITMAP, aResourcePath="resource.png")
+
+    # add a new url metadata
+    sbs_doc.createMetaDataUrl("baz", res)
+
+Note, an url metadata value must be a resource object (SBSResource) or a pkg url of type "pkg:///...".
+Each metadata has a unique key name, it's not possible to create several metadata with the same key name and trying to
+do that will raise an exception (SBSMetaDataTreeNameConflict)
+
+To get or set a value of already existing metadata:
+
+.. code-block:: python
+
+    # get a string metadata
+    meta_srt = sbs_doc.getMetaData("foo")
+    # get a value
+    meta_str.getValue()
+    # >>> bar
+    # set a value
+    meta_str.setValue("foofoo")
+    # get an url metadata
+    meta_url = sbs_doc.getMetaData("fooz")
+    # get a value
+    meta_url.getValue()
+    # >>> pkg:///resource.png
+    # set a value
+    meta_url.setValue(a_resource)
+
+
+To remove metadata:
+
+.. code-block:: python
+
+    # delete a metadata, key and value
+    sbs_doc.deleteMetaData("foo")
+    # >>> True
+
+To get a dict of all metadata:
+
+.. code-block:: python
+
+    # get a dict
+    sbs_doc.getAllMetadata()
+    # >>> {"foo": "foofoo", "fooz": "pkg:///resource.png"}
+
+
+
+Same for graph and input / output nodes:
+
+.. code-block:: python
+
+    # get a dict
+    graph = sbs_doc.getSBSGraphList()[0]()
+    md_graph = graph.getAllMetaData()
+
+    input_param = graph.mParamInputs[0]
+    md_input = input_param.getAllMetaData()
+
+    output_graph = graph.mGraphOutputs[0]
+    md_output = output_graph.getAllMetaData()
+
+
+.. _ref-to-sbsmetadatajson :
+
+Metadata from a sbsar
+---------------------
+
+Metadata are published within the sbsar and their related resource files.
+Since sbsar is a publish format it's not yet possible to edit the metadata. If you want to do that, edit the sbs file and
+re-cook it.
+
+Sbsar package, sbsar graph and sbsar input / output nodes share the same metadata common interface. :ref:`ref-to-sbsarchive.sbsarmetadata` inherited by :ref:`ref-to-common_interfaces.metadata`
+Except some specific methods like `extractSbsarMetaDataResource` and `extractSbsarMetaDataPack`.
+
+Like in SBSDocument users can get all metadata:
+
+.. code-block:: python
+
+    sbsar = sbsarchive.SBSArchive(context.Context(), "foo.sbsar")
+    # as a dict
+    sbsar.getAllMetaData()
+    # >>> {"foo": "foofoo", "fooz": "resources/1/resource.png"}
+
+    # as a json file
+    sbsar.extractSbsarMetaDataJson("metadata.json")
+    # >>> metadata.json
+
+Note the change of the url, it is converted as a sbsar resource path.
+
+As metadata resource files are present in the sbsar it's also possible to get them:
+
+.. code-block:: python
+
+    sbsar = sbsarchive.SBSArchive(context.Context(), "foo.sbsar")
+    meta = sbsar.getAllMetaData()
+    # by a url metadata value
+    sbsar.extractSbsarMetaDataResource("a_destination/directory", meta["fooz"])
+    # >>> a_destination/directory/resource.png
+
+    # or all in one
+    extract_files = sbsar.extractSbsarMetaDataPack("a_destination/directory")
+    # >>> ['a_destination/directory/resource.png']
+
+
+Same for sbsar graph and sbsar input / output nodes:
+
+.. code-block:: python
+
+    # get a dict
+    graph = sbsar.getSBSGraphList()[0]()
+    md_graph = graph.getAllMetaData()
+
+    input_param = graph.getInputs()[0]
+    md_input = input_param.getAllMetaData()
+
+    output_graph = graph.getGraphOutputs()[0]
+    md_output = output_graph.getAllMetaData()
+
+
+.. _ref-to-resourceother :
+
+
+Resource of type OTHER
+----------------------
+
+With the arrival of metadata a new type of resource has been added, OTHER.
+This makes it possible to link any type of resource regardless of if Substance Designer supports it or not but it
+can't be used in any graphs.
+Resource metadata of type OTHER will be exported with the sbsar.
+
+Here is an example of creating metadata of the type OTHER:
+
+.. code-block:: python
+
+        sbs_doc = sbsgenerator.createSBSDocument(context.Context(), "foo.sbs")
+        # link an OTHER resource
+        res = sbs_doc.createLinkedResource("my_resource.blend", sbsenum.ResourceTypeEnum.OTHER)
+

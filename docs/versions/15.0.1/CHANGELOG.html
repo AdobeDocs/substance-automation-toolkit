@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/_static/custom_rtd.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="sbsupdater command line options" href="pysbs/sat_commandlines/sbsupdater_options.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/overview/overview.html">API overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pysbs/sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">15.0.1 / 2025.0.1 (2025-07-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">14.1.0 / 2024.1.0 (2025-01-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">14.0.0 / 2024.0.0 (2024-09-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">13.1.2 / 2023.1.2 (2024-05-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">13.1.1 / 2023.1.1 (2024-02-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">13.0.2 / 2023.0.2 (2023-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">13.0.0 / 2023.0.0 (2023-07-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">12.4.0 / 2022.4.0 (2023-03-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">12.3.0 / 2022.3.0 (2022-12-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">12.1.0 / 2022.1.0 (2022-05-16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">11.3.3 / 2021.3.3 (2022-02-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">11.3.0 / 2021.3.0 (2021-12-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">11.2.2 / 2021.2.2 (2021-09-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">11.2.1 / 2021.2.1 (2021-08-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">11.2.0 / 2021.2.0 (2021-07-05)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">11.1.2 / 2021.1.2 (2021-03-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">11.1.1 / 2021.1.1 (2021-03-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">11.1.0 / 2021.1.0 (2021-02-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">10.2.3 / 2020.2.3 (2020-12-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">10.2.2 / 2020.2.2 (2020-11-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">10.2.1 / 2020.2.1 (2020-11-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">10.2.0 / 2020.2.0 (2020-10-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">10.1.3 / 2020.1.3 (2020-07-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id24">10.1.1 / 2020.1.1 (2020-04-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id25">2019.3.0 (2020-01-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id26">2019.2.3 (2019-11-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id27">2019.2.2 (2019-11-5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id28">2019.2.1 (2019-09-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id29">2019.1.2 (2019-07-20)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id30">2019.1.1 (2019-05-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id31">2019.1.0 (2019-05-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id32">2018.3.0 (2018-11-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id33">2018.2.0 (2018-08-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id34">2018.1.0 (2018-04-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id35">2017.2.3 (2018-02-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id36">2017.2.2 (2017-10-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id37">2017.2.1 (2017-09-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id38">2017.2.0 (2017-08-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id39">2017.1.1 (2017-07-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id40">2017.1.0 (2017-06-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id41">1.0.3 (2017-05-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id42">1.0.2 (2017-05-17)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id43">1.0.1 (2017-03-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id44">1.0.0 (2017-03-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id45">0.1.7 (2017-03-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id46">0.1.6 (2017-03-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id47">0.1.5 (2017-03-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id48">0.1.4 (2017-03-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id49">0.1.3 (2017-03-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id50">0.1.2 (2017-03-01)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id51">0.1.1 (2017-03-01)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Changelog</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>15.0.1 / 2025.0.1 (2025-07-22)<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Content][update] Content updated with Designer 15.0.1</p></li>
+<li><p>[Feature][pysbs][resource] Add support for USD, STL, PLY and GLTF resource linking <cite>sbsenum.ResourceTypeEnum.SCENE</cite></p></li>
+<li><p>[Feature][pysbs] Support display of Dot node connections as portals</p></li>
+<li><p>[SBSBaker] Rename to substance3d_baker</p></li>
+<li><p>[SBSBaker] Create an option to control the backend order</p></li>
+<li><p>[SBSBaker] Improve use of StringList argument</p></li>
+<li><p>[SBSBaker] Rename “match_source_instance” to “match_mesh_name”</p></li>
+<li><p>[SBSBaker] Rename “Submesh” to “GeomSubset”</p></li>
+<li><p>[SBSBaker][pysbs] <cite>batchtools</cite> apis updated with new bakers and option names</p></li>
+<li><p>[SBSBaker][BREAKING CHANGE] Json baker parameters file has been updated, it is not compatible with previous versions.</p></li>
+<li><p>[SBSBaker] <cite>batchtools.substance3d_baker_update()</cite> updates old json baker parameters files to the new format.</p></li>
+<li><p>[SBSBaker] <cite>batchtools.substance3d_baker_run()</cite> detects the previous json baker parameters file version and automatically updates it to the new format.</p></li>
+<li><p>[Fix][documentation] Fix doc html theme</p></li>
+<li><p>[Fix][pysbs] Fix <cite>deleteMetaData()</cite></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>14.1.0 / 2024.1.0 (2025-01-14)<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Content][update] Content updated with Designer 14.1.0</p></li>
+<li><p>[Feature][pysbs][sbsexporter] Add an option to create a subfolder</p></li>
+<li><p>[Fix][pysbs][graph] Crash when exposing parameters with specific types of a SBSAR node</p></li>
+<li><p>[Fix][pysbs][sbsexporter] graphtype metadata is lost when exporting</p></li>
+<li><p>[Fix][pysbs][sbsexporter] crash when exporting a graph with a node with a non-unique identifier</p></li>
+<li><p>[Fix][pysbs][sbsexporter] Fix error when calling getExportDependencies</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>14.0.0 / 2024.0.0 (2024-09-11)<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Content][update] Content updated with Designer 14.0.0</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>13.1.2 / 2023.1.2 (2024-05-21)<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Updater] Updated and Compatible with new sbs format 1.1.0.202401 (need to update sbs files)</p></li>
+<li><p>[Content][update] Content updated with Designer 13.1.2</p></li>
+<li><p>[Fix][pysbs][sbsarmanager] minor fixes</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>13.1.1 / 2023.1.1 (2024-02-06)<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][pysbs][sbsenum] Add support for While node in <cite>FonctionEum</cite></p></li>
+<li><p>[Feature][pysbs][sbsenum] Add support for Pow button in <cite>FonctionEum</cite></p></li>
+<li><p>[Feature][pysbs][sbsenum] Add support for side by side button in <cite>WidgetEum</cite></p></li>
+<li><p>[Feature][pysbs][sbsenum] Add support for RG component in <cite>ComponentsEnum</cite></p></li>
+<li><p>[Feature][pysbs][sbsarmanager] Add new functions to manage presets, icons and parameter values of SBSAR files</p></li>
+<li><p>[Feature][pysbs][sbsargraph] New :meth: <cite>hasIcon</cite></p></li>
+<li><p>[Fix][pysbs][compnode] Crash when using :meth: <cite>applyPreset</cite> on a CompInstanceNode with not existing parameters</p></li>
+<li><p>[Content][update] Content updated with Designer 13.1.1</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>13.0.2 / 2023.0.2 (2023-08-08)<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>[Content][update] Content updated with Designer 13.0.2</p>
+</section>
+<section id="id7">
+<h2>13.0.0 / 2023.0.0 (2023-07-20)<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Updater] Updated and Compatible with new sbs format 1.1.0.202302 (need to update sbs files)</p></li>
+<li><p>[Content][update] Content updated with Designer 13.0.0</p></li>
+<li><p>[Update] Minimum MacOS version is now MacOS 11</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>12.4.0 / 2022.4.0 (2023-03-01)<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[MacOS] Support for Apple Silicon</p></li>
+<li><p>[Content][update] Content updated with Designer 12.4.0</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>12.3.0 / 2022.3.0 (2022-12-12)<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Updater] Updated and Compatible with new sbs format 1.1.0.202204 (need to update sbs files)</p></li>
+<li><p>[Updater] MDL/Model graph (mdl module) support not present for this version</p></li>
+<li><p>[Content][update] Content updated with Designer 12.3.0</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2>12.1.0 / 2022.1.0 (2022-05-16)<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Features][sbsmtools] A new command line to export model graph into fbx, obj or sbsm</p></li>
+<li><p>[Feature][pysbs] New <cite>batchtools.sbsmtools_export</cite> wrapper</p></li>
+<li><p>[Feature][linux][sbsrender] The Vulkan engine is available on linux platform set <cite>–engine vk</cite> to use it. Vulkan engine can be used instead of opengl on a gpu server without display.</p></li>
+<li><p>[Fix][pysbs] remove deprecated <cite>collections.Sequence</cite> that causes crashes with python version &gt; 9</p></li>
+<li><p>[Content][update] Content updated with Designer 12.1.0</p></li>
+</ul>
+</section>
+<section id="id11">
+<h2>11.3.3 / 2021.3.3 (2022-02-08)<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Fix][pysbs][graph] <code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSGraph.exposeAsInputParam()</span></code> doesn’t anymore fail anymore when identifier is not unique</p></li>
+<li><p>[Content][update] Content updated with Designer 11.3.3</p></li>
+<li><p>[Updater] Updated and Compatible with new sbs format 1.1.0.202201 (need to update sbs files)</p></li>
+</ul>
+</section>
+<section id="id12">
+<h2>11.3.0 / 2021.3.0 (2021-12-02)<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][pysbs][modelgraph] New ModelGraph API</p></li>
+<li><p>[Feature][pysbs][graphoutput] New method <a class="reference internal" href="pysbs/graph/output.html#graph.output.SBSGraphOutput.getIdentifier" title="graph.output.SBSGraphOutput.getIdentifier"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSGraphOutput.getIdentifier()</span></code></a></p></li>
+<li><p>[Feature][pysbs][thumbnail] New argument <cite>customValues</cite> for <cite>thumbnail.generate()</cite> to pass input values to the thumbnail generation</p></li>
+<li><p>[Feature][pysbs][graph] New method <a class="reference internal" href="pysbs/graph/graph.html#graph.graph.SBSGraph.getGraphTypeName" title="graph.graph.SBSGraph.getGraphTypeName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSGraph.getGraphTypeName()</span></code></a> to return the type name</p></li>
+<li><p>[Fix][pysbs][graphoutput] Fix <a class="reference internal" href="pysbs/graph/output.html#graph.output.SBSGraphOutput.addUsage" title="graph.output.SBSGraphOutput.addUsage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSGraphOutput.addUsage()</span></code></a>, component value doesn’t make the <cite>doc.writeDoc()</cite> buggy</p></li>
+<li><p>[Fix][pysbs][filter] Fix Blend’s alphablending value</p></li>
+<li><p>[Content][update] Content updated with Designer 11.3.0</p></li>
+<li><p>[Updater] Updated and Compatible with new sbs format 1.1.0.202105 (need to update sbs files)</p></li>
+</ul>
+</section>
+<section id="id13">
+<h2>11.2.2 / 2021.2.2 (2021-09-30)<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][pysbs][thumbnail] add aThumbnailCompression argument to set bit-depth compression, default to 8</p></li>
+<li><p>[Feature][pysbs][graph] add new graph types for Decals, Atlases, Environment lights and Light textures <a class="reference internal" href="pysbs/sbsenum.html#sbsenum.GraphTypeEnum" title="sbsenum.GraphTypeEnum"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sbsenum.GraphTypeEnum()</span></code></a></p></li>
+<li><p>[Content][update] content updated with Designer 11.2.2</p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>11.2.1 / 2021.2.1 (2021-08-02)<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Doc] add html-doc.zip local doc to the Adobe Admin Console SAT version</p></li>
+<li><p>[Fix][sbsbaker] Fix annoying qtWarnings and remove deprecated option –invert-normal</p></li>
+<li><p>[Content][update] content updated with Designer 11.2.1</p></li>
+</ul>
+</section>
+<section id="id15">
+<h2>11.2.0 / 2021.2.0 (2021-07-05)<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][sbsbaker][run] Now <cite>sbsbaker run</cite> support udim / uvtiles parameter from json or Designer baker preset file</p></li>
+<li><p>[Feature][pysbs] New methods <a class="reference internal" href="pysbs/graph/inputparameters.html#graph.inputparameters.SBSParamInput.setIdentifier" title="graph.inputparameters.SBSParamInput.setIdentifier"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSParamInput.setIdentifier()</span></code></a> and <a class="reference internal" href="pysbs/graph/graph.html#graph.graph.SBSGraph.changeInputParameterIdentifier" title="graph.graph.SBSGraph.changeInputParameterIdentifier"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSGraph.changeInputParameterIdentifier()</span></code></a> to edit an input’s identifier and propagate the new value to system dependent like functions, visibleIf…</p></li>
+<li><p>[Feature][pysbs] New attribute graph type is available with <code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSGraph.setGraphType(sbsenum.GraphTypeEnum)()</span></code></p></li>
+<li><p>[Feature][pysbs] New global parameters system to set options before pysbs execution</p></li>
+<li><p>[Feature][pysbs] Global parameter <cite>pysbs.setRaiseAllErrors(True/False) or env SAT_RAISE_ALL_ERRORS=1/0</cite> avoid to pysbs to catch some exceptions</p></li>
+<li><p>[Feature][pysbs] Global parameter <cite>pysbs.setSkipDocstringGen(True/False) or env SAT_SKIP_DOCSTRING_GEN=1/0</cite> stop docstring auto generation, can be useful in some specific cases.</p></li>
+<li><p>[Fix][pysbs][template] Template name updated</p></li>
+<li><p>[Content][update] content updated with Designer 11.2.0</p></li>
+<li><p>[Updater] Updated and Compatible with new sbs format 1.1.0.202102 (need to update sbs files)</p></li>
+</ul>
+</section>
+<section id="id16">
+<h2>11.1.2 / 2021.1.2 (2021-03-22)<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][sbsrender] if it’s possible, gpu engine is now used by default. Use <cite>–engine</cite> flag to precise another engine file.</p></li>
+<li><p>[Feature][pysbs][resource] SBSDocument has a new deleteSBSResource function to delete resource(s) by identifier.</p></li>
+<li><p>[Fix][pysbs][sbs/sbsar] Able to pass kwargs to generateThumbnail to set up batchtools.thumbnail.generate inside call <a class="reference internal" href="pysbs/substance/substance.html#substance.substance.SBSDocument.generateThumbnail" title="substance.substance.SBSDocument.generateThumbnail"><code class="xref py py-meth docutils literal notranslate"><span class="pre">SBSDocument.generateThumbnail()</span></code></a></p></li>
+<li><p>[Fix][pysbs][thumbnail] Thumbnail size is not locked anymore, aThumbnailSize argument can be used to set the thumbnail resolution. aThumbnailSize=(9, 9) 512x512 by default.</p></li>
+<li><p>[Fix][pysbs][thumbnail] Now, thumbnail generation quiet option also quiet sbsrender’s stdout.</p></li>
+<li><p>[Fix][pysbs][sbs] Now, doc.writeDoc(aUpdateRelativePaths=True) doesn’t update paths if context’s sbsproject is set to use absolute paths.</p></li>
+<li><p>[Fix][Engine][SSE2] ‘Level in mid’ value other than 0.5 results in 1.0 output</p></li>
+<li><p>[Content][update] content updated with SD bugfix 11.1.2</p></li>
+</ul>
+</section>
+<section id="id17">
+<h2>11.1.1 / 2021.1.1 (2021-03-02)<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][pysbs][metadata] PySBS supports metadata for graphs, input nodes and output nodes.</p></li>
+<li><p>[Feature][pysbs][metadata] create a metadata common interface for sbs and sbsar objects.</p></li>
+<li><p>[Feature][pysbs][batchtools] add quiet option for <cite>thumbnail.generate(quiet=True)</cite> to disable warning messages.</p></li>
+<li><p>[Content][update] content updated with SD bugfix 11.1.1</p></li>
+</ul>
+</section>
+<section id="id18">
+<h2>11.1.0 / 2021.1.0 (2021-02-08)<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][spotcolorinfo] spotcolorinfo is a new batchtool, useful to convert book color code (pantone…) to various data like spotcolorid, rgb… <a class="reference internal" href="pysbs/overview/Spot%20Colors.html#ref-to-overview-spotcolor"><span class="std std-ref">SAT and Spot colors</span></a></p></li>
+<li><p>[Feature][pysbs][spotcolor] PySBS fully supports spotcolor, set, get or get info from spotcolor substance parameters <a class="reference internal" href="pysbs/overview/Spot%20Colors.html#ref-to-overview-spotcolor-pysbs"><span class="std std-ref">Spot colors with PySBS</span></a></p></li>
+<li><p>[Feature][pysbs][batchtools] new module and function helper to generate thumbnail easily <cite>thumbnail.generate()</cite> <a class="reference internal" href="pysbs/overview/Thumbnail%20creation%20with%20SAT.html#ref-to-overview-thumbnailbatchtools"><span class="std std-ref">Generate thumbnail with pysbs.batchtools.thumbnail</span></a></p></li>
+<li><p>[Feature][pysbs][sbs/sbsar] generate and embed thumbnails in sbs and sbsar file <cite>sbs.generateThumbnail() sbsar.generateThumbnail()</cite> <a class="reference internal" href="pysbs/overview/Thumbnail%20creation%20with%20SAT.html#ref-to-overview-thumbnailpysbs"><span class="std std-ref">Generating and embedding thumbnail directly from a substance or substance archive</span></a></p></li>
+<li><p>[Feature][pysbs][sbsarmanager] sbsarmanager allows to edit sbsar, currently add/replace or remove an icon/thumbnail from a sbsar, more functions in the future <a class="reference internal" href="pysbs/overview/Edit%20sbsar%20with%20SBSARManager.html#ref-to-overview-sbsarmanager"><span class="std std-ref">Edit substance archive with SBSARManager</span></a></p></li>
+<li><p>[Feature][pysbs][batchtools] sbsbaker_curvature_from_mesh now uses curvature-from-mesh-v2 baker, pass arg <cite>legacy=True</cite> if you want to keep using the old curvature-from-mesh baker</p></li>
+<li><p>[Feature][pysbs][disable node] PySBS can read and write substances that have disable nodes but not able yet to enable or disable nodes</p></li>
+<li><p>[Feature][sbsrender] <cite>sbsrender render</cite> supports input images and outputs selection based on Usages with new flags : <cite>–set-entry-usage</cite> and <cite>–input-graph-output-usage</cite></p></li>
+<li><p>[Feature][sbsrender] <cite>sbsrender render</cite> has a new flag <cite>–memory-budget</cite>, set the maximum amount of ram when CPU engine is used, default 2000MB</p></li>
+<li><p>[Feature][doc] a html Sphinx with RTD theme documentation is now available in the install directory.</p></li>
+<li><p>[Warning][pysbs][context] deprecated <cite>context.setSubstanceDesignerPath context.getSubstanceDesignerPath</cite> Substance Designer is not necessary for the correct functioning of SAT</p></li>
+<li><p>[Fix][pysbs][params] now PySBS raise error if the value type mismatch the parameter type</p></li>
+<li><p>[Fix][pysbs][connections] PySBS doesn’t raise connection error anymore when multi type function nodes (if..else, set, instance, sequence, passthrough) are set as output</p></li>
+</ul>
+</section>
+<section id="id19">
+<h2>10.2.3 / 2020.2.3 (2020-12-17)<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][pysbs][preset] Apply an existing preset from an instance node with <cite>node.applyPreset(aPresetLabel)</cite></p></li>
+<li><p>[Feature][pysbs][preset] Apply a file preset from an instance node with <cite>node.applyPresetFromFile(aPresetFilePath, aPresetLabel)</cite></p></li>
+<li><p>[Feature][pysbs][values] Ability to pass default value to graph.createInputValueNode(aDefaultValue)</p></li>
+<li><p>[Fix][pysbs][inputvalues] CreateInputValueNode created a corrupted node causing the SD to crash</p></li>
+<li><p>[Fix][pysbs][inputvalues] Connections between certain input/output values may not be possible</p></li>
+<li><p>[Fix][pysbs][input] Color / Grayscale inputs did not have default values</p></li>
+<li><p>[Fix][sbsrender] export 8k failed</p></li>
+</ul>
+</section>
+<section id="id20">
+<h2>10.2.2 / 2020.2.2 (2020-11-17)<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Fix][Linux][xmp] Xmp lib was not loaded correctly</p></li>
+</ul>
+</section>
+<section id="id21">
+<h2>10.2.1 / 2020.2.1 (2020-11-10)<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Warning][pysbs] Add warning about the end of guarantee compatibility with Python2 from mid 2021</p></li>
+<li><p>[Feature][pysbs][graph] Add new graph’s method to create Input Value Node <cite>graph.createInputValueNode()</cite></p></li>
+<li><p>[Feature][pysbs][graph/sbsargraph] Add some methods to get output Format and Mipmaps from graph or output graph</p></li>
+<li><p>[Fix][sbsbaker] ‘–apply-diffusion’ argument returned an error in ‘ambient-occlusion’ baker</p></li>
+<li><p>[Fix][sbsrender] ICC profiles of injected bitmaps was not used</p></li>
+</ul>
+</section>
+<section id="id22">
+<h2>10.2.0 / 2020.2.0 (2020-10-20)<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][sbsbaker][run] batch baking, <cite>sbsbaker run</cite>, now keeps low and high geometry files in memory, it become the faster way to do several bakes in a single process <a class="reference external" href="https://docs.substance3d.com/display/SAT/sbsbaker+Example+Command+Lines">https://docs.substance3d.com/display/SAT/sbsbaker+Example+Command+Lines</a></p></li>
+<li><p>[Feature][sbsrender/sbscooker/sbsmutator] if the correct extension is present in the output file name, the name of the final output file will not have the double extension</p></li>
+<li><p>[Feature][pysbs][batchtools] <cite>batchtools.sbsbaker_run</cite> can directly use a python dict (json compliant) as argument, <cite>batchtools.sbsbaker_run(a_dict)</cite></p></li>
+<li><p>[Feature][pysbs][graph] new function to expose node’s input parameter, <cite>graph.exposeParamInput(aDoc, aNode, aParamIdentifierToExposed)</cite></p></li>
+<li><p>[Feature][pysbs][impactmanager] SBSImpactManager has a new method to get all substance dependencies recursively (and their status) for a given substance file or directory.</p></li>
+<li><p>[Feature][pysbs][metadata] sbsar’s metadata are now write and read as XMP format</p></li>
+<li><p>[Feature][pysbs][install] pysbs is now a python wheel package (.whl) instead of zip, the pysbs installation doesn’t change <cite>pip install Pysbs-2020.2.0-py2.py3-none-win_amd64.whl</cite></p></li>
+<li><p>[Fix][pysbs][batchtools] fix deadlock in batchtools OutputHandler when stdout fills up the buffer</p></li>
+<li><p>[Updater] Updated and Compatible with new sbs format 1.1.0.202005</p></li>
+<li><p>[Content] includes SD-10.2.0 content</p></li>
+</ul>
+</section>
+<section id="id23">
+<h2>10.1.3 / 2020.1.3 (2020-07-09)<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Content] includes SD-10.1.3 content</p></li>
+<li><p>[Feature][pysbs][projectmgr] allow to load several sbsprj files, like SD, values will be override by the most recently load and lists will be extended (aliases, filter paths…).</p></li>
+<li><p>[Fix][pysbs][projectmgr] populate aliasMgr from a sbsprj file wihtout aliases cause a crash.</p></li>
+<li><p>[Feature][pysbs][inputvalues] add helper function to create inputValue from node, <cite>node.createInputValue(“aIdentifier”, sbsenum.InputValueTypeEnum.FLOAT1)</cite></p></li>
+<li><p>[Feature][pysbs][inputvalues] add helper function to get inputValue from node, <cite>node.getInputValue(“aIdentifier”)</cite></p></li>
+</ul>
+</section>
+<section id="id24">
+<h2>10.1.1 / 2020.1.1 (2020-04-22)<a class="headerlink" href="#id24" title="Link to this heading"></a></h2>
+<ul>
+<li><p>[Info][version] SAT, like all substance products, has adopted adobe’s version number (10.1.1)</p></li>
+<li><p>[Info][version][pysbs] to avoid conflict, pysbs pip package still use “year” version number (2020.1.1)</p></li>
+<li><dl>
+<dt>[Warning][pysbs][batchtools] As the batchtools module was getting bigger and bigger, it was moved into a pysbs.bactchtools package.</dt><dd><blockquote>
+<div><p>Some import statements remains valid other no:</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">batchtools</span> <span class="c1"># valid</span>
+<span class="n">batchtools</span><span class="o">.</span><span class="n">sbsrender_render</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="c1"># valid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pysbs.batchtools</span><span class="w"> </span><span class="kn">import</span> <span class="n">sbsrender_render</span> <span class="c1"># invalid, must become  from pysbs.batchtools.batchtools import sbsrender_render</span>
+<span class="n">sbsrender_render</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="c1"># invalid, without the new import statement form</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>[Feature][sbscooker] Add ACE support to commandline cooker. See sbscooker flags description <a class="reference external" href="https://docs.substance3d.com/sat/command-line-tools/sbscooker/sbscooker-command-line-options">https://docs.substance3d.com/sat/command-line-tools/sbscooker/sbscooker-command-line-options</a></p></li>
+<li><p>[Feature][sbsbaker] Add common flag –force-dxr to force DirectX instead of Optix on Pascal(gtx) GPU.</p></li>
+<li><p>[Update][sbsrender] sbsrender d3d11pc engine replace  d3d10pc on windows (–engine d3d11pc)</p></li>
+<li><p>[Fix][sbscooker] Deprecated flags –includes/–preset-path keep the priority if they still used.</p></li>
+<li><p>[Fix][sbsrender] 16f RGBA images were exported as grayscale.</p></li>
+<li><p>[Feature][pysbs][batchtools] Add argument <cite>command_only=True</cite> to return only the generated command  <a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html#ref-to-overview-batchtools-commandonly"><span class="std std-ref">command_only option</span></a></p></li>
+<li><p>[Feature][pysbs][batchtools] Add argument <cite>output_handler=True</cite> to use OutputHandlers, a new way to get data from batchtool’s output. <a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html#ref-to-overview-batchtools-outputhandlers"><span class="std std-ref">batchtool’s OutputHandlers</span></a> (an alternative to Popen)</p></li>
+<li><p>[Fix][pysbs][projectmgr] populateUrlAliases now convert alias url as absolute</p></li>
+<li><p>[Feature][pysbs][graph] new graph’s sbsenum.BaseParamEnum, it’s more appropriate than sbsenum.CompNodeParamEnum</p></li>
+<li><p>[Fix][pysbs][metadata] retrieve metadata doesn’t fail anymore when metadata has not both type</p></li>
+<li><p>[Fix][pysbs][sbsar] remove use of deprecated function getOutputType</p></li>
+<li><p>[Content] includes SD-10.1.1 content</p></li>
+</ul>
+</section>
+<section id="id25">
+<h2>2019.3.0 (2020-01-20)<a class="headerlink" href="#id25" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][sbsrender] Support of OpenColorIO in sbsrender. See example for more details <a class="reference external" href="https://docs.substance3d.com/display/SAT/sbsrender+Example+Command+Lines">https://docs.substance3d.com/display/SAT/sbsrender+Example+Command+Lines</a>.</p></li>
+<li><p>[Feature][sbsrender] New flags to override some output option, i.e: set a different bit depth by output.</p></li>
+<li><p>[Feature][sbscooker] Built-in sbs packages is now autodetect if resources/packages directory is present next to the sbscooker executable or use sbs:// alias to precise another location.</p></li>
+<li><dl class="simple">
+<dt>[Fix][sbsbaker] New default values to get better results:</dt><dd><ul>
+<li><dl class="simple">
+<dt>ambient-occlusion-from-mesh and bent-from-mesh:</dt><dd><ul>
+<li><p>–ignore-backface-secondary: default to false</p></li>
+<li><p>–max-dist: default to 1.0</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>[Feature][sbsbaker] New Curvature baker: curvature-from-mesh-v2 (please note curvature-from-mesh is deprecated and it’s not remove yet for compatibility purpose.)</p></li>
+<li><p>[Feature][sbsbaker] Add “Ground Plane” option to simulate a ground occlusion, new flags : –enable-ground-plane and –ground-offset</p></li>
+<li><p>[Feature][sbscooker] Support OpenColorIO in sbscooker. See example for more details <a class="reference external" href="https://docs.substance3d.com/display/SAT/sbscooker+Example+Command+Lines">https://docs.substance3d.com/display/SAT/sbscooker+Example+Command+Lines</a>.</p></li>
+<li><p>[Fix][sbscooker] Include psdparse in SAT install dir</p></li>
+<li><p>[Fix][pysbs] access to package by pysbs is again possible (ex: pysbs.context)</p></li>
+<li><p>[Feature][pysbs][ocio] Setting ocio config with ProjectMgr <a class="reference internal" href="pysbs/sbsproject/projectmgrdoc.html#ref-to-projectmgrdoc"><span class="std std-ref">Project Manager How To</span></a> ProjectMgr documentation</p></li>
+<li><p>[Feature][pysbs][ocio] ocio_helpers.getColorSpaces to get a list of available colorspace</p></li>
+<li><p>[Feature][pysbs][resource] Add method to set bitmap resource colorspace and premultiplied alpha. SBSResource.setColorSpace SBSResource.setPreMultipliedAlpha</p></li>
+<li><p>[Content] include SD-2019.3.0 content</p></li>
+</ul>
+</section>
+<section id="id26">
+<h2>2019.2.3 (2019-11-30)<a class="headerlink" href="#id26" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][pysbs][graph] easy way to get and set User Data for an associated node with SBSGraph.getUserData(aNode) and SBSGraph.setUserData(aNode).</p></li>
+<li><p>[Feature][pysbs][autograph] Add some missing widget types in autograph.ag_functions</p></li>
+<li><p>[Fix][pysbs][metadata] raise error if metadata is asked when MetadataTree doesn’t exist yet now return None.</p></li>
+<li><p>[Content] include SD-2019.2.3 content</p></li>
+</ul>
+</section>
+<section id="id27">
+<h2>2019.2.2 (2019-11-5)<a class="headerlink" href="#id27" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Deprecated][pysbs][context] deprecate SDAPI_SATPATH instead use SAT_INSTALL_PATH</p></li>
+<li><p>[Feature][pysbs][graph] create method graph.getAllNodes()</p></li>
+<li><p>[Fix][pysbs][graph] moveConnectionsOnPinOuput allowed with node filter</p></li>
+<li><p>[Fix][sbscooker] Value Processor outputs wrong results when only a ‘Get’ node is used</p></li>
+<li><p>[Fix][sbscooker] Issue with Value outputs and passthrough nodes</p></li>
+<li><p>[Content] include SD-2019.2.2 content</p></li>
+</ul>
+</section>
+<section id="id28">
+<h2>2019.2.1 (2019-09-18)<a class="headerlink" href="#id28" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature][pysbs][sbsformat] Update sbs format, added dot node (passthrough node).</p></li>
+<li><p>[Feature][pysbs][package] Support Package Metadata. <a class="reference internal" href="pysbs/overview/metadata%20manipulation.html#ref-to-sbsmetadata"><span class="std std-ref">Package’s metadata</span></a> documentation.</p></li>
+<li><p>[Feature][pysbs][package] Retrieve package metadata from sbsar’s json. <a class="reference internal" href="pysbs/overview/metadata%20manipulation.html#ref-to-sbsmetadatajson"><span class="std std-ref">Metadata from a sbsar</span></a> documentation.</p></li>
+<li><p>[Feature][pysbs][resources] add resource type OTHER. <a class="reference internal" href="pysbs/overview/metadata%20manipulation.html#ref-to-resourceother"><span class="std std-ref">Resource of type OTHER</span></a> documentation.</p></li>
+<li><p>[Feature][batchtools][sbsbaker][run] allow to pass json SD preset to sbsbaker run command. <a class="reference external" href="https://docs.substance3d.com/display/SAT/sbsbaker+Example+Command+Lines">https://docs.substance3d.com/display/SAT/sbsbaker+Example+Command+Lines</a>.</p></li>
+<li><p>[Feature][batchtools][sbsbaker][run] add flag –disable-gpu –force-optix to sbsbaker run command.</p></li>
+<li><p>[Feature][batchtool][sbsrender] Add a command line argument for temp files location –cache-dir.</p></li>
+<li><p>[Feature][pysbs][preset] Preserve the “user tag” when export sbsprs.</p></li>
+<li><p>[Feature][pysbs][resources] sbsdoc.createLinkedResource support isUdim parameter.</p></li>
+<li><p>[Feature][pysbs][graph] Add a deleteGraph() function for SBSDocument.</p></li>
+<li><p>[Feature][pysbs][batchtools] add a function for sbsrender rendering images sequences batchtools.sbsrender_animate(…). <a class="reference internal" href="pysbs/overview/Pysbs%20batchtools%20module.html#ref-to-render-animate"><span class="std std-ref">render animation sequence</span></a> example.</p></li>
+<li><p>[Fix][pysbs] now setParameters COLOR_MODE switch the output type.</p></li>
+</ul>
+</section>
+<section id="id29">
+<h2>2019.1.2 (2019-07-20)<a class="headerlink" href="#id29" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Fix][pysbs][batchtools][sbsbaker]: Allows using native python values such as True or 1 for parameters rather than strings such ‘true’ and ‘1’.</p></li>
+<li><p>[Fix][pysbs]: Connecting a non-variant input changes output type of variant node.</p></li>
+<li><p>[Fix][sbsmutator]: Sbsmutator instantiate now copies <cite>ColorSpace</cite> and Output attributes such as <cite>VisibleIf</cite>.</p></li>
+<li><p>[Feature][sbsrender]: Add flags –gpu and –gpu-list to use a specific gpu (Windows only).</p></li>
+<li><p>[Feature][pysbs]: Added ProjectMgr class in order manage information in sbsprj files. <a class="reference internal" href="pysbs/sbsproject/projectmgrdoc.html#ref-to-projectmgrdoc"><span class="std std-ref">Project Manager How To</span></a> ProjectMgr documentation</p></li>
+<li><p>[Feature][pysbs]: Dependency path storage method is driven by the ProjectMgr. <a class="reference internal" href="pysbs/sbsproject/projectmgrdoc.html#ref-to-projectmgrdoc"><span class="std std-ref">Project Manager How To</span></a> ProjectMgr documentation</p></li>
+</ul>
+</section>
+<section id="id30">
+<h2>2019.1.1 (2019-05-17)<a class="headerlink" href="#id30" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Fix]: Reverted behavior for linking resources to interpret relative paths as relative to cwd. There is an argument for linking relative to the package</p></li>
+<li><p>[Fix]: Fixed optix baking issue</p></li>
+</ul>
+</section>
+<section id="id31">
+<h2>2019.1.0 (2019-05-09)<a class="headerlink" href="#id31" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature]: Baking: Optix GPU raytracing support</p></li>
+<li><p>[Fix]: Baking: Obj reading speed increase</p></li>
+<li><p>[Feature]: Support for 2019.1 file format</p></li>
+<li><p>[Feature]: pysbs: Added support for reading out button labels</p></li>
+<li><p>[Feature]: pysbs: Added support for automatically picking the first graph when referencing an sbs</p></li>
+<li><p>[Feature]: pysbs: Added module version information to the python package</p></li>
+<li><p>[Feature]: pysbs: Changed path behavior to be consistent with 2019.1 (anything not in an alias or below the document is now absolute)</p></li>
+<li><p>[Feature]: pysbs: Added support for reading, writing sbsprs documents and import presets from and to sbs documents</p></li>
+<li><p>[Feature]: pysbs: More accurate exception handing for dependency errors</p></li>
+<li><p>[Feature]: linux: Batchtools are now built against glibc 2.17</p></li>
+</ul>
+</section>
+<section id="id32">
+<h2>2018.3.0 (2018-11-29)<a class="headerlink" href="#id32" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature]: Added support for color space in sbs and sbsar</p></li>
+</ul>
+</section>
+<section id="id33">
+<h2>2018.2.0 (2018-08-03)<a class="headerlink" href="#id33" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature]: Support for 2018.2 sbs format</p></li>
+<li><p>[Fix]: Cleaned up log handling</p></li>
+<li><p>[Fix]: Deprecated inconsistently named functions</p></li>
+<li><p>[Fix]: Added more helpful error message when loading sbs file of incompatible version</p></li>
+</ul>
+</section>
+<section id="id34">
+<h2>2018.1.0 (2018-04-12)<a class="headerlink" href="#id34" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature]: Support for 2018.1 sbs format</p></li>
+<li><p>[Feature]: Added support for setting up UDIM’s in sbs files</p></li>
+<li><p>[Feature]: Added autograph library for creating pixel processors/dynamic functions more conveniently (previously available as the sbsmath library among the samples)</p></li>
+<li><p>[Feature]: Added support for automatically laying out graphs</p></li>
+<li><p>[Feature]: Added API support for getting all inputs of a graph</p></li>
+<li><p>[Feature]: Added support for deleting ui elements such as frames, comments and navigation pins</p></li>
+<li><p>[Feature]: Added support for reframing a frame around nodes that has moved</p></li>
+<li><p>[Fix]: Added support for loading sbsar files using new compression settings</p></li>
+<li><p>[Fix]: Find the good dependency when its uid is not provided in the CompInstance path</p></li>
+<li><p>[Fix]: Added support for controlling the Alpha Channel of the normal node</p></li>
+</ul>
+</section>
+<section id="id35">
+<h2>2017.2.3 (2018-02-06)<a class="headerlink" href="#id35" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature] Added support for bitmap resize method parameter.</p></li>
+<li><p>[Fix] Fixed an issue with Change SBSGraph.getNodesConnectedFrom that didn’t selected some valid nodes.</p></li>
+<li><p>[Fix] Corrected spelling error TGA file enum format name causing issues setting TGA as format in baking parameter.</p></li>
+<li><p>[Fix] Fixed bad ‘RelativeTo’ value for dynamic function on non-base parameters.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h2>2017.2.2 (2017-10-25)<a class="headerlink" href="#id36" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Feature] Handle MDL graphs: allow creating and editing MDL graphs, setting parameters and generate MDL related resources.</p></li>
+<li><p>[Feature] MDL Documentation and sample script.</p></li>
+<li><p>[Feature] Allow creating a MDL Graph from a template.</p></li>
+<li><p>[Feature] Added wrapper for FreeImage and functionality for loading image information when creating nodes.</p></li>
+<li><p>[Fix] Ensure deleting a temporary folder in case of error during the process.</p></li>
+<li><p>[Fix] Fix sbscleaner so that it does not remove any Input nodes, even if they are not connected to an Output.</p></li>
+<li><p>[Fix] Optimized detection of cycles for large networks when adding nodes by changing lists to sets/maps.</p></li>
+<li><p>[Support SD2017.2] Added support for float 2 position, offset widget and forward transform matrix.</p></li>
+<li><p>[Support SD2017.2] Added support for new base parameter ‘Pixel ratio’.</p></li>
+<li><p>[Support SD2017.2] Update sbs format for updaters up to 201710: changes &amp; cleanup &amp; simplification &amp; typos correction.
+No more SBSValueOrOverload, SBSVariables, SBSCompExternalLink, SBSCompExternal</p></li>
+<li><p>[Support SD2017.2] Declare new Substance &amp; MDL graph templates.</p></li>
+</ul>
+</section>
+<section id="id37">
+<h2>2017.2.1 (2017-09-11)<a class="headerlink" href="#id37" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added pysbs/batchtools.py to call directly the Batchtools from Pysbs.</p></li>
+<li><p>Handle default Graph templates with an enumeration.</p></li>
+<li><p>Proper logging system.</p></li>
+<li><p>Remove dependency on cffi package, use ctypes instead.</p></li>
+<li><p>Use psdparse from SD install folder instead of SAT, as we don’t have the right to distribute psdparse in SAT for now.</p></li>
+<li><p>Allow creating a resource at the root of the package.</p></li>
+<li><p>Fix input/output type issues for a number of nodes in sbsfunctions Added log2 function.</p></li>
+<li><p>Fix comparing resources: accept lower/upper case for the resource Format.</p></li>
+<li><p>Fix encoding issues and ensure appropriate encoding for all calls to an external process (subprocess, dll loading).</p></li>
+<li><p>Fix Python 2.7 64bit, where struct.pack/unpack are expecting a string instead of a unicode.</p></li>
+<li><p>Fix faulty command line example for demoBuildSBSFromPainterBitmaps.</p></li>
+<li><p>Fix content list is None instead of [] when necessary.</p></li>
+</ul>
+</section>
+<section id="id38">
+<h2>2017.2.0 (2017-08-02)<a class="headerlink" href="#id38" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Improve node connections: add helpers to get info on connections, allow moving connections to another pin.</p></li>
+<li><p>Handle graph/function creation from a template file.</p></li>
+<li><p>Sbscleaner: add the possibility to clean unused dependencies.</p></li>
+<li><p>Handle the GUI comments associated to a Node.</p></li>
+<li><p>Allow moving a graph/group/function/resource under another group.</p></li>
+<li><p>Allow setting the identifier of a graph/group/function/resource.</p></li>
+<li><p>Allow relocating resource - Check resource extension.</p></li>
+<li><p>Add a helper function to split a path containing a dependency uid into two parts.</p></li>
+<li><p>Change signature containing ‘RelPath’ or ‘PkgPath’ to ‘InternalPath’</p></li>
+<li><p>Fix computing GUI rectangle of nodes with more than 3 inputs/outputs.</p></li>
+</ul>
+</section>
+<section id="id39">
+<h2>2017.1.1 (2017-07-18)<a class="headerlink" href="#id39" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Rename Substance Pipeline Tools into Substance Automation Toolkit.</p></li>
+<li><p>Fix deleting input/output node of a Substance graph: delete also the corresponding input parameter/graph output.</p></li>
+<li><p>Fix input/output named with a value known by the sbsdictionary.</p></li>
+<li><p>Fix setting the default value but with non-default inheritance.</p></li>
+<li><p>Handle dynamic multiple inputs on Pixel processor and FxMap nodes.</p></li>
+</ul>
+</section>
+<section id="id40">
+<h2>2017.1.0 (2017-06-30)<a class="headerlink" href="#id40" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Rework and document getDefinition() function, add getIdentifier() function on all LibObjects.</p></li>
+<li><p>Handle input parameter of kind String + String function nodes.</p></li>
+<li><p>Split sbslibrary into sbslibrary and sbsdictionaries.</p></li>
+<li><p>Split sbsbakerslibrary into sbsbakerslibrary and sbsbakersdictionaries.</p></li>
+<li><p>SD2017.1: Update documentation: document new features + cleanup &amp; rewording.</p></li>
+<li><p>SD2017.1: Handle changes in the baking parameters.</p></li>
+<li><p>SD2017.1: Add support for embedded presets within .sbs files. Common interface for .sbs and .sbsar</p></li>
+<li><p>SD2017.1: Do not pre-escape &lt; and &gt; characters for text area GUI fields anymore + Homogenize attributes.</p></li>
+</ul>
+</section>
+<section id="id41">
+<h2>1.0.3 (2017-05-22)<a class="headerlink" href="#id41" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Remove dependency on Substance Designer. Use Substance Pipeline Tools instead.</p></li>
+<li><p>Rename pydesigner in pysbs.</p></li>
+<li><p>Allow to declare the moving of a sbs in all the sbs in a given tree.</p></li>
+<li><p>Rework SBSNode getters / setters.</p></li>
+<li><p>Declare sbsupdater batch tools.</p></li>
+<li><p>Display a clear exception when requesting info on an unparsed / uninitialized package.</p></li>
+<li><p>Unicode support - Remove unnecessary conversion to ‘str’ causing trouble in Python2.7.</p></li>
+<li><p>Fix issue in exception when giving invalid parameter to a SBSCompInstance.</p></li>
+<li><p>Fix format version issue (was string comparison).</p></li>
+</ul>
+</section>
+<section id="id42">
+<h2>1.0.2 (2017-05-17)<a class="headerlink" href="#id42" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Publish documentation to Confluence.</p></li>
+<li><p>Handle GUIObjects: Comments/Frame/NavigationPin.</p></li>
+</ul>
+</section>
+<section id="id43">
+<h2>1.0.1 (2017-03-30)<a class="headerlink" href="#id43" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Sd6 support: Handle Font resource creation.</p></li>
+<li><p>Reduce bitmap size &amp; update doc.</p></li>
+<li><p>Handle Version Format 6.0.2.</p></li>
+<li><p>Updater script using SBSMutator.</p></li>
+</ul>
+</section>
+<section id="id44">
+<h2>1.0.0 (2017-03-30)<a class="headerlink" href="#id44" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Support SD6 new attributes and filters.</p></li>
+</ul>
+</section>
+<section id="id45">
+<h2>0.1.7 (2017-03-22)<a class="headerlink" href="#id45" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add attribute helpers for .sbsar.</p></li>
+<li><p>Handle graph Icon.</p></li>
+<li><p>Add helpers for graph attributes.</p></li>
+<li><p>Add sbscleaner for cleaning graph/function/substance facilities.</p></li>
+<li><p>Handle creation of imported SVG resources.</p></li>
+<li><p>Add helpers + code &amp; doc cleanup.</p></li>
+<li><p>Rewrite sbsenum with range().</p></li>
+</ul>
+</section>
+<section id="id46">
+<h2>0.1.6 (2017-03-14)<a class="headerlink" href="#id46" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Handle .psd format for resource creation. Uses psdparse.exe provided by SD.</p></li>
+<li><p>Create SD dummy app for test, with psdparse executable and SD resource packages.</p></li>
+<li><p>Move demos/sample/test into pydesigner_demos.</p></li>
+</ul>
+</section>
+<section id="id47">
+<h2>0.1.5 (2017-03-01)<a class="headerlink" href="#id47" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Handle SBSAR format - Create common interfaces for SBS and SBSAR.</p></li>
+<li><p>Check format version.</p></li>
+</ul>
+</section>
+<section id="id48">
+<h2>0.1.4 (2017-03-01)<a class="headerlink" href="#id48" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Allow exporting a Substance with its dependencies.</p></li>
+<li><p>Allow write a SBSDocument at a different location.</p></li>
+</ul>
+</section>
+<section id="id49">
+<h2>0.1.3 (2017-03-01)<a class="headerlink" href="#id49" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix dependency issue.</p></li>
+<li><p>Add helpers on input parameters and widget.</p></li>
+<li><p>Compatibility with Python 3.5.</p></li>
+</ul>
+</section>
+<section id="id50">
+<h2>0.1.2 (2017-03-01)<a class="headerlink" href="#id50" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Add BakingParameters API - Bakers library &amp; properties.</p></li>
+<li><p>Create Imported Resource.</p></li>
+<li><p>Add Doc Source to Git Repo.</p></li>
+<li><p>Check cycles before connection.</p></li>
+</ul>
+</section>
+<section id="id51">
+<h2>0.1.1 (2017-03-01)<a class="headerlink" href="#id51" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Setup file + Package for Source distribution ok.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pysbs/sat_commandlines/sbsupdater_options.html" class="btn btn-neutral float-left" title="sbsupdater command line options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic manipulation of a Substance &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Substance creation" href="Substance%20creation.html" />
+    <link rel="prev" title="API overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">API overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic manipulation of a Substance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opening-and-writing-a-substance">Opening and writing a substance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requesting-information-on-a-substance">Requesting information on a Substance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SAT%20demos.html">SAT demos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">API overview</a></li>
+      <li class="breadcrumb-item active">Basic manipulation of a Substance</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-manipulation-of-a-substance">
+<span id="ref-to-api-readwrite"></span><h1>Basic manipulation of a Substance<a class="headerlink" href="#basic-manipulation-of-a-substance" title="Link to this heading"></a></h1>
+<section id="opening-and-writing-a-substance">
+<h2>Opening and writing a substance<a class="headerlink" href="#opening-and-writing-a-substance" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">The API offers the ability to parse a .sbs or a .sbsar file to retrieve its content as a hierarchical object structure.</div>
+<div class="line">A .sbs file is parsed using a substance.SBSDocument object, whereas a .sbsar file is parsed using a sbsarchive.SBSArchive object.</div>
+<div class="line">Only a .sbs file can be created or modified through the API, so only the substance.SBSDocument has a writeDoc() function:</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">substance</span><span class="p">,</span> <span class="n">sbsarchive</span>
+
+<span class="c1"># Creation of a SBSArchive object from an existing .sbsar file, and parsing:</span>
+<span class="n">sbsarDoc</span> <span class="o">=</span> <span class="n">sbsarchive</span><span class="o">.</span><span class="n">SBSArchive</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aSBSARFileAbsPath</span><span class="p">)</span>
+<span class="n">sbsarDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>        <span class="c1"># Parse the .sbsar file and put into sbsarDoc the object structure contained in the substance</span>
+
+<span class="c1"># Creation of a SBSDocument object from an existing .sbs file, parsing and writing</span>
+<span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aSBSFileAbsPath</span><span class="p">)</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>          <span class="c1"># Parse the .sbs file and put into sbsDoc the object structure contained in the substance</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">()</span>          <span class="c1"># Write back the object structure into the same .sbs file on disk</span>
+</pre></div>
+</div>
+</section>
+<section id="requesting-information-on-a-substance">
+<span id="ref-to-api-requestinfo"></span><h2>Requesting information on a Substance<a class="headerlink" href="#requesting-information-on-a-substance" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">The API can also be used to simply request information on a Substance (.sbs or .sbsar), to get information on the graphs it contains and their inputs and outputs.</div>
+<div class="line">Some common interfaces exists for SBSObject and SBSARObject, they are defined in the module <a class="reference internal" href="../common_interfaces/package.html#module-common_interfaces.package" title="common_interfaces.package"><code class="xref py py-mod docutils literal notranslate"><span class="pre">common_interfaces.package</span></code></a>:</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.Package" title="common_interfaces.package.Package"><code class="xref py py-class docutils literal notranslate"><span class="pre">Package</span></code></a>: base class for <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> and <a class="reference internal" href="../sbsarchive/sbsarchive.html#sbsarchive.sbsarchive.SBSArchive" title="sbsarchive.sbsarchive.SBSArchive"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSArchive</span></code></a></p></li>
+<li><p><a class="reference internal" href="../common_interfaces/basegraph.html#common_interfaces.basegraph.Graph" title="common_interfaces.basegraph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code></a>: base class for <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> and <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph" title="sbsarchive.sbsargraph.SBSARGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a></p></li>
+<li><p><a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.ParamInput" title="common_interfaces.package.ParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInput</span></code></a>: base class for <a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> and <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a></p></li>
+<li><p><a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.GraphOutput" title="common_interfaces.package.GraphOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphOutput</span></code></a>: base class for <a class="reference internal" href="../graph/output.html#graph.output.SBSGraphOutput" title="graph.output.SBSGraphOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraphOutput</span></code></a> and <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput" title="sbsarchive.sbsargraph.SBSAROutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a></p></li>
+<li><p><a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.Preset" title="common_interfaces.package.Preset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Preset</span></code></a> and <a class="reference internal" href="../common_interfaces/package.html#common_interfaces.package.PresetInput" title="common_interfaces.package.PresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></a>: base classes for <a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPreset" title="graph.inputparameters.SBSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPreset</span></code></a>, <a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPresetInput" title="graph.inputparameters.SBSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPresetInput</span></code></a>, <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset" title="sbsarchive.sbsargraph.SBSARPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPreset</span></code></a> and <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARPresetInput" title="sbsarchive.sbsargraph.SBSARPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPresetInput</span></code></a></p></li>
+</ul>
+<p>The following functions are available on both sbs and sbsar packages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Getting all the graphs of a package</span>
+<span class="n">aGraphList</span> <span class="o">=</span> <span class="n">aDoc</span><span class="o">.</span><span class="n">getSBSGraphList</span><span class="p">()</span>
+
+<span class="c1"># Getting the outputs of a graph</span>
+<span class="n">aOutputList</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getGraphOutputs</span><span class="p">()</span>                                        <span class="c1"># Get all the output of a graph</span>
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getGraphOutput</span><span class="p">(</span><span class="n">aOutputIdentifier</span><span class="o">=</span><span class="s1">&#39;MyOutput&#39;</span><span class="p">)</span>                 <span class="c1"># Get a particular output</span>
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getGraphOutputWithUsage</span><span class="p">(</span><span class="n">aUsage</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ROUGHNESS</span><span class="p">)</span>  <span class="c1"># Get a particular output given its usage</span>
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getGraphOutputWithUsage</span><span class="p">(</span><span class="n">aUsage</span><span class="o">=</span><span class="s1">&#39;MyCustomUsage&#39;</span><span class="p">)</span>              <span class="c1"># Same but with a custom usage</span>
+
+<span class="c1"># Getting the inputs of a graph</span>
+<span class="n">aInputList</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllInputs</span><span class="p">()</span>                         <span class="c1"># Get all the inputs (images and parameters)</span>
+<span class="n">aInputList</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllInputsInGroup</span><span class="p">(</span><span class="n">aGroup</span><span class="o">=</span><span class="s1">&#39;MyGroup&#39;</span><span class="p">)</span>  <span class="c1"># Get all the inputs of a particular GUI group named &#39;MyGroup&#39;</span>
+<span class="n">aParamList</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getInputParameters</span><span class="p">()</span>                   <span class="c1"># Get only the input parameters</span>
+<span class="n">aImageList</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getInputImages</span><span class="p">()</span>                       <span class="c1"># Get only the input images</span>
+
+<span class="c1"># Or get a particular input:</span>
+<span class="n">aInput</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getInput</span><span class="p">(</span><span class="n">aInputIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInput&#39;</span><span class="p">)</span>
+<span class="n">aParam</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getInputParameter</span><span class="p">(</span><span class="n">aInputParamIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInputParam&#39;</span><span class="p">)</span>
+<span class="n">aImage</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getInputImage</span><span class="p">(</span><span class="n">aInputImageIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInputImage&#39;</span><span class="p">)</span>
+<span class="n">aImage</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getInputImageWithUsage</span><span class="p">(</span><span class="n">aUsage</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ROUGHNESS</span><span class="p">)</span>
+
+<span class="c1"># Get the parameter definition:</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getWidget</span><span class="p">()</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getDefaultValues</span><span class="p">()</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getMinValue</span><span class="p">()</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getMaxValue</span><span class="p">()</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getClamp</span><span class="p">()</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getStep</span><span class="p">()</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getLabels</span><span class="p">()</span>
+<span class="n">aParam</span><span class="o">.</span><span class="n">getDropDownList</span><span class="p">()</span>
+
+<span class="c1"># Getting the attributes of a graph, an input or an output</span>
+<span class="n">aGraph</span><span class="o">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="n">aAttributeIdentifier</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributeEnum</span><span class="o">.</span><span class="n">Author</span><span class="p">)</span>
+<span class="n">aInput</span><span class="o">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="n">aAttributeIdentifier</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributeEnum</span><span class="o">.</span><span class="n">Description</span><span class="p">)</span>
+<span class="n">aOutput</span><span class="o">.</span><span class="n">getAttribute</span><span class="p">(</span><span class="n">aAttributeIdentifier</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributeEnum</span><span class="o">.</span><span class="n">Label</span><span class="p">)</span>
+
+<span class="c1"># Getting the parameter presets defined on a Graph</span>
+<span class="n">aPresetList</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllPresets</span><span class="p">()</span>                                                      <span class="c1"># Get all the presets defined on the graph</span>
+<span class="n">aPreset</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getPreset</span><span class="p">(</span><span class="n">aPresetLabel</span><span class="o">=</span><span class="s1">&#39;MyPresetLabel&#39;</span><span class="p">)</span>                                  <span class="c1"># Get one particular preset from its label</span>
+<span class="n">aPresetInputList</span> <span class="o">=</span> <span class="n">aPreset</span><span class="o">.</span><span class="n">getPresetInputs</span><span class="p">()</span>                                              <span class="c1"># Get all the preset inputs of a preset</span>
+<span class="n">aPresetInput</span> <span class="o">=</span> <span class="n">aPreset</span><span class="o">.</span><span class="n">getPresetInput</span><span class="p">(</span><span class="n">aInputParam</span><span class="o">=</span><span class="n">aParam</span><span class="p">)</span>                                 <span class="c1"># Get the preset input associated to a graph parameter</span>
+<span class="n">aPresetInput</span> <span class="o">=</span> <span class="n">aPreset</span><span class="o">.</span><span class="n">getPresetInputFromIdentifier</span><span class="p">(</span><span class="n">aInputParamIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInputParam&#39;</span><span class="p">)</span> <span class="c1"># Get the preset input associated to a graph parameter identifier</span>
+</pre></div>
+</div>
+<p>On a <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> only, more information can be retrieved, such as its <strong>dependencies</strong> and <strong>resources</strong>, which could be helpful to build the dependency graph of a Substance, for version control purpose for instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the list of dependencies directly included in the package, as SBSDependency objects:</span>
+<span class="n">aDepdendencyList</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSDependencyList</span><span class="p">()</span>
+
+<span class="c1"># Get the list of resources directly included in the package, as SBSResource objects:</span>
+<span class="n">aResourceList</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSResourceList</span><span class="p">()</span>
+
+<span class="c1"># Get the list of dependency paths recursively referenced by the package, as strings:</span>
+<span class="n">aDependencyPathList</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getDependencyPathList</span><span class="p">(</span><span class="n">aRecurseOnPackages</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Get the list of resource paths recursively referenced by the package, as strings:</span>
+<span class="n">aResourcePathList</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getResourcePathList</span><span class="p">(</span><span class="n">aRecurseOnPackages</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On a <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, these lines allow to retrieve different lists of compositing nodes (<a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># List all Input nodes</span>
+<span class="n">inputNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllInputNodes</span><span class="p">()</span>
+
+<span class="c1"># List all Output nodes</span>
+<span class="n">outputNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllOutputNodes</span><span class="p">()</span>
+
+<span class="c1"># List all Bitmap Filter nodes</span>
+<span class="n">bitmapNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllFiltersOfKind</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">BITMAP</span><span class="p">)</span>
+
+<span class="c1"># List all CompInstance nodes</span>
+<span class="n">instanceNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllFiltersOfKind</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">COMPINSTANCE</span><span class="p">)</span>
+
+<span class="c1"># List all CompInstance nodes that reference the Substance &#39;curvature.sbs&#39; in the default package folder</span>
+<span class="n">instanceOfCurvatureNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllNodeInstancesOf</span><span class="p">(</span><span class="n">sbsDoc</span><span class="p">,</span> <span class="s1">&#39;sbs://curvature.sbs&#39;</span><span class="p">)</span>
+
+<span class="c1"># List all nodes connected to/from a node (on a particular input/output or not)</span>
+<span class="n">connectedNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNodesConnectedTo</span><span class="p">(</span><span class="n">aRightNode</span><span class="o">=</span><span class="n">myNode</span><span class="p">)</span>
+<span class="n">connectedNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNodesConnectedTo</span><span class="p">(</span><span class="n">aRightNode</span><span class="o">=</span><span class="n">myNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">MASK</span><span class="p">)</span>
+<span class="n">connectedNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNodesConnectedFrom</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">myNode</span><span class="p">)</span>
+<span class="n">connectedNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNodesConnectedFrom</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">myNode</span><span class="p">,</span> <span class="n">aLeftNodeOutput</span><span class="o">=</span><span class="s1">&#39;myOutput&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Working with MDL graph (<a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>) is done with almost the same functions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Getting all the MDL graphs of a package</span>
+<span class="n">aMDLGraphList</span> <span class="o">=</span> <span class="n">aDoc</span><span class="o">.</span><span class="n">getMDLGraphList</span><span class="p">()</span>
+
+<span class="c1"># Getting the output/root node of a MDL graph</span>
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getGraphOutput</span><span class="p">()</span>
+
+<span class="c1"># Getting the input nodes of a graph (e.g. the Constant nodes that has been exposed)</span>
+<span class="n">aInputList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getAllInputs</span><span class="p">()</span>                         <span class="c1"># Get all the inputs (images and parameters)</span>
+<span class="n">aInputList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getAllInputsInGroup</span><span class="p">(</span><span class="n">aGroup</span><span class="o">=</span><span class="s1">&#39;MyGroup&#39;</span><span class="p">)</span>  <span class="c1"># Get all the inputs of a particular GUI group named &#39;MyGroup&#39;</span>
+<span class="n">aParamList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputParameters</span><span class="p">()</span>                   <span class="c1"># Get only the input parameters</span>
+<span class="n">aImageList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputImages</span><span class="p">()</span>                       <span class="c1"># Get only the input of kind textures</span>
+
+<span class="c1"># Or get a particular input node:</span>
+<span class="n">aInput</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInput</span><span class="p">(</span><span class="n">aInputIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInput&#39;</span><span class="p">)</span>
+<span class="n">aParam</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputParameter</span><span class="p">(</span><span class="n">aInputParamIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInputParam&#39;</span><span class="p">)</span>
+<span class="n">aImage</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputImage</span><span class="p">(</span><span class="n">aInputImageIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInputImage&#39;</span><span class="p">)</span>
+<span class="n">aImage</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputImageWithUsage</span><span class="p">(</span><span class="n">aUsage</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ROUGHNESS</span><span class="p">)</span>   <span class="c1"># A custom string can be used</span>
+
+<span class="c1"># List all the nodes by category</span>
+<span class="c1"># - Constants</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLConstants</span><span class="p">()</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLConstantsOfType</span><span class="p">(</span><span class="s1">&#39;mdl::float&#39;</span><span class="p">)</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLConstantsWithName</span><span class="p">(</span><span class="s1">&#39;roughness&#39;</span><span class="p">)</span>
+<span class="c1"># - Selectors</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLSelectors</span><span class="p">()</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLSelectorsWithName</span><span class="p">(</span><span class="s1">&#39;tint&#39;</span><span class="p">)</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLSelectorsOfType</span><span class="p">(</span><span class="s1">&#39;mdl::color&#39;</span><span class="p">)</span>
+<span class="c1"># - MDL instances</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLInstances</span><span class="p">()</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLInstancesOf</span><span class="p">(</span><span class="s1">&#39;mdl::operator*&#39;</span><span class="p">)</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLInstancesOf</span><span class="p">(</span><span class="s1">&#39;mdl::operator*(float,float)&#39;</span><span class="p">)</span>
+<span class="c1"># - MDL Graph instances</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLGraphInstances</span><span class="p">()</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLGraphInstancesOf</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">aDoc</span><span class="p">,</span> <span class="n">aPath</span><span class="o">=</span><span class="n">aDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;myMDL.sbs/MDL_Material&#39;</span><span class="p">))</span>
+<span class="c1"># - Substance Graph instances</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllSBSInstances</span><span class="p">()</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllSBSInstancesOf</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">aDoc</span><span class="p">,</span> <span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;pkg:///myGraph&#39;</span><span class="p">)</span>
+<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllSBSInstancesOf</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">aDoc</span><span class="p">,</span> <span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;sbs://perlin_noise_1.sbs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Many objects in a .sbs file has <strong>a unique identifier (uid)</strong>, accessible through the member ‘mUID’.</div>
+<div class="line">Some objects can be requested from their parent given their uid, that can be found either by reading the .sbs file, or, in the case of the nodes,</div>
+<div class="line">through Substance Designer user interface, by right clicking on a particular node and selecting: ‘Copy info to clipboard’</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a particular node from its uid</span>
+<span class="n">myNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNode</span><span class="p">(</span><span class="n">aNode</span><span class="o">=</span><span class="s1">&#39;1289992758&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To know the <strong>signature</strong>, or <strong>definition</strong>, of a compositing node (<a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>) of any kind (e.g. Filter, Input, Output, Instance),
+the function <code class="xref py py-func docutils literal notranslate"><span class="pre">SBSCompNode.getDefinition()</span></code> is helpful as it returns a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object, which is the definition of a compositing node and contains:</p>
+<ul class="simple">
+<li><p>the node’s identifier</p></li>
+<li><p>the list of inputs of the node (<a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a>)</p></li>
+<li><p>the list of outputs of the node (<a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeOutput" title="pysbs.sbslibrary.sbslibclasses.CompNodeOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeOutput</span></code></a>)</p></li>
+<li><p>the list of parameters the node can accept (<a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a>)</p></li>
+</ul>
+<p>The same function exists for the other types of node:</p>
+<ul class="simple">
+<li><p>SBSParamNode.getDefinition() the Function nodes (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>)</p></li>
+<li><p>SBSParamsGraphNode.getDefinition() for the FxMap nodes (<a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p></li>
+<li><p>MDLNode.getDefinition() for the nodes of a MDL graph (<a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a>)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the definition of a node</span>
+<span class="n">nodeDef</span> <span class="o">=</span> <span class="n">myNode</span><span class="o">.</span><span class="n">getDefinition</span><span class="p">()</span>
+
+<span class="c1"># Get a particular input / output / parameter</span>
+<span class="n">aInput</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getInput</span><span class="p">(</span><span class="n">aInput</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">MASK</span><span class="p">)</span>                <span class="c1"># Standard filter input</span>
+<span class="n">aInput</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getInput</span><span class="p">(</span><span class="n">aInput</span><span class="o">=</span><span class="s1">&#39;MyInput&#39;</span><span class="p">)</span>                             <span class="c1"># Custom input name</span>
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getOutput</span><span class="p">(</span><span class="n">aOutput</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">MASK</span><span class="p">)</span>             <span class="c1"># Standard filter output</span>
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getOutput</span><span class="p">(</span><span class="n">aOutput</span><span class="o">=</span><span class="s1">&#39;MyOutput&#39;</span><span class="p">)</span>                         <span class="c1"># Custom output name</span>
+<span class="n">aParam</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">MASK</span><span class="p">)</span>        <span class="c1"># Standard filter parameter</span>
+<span class="n">aParam</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getParameter</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="s1">&#39;MyParam&#39;</span><span class="p">)</span>                     <span class="c1"># Custom parameter name</span>
+
+<span class="c1"># Get all inputs / outputs / parameters or their identifiers</span>
+<span class="n">inputList</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getAllInputs</span><span class="p">()</span>
+<span class="n">inputIdentifierList</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getAllInputIdentifiers</span><span class="p">()</span>
+<span class="n">outputList</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getAllOutputs</span><span class="p">()</span>
+<span class="n">outputIdentifierList</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getAllOutputIdentifiers</span><span class="p">()</span>
+<span class="n">paramList</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getAllParameters</span><span class="p">()</span>
+<span class="n">paramIdentifierList</span> <span class="o">=</span> <span class="n">nodeDef</span><span class="o">.</span><span class="n">getAllParameterIdentifiers</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Comments</strong>, <strong>Frames</strong> and <strong>Navigation Pin</strong> can also be requested (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>), on a <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, <a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a> or <a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># List all comments, frames, or navigation pin</span>
+<span class="n">guiComments</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllComments</span><span class="p">()</span>
+<span class="n">guiFrames</span>   <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllFrames</span><span class="p">()</span>
+<span class="n">guiNavPin</span>   <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllNavigationPins</span><span class="p">()</span>
+
+<span class="c1"># All the nodes included in a frame can be requested using:</span>
+<span class="n">inFrameNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNodesInFrame</span><span class="p">(</span><span class="n">myFrame</span><span class="p">)</span>
+
+<span class="c1"># The node associated to a comment can be requested with:</span>
+<span class="n">aNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNodeAssociatedToComment</span><span class="p">(</span><span class="n">aComment</span><span class="o">=</span><span class="n">myComment</span><span class="p">)</span>
+
+<span class="c1"># Or the opposite:</span>
+<span class="n">commentList</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getCommentsAssociatedToNode</span><span class="p">(</span><span class="n">aNode</span><span class="o">=</span><span class="n">myNode</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="API overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Substance%20creation.html" class="btn btn-neutral float-right" title="Substance creation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

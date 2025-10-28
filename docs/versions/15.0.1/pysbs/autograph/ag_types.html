@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ag_types module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ag_layout module" href="ag_layout.html" />
+    <link rel="prev" title="ag_functions module" href="ag_functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ag_functions.html">ag_functions module: Definition of the function context and the mathematical operations</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ag_types module: Definition of all data types used by the automatic generation of function graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ag_layout.html">ag_layout module: Functions for automatically laying out graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="autograph.html">autograph module</a></li>
+      <li class="breadcrumb-item active">ag_types module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-autograph.ag_types">
+<span id="ag-types-module"></span><h1>ag_types module<a class="headerlink" href="#module-autograph.ag_types" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">Module <strong>ag_types</strong> defines a set of types for making it more convenient to write pixel processors, dynamic values and functions.</div>
+<div class="line">It provides the definition of the classes:</div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#autograph.ag_types.TypeInfo" title="autograph.ag_types.TypeInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeInfo</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Float3" title="autograph.ag_types.Float3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float3</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Float4" title="autograph.ag_types.Float4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float4</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Int1" title="autograph.ag_types.Int1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int1</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Int2" title="autograph.ag_types.Int2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int2</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Int3" title="autograph.ag_types.Int3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int3</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Int4" title="autograph.ag_types.Int4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int4</span></code></a></p></li>
+<li><p><a class="reference internal" href="#autograph.ag_types.Boolean" title="autograph.ag_types.Boolean"><code class="xref py py-class docutils literal notranslate"><span class="pre">Boolean</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.TypeInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">TypeInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.TypeInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing type information</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.TypeInfo.type_to_string">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.TypeInfo.type_to_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Type">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Type" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for all sbs types</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.VectorType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">VectorType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.VectorType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+<p>Base class for scalar and vector arithmetic types (float, int)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.FloatType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">FloatType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.FloatType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+<p>Base class for float scalar and vector arithmetic types</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Float1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Float1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float1" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+<p>Scalar float node type</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float1.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float1.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float1.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float1.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Float2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Float2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float2" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+<p>Float vector 2</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float2.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float2.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float2.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float2.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Float3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Float3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float3" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+<p>Float vector 3</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float3.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float3.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float3.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float3.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Float4">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Float4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float4" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+<p>Float vector 4</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float4.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float4.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Float4.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Float4.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.IntType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">IntType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.IntType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+<p>Base class for int types</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Int1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Int1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int1" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a></p>
+<p>Int scalar type</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int1.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int1.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int1.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int1.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Int2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Int2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int2" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a></p>
+<p>Int vector 2 type</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int2.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int2.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int2.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int2.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Int3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Int3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int3" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a></p>
+<p>Int vector 3 type</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int3.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int3.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int3.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int3.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Int4">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Int4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int4" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a></p>
+<p>Int vector 4 type</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int4.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int4.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Int4.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Int4.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_types.Boolean">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">Boolean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Boolean" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+<p>Boolean type, always scalar</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Boolean.constant">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Boolean.constant" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_types.Boolean.variable">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_ctx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.Boolean.variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autograph.ag_types.create_constant">
+<span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">create_constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_enum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.create_constant" title="Link to this definition"></a></dt>
+<dd><p>Creates a constant</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fn_node</strong> (<a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – The function to create the constant in</p></li>
+<li><p><strong>type_enum</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a>) – The type of constant to create</p></li>
+<li><p><strong>val</strong> (<em>numeric type</em><em> or </em><em>list</em><em> of </em><em>numeric types</em>) – Constant value</p></li>
+<li><p><strong>vector_size</strong> (<em>int</em>) – Size of vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autograph.ag_types.create_variable">
+<span class="sig-prename descclassname"><span class="pre">autograph.ag_types.</span></span><span class="sig-name descname"><span class="pre">create_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_enum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_types.create_variable" title="Link to this definition"></a></dt>
+<dd><p>Creates a variable (i.e a named input reference)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fn_node</strong> (<a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – The function to create the variable in in</p></li>
+<li><p><strong>type_enum</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a>) – The type of variable to create</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – Name of variable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ag_functions.html" class="btn btn-neutral float-left" title="ag_functions module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ag_layout.html" class="btn btn-neutral float-right" title="ag_layout module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
