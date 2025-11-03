@@ -1,0 +1,775 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nodes module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="connections module" href="connections.html" />
+    <link rel="prev" title="sbscommon module" href="sbscommon.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbscommon.html">sbscommon module: Common classes related to SBS package</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">nodes module: Base class of all nodes (compositing nodes, function nodes) and facilities for nodes list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connections.html">connections module: Connections between nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gui.html">gui module: GUI objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="values.html">values module: Constant values, data type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbscommon.html">sbscommon module</a></li>
+      <li class="breadcrumb-item active">nodes module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbscommon.nodes">
+<span id="nodes-module"></span><h1>nodes module<a class="headerlink" href="#module-sbscommon.nodes" title="Link to this heading"></a></h1>
+<p>Module <strong>nodes</strong> provides the definition of the common classes <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> and <a class="reference internal" href="#sbscommon.nodes.NodeList" title="sbscommon.nodes.NodeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeList</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbscommon.nodes.</span></span><span class="sig-name descname"><span class="pre">NodeList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodesAttribute</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used to provide common methods to SBSObjects that contains a list of nodes:
+<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> and
+<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a></p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mParentObject (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>): Parent object that contains the node list.</p></li>
+<li><p>mNodeType     (class): type of node (compnode.SBSCompNode for instance).</p></li>
+<li><p>mNodesAttr    (str): attribute member name in the parent object that corresponds to the node list.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.computeConnectionsInsidePattern">
+<span class="sig-name descname"><span class="pre">computeConnectionsInsidePattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.computeConnectionsInsidePattern" title="Link to this definition"></a></dt>
+<dd><p>Compute the input and output connections of the nodes included in the list.
+It uses the node definition to order the nodes, and the GUI position in case of equality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodeList</strong> (list of tuple(int, <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>).) – The list of node to take in account for the topological sort.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>The input and output connections of each node, as a list of tuple (list of inputs, list of outputs) of
+the same size than aNodeList, where each element of a list describe a connection with three elements:</p>
+<ul class="simple">
+<li><p>’index’ (index of the connected node)</p></li>
+<li><p>’identifier’ (pin identifier) for input, ‘uid’ (pin uid) for output</p></li>
+<li><p>’type’ (data type)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.computePatternInputsAndOutputs">
+<span class="sig-name descname"><span class="pre">computePatternInputsAndOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectionsInsidePattern</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.computePatternInputsAndOutputs" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Compute the input and output pins that corresponds to the input and output of the whole pattern.</dt><dd><ul class="simple">
+<li><p>An input pin is connected to a node that does not belong to the pattern.</p></li>
+<li><p>An output pin is never referenced by the connections inside the pattern.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNodeList</strong> (list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>, optional) – The list of node to take in account.</p></li>
+<li><p><strong>connectionsInsidePattern</strong> (<em>tuple</em>) – <p>The connections between the nodes inside the pattern, as a list of tuple
+(list of inputs, list of outputs) of the same size than aNodeList, where each element of a list describe
+a connection with three elements:</p>
+<ul>
+<li><p>’index’ (index of the connected node)</p></li>
+<li><p>’identifier’ (pin identifier) for input, ‘uid’ (pin uid) for output</p></li>
+<li><p>’type’ (data type)</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>The list of input and output pins as a tuple (list of inputs, list of outputs), where each element
+of a list describe a pin with three elements:</p>
+<ul class="simple">
+<li><p>’index’ (index of the node)</p></li>
+<li><p>’identifier’ (pin identifier) for input, ‘uid’ (pin uid) for output</p></li>
+<li><p>’type’ (data type)</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.computeSortedIndicesOfDAG">
+<span class="sig-name descname"><span class="pre">computeSortedIndicesOfDAG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.computeSortedIndicesOfDAG" title="Link to this definition"></a></dt>
+<dd><p>Sort topologically the nodes included in the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNodeList</strong> (list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>.) – The list of node to take in account for the topological sort.</p></li>
+<li><p><strong>connectionsInsidePattern</strong> (<em>list</em><em> of </em><em>tuple</em>) – <p>The input and output connections, as a list of tuple (list of inputs, list of outputs)
+of the same size than aNodeList, where each element of a list describe a connection with three elements:</p>
+<ul>
+<li><p>’index’ (index of the connected node)</p></li>
+<li><p>’identifier’ (pin identifier) for input, ‘uid’ (pin uid) for output</p></li>
+<li><p>’type’ (data type)</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The sorted node list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.contains" title="Link to this definition"></a></dt>
+<dd><p>Check if the given node belongs to this node list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>, <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – The node to check, as a, object or an UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given node belongs to the node list, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.copyNode">
+<span class="sig-name descname"><span class="pre">copyNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.copyNode" title="Link to this definition"></a></dt>
+<dd><p>Create a copy of the given node and generate a new uid for it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>) – the node to copy</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.deleteNode">
+<span class="sig-name descname"><span class="pre">deleteNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.deleteNode" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given node from the graph.
+It removes it from the nodes list, and delete all the connections from and to that node in the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – The node to remove, as a SBSNode or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.duplicateNode">
+<span class="sig-name descname"><span class="pre">duplicateNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.duplicateNode" title="Link to this definition"></a></dt>
+<dd><p>Duplicate the given node, generate a new UID and add the node to the same node list than the source node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – the node to copy (may be identified by its UID)</p></li>
+<li><p><strong>aGUIOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – node position offset. Default to [150, 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> object</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getConnectionsFromNode">
+<span class="sig-name descname"><span class="pre">getConnectionsFromNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getConnectionsFromNode" title="Link to this definition"></a></dt>
+<dd><p>Get all the connections coming from the given left node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – the node to consider, as an object or a UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getConnectionsToNode">
+<span class="sig-name descname"><span class="pre">getConnectionsToNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPinIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getConnectionsToNode" title="Link to this definition"></a></dt>
+<dd><p>Get the connections incoming to the given node, to a particular input or for all its inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – the node to consider, as an object or a UID</p></li>
+<li><p><strong>aPinIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – the identifier of the pin to take in account</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getNode">
+<span class="sig-name descname"><span class="pre">getNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getNode" title="Link to this definition"></a></dt>
+<dd><p>Search for the given node in the node list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – node to get, identified by its uid or as a <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getNodeList">
+<span class="sig-name descname"><span class="pre">getNodeList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodesList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getNodeList" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes of this NodeList, or look for the given nodes if aNodesList is not None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodesList</strong> (list of str or list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>, optional) – The list of node to retrieve. None to retrieve the entire node list.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getNodesConnectedFrom">
+<span class="sig-name descname"><span class="pre">getNodesConnectedFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getNodesConnectedFrom" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes connected to an output of the given node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – the node to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getNodesConnectedTo">
+<span class="sig-name descname"><span class="pre">getNodesConnectedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPinIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getNodesConnectedTo" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes connected to the given pin of the given node.
+If aPinIdentifier is let None, consider all the pins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – the node to consider</p></li>
+<li><p><strong>aPinIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – the identifier of the pin to take in account</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getNodesDockedTo">
+<span class="sig-name descname"><span class="pre">getNodesDockedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getNodesDockedTo" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes that are docked to the given node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – the node to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> corresponding to the nodes that are docked to the given node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.getRect">
+<span class="sig-name descname"><span class="pre">getRect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.getRect" title="Link to this definition"></a></dt>
+<dd><p>Get the rectangle occupied by all the nodes in the list, or use only the given nodes if aNodeList is not None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodeList</strong> (list of str or list of <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>, optional) – The list of node to take in account for the GUI rectangle. None to consider the node list pointed by itself.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The rectangle as a <a class="reference internal" href="gui.html#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.isAPathBetween">
+<span class="sig-name descname"><span class="pre">isAPathBetween</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.isAPathBetween" title="Link to this definition"></a></dt>
+<dd><p>Check if there is a path from the left node to the right node with the current connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aLeftNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – The left node</p></li>
+<li><p><strong>aRightNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – The right node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a path is found, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.sortListLexicographically">
+<span class="sig-name descname"><span class="pre">sortListLexicographically</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.sortListLexicographically" title="Link to this definition"></a></dt>
+<dd><p>Sort ‘lexicographically’ the nodes included in the list.
+It uses the node definition to classify the nodes, and the GUI position in case of equality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodeList</strong> (list of tuple(int, <a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>).) – The list of node to take in account for the lexicographical sort.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The sorted node list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.NodeList.sortNodesAsDAG">
+<span class="sig-name descname"><span class="pre">sortNodesAsDAG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUpdateNodeListMember</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.NodeList.sortNodesAsDAG" title="Link to this definition"></a></dt>
+<dd><p>Sort the node list of the graph to order them as a DAG. The node list is updated and returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUpdateNodeListMember</strong> (<em>bool</em>) – True to update the node list member with the sorted nodes, False to just get the sorted list. Default to True.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the sorted node list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbscommon.nodes.</span></span><span class="sig-name descname"><span class="pre">SBSNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGUIName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aConnections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUILayout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class used to gather common information of a <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>, <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>,
+<a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> and <a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a></p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mGUIName    (str, optional): name of the node.</p></li>
+<li><p>mUID        (str): node unique identifier in the /compNodes/ context.</p></li>
+<li><p>mDisabled   (str, optional): this node is disabled.</p></li>
+<li><p>mGUILayout  (<a class="reference internal" href="gui.html#sbscommon.gui.SBSGUILayout" title="sbscommon.gui.SBSGUILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayout</span></code></a>): GUI position/options</p></li>
+<li><p>mConnections (list of <a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a>, optional): input connections list.</p></li>
+<li><p>mUserId     (str): node id given by the user (used for portal connections display).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getConnectedNodesUID">
+<span class="sig-name descname"><span class="pre">getConnectedNodesUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getConnectedNodesUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UIDs of the nodes connected to this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The UIDs as a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getConnectionOnPin">
+<span class="sig-name descname"><span class="pre">getConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPinIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Get the connection defined on the given input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<em>str</em>) – identifier of the input pin (for <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>, <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> and <a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a>) or of the output pin(for <a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a> object corresponding to the connection defined on the given pin. None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getConnections">
+<span class="sig-name descname"><span class="pre">getConnections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getConnections" title="Link to this definition"></a></dt>
+<dd><p>Get the connections defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getConnectionsFromNode">
+<span class="sig-name descname"><span class="pre">getConnectionsFromNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getConnectionsFromNode" title="Link to this definition"></a></dt>
+<dd><p>Get all the connections coming from the given left node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – The node to look for in the incoming connections of this node, as an object or a UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getDefinition">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the node definition (Inputs, Outputs, Parameters) accordingly to the node implementation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeDef</span></code> object if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getDisplayName">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getInputDefinition">
+<span class="sig-name descname"><span class="pre">getInputDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getInputDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the input definition corresponding to the given identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str, optional) – The identifier to get. If let None, the primary input will be returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input definition as a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getOffsetPosition">
+<span class="sig-name descname"><span class="pre">getOffsetPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getOffsetPosition" title="Link to this definition"></a></dt>
+<dd><p>Compute the position of this node offset by the given offset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – the offset to apply to the node’s current position. Default to [0,0]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the offset position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getPosition">
+<span class="sig-name descname"><span class="pre">getPosition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getPosition" title="Link to this definition"></a></dt>
+<dd><p>Get the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of 3 float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getRect">
+<span class="sig-name descname"><span class="pre">getRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getRect" title="Link to this definition"></a></dt>
+<dd><p>Return the rectangle of this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The rectangle as a <a class="reference internal" href="gui.html#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.hasAReferenceOnDependency">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hasAReferenceOnDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.hasAReferenceOnDependency" title="Link to this definition"></a></dt>
+<dd><p>Check if this node directly references the given dependency.         For instance if it instantiates a graph or a resource included in this dependency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDependency</strong> (str or <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – The dependency to look for (UID or object)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references this dependency, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.hasAReferenceOnInternalPath">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hasAReferenceOnInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInternalPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.hasAReferenceOnInternalPath" title="Link to this definition"></a></dt>
+<dd><p>Check if this node references the given internal path (pkg:///).         For instance if it instantiates the graph or the resource pointed at the given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInternalPath</strong> (<em>str</em>) – The internal path to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references the given internal path, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.isConnectedTo">
+<span class="sig-name descname"><span class="pre">isConnectedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.isConnectedTo" title="Link to this definition"></a></dt>
+<dd><p>Check if the node is connected to the given node, in the direction aLeftNode -&gt; self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the nodes are connected, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.isDocked">
+<span class="sig-name descname"><span class="pre">isDocked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.isDocked" title="Link to this definition"></a></dt>
+<dd><p>Check if this node is docked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this node is docked, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.removeConnectionOnPin">
+<span class="sig-name descname"><span class="pre">removeConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.removeConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Remove the connection on the given input pin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str) – identifier of the input pin (for <a class="reference internal" href="../compnode/compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> and <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>) or of the output pin(for <a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>) to disconnect</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a connection is removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.removeConnectionsFrom">
+<span class="sig-name descname"><span class="pre">removeConnectionsFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.removeConnectionsFrom" title="Link to this definition"></a></dt>
+<dd><p>Remove all the connections from aLeftNode to this node (in the direction aLeftNode -&gt; self)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.setPosition">
+<span class="sig-name descname"><span class="pre">setPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.setPosition" title="Link to this definition"></a></dt>
+<dd><p>Set the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPosition</strong> (<em>a list</em><em> of </em><em>3 float</em>) – The position to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.nodes.SBSNode.write">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.nodes.SBSNode.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbscommon.html" class="btn btn-neutral float-left" title="sbscommon module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="connections.html" class="btn btn-neutral float-right" title="connections module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

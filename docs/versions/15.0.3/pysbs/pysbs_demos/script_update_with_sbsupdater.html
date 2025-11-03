@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>script_update_with_sbsupdater script &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API Content" href="../modules.html" />
+    <link rel="prev" title="demos_batchtools module" href="demos_batchtools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview/overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview/Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview/SAT%20demos.html">SAT demos</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="demohelloworld.html">demohelloworld module: A very simple function that creates a basic Substance, which uses the API without argument file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="demos.html">demos module: Set a sample functions to demonstrate the use of the API, using argument files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="demos_batchtools.html">demos_batchtools module: Set a sample functions to demonstrate the use of the API with the batchtools, using argument files</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">script_update_with_sbsupdater: Script allowing to update all Substances in a folder using the Batch Tool SBSUpdater</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#script_update_with_sbsupdater.scriptUpdatePackagesVersion"><code class="docutils literal notranslate"><span class="pre">scriptUpdatePackagesVersion()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview/overview.html">API overview</a></li>
+          <li class="breadcrumb-item"><a href="../overview/SAT%20demos.html">SAT demos</a></li>
+      <li class="breadcrumb-item active">script_update_with_sbsupdater script</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-script_update_with_sbsupdater">
+<span id="script-update-with-sbsupdater-script"></span><span id="ref-to-demo-sbsupdater"></span><h1>script_update_with_sbsupdater script<a class="headerlink" href="#module-script_update_with_sbsupdater" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="script_update_with_sbsupdater.scriptUpdatePackagesVersion">
+<span class="sig-prename descclassname"><span class="pre">script_update_with_sbsupdater.</span></span><span class="sig-name descname"><span class="pre">scriptUpdatePackagesVersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPreviousVersion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPreviousUpdaterVersion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPackagesFolderRootDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBatchToolsFolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#script_update_with_sbsupdater.scriptUpdatePackagesVersion" title="Link to this definition"></a></dt>
+<dd><p>Allows to update to the current version of Substance Designer all .sbs recursively included in the given folder path using the Mutator Batch Tool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aPreviousVersion</strong> (<em>str</em>) – Previous version number. Only .sbs with this version will be updated</p></li>
+<li><p><strong>aPreviousUpdaterVersion</strong> (<em>str</em>) – Previous updater version number. Only .sbs with this updater version will be updated</p></li>
+<li><p><strong>aPackagesFolderRootDir</strong> – The root folder containing the packages to update</p></li>
+<li><p><strong>aBatchToolsFolder</strong> (<em>str</em><em>, </em><em>optional</em>) – The folder containing the batch tools executables. If not provided, the path of Substance Designer identified by the given context will be used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+</dl>
+<p>Here is the code of function scriptUpdatePackagesVersion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">aUpdaterPath</span> <span class="o">=</span> <span class="n">aContext</span><span class="o">.</span><span class="n">getBatchToolExePath</span><span class="p">(</span><span class="n">aBatchTool</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">BatchToolsEnum</span><span class="o">.</span><span class="n">UPDATER</span><span class="p">,</span> <span class="n">aBatchToolsFolder</span><span class="o">=</span><span class="n">aBatchToolsFolder</span><span class="p">)</span>
+<span class="n">aPresetPackagePath</span> <span class="o">=</span> <span class="n">aContext</span><span class="o">.</span><span class="n">getDefaultPackagePath</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">aCommand</span> <span class="o">=</span> <span class="p">[</span><span class="n">aUpdaterPath</span><span class="p">,</span> <span class="s1">&#39;--no-dependency&#39;</span><span class="p">,</span> <span class="s1">&#39;--output-path&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{inputPath}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;--output-name&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{inputName}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;--presets-path&#39;</span><span class="p">,</span> <span class="n">aPresetPackagePath</span><span class="p">]</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">aCommand</span><span class="p">)</span>
+
+    <span class="n">aRootDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">aPackagesFolderRootDir</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">subFolders</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">aRootDir</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">aFile</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">aFile</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.sbs&#39;</span><span class="p">):</span>
+                <span class="n">aPackagePath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">aFile</span><span class="p">)</span>
+                <span class="n">aDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="o">=</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="o">=</span><span class="n">aPackagePath</span><span class="p">)</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Parse substance &#39;</span><span class="o">+</span><span class="n">aPackagePath</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">aDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+                <span class="k">except</span> <span class="n">SBSIncompatibleVersionError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+                <span class="k">if</span> <span class="n">aDoc</span><span class="o">.</span><span class="n">mFormatVersion</span> <span class="o">==</span> <span class="n">aPreviousVersion</span> <span class="ow">and</span> <span class="n">aDoc</span><span class="o">.</span><span class="n">mUpdaterVersion</span> <span class="o">==</span> <span class="n">aPreviousUpdaterVersion</span><span class="p">:</span>
+                    <span class="n">aMutatorCmd</span> <span class="o">=</span> <span class="n">aCommand</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;--input&#39;</span><span class="p">,</span> <span class="n">aPackagePath</span><span class="p">]</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">aMutatorCmd</span><span class="p">)</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Update substance &#39;</span><span class="o">+</span><span class="n">aPackagePath</span><span class="p">)</span>
+                    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span><span class="n">aMutatorCmd</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;=&gt; All packages have been updated using the Mutator Batch Tool&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoUpdatePackagesVersion] Failed to update a package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="demos_batchtools.html" class="btn btn-neutral float-left" title="demos_batchtools module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../modules.html" class="btn btn-neutral float-right" title="API Content" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

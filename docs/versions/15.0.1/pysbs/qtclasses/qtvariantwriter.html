@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>qtvariantwriter module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="context module" href="../context.html" />
+    <link rel="prev" title="qtvariantreader module" href="qtvariantreader.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="qtvariantreader.html">qtvariantreader module: Defininition of the class QtVariantReader</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">qtvariantwriter module: Defininition of the class QtVariantWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariantTypeEnum"><code class="docutils literal notranslate"><span class="pre">QtVariantTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant"><code class="docutils literal notranslate"><span class="pre">QtVariant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariantMap"><code class="docutils literal notranslate"><span class="pre">QtVariantMap</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtColor"><code class="docutils literal notranslate"><span class="pre">QtColor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="qtclasses.html">qtclasses module</a></li>
+      <li class="breadcrumb-item active">qtvariantwriter module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.qtclasses.qtvariantwriter">
+<span id="qtvariantwriter-module"></span><h1>qtvariantwriter module<a class="headerlink" href="#module-pysbs.qtclasses.qtvariantwriter" title="Link to this heading"></a></h1>
+<p>Module <strong>qtvariantwriter</strong> provides the class QtVariantWriter which allows the serialization of a QVariant object.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.qtclasses.qtvariantwriter.</span></span><span class="sig-name descname"><span class="pre">QtVariantWriter</span></span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class QtVariantWriter allows to write (serialize) a <a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a> object into a Byte Array or a base64 encoded string.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.boolToBytes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boolToBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.boolToBytes" title="Link to this definition"></a></dt>
+<dd><p>Convert the given boolean into in bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBool</strong> (<em>bool</em>) – The boolean to convert into bytes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the result of the conversion as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.charToBytes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">charToBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aChar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.charToBytes" title="Link to this definition"></a></dt>
+<dd><p>Convert the given character in bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aChar</strong> (<em>char</em>) – The character to convert into bytes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the result of the conversion as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.doubleToBytes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">doubleToBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDouble</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.doubleToBytes" title="Link to this definition"></a></dt>
+<dd><p>Convert the given double into in bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDouble</strong> (<em>double</em>) – The double to convert into bytes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the result of the conversion as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int16ToBytes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">int16ToBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int16ToBytes" title="Link to this definition"></a></dt>
+<dd><p>Convert the given integer into in bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInt</strong> (<em>integer</em>) – The integer to convert into bytes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the result of the conversion as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int32ToBytes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">int32ToBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int32ToBytes" title="Link to this definition"></a></dt>
+<dd><p>Convert the given integer into in bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInt</strong> (<em>integer</em>) – The integer to convert into bytes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the result of the conversion as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int8ToBytes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">int8ToBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.int8ToBytes" title="Link to this definition"></a></dt>
+<dd><p>Convert the given integer into in bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInt</strong> (<em>integer</em>) – The integer to convert into bytes</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the result of the conversion as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.toBase64String">
+<span class="sig-name descname"><span class="pre">toBase64String</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aQtVariant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.toBase64String" title="Link to this definition"></a></dt>
+<dd><p>Write the given QtVariant object into a base64 encoded string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aQtVariant</strong> (<a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>) – The QtVariant object to write in a base64 string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The base64 encoded string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.toByteArrayString">
+<span class="sig-name descname"><span class="pre">toByteArrayString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aVariant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.toByteArrayString" title="Link to this definition"></a></dt>
+<dd><p>Write the given QtVariant object into a byte array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aQtVariant</strong> (<a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>) – The QtVariant object to write in a ByteArray string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The bytearray string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeBool">
+<span class="sig-name descname"><span class="pre">writeBool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeBool" title="Link to this definition"></a></dt>
+<dd><p>Write the given Boolean into 1 byte</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBool</strong> (<em>bool</em>) – The boolean to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeByteArray">
+<span class="sig-name descname"><span class="pre">writeByteArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aByteArray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeByteArray" title="Link to this definition"></a></dt>
+<dd><p>Write the given ByteArray with its size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aByteArray</strong> (<em>ByteArray</em>) – The ByteArray to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeChar">
+<span class="sig-name descname"><span class="pre">writeChar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aChar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeChar" title="Link to this definition"></a></dt>
+<dd><p>Write the given char into 1 byte</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aChar</strong> (<em>char</em>) – The character to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeDouble">
+<span class="sig-name descname"><span class="pre">writeDouble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDouble</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeDouble" title="Link to this definition"></a></dt>
+<dd><p>Write the given double into 8 bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDouble</strong> (<em>double</em>) – The double to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt">
+<span class="sig-name descname"><span class="pre">writeInt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt" title="Link to this definition"></a></dt>
+<dd><p>Write the given integer into 4 bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInt</strong> (<em>integer</em>) – The integer to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt16">
+<span class="sig-name descname"><span class="pre">writeInt16</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt16" title="Link to this definition"></a></dt>
+<dd><p>Write the given integer into 2 bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInt</strong> (<em>integer</em>) – The integer to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt8">
+<span class="sig-name descname"><span class="pre">writeInt8</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeInt8" title="Link to this definition"></a></dt>
+<dd><p>Write the given integer into 1 byte</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInt</strong> (<em>integer</em>) – The integer to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariant">
+<span class="sig-name descname"><span class="pre">writeQtVariant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aQtVariant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariant" title="Link to this definition"></a></dt>
+<dd><p>Write the given variant item (=type + value)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aQtVariant</strong> (<a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>) – The variant object to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantList">
+<span class="sig-name descname"><span class="pre">writeQtVariantList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantList" title="Link to this definition"></a></dt>
+<dd><p>Write the given variant list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aList</strong> (list of <a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>) – The variant list to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantMap">
+<span class="sig-name descname"><span class="pre">writeQtVariantMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantMap" title="Link to this definition"></a></dt>
+<dd><p>Write the given variant map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aMap</strong> (<a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariantMap" title="qtclasses.qtclasses.QtVariantMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariantMap</span></code></a>) – The variant map to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantString">
+<span class="sig-name descname"><span class="pre">writeQtVariantString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantString" title="Link to this definition"></a></dt>
+<dd><p>Write the given string with its size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStr</strong> (<em>str</em>) – The string to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantValue">
+<span class="sig-name descname"><span class="pre">writeQtVariantValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aQtVariant</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeQtVariantValue" title="Link to this definition"></a></dt>
+<dd><p>Write the given variant item value, according to the given type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aQtVariant</strong> (<a class="reference internal" href="qtclasses.html#qtclasses.qtclasses.QtVariant" title="qtclasses.qtclasses.QtVariant"><code class="xref py py-class docutils literal notranslate"><span class="pre">QtVariant</span></code></a>) – The object to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeSize">
+<span class="sig-name descname"><span class="pre">writeSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeSize" title="Link to this definition"></a></dt>
+<dd><p>Write the given size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSize</strong> (<em>tuple</em><em> of </em><em>two int</em>) – The size to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeString">
+<span class="sig-name descname"><span class="pre">writeString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeString" title="Link to this definition"></a></dt>
+<dd><p>Write the given string into 2*len(aStr) bytes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStr</strong> (<em>string</em>) – The string to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeStringList">
+<span class="sig-name descname"><span class="pre">writeStringList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aStringList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeStringList" title="Link to this definition"></a></dt>
+<dd><p>Write the given string list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aStringList</strong> (<em>list</em><em> of </em><em>string</em>) – The list of strings to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeURL">
+<span class="sig-name descname"><span class="pre">writeURL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aURL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.qtclasses.qtvariantwriter.QtVariantWriter.writeURL" title="Link to this definition"></a></dt>
+<dd><p>Write the given URL with its size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aURL</strong> (<em>str</em>) – The url to write</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qtvariantreader.html" class="btn btn-neutral float-left" title="qtvariantreader module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../context.html" class="btn btn-neutral float-right" title="context module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

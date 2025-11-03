@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAT and Spot colors &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Thumbnail creation with SAT" href="Thumbnail%20creation%20with%20SAT.html" />
+    <link rel="prev" title="Package’s metadata" href="metadata%20manipulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SAT and Spot colors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spot-colors-with-spotcolorinfo">Spot colors with spotcolorinfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spot-colors-with-pysbs">Spot colors with PySBS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SAT%20demos.html">SAT demos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">API overview</a></li>
+      <li class="breadcrumb-item active">SAT and Spot colors</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sat-and-spot-colors">
+<span id="ref-to-overview-spotcolor"></span><h1>SAT and Spot colors<a class="headerlink" href="#sat-and-spot-colors" title="Link to this heading"></a></h1>
+<section id="spot-colors-with-spotcolorinfo">
+<h2>Spot colors with spotcolorinfo<a class="headerlink" href="#spot-colors-with-spotcolorinfo" title="Link to this heading"></a></h2>
+<p>From the 11.1 version Substance Designer and SAT introduced spot colors concept. Spot colors allows users
+to pick color from color books, like Pantone. In this version several Pantone books are shipped with
+SD and SAT but it’s also possible to add your own Spot colors books.
+:link to spotcolors SD doc:</p>
+<p>SAT 11.1 has a Spot colors utility batchtool, <cite>spotcolorinfo(.exe)</cite>. This batchtool allows users to get various
+information for a given Spot color or a color name from a book.
+It’s split into three sub command:</p>
+<ul class="simple">
+<li><p><cite>spotcolorinfo from-names</cite> get information from a color and its book name</p></li>
+<li><p><cite>spotcolorinfo from-ids</cite> get information from Spot color ID and a book ID</p></li>
+<li><p><cite>spotcolorinfo list</cite> get a Spot color info list from a book name</p></li>
+</ul>
+<p>Some examples with the color <cite>PANTONE Cool Gray 4 U</cite> from the book <cite>PANTONE solid uncoated</cite>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># --book-color-name  value must be under form &lt;bookname&gt;|&lt;colorname&gt;</span>
+~$<span class="w"> </span>spotcolorinfo<span class="w"> </span>from-names<span class="w"> </span>--book-color-name<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated|PANTONE Cool Gray 4 U&quot;</span>
+<span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;PANTONE solid uncoated|PANTONE Cool Gray 4 U&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;bookid&quot;</span>:<span class="w"> </span><span class="m">3005</span>,
+<span class="w">        </span><span class="s2">&quot;bookname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colorengine&quot;</span>:<span class="w"> </span><span class="s2">&quot;legacy&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colorid&quot;</span>:<span class="w"> </span><span class="s2">&quot;  CG4U&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colormodel&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">        </span><span class="s2">&quot;colorname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE Cool Gray 4 U&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;rgba&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">            </span><span class="m">0</span>.7144664525985718,
+<span class="w">            </span><span class="m">0</span>.7144691944122314,
+<span class="w">            </span><span class="m">0</span>.714465856552124,
+<span class="w">            </span><span class="m">1</span>
+<span class="w">        </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1"># --spotcolor  value must be under form &lt;bookid&gt;|&lt;colorid&gt;, colorid is always composed of 6 chars (spaces matters)</span>
+~$<span class="w"> </span>spotcolorinfo<span class="w"> </span>from-ids<span class="w"> </span>--spotcolor<span class="w"> </span><span class="s2">&quot;3005|  CG4U&quot;</span>
+<span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;PANTONE solid uncoated|PANTONE Cool Gray 4 U&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;bookid&quot;</span>:<span class="w"> </span><span class="m">3005</span>,
+<span class="w">        </span><span class="s2">&quot;bookname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colorengine&quot;</span>:<span class="w"> </span><span class="s2">&quot;legacy&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colorid&quot;</span>:<span class="w"> </span><span class="s2">&quot;  CG4U&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colormodel&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">        </span><span class="s2">&quot;colorname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE Cool Gray 4 U&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;rgba&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">            </span><span class="m">0</span>.7144664525985718,
+<span class="w">            </span><span class="m">0</span>.7144691944122314,
+<span class="w">            </span><span class="m">0</span>.714465856552124,
+<span class="w">            </span><span class="m">1</span>
+<span class="w">        </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
+
+~$<span class="w"> </span>spotcolorinfo<span class="w"> </span>list<span class="w"> </span>--book-name<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated&quot;</span>
+<span class="o">{</span>
+<span class="s2">&quot;PANTONE solid uncoated|PANTONE 100 U&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;bookid&quot;</span>:<span class="w"> </span><span class="m">3005</span>,
+<span class="w">    </span><span class="s2">&quot;bookname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;colorengine&quot;</span>:<span class="w"> </span><span class="s2">&quot;legacy&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;colorid&quot;</span>:<span class="w"> </span><span class="s2">&quot;  100U&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;colormodel&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;colorname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE 100 U&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;rgba&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="m">0</span>.9859546422958374,
+<span class="w">        </span><span class="m">0</span>.9317296743392944,
+<span class="w">        </span><span class="m">0</span>.468885213136673,
+<span class="w">        </span><span class="m">1</span>
+<span class="w">    </span><span class="o">]</span>
+<span class="o">}</span>,
+<span class="s2">&quot;PANTONE solid uncoated|PANTONE 101 U&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;bookid&quot;</span>:<span class="w"> </span><span class="m">3005</span>,
+<span class="w">    </span><span class="s2">&quot;bookname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;colorengine&quot;</span>:<span class="w"> </span><span class="s2">&quot;legacy&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;colorid&quot;</span>:<span class="w"> </span><span class="s2">&quot;  101U&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;colormodel&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;colorname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE 101 U&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;rgba&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="m">0</span>.9922541975975037,
+<span class="w">        </span><span class="m">0</span>.9378421306610107,
+<span class="w">        </span><span class="m">0</span>.4005987346172333,
+<span class="w">        </span><span class="m">1</span>
+<span class="w">    </span><span class="o">]</span>
+<span class="o">}</span>
+...
+</pre></div>
+</div>
+<p>For each commands, the flag <cite>–colorbooks</cite> can be used to precise another
+books collection directory.</p>
+<p>It’s also possible to used an ACE color profile to get corresponding Spot color info.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>~$<span class="w"> </span>spotcolorinfo<span class="w"> </span>from-names<span class="w"> </span>--ace<span class="w"> </span>--ace-render-intent<span class="w"> </span>saturation<span class="w"> </span>--ace-working-space<span class="w"> </span>srgb<span class="w"> </span>--book-color-name<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated|PANTONE Cool Gray 4 U&quot;</span>
+<span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;PANTONE solid uncoated|PANTONE Cool Gray 4 U&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;acesettings&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="s2">&quot;renderintent&quot;</span>:<span class="w"> </span><span class="s2">&quot;saturation&quot;</span>,
+<span class="w">            </span><span class="s2">&quot;workspace&quot;</span>:<span class="w"> </span><span class="s2">&quot;srgb&quot;</span>
+<span class="w">        </span><span class="o">}</span>,
+<span class="w">        </span><span class="s2">&quot;bookid&quot;</span>:<span class="w"> </span><span class="m">3005</span>,
+<span class="w">        </span><span class="s2">&quot;bookname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE solid uncoated&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colorengine&quot;</span>:<span class="w"> </span><span class="s2">&quot;ace&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colorid&quot;</span>:<span class="w"> </span><span class="s2">&quot;  CG4U&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;colormodel&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">        </span><span class="s2">&quot;colorname&quot;</span>:<span class="w"> </span><span class="s2">&quot;PANTONE Cool Gray 4 U&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;rgba&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">            </span><span class="m">0</span>.719413161277771,
+<span class="w">            </span><span class="m">0</span>.7131832242012024,
+<span class="w">            </span><span class="m">0</span>.7109392285346985,
+<span class="w">            </span><span class="m">1</span>
+<span class="w">        </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="spot-colors-with-pysbs">
+<span id="ref-to-overview-spotcolor-pysbs"></span><h2>Spot colors with PySBS<a class="headerlink" href="#spot-colors-with-pysbs" title="Link to this heading"></a></h2>
+<p>PySBS fully supports Spot color, it wraps the <cite>spotcolorinfo</cite> command line to manipulate Spot color
+transparently.</p>
+<p>Set Compnode’s parameter with Spot color value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">getAllFiltersOfKind</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">setParameterSpotColorValueFromNames</span><span class="p">(</span><span class="s2">&quot;outputcolor&quot;</span><span class="p">,</span> <span class="s2">&quot;PANTONE solid uncoated&quot;</span><span class="p">,</span> <span class="s2">&quot;PANTONE Cool Gray 4 U&quot;</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">setParameterSpotColorValueFromIds</span><span class="p">(</span><span class="s2">&quot;outputcolor&quot;</span><span class="p">,</span> <span class="s2">&quot;3005&quot;</span><span class="p">,</span> <span class="s2">&quot;  CG4U&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Set Graph’s input parameter with Spot color value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_param</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">addInputParameter</span><span class="p">(</span><span class="s2">&quot;spotcolor&quot;</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">COLOR_FLOAT4</span><span class="p">)</span>
+<span class="n">input_param</span><span class="o">.</span><span class="n">setSpotColorFromNames</span><span class="p">(</span><span class="s1">&#39;PANTONE solid uncoated&#39;</span><span class="p">,</span> <span class="s1">&#39;PANTONE Cool Gray 4 U&#39;</span><span class="p">)</span>
+<span class="n">input_param</span><span class="o">.</span><span class="n">setSpotColorValueFromIds</span><span class="p">(</span><span class="s2">&quot;3005&quot;</span><span class="p">,</span> <span class="s2">&quot;  CG4U&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For each set Spot color a SBSParamSpotColorInfo is created as the parameter value, this value can be get:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># compnode</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">getDefinedParameters</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">spotcolorparam</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">getSpotColorInfo</span><span class="p">()</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">spotcolorparam</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+<span class="n">or_info_as_dict</span> <span class="o">=</span> <span class="n">spotcolorparam</span><span class="o">.</span><span class="n">getInfoAsDict</span><span class="p">()</span>
+
+<span class="c1">#graph input param</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">getParameterValue</span>
+<span class="n">input_param</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">getInputParameter</span><span class="p">(</span><span class="s2">&quot;spotcolor&quot;</span><span class="p">)</span>
+<span class="n">spotcolorparam</span> <span class="o">=</span> <span class="n">in_param</span><span class="o">.</span><span class="n">getSpotColorInfo</span><span class="p">()</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">spotcolorparam</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+<span class="n">or_info_as_dict</span> <span class="o">=</span> <span class="n">spotcolorparam</span><span class="o">.</span><span class="n">getInfoAsDict</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../params/params.html#params.params.SBSParamSpotColorInfo" title="params.params.SBSParamSpotColorInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamSpotColorInfo</span></code></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="metadata%20manipulation.html" class="btn btn-neutral float-left" title="Package’s metadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Thumbnail%20creation%20with%20SAT.html" class="btn btn-neutral float-right" title="Thumbnail creation with SAT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

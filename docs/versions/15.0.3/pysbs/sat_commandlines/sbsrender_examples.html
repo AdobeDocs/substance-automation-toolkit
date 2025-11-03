@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsrender example command lines &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsrender base parameters and pattern variables" href="sbsrender_pattern.html" />
+    <link rel="prev" title="sbsrender command line options" href="sbsrender_options.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sat_commandlines.html">Command Line Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="substance3d_baker.html"> substance3d_baker — Bakes out mesh specific data such as ambient occlusion or normal data to textures.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbscooker.html"> sbscooker — Cooks .sbs files to .sbsar files ready to be rendered with sbsrender.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsmutator.html"> sbsmutator — Modifies and specializes .sbs files.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="sbsrender.html"> sbsrender — Renders out maps from .sbsar files.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sbsrender_options.html"> sbsrender command line options</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"> sbsrender example command lines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opencolorio-with-sbsrender">OpenColorIO with sbsrender</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sbsrender_pattern.html"> sbsrender base parameters and pattern variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsupdater.html"> sbsupdater — Updates .sbs files to the current version of the batch tools.</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="sat_commandlines.html">Command Line Tools</a></li>
+          <li class="breadcrumb-item"><a href="sbsrender.html">sbsrender</a></li>
+      <li class="breadcrumb-item active">sbsrender example command lines</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbsrender-example-command-lines">
+<span id="ref-to-sat-sbsrenderexamples"></span><h1>sbsrender example command lines<a class="headerlink" href="#sbsrender-example-command-lines" title="Link to this heading"></a></h1>
+<p>This page contains examples of command lines for invoking the command line processors in various environments. In the examples, the command line tools are assumed to be in the PATH.</p>
+<section id="opencolorio-with-sbsrender">
+<h2>OpenColorIO with sbsrender<a class="headerlink" href="#opencolorio-with-sbsrender" title="Link to this heading"></a></h2>
+<p>Substance Designer 2019.3 support OpenColorIO (<a class="reference external" href="https://opencolorio.org/">https://opencolorio.org/</a>).</p>
+<p>The examples assumes that you are already familiar with OCIO and a color workflow like ACES. SAT and SD provide three different color workflows (luts and config files are present in $SAT_INSTALL_DIR/resources/ocio):</p>
+<ul class="simple">
+<li><p>Legacy, the color workflow used in previous versions. Legacy uses the old color engine.</p></li>
+<li><p>Aces, the Academy Color Encoding System (<a class="reference external" href="https://en.wikipedia.org/wiki/Academy_Color_Encoding_System">https://en.wikipedia.org/wiki/Academy_Color_Encoding_System</a>) which provides a set of color transforms adapted to the tv and cinema industry. Aces uses the OCIO color engine.</p></li>
+<li><p>Substance, a simplified Aces workflow. A selection of the most used colorspaces in the VFX and animation industry. Substance also uses the OCIO color engine.</p></li>
+</ul>
+<p>A new set of flags have been added to sbsrender to control OCIO:</p>
+<p><cite>–ocio &lt;string&gt;</cite> Specify an OpenColorIO configuration to use (can be a config.ocio present in $SAT_INSTALL_DIR/resources/ocio). If you don’t set this flag the legacy color engine will be used.</p>
+<p><cite>–output-colorspace &lt;string&gt;</cite> Specify the colorspace name for outputs. <cite>–output-colorspace sRGB</cite>.</p>
+<p>Input colorspace is controlled using:</p>
+<p><cite>–set-entry-colorspace &lt;arg&gt;</cite> Specify the colorspace to use for an input. <cite>–set-entry-colorspace input_id&#64;sRGB</cite>.
+Output colorspace is controlled using the following flags:</p>
+<p><cite>–set-output-bit-depth &lt;arg&gt;</cite> Specify the bit depth of an output node. <cite>–set-output-bit-depth output_id&#64;16f</cite>.</p>
+<p><cite>–set-output-colorspace &lt;arg&gt;</cite> Specify the colorspace name for an output. <cite>–set-output-colorspace output_id&#64;sRGB</cite>.</p>
+<p><cite>–set-output-format &lt;arg&gt;</cite> Specify the image format of an output node. <cite>–set-output-format output_id&#64;exr</cite>.</p>
+<p>The new colorspace pattern <cite>{colorspace}</cite> will be converted to the used colorspace when generating filenames.
+Example of using OCIO in sbsrender command line:</p>
+<p>Note, The substance file must have been authored with an OCIO workflow in Designer work properly. If using bitmap resources the cooking must be done with OCIO option (<cite>sbscooker –ocio &lt;path&gt;</cite> or publishing using Substance Designers publish feature)</p>
+<p>The colorspace value must correspond to a colorspace present in the config.ocio file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sbsrender<span class="w"> </span>render<span class="w"> </span>/path/to/ocio_graph.sbar<span class="w"> </span>--output-name<span class="w"> </span><span class="s2">&quot;ocio_{outputNodeName}_{colorspace}&quot;</span><span class="w"> </span>--output-colorspace<span class="w"> </span>Linear<span class="w"> </span>--set-output-colorspace<span class="w"> </span>basecolor_output@sRGB<span class="w"> </span>--set-entry<span class="w"> </span>bitmap_input@/path/to/bitmap.png<span class="w"> </span>--set-entry-colorspace<span class="w"> </span>Linear<span class="w"> </span>--ocio<span class="w"> </span><span class="nv">$SAT_INSTALL_DIR</span>/resources/ocio/substance/config.ocio
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsrender_options.html" class="btn btn-neutral float-left" title="sbsrender command line options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsrender_pattern.html" class="btn btn-neutral float-right" title="sbsrender base parameters and pattern variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

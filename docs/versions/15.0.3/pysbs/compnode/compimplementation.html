@@ -1,0 +1,1219 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>compimplementation module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="paramgraph module" href="paramgraph.html" />
+    <link rel="prev" title="compnode module" href="compnode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="compnode.html">compnode module: Compositing node definitions</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">compimplementation module: Compositing node implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="paramgraph.html">paramgraph module: FxMaps graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common.html">common module: Common classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compnode.html#compnode.compnode.SBSCompNode"><code class="docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="compnode.html">compnode module</a></li>
+      <li class="breadcrumb-item active">compimplementation module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-compnode.compimplementation">
+<span id="compimplementation-module"></span><h1>compimplementation module<a class="headerlink" href="#module-compnode.compimplementation" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">Module <strong>compimplementation</strong> provides the definition of the class <a class="reference internal" href="#compnode.compimplementation.SBSCompImplementation" title="compnode.compimplementation.SBSCompImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplementation</span></code></a> and all the possible implementation:</div>
+<div class="line">- <a class="reference internal" href="#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a></div>
+<div class="line">- <a class="reference internal" href="#compnode.compimplementation.SBSCompInstance" title="compnode.compimplementation.SBSCompInstance"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInstance</span></code></a></div>
+<div class="line">- <a class="reference internal" href="#compnode.compimplementation.SBSCompInputBridge" title="compnode.compimplementation.SBSCompInputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInputBridge</span></code></a></div>
+<div class="line">- <a class="reference internal" href="#compnode.compimplementation.SBSCompOutputBridge" title="compnode.compimplementation.SBSCompOutputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutputBridge</span></code></a></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.compimplementation.</span></span><span class="sig-name descname"><span class="pre">SBSCompFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamArrays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamGraphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a></p>
+<p>Class that contains information on a compositing node filter as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mFilter      (str): filter type, among the identifiers available for Filter definition (<a class="reference internal" href="../sbslibrary/sbsfilters.html#module-pysbs.sbslibrary.sbsfilters" title="pysbs.sbslibrary.sbsfilters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsfilters</span></code></a>)</p></li>
+<li><p>mParameters  (list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>): filter parameters list (filters parameters, authoring parameters, resources paths, etc.).</p></li>
+<li><p>mParamArrays (list of <a class="reference internal" href="../params/params.html#params.params.SBSParamsArray" title="params.params.SBSParamsArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsArray</span></code></a>, optional): parameters arrays, e.g. used for gradient data.</p></li>
+<li><p>mParamGraphs (list of <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a>, optional): parameters set graphs, e.g. used for FX-Map parametrization.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.changeDependencyUID">
+<span class="sig-name descname"><span class="pre">changeDependencyUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newDepUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.changeDependencyUID" title="Link to this definition"></a></dt>
+<dd><p>In case of a filter Bitmap or SVG, change the UID of the dependency referenced by the resource.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>newDepUID</strong> (<em>str</em>) – The new dependency UID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.changeResourcePath">
+<span class="sig-name descname"><span class="pre">changeResourcePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.changeResourcePath" title="Link to this definition"></a></dt>
+<dd><p>In case of a filter Bitmap or SVG, change the referenced resource path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>newPath</strong> (<em>str</em>) – The new resource path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentContainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.classify" title="Link to this definition"></a></dt>
+<dd><p>Compare the identifiers of the two filters to classify them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOther</strong> (<a class="reference internal" href="#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>) – The filter to compare to.</p></li>
+<li><p><strong>aParentContainer</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, optional) – The graph containing the nodes to classify</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if itself is considered greater than the other node, -1 for the opposite. 0 in case of equality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the filter definition (Inputs, Outputs, Parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.getParameterValue">
+<span class="sig-name descname"><span class="pre">getParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.getParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter with the given name/id among the overloaded parameters and the default node parameters,
+and return its value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – Parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter value if found (string or <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.getResourcePath">
+<span class="sig-name descname"><span class="pre">getResourcePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.getResourcePath" title="Link to this definition"></a></dt>
+<dd><p>If this node is a Bitmap or SVG, get the path to the resource used by this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path relative to the package used by this node if possible, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of the comp filter</p>
+<p>return: True if the uid is already used, False otherwise</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.hasIdenticalParameters">
+<span class="sig-name descname"><span class="pre">hasIdenticalParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.hasIdenticalParameters" title="Link to this definition"></a></dt>
+<dd><p>Allows to check if two nodes has the same parameters defined with the same values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a>) – the node to compare with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two nodes has the same parameters, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.initFxMapGraph">
+<span class="sig-name descname"><span class="pre">initFxMapGraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.initFxMapGraph" title="Link to this definition"></a></dt>
+<dd><p>Init the <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a> of this filter, if it is a FxMap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The graph of this FxMap as a <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a>, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.isAFxMap">
+<span class="sig-name descname"><span class="pre">isAFxMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.isAFxMap" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this filter is a FxMap, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.isAPixelProcessor">
+<span class="sig-name descname"><span class="pre">isAPixelProcessor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.isAPixelProcessor" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this filter is a Pixel Processor, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.isAResource">
+<span class="sig-name descname"><span class="pre">isAResource</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.isAResource" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the filter uses a resource, meaning is a filter of kind BITMAP or SVG, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.isAValueProcessor">
+<span class="sig-name descname"><span class="pre">isAValueProcessor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.isAValueProcessor" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this filter is a Value Processor, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.setDynamicParameter">
+<span class="sig-name descname"><span class="pre">setDynamicParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.setDynamicParameter" title="Link to this definition"></a></dt>
+<dd><p>Set the given parameter as dynamic, to init its params.SBSDynamicValue.
+If Inheritance is None, the default Inheritance for this node is set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object if succeed, None otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.setParameterValue">
+<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.setParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of the given parameter to the given value, if compatible with this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p></li>
+<li><p><strong>aParamValue</strong> (<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> or any parameter type) – value of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter. Default is ABSOLUTE</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.unsetParameter">
+<span class="sig-name descname"><span class="pre">unsetParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.unsetParameter" title="Link to this definition"></a></dt>
+<dd><p>Unset the given parameter so that it is reset to its default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompFilter.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompFilter.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.compimplementation.</span></span><span class="sig-name descname"><span class="pre">SBSCompImplementation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCompFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCompInstance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCompInputBridge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCompOutputBridge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on the implementation of a compositing node as defined in a .sbs file.
+The implementation is exclusive, only one member of the SBSCompImplementation is defined.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mCompFilter       (<a class="reference internal" href="#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>): filter type compositing node definition.</p></li>
+<li><p>mCompInstance     (<a class="reference internal" href="#compnode.compimplementation.SBSCompInstance" title="compnode.compimplementation.SBSCompInstance"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInstance</span></code></a>): graph instance node.</p></li>
+<li><p>mCompInputBridge  (<a class="reference internal" href="#compnode.compimplementation.SBSCompInputBridge" title="compnode.compimplementation.SBSCompInputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInputBridge</span></code></a>): graph input bridge node.</p></li>
+<li><p>mCompOutputBridge (<a class="reference internal" href="#compnode.compimplementation.SBSCompOutputBridge" title="compnode.compimplementation.SBSCompOutputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutputBridge</span></code></a>): graph output bridge node.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentContainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.classify" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Use the definition of the two CompImplementation to classify them.</div>
+<div class="line">To classify the different kind of CompImplementation, this order is specify:</div>
+<div class="line">Filter &lt; Instance &lt; Input &lt; Output.</div>
+<div class="line">In case of equality, the appropriate classify function is called, depending on the kind of implementation.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOther</strong> (<a class="reference internal" href="#compnode.compimplementation.SBSCompImplementation" title="compnode.compimplementation.SBSCompImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplementation</span></code></a>) – The filter to compare to.</p></li>
+<li><p><strong>aParentContainer</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, optional) – The graph containing the nodes to classify</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if itself is considered greater than the other node, -1 for the opposite. 0 in case of equality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.getImplementation">
+<span class="sig-name descname"><span class="pre">getImplementation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.getImplementation" title="Link to this definition"></a></dt>
+<dd><p>Return the appropriate node implementation depending on the compositing node kind</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a> or a <a class="reference internal" href="#compnode.compimplementation.SBSCompOutputBridge" title="compnode.compimplementation.SBSCompOutputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutputBridge</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.getImplementationKind">
+<span class="sig-name descname"><span class="pre">getImplementationKind</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.getImplementationKind" title="Link to this definition"></a></dt>
+<dd><p>Get the implementation kind of this node, among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.CompImplementationKindEnum" title="sbsenum.CompImplementationKindEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompImplementationKindEnum</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <a class="reference internal" href="../sbsenum.html#sbsenum.CompImplementationKindEnum" title="sbsenum.CompImplementationKindEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompImplementationKindEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.isAFilter">
+<span class="sig-name descname"><span class="pre">isAFilter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.isAFilter" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is a Compositing Node Filter, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.isAnInputBridge">
+<span class="sig-name descname"><span class="pre">isAnInputBridge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.isAnInputBridge" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is an Input Bridge, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.isAnInstance">
+<span class="sig-name descname"><span class="pre">isAnInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.isAnInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is a Compositing Node Instance, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.isAnOutputBridge">
+<span class="sig-name descname"><span class="pre">isAnOutputBridge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.isAnOutputBridge" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this is an Output Bridge, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompImplementation.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompImplementation.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.compimplementation.</span></span><span class="sig-name descname"><span class="pre">SBSCompInputBridge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aEntry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a></p>
+<p>Class that contains information on an input node as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mEntry      (str): uid of this input (/graph/paramInputs/paramInput/uid).</p></li>
+<li><p>mParameters (list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>): input parameters list.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentContainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.classify" title="Link to this definition"></a></dt>
+<dd><p>If aParentContainer is provided, compare the identifiers of the two input nodes to classify them, else use the Entry UID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOther</strong> (<a class="reference internal" href="#compnode.compimplementation.SBSCompInputBridge" title="compnode.compimplementation.SBSCompInputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInputBridge</span></code></a>) – The filter to compare to.</p></li>
+<li><p><strong>aParentContainer</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, optional) – The graph containing the nodes to classify</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if itself is considered greater than the other node, -1 for the opposite. 0 in case of equality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the comp input bridge definition (Inputs, Outputs, Parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.getParameterValue">
+<span class="sig-name descname"><span class="pre">getParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.getParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter with the given name/id among the overloaded parameters and the default node parameters,
+and return its value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – Parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter value if found (string or <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.hasIdenticalParameters">
+<span class="sig-name descname"><span class="pre">hasIdenticalParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.hasIdenticalParameters" title="Link to this definition"></a></dt>
+<dd><p>Allows to check if two nodes has the same parameters defined with the same values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a>) – the node to compare with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two nodes has the same parameters, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.setDynamicParameter">
+<span class="sig-name descname"><span class="pre">setDynamicParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.setDynamicParameter" title="Link to this definition"></a></dt>
+<dd><p>Set the given parameter as dynamic, to init its params.SBSDynamicValue.
+If Inheritance is None, the default Inheritance for this node is set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object if succeed, None otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.setParameterValue">
+<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.setParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of the given parameter to the given value, if compatible with this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p></li>
+<li><p><strong>aParamValue</strong> (<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> or any parameter type) – value of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter. Default is ABSOLUTE</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.unsetParameter">
+<span class="sig-name descname"><span class="pre">unsetParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.unsetParameter" title="Link to this definition"></a></dt>
+<dd><p>Unset the given parameter so that it is reset to its default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInputBridge.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInputBridge.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.compimplementation.</span></span><span class="sig-name descname"><span class="pre">SBSCompInstance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputBridgings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUILayoutComp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRefGraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRefDependency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a></p>
+<p>Class that contains information on a compositing node instance as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mPath            (str): path of the graph definition this instance refers to.</p></li>
+<li><p>mParameters      (list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>): instance parameters list.</p></li>
+<li><p>mOutputBridgings (list of <a class="reference internal" href="common.html#compnode.common.SBSOutputBridging" title="compnode.common.SBSOutputBridging"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOutputBridging</span></code></a>, optional): List of bridging between outputs of this instance node and the graph definition.</p></li>
+<li><p>mGUILayoutComp   (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUILayoutComp" title="sbscommon.gui.SBSGUILayoutComp"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayoutComp</span></code></a>, optional): GUI flags and options instance overload.</p></li>
+<li><p>mRefGraph        (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, optional): reference to the graph that this node instantiates.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.changeDependencyUID">
+<span class="sig-name descname"><span class="pre">changeDependencyUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newDepUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.changeDependencyUID" title="Link to this definition"></a></dt>
+<dd><p>Change the UID of the dependency referenced by this instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The root document, required to reset all the internal links to the referenced graph</p></li>
+<li><p><strong>newDepUID</strong> (<em>str</em>) – The new dependency UID</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.changeInstancePath">
+<span class="sig-name descname"><span class="pre">changeInstancePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInstanceDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphRelPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.changeInstancePath" title="Link to this definition"></a></dt>
+<dd><p>Change the function referenced by this instance.
+If aInstanceDocument is not already declared as a dependency, the dependency will be added to aParentDocument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The parent document of this node</p></li>
+<li><p><strong>aInstanceDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The document containing the function to reference by this instance (can be equal to parent document)</p></li>
+<li><p><strong>aGraphRelPath</strong> (<em>str</em>) – The graph path, relatively to its parent package aInstanceDocument (pkg:///myGroup/myGraph)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentContainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.classify" title="Link to this definition"></a></dt>
+<dd><p>Compare the path of the two instances to classify them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOther</strong> (<a class="reference internal" href="#compnode.compimplementation.SBSCompInstance" title="compnode.compimplementation.SBSCompInstance"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInstance</span></code></a>) – The filter to compare to.</p></li>
+<li><p><strong>aParentContainer</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, optional) – The graph containing the nodes to classify</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if itself is considered greater than the other node, -1 for the opposite. 0 in case of equality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getCompOutputBridging">
+<span class="sig-name descname"><span class="pre">getCompOutputBridging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getCompOutputBridging" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSOutputBridging corresponding to the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIdentifier</strong> (<em>str</em>) – required identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="common.html#compnode.common.SBSOutputBridging" title="compnode.common.SBSOutputBridging"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOutputBridging</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getCompOutputBridgingFromUID">
+<span class="sig-name descname"><span class="pre">getCompOutputBridgingFromUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getCompOutputBridgingFromUID" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSOutputBridging corresponding to the given output uid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – the unique identifier to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="common.html#compnode.common.SBSOutputBridging" title="compnode.common.SBSOutputBridging"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOutputBridging</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Build a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a> object to describe the inputs, outputs and parameters of this graph instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getDependencyUID">
+<span class="sig-name descname"><span class="pre">getDependencyUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getDependencyUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UID of the dependency referenced by this instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dependency UID as a string if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getParameterValue">
+<span class="sig-name descname"><span class="pre">getParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter with the given name/id among the overloaded parameters and the default node parameters,
+and return its value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – Parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter value if found (string or <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getReferenceAbsPath">
+<span class="sig-name descname"><span class="pre">getReferenceAbsPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getReferenceAbsPath" title="Link to this definition"></a></dt>
+<dd><p>Get the absolute path of the graph referenced by this instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The absolute path of the graph referenced by this instance, in the format absolutePath/filename.sbs/graphIdentifier, as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getReferenceInternalPath">
+<span class="sig-name descname"><span class="pre">getReferenceInternalPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getReferenceInternalPath" title="Link to this definition"></a></dt>
+<dd><p>If this node is an instance, get the path of the referenced graph relatively to the package (pkg:///).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.hasIdenticalParameters">
+<span class="sig-name descname"><span class="pre">hasIdenticalParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.hasIdenticalParameters" title="Link to this definition"></a></dt>
+<dd><p>Allows to check if two nodes has the same parameters defined with the same values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a>) – the node to compare with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two nodes has the same parameters, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.resolveDependency">
+<span class="sig-name descname"><span class="pre">resolveDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.resolveDependency" title="Link to this definition"></a></dt>
+<dd><p>Allow to resolve the dependency of the compositing instance node with the graph it references.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The root document</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.setDynamicParameter">
+<span class="sig-name descname"><span class="pre">setDynamicParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.setDynamicParameter" title="Link to this definition"></a></dt>
+<dd><p>Set the given parameter as dynamic, to init its params.SBSDynamicValue.
+If Inheritance is None, the default Inheritance for this node is set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object if succeed, None otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.setParameterValue">
+<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.setParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of the given parameter to the given value, if compatible with this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p></li>
+<li><p><strong>aParamValue</strong> (<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> or any parameter type) – value of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter. Default is ABSOLUTE</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.unsetParameter">
+<span class="sig-name descname"><span class="pre">unsetParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.unsetParameter" title="Link to this definition"></a></dt>
+<dd><p>Unset the given parameter so that it is reset to its default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompInstance.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompInstance.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.compimplementation.</span></span><span class="sig-name descname"><span class="pre">SBSCompOutputBridge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aConnectionColorType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on an output node as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mOutput              (str): uid of this output.  (/graph/graphOutputs/graphOutput/uid).</p></li>
+<li><p>mConnectionColorType (str, optional): connection color type. Type format defined at <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentContainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge.classify" title="Link to this definition"></a></dt>
+<dd><p>If aParentContainer is provided, compare the identifiers of the two output nodes to classify them, else use the Output UID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOther</strong> (<a class="reference internal" href="#compnode.compimplementation.SBSCompOutputBridge" title="compnode.compimplementation.SBSCompOutputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutputBridge</span></code></a>) – The filter to compare to.</p></li>
+<li><p><strong>aParentContainer</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, optional) – The graph containing the nodes to classify</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if itself is considered greater than the other node, -1 for the opposite. 0 in case of equality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the output bridge definition (Inputs, Outputs, Parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compimplementation.SBSCompOutputBridge.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compimplementation.SBSCompOutputBridge.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="compnode.html" class="btn btn-neutral float-left" title="compnode module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="paramgraph.html" class="btn btn-neutral float-right" title="paramgraph module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

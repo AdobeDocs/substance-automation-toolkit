@@ -1,0 +1,1216 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>compnode module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="compimplementation module" href="compimplementation.html" />
+    <link rel="prev" title="output module" href="../graph/output.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">compnode module: Compositing node definitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compimplementation.html">compimplementation module: Compositing node implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="paramgraph.html">paramgraph module: FxMaps graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common.html">common module: Common classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compnode.compnode.SBSCompNode"><code class="docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">compnode module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="compnode-module">
+<h1>compnode module<a class="headerlink" href="#compnode-module" title="Link to this heading"></a></h1>
+<p>Content included in compnode module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compimplementation.html">compimplementation module: Compositing node implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.changeDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.changeDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.changeResourcePath"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.changeResourcePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.classify"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.getParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.getResourcePath"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.getResourcePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.hasIdenticalParameters"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.hasIdenticalParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.initFxMapGraph"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.initFxMapGraph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.isAFxMap"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.isAFxMap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.isAPixelProcessor"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.isAPixelProcessor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.isAResource"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.isAResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.isAValueProcessor"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.isAValueProcessor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.setDynamicParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.setDynamicParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.setParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.unsetParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.unsetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter.write"><code class="docutils literal notranslate"><span class="pre">SBSCompFilter.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.classify"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.getImplementation"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.getImplementation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.getImplementationKind"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.getImplementationKind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.isAFilter"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.isAFilter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.isAnInputBridge"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.isAnInputBridge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.isAnInstance"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.isAnInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.isAnOutputBridge"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.isAnOutputBridge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation.write"><code class="docutils literal notranslate"><span class="pre">SBSCompImplementation.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.classify"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.getParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.hasIdenticalParameters"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.hasIdenticalParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.setDynamicParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.setDynamicParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.setParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.unsetParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.unsetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge.write"><code class="docutils literal notranslate"><span class="pre">SBSCompInputBridge.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.changeDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.changeDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.changeInstancePath"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.changeInstancePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.classify"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getCompOutputBridging"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getCompOutputBridging()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getCompOutputBridgingFromUID"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getCompOutputBridgingFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getReferenceAbsPath"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getReferenceAbsPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getReferenceInternalPath"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getReferenceInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.hasIdenticalParameters"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.hasIdenticalParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.resolveDependency"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.resolveDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.setDynamicParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.setDynamicParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.setParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.unsetParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.unsetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance.write"><code class="docutils literal notranslate"><span class="pre">SBSCompInstance.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge.classify"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge.write"><code class="docutils literal notranslate"><span class="pre">SBSCompOutputBridge.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="paramgraph.html">paramgraph module: FxMaps graph definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.computeUniqueIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.computeUniqueIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.connectNodes"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.connectNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.contains"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.createComment"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.createComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.createFrame"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.createFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.createFrameAroundNodes"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.createFrameAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.createFxMapNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.createFxMapNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.createIterationOnPattern"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.createIterationOnPattern()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.createNavigationPin"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.createNavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.deleteComment"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.deleteComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.deleteFrame"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.deleteFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.deleteNavigationPin"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.deleteNavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.deleteNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.deleteNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.disconnectNodes"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.disconnectNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.duplicateNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.duplicateNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.equals"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getAllComments"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getAllComments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getAllDependencyUID"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getAllDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getAllFrames"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getAllFrames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getAllGUIObjects"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getAllGUIObjects()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getAllNavigationPins"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getAllNavigationPins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getAllNodesOfKind"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getAllNodesOfKind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getAllReferencesOnDependency"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getAllReferencesOnDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getCommentsAssociatedToNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getCommentsAssociatedToNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getNodeAssociatedToComment"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getNodeAssociatedToComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getNodeData"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getNodeData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getNodeList"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getNodeList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getNodesInFrame"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getNodesInFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getParamsGraphDataList"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getParamsGraphDataList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.isAPathBetween"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.isAPathBetween()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.parse"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.reframeAroundNodes"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.reframeAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.setRootNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.setRootNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph.write"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraph.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.equals"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.getParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.hasIdenticalParameters"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.hasIdenticalParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.parse"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.setDynamicParameter"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.setDynamicParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.setParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.unsetParameter"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.unsetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphData.write"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphData.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.equals"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getConnectedNodesUID"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getConnectedNodesUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getConnections"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getConnections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getConnectionsFromNode"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getConnectionsFromNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getData"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getDefinedParameters"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getDefinedParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getDynamicParameters"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getDynamicParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getOffsetPosition"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getOffsetPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getPosition"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getRect"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.hasAReferenceOnDependency"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.hasAReferenceOnDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.hasAReferenceOnInternalPath"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.hasAReferenceOnInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.isConnectedTo"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.isConnectedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.isDocked"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.isDocked()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.parse"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.removeConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.removeConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.removeConnectionsFrom"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.removeConnectionsFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.setDynamicParameter"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.setDynamicParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.setParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.setParentGraph"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.setParentGraph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.setPosition"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.setPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.unsetParameter"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.unsetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode.write"><code class="docutils literal notranslate"><span class="pre">SBSParamsGraphNode.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common.html">common module: Common classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.getDefinition"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.getDisplayName"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.getParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.hasIdenticalParameters"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.hasIdenticalParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.setDynamicParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.setDynamicParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.setParameterValue"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.unsetParameter"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.unsetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams.write"><code class="docutils literal notranslate"><span class="pre">SBSCompImplWithParams.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common.html#compnode.common.SBSCompInputValue"><code class="docutils literal notranslate"><span class="pre">SBSCompInputValue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompInputValue.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompInputValue.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompInputValue.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompInputValue.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompInputValue.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompInputValue.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompInputValue.write"><code class="docutils literal notranslate"><span class="pre">SBSCompInputValue.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common.html#compnode.common.SBSCompOutput"><code class="docutils literal notranslate"><span class="pre">SBSCompOutput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompOutput.equals"><code class="docutils literal notranslate"><span class="pre">SBSCompOutput.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompOutput.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSCompOutput.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompOutput.parse"><code class="docutils literal notranslate"><span class="pre">SBSCompOutput.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSCompOutput.write"><code class="docutils literal notranslate"><span class="pre">SBSCompOutput.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common.html#compnode.common.SBSOutputBridging"><code class="docutils literal notranslate"><span class="pre">SBSOutputBridging</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSOutputBridging.equals"><code class="docutils literal notranslate"><span class="pre">SBSOutputBridging.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSOutputBridging.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSOutputBridging.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSOutputBridging.parse"><code class="docutils literal notranslate"><span class="pre">SBSOutputBridging.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html#compnode.common.SBSOutputBridging.write"><code class="docutils literal notranslate"><span class="pre">SBSOutputBridging.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p id="module-compnode.compnode">Module <strong>compnode</strong> aims to define SBSObjects that are relative to a compositing Node, mostly <a class="reference internal" href="#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>,
+<a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation" title="compnode.compimplementation.SBSCompImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplementation</span></code></a> and <a class="reference internal" href="common.html#compnode.common.SBSCompOutput" title="compnode.common.SBSCompOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutput</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.compnode.</span></span><span class="sig-name descname"><span class="pre">SBSCompNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGUIName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUILayout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCompOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aConnections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCompImplementation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></p>
+<p>Class that contains information on a compositing node as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mGUIName            (str, optional): name of the node.</p></li>
+<li><p>mUID                (str): node unique identifier in the /compNodes/ context.</p></li>
+<li><p>mDisabled           (str, optional): this node is disabled (“1” / None).</p></li>
+<li><p>mGUILayout          (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUILayout" title="sbscommon.gui.SBSGUILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayout</span></code></a>): GUI position/options</p></li>
+<li><p>mOptions            (list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a>): options list.</p></li>
+<li><p>mCompOutputs        (list of <a class="reference internal" href="common.html#compnode.common.SBSCompOutput" title="compnode.common.SBSCompOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutput</span></code></a>, optional): outputs list.</p></li>
+<li><p>mConnections        (list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a>, optional): input connections list.</p></li>
+<li><p>mCompImplementation (<a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompImplementation" title="compnode.compimplementation.SBSCompImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplementation</span></code></a>): implementation of the compositing node.</p></li>
+<li><p>mInputValues        (list of <a class="reference internal" href="common.html#compnode.common.SBSCompInputValue" title="compnode.common.SBSCompInputValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInputValue</span></code></a>: Input values for the node</p></li>
+<li><p>mUserId             (str): node id given by the user (used for portal connections display).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.applyPreset">
+<span class="sig-name descname"><span class="pre">applyPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPresetLabel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.applyPreset" title="Link to this definition"></a></dt>
+<dd><p>Apply the given preset on node’s parameters.
+If the the node doesn’t implement a SBSCompInstance an error will be raised.
+If aPresetLabel doesn’t exist an error will be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPresetLabel</strong> – an identifier or a label of the preset to apply.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.applyPresetFromFile">
+<span class="sig-name descname"><span class="pre">applyPresetFromFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPresetFilePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetLabel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.applyPresetFromFile" title="Link to this definition"></a></dt>
+<dd><p>Apply the given preset from a file on node’s parameters.
+If the the node doesn’t implement a SBSCompInstance an error will be raised.
+If aPresetLabel doesn’t exist an error will be raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPresetLabel</strong> – an identifier or a label of the preset to apply.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentContainer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.classify" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Use the definition of the two nodes to classify them, and their GUI position if they have the same definition.</div>
+<div class="line">To classify the different kind of CompImplementation, this order is specify:</div>
+<div class="line">Filter &lt; Instance &lt; Input &lt; Output.</div>
+<div class="line">For the Filter, the filter identifier is used to classify them.</div>
+<div class="line">For the Instance, the lexicographic order is used on the instance path.</div>
+<div class="line">At a final option, the GUI position is used, and in this case, mostLeft &lt; mostRight and then mostUp &lt; mostDown.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aOther</strong> (<a class="reference internal" href="#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>) – The node to compare to.</p></li>
+<li><p><strong>aParentContainer</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>, optional) – The graph containing the nodes to classify</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if itself is considered greater than the other node, -1 for the opposite. 0 in case of equality.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.computeUniqueInputValueIdentifier">
+<span class="sig-name descname"><span class="pre">computeUniqueInputValueIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.computeUniqueInputValueIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Check if the given identifier is already used in the node inputs and generate a unique identifier if necessary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A unique identifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.createInputValue">
+<span class="sig-name descname"><span class="pre">createInputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.createInputValue" title="Link to this definition"></a></dt>
+<dd><p>Create a new Input Value attached to the node. <a class="reference internal" href="common.html#compnode.common.SBSCompInputValue" title="compnode.common.SBSCompInputValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInputValue</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – an unique identifier name, if aIdentifier already exist in the current input values identifiers a suffix will be added. The identifier must start by # it will added if it’s not present.</p></li>
+<li><p><strong>aType</strong> (<em>int</em>) – the input value type (only boolean and numerical) presents in <a class="reference internal" href="../sbsenum.html#sbsenum.InputValueTypeEnum" title="sbsenum.InputValueTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputValueTypeEnum</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.createIterationOnPattern">
+<span class="sig-name descname"><span class="pre">createIterationOnPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNbIteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs_NextPatternInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.createIterationOnPattern" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Allows to create an iteration in the function defining the value of the given parameter.</div>
+<div class="line">Duplicate nbIteration times the given node, to create this kind of connection:</div>
+<div class="line">Pattern -&gt; Pattern_1 -&gt; Pattern_2 -&gt; … -&gt; Pattern_N</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – Parameter</p></li>
+<li><p><strong>aNbIteration</strong> (<em>positive integer</em>) – number of time the pattern must be duplicated</p></li>
+<li><p><strong>aNodeUIDs</strong> (<em>list</em><em> of </em><em>str</em>) – list of node’s UID that constitute the pattern to duplicate</p></li>
+<li><p><strong>aNodeUIDs_NextPattern</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – list of node’s UID that correspond to the inputs of the next pattern, which must be connected to the given pattern. Default to []</p></li>
+<li><p><strong>aGUIOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – pattern position offset. Default to [150, 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of params.SBSParamNode created</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompFilter">
+<span class="sig-name descname"><span class="pre">getCompFilter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompFilter" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a> object if this node is a compositing filter, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompImplementation">
+<span class="sig-name descname"><span class="pre">getCompImplementation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompImplementation" title="Link to this definition"></a></dt>
+<dd><p>Return the appropriate comp implementation depending on the compositing node kind</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a> or a <a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge" title="compnode.compimplementation.SBSCompOutputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutputBridge</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompInputBridge">
+<span class="sig-name descname"><span class="pre">getCompInputBridge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompInputBridge" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInputBridge" title="compnode.compimplementation.SBSCompInputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInputBridge</span></code></a> object if this node is an input bridge, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompInstance">
+<span class="sig-name descname"><span class="pre">getCompInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompInstance" title="compnode.compimplementation.SBSCompInstance"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInstance</span></code></a> object if this node is a compositing graph instance, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompOutput">
+<span class="sig-name descname"><span class="pre">getCompOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCompOutputUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the output with the given uid.
+If aCompOutputUID is None, get the type of the first output, if it exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCompOutputUID</strong> (<em>str</em><em>, </em><em>optional</em>) – UID of the output. If None, the first output is returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="common.html#compnode.common.SBSCompOutput" title="compnode.common.SBSCompOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompOutputBridge">
+<span class="sig-name descname"><span class="pre">getCompOutputBridge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompOutputBridge" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the <a class="reference internal" href="compimplementation.html#compnode.compimplementation.SBSCompOutputBridge" title="compnode.compimplementation.SBSCompOutputBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutputBridge</span></code></a> object if this node is an output bridge, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompOutputFromBridge">
+<span class="sig-name descname"><span class="pre">getCompOutputFromBridge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputBridge</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompOutputFromBridge" title="Link to this definition"></a></dt>
+<dd><p>Get the output corresponding to the given bridge identifier. This can work only on an instance node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputBridge</strong> (<em>str</em>) – identifier of the output bridge.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="common.html#compnode.common.SBSCompOutput" title="compnode.common.SBSCompOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompOutputFromIdentifier">
+<span class="sig-name descname"><span class="pre">getCompOutputFromIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompOutputFromIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the output with the given identifier.
+If aOutputIdentifier is None, get the first output, if it exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutputIdentifier</strong> (<em>str</em><em>, </em><em>optional</em>) – identifier of the output. If None, the first output is returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="common.html#compnode.common.SBSCompOutput" title="compnode.common.SBSCompOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompOutput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompOutputIdentifier">
+<span class="sig-name descname"><span class="pre">getCompOutputIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCompOutputUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompOutputIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the identifier of the output with the given uid.
+If aCompOutputUID is None, get the identifier of the first output, if it exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCompOutputUID</strong> (<em>str</em><em>, </em><em>optional</em>) – UID of the output. If None, the identifier of the first output is returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The identifier of the given output if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getCompOutputType">
+<span class="sig-name descname"><span class="pre">getCompOutputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCompOutputUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getCompOutputType" title="Link to this definition"></a></dt>
+<dd><p>Get the type of the output with the given uid.
+If aCompOutputUID is None, get the type of the first output, if it exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCompOutputUID</strong> (<em>str</em><em>, </em><em>optional</em>) – UID of the output. If None, the type of the first output is returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The type of the given output if found as a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getConnectedNodesUID">
+<span class="sig-name descname"><span class="pre">getConnectedNodesUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getConnectedNodesUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UIDs of the nodes connected to this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The UIDs as a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getConnectionOnPin">
+<span class="sig-name descname"><span class="pre">getConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPinIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Get the connection defined on the given input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<em>str</em>) – identifier of the input pin (for <a class="reference internal" href="#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>, <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> and <a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a>) or of the output pin(for <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a> object corresponding to the connection defined on the given pin. None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getConnections">
+<span class="sig-name descname"><span class="pre">getConnections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getConnections" title="Link to this definition"></a></dt>
+<dd><p>Get the connections defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getConnectionsFromNode">
+<span class="sig-name descname"><span class="pre">getConnectionsFromNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getConnectionsFromNode" title="Link to this definition"></a></dt>
+<dd><p>Get all the connections coming from the given left node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – The node to look for in the incoming connections of this node, as an object or a UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getDefinedParameters">
+<span class="sig-name descname"><span class="pre">getDefinedParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getDefinedParameters" title="Link to this definition"></a></dt>
+<dd><p>Get the list of parameters defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a> specified on this node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the node definition (Inputs, Outputs, Parameters) accordingly to the compnode implementation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getDynamicParameters">
+<span class="sig-name descname"><span class="pre">getDynamicParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getDynamicParameters" title="Link to this definition"></a></dt>
+<dd><p>Get the list of dynamic parameters defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a> specified on this node that have a dynamic function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getFxMapGraph">
+<span class="sig-name descname"><span class="pre">getFxMapGraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getFxMapGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a> object which defines the FxMap graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>For a FxMap filter, returns the graph of this FxMap as a <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a>, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getFxMapGraphNode">
+<span class="sig-name descname"><span class="pre">getFxMapGraphNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getFxMapGraphNode" title="Link to this definition"></a></dt>
+<dd><p>For a FxMap filter, browse the graph of this FxMap and get the <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> with the given UID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> object with the given UID if found, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getInputDefinition">
+<span class="sig-name descname"><span class="pre">getInputDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getInputDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the input definition corresponding to the given identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str, optional) – The identifier to get. If let None, the primary input will be returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input definition as a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getInputValue">
+<span class="sig-name descname"><span class="pre">getInputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getInputValue" title="Link to this definition"></a></dt>
+<dd><p>return corresponding InputValue aIdentifier, <a class="reference internal" href="common.html#compnode.common.SBSCompInputValue" title="compnode.common.SBSCompInputValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompInputValue</span></code></a>
+:param aIdentifier: identifier name must start by # it will added if it’s not present.
+:type aIdentifier: str
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getOffsetPosition">
+<span class="sig-name descname"><span class="pre">getOffsetPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getOffsetPosition" title="Link to this definition"></a></dt>
+<dd><p>Compute the position of this node offset by the given offset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – the offset to apply to the node’s current position. Default to [0,0]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the offset position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getParameterValue">
+<span class="sig-name descname"><span class="pre">getParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter with the given name in the appropriate comp node implementation, and return its value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – Parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter value if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getPixProcFunction">
+<span class="sig-name descname"><span class="pre">getPixProcFunction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getPixProcFunction" title="Link to this definition"></a></dt>
+<dd><p>Get the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object which corresponds to the Pixel Processor Function.
+Create the dynamic value if it is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>createIfEmtpy</strong> (<em>bool</em>) – If True it creates an empty pixel processor graph if there is none attached already
+If False and no pixel processor exists it will return None</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>For a PixelProcessor filter, returns the function of this PixelProcessor, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getPosition">
+<span class="sig-name descname"><span class="pre">getPosition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getPosition" title="Link to this definition"></a></dt>
+<dd><p>Get the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of 3 float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getRect">
+<span class="sig-name descname"><span class="pre">getRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getRect" title="Link to this definition"></a></dt>
+<dd><p>Return the rectangle of this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The rectangle as a <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Parse the CompOutputs list to find a <a class="reference internal" href="#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> with the given uid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this uid is already used, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.getValProcFunction">
+<span class="sig-name descname"><span class="pre">getValProcFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">createIfEmtpy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.getValProcFunction" title="Link to this definition"></a></dt>
+<dd><p>Get the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object which corresponds to the Value Processor Function.
+Create the dynamic value if it is None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>createIfEmtpy</strong> (<em>bool</em>) – If True it creates an empty value processor graph if there is none attached already
+If False and no value processor exists it will return None</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>For a ValueProcessor filter, returns the function of this ValueProcessor, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.hasAReferenceOnDependency">
+<span class="sig-name descname"><span class="pre">hasAReferenceOnDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.hasAReferenceOnDependency" title="Link to this definition"></a></dt>
+<dd><p>Check if this node directly references the given dependency.         For instance if it instantiates a graph or a resource included in this dependency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDependency</strong> (str or <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – The dependency to look for (UID or object)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references this dependency, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.hasAReferenceOnInternalPath">
+<span class="sig-name descname"><span class="pre">hasAReferenceOnInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInternalPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.hasAReferenceOnInternalPath" title="Link to this definition"></a></dt>
+<dd><p>Check if this node references the given internal path (pkg:///).         For instance if it instantiates the graph or the resource pointed at the given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInternalPath</strong> (<em>str</em>) – The internal path to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references the given internal path, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.hasIdenticalParameters">
+<span class="sig-name descname"><span class="pre">hasIdenticalParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.hasIdenticalParameters" title="Link to this definition"></a></dt>
+<dd><p>Allows to check if two nodes has the same parameters defined with the same values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a>) – the node to compare with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two nodes has the same parameters, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.initFxMapGraph">
+<span class="sig-name descname"><span class="pre">initFxMapGraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.initFxMapGraph" title="Link to this definition"></a></dt>
+<dd><p>Init the <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a> of this filter, if it is a FxMap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The FxMap graph if success, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAFilter">
+<span class="sig-name descname"><span class="pre">isAFilter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAFilter" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode is a Compositing Node Filter, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAFxMap">
+<span class="sig-name descname"><span class="pre">isAFxMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAFxMap" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode is a Compositing Node Filter of kind FxMaps, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAPixelProcessor">
+<span class="sig-name descname"><span class="pre">isAPixelProcessor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAPixelProcessor" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode is a Compositing Node Filter of kind Pixel Processor, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAResource">
+<span class="sig-name descname"><span class="pre">isAResource</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAResource" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode uses a resource, meaning is a Compositing Node Filter of kind BITMAP or SVG, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAValueProcessor">
+<span class="sig-name descname"><span class="pre">isAValueProcessor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAValueProcessor" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode is a Compositing Node Filter of kind Value Processor, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAnInputBridge">
+<span class="sig-name descname"><span class="pre">isAnInputBridge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAnInputBridge" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode is an Input Bridge, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAnInstance">
+<span class="sig-name descname"><span class="pre">isAnInstance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAnInstance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode is a Compositing Node Instance, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isAnOutputBridge">
+<span class="sig-name descname"><span class="pre">isAnOutputBridge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isAnOutputBridge" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the CompNode is an Output Bridge, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isConnectedTo">
+<span class="sig-name descname"><span class="pre">isConnectedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isConnectedTo" title="Link to this definition"></a></dt>
+<dd><p>Check if the node is connected to the given node, in the direction aLeftNode -&gt; self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the nodes are connected, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.isDocked">
+<span class="sig-name descname"><span class="pre">isDocked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.isDocked" title="Link to this definition"></a></dt>
+<dd><p>Check if this node is docked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this node is docked, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.removeConnectionOnPin">
+<span class="sig-name descname"><span class="pre">removeConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.removeConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Remove the connection on the given input pin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str) – identifier of the input pin (for <a class="reference internal" href="#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> and <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>) or of the output pin(for <a class="reference internal" href="paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>) to disconnect</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a connection is removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.removeConnectionsFrom">
+<span class="sig-name descname"><span class="pre">removeConnectionsFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.removeConnectionsFrom" title="Link to this definition"></a></dt>
+<dd><p>Remove all the connections from aLeftNode to this node (in the direction aLeftNode -&gt; self)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.setCurveDefinition">
+<span class="sig-name descname"><span class="pre">setCurveDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCurveDefinition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.setCurveDefinition" title="Link to this definition"></a></dt>
+<dd><p>If the node is a Filter Curve, set the given curve definition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCurveDefinition</strong> (<a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CurveDefinition" title="pysbs.sbslibrary.sbslibclasses.CurveDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveDefinition</span></code></a>) – curve key values</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.setDynamicParameter">
+<span class="sig-name descname"><span class="pre">setDynamicParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.setDynamicParameter" title="Link to this definition"></a></dt>
+<dd><p>Set the given parameter as dynamic, to init its params.SBSDynamicValue.
+If aRelative is None, the default Inheritance will be applied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object if succeed, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.setGradientMapKeyValues">
+<span class="sig-name descname"><span class="pre">setGradientMapKeyValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aKeyValues</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.setGradientMapKeyValues" title="Link to this definition"></a></dt>
+<dd><p>If the node is a Filter Gradient Map, set the given gradient map key values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aKeyValues</strong> (list of <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.GradientKey" title="pysbs.sbslibrary.sbslibclasses.GradientKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradientKey</span></code></a>) – gradient key values</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.setParameterSpotColorValueFromIds">
+<span class="sig-name descname"><span class="pre">setParameterSpotColorValueFromIds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBookId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorId</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.setParameterSpotColorValueFromIds" title="Link to this definition"></a></dt>
+<dd><p>Set the spotcolor parameter to the appropriate comp node implementation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameterIdentifier</strong> – identifier of the parameter to set</p></li>
+<li><p><strong>aBookId</strong> (<em>str</em>) – book name</p></li>
+<li><p><strong>aColorId</strong> (<em>str</em>) – color name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.setParameterSpotColorValueFromNames">
+<span class="sig-name descname"><span class="pre">setParameterSpotColorValueFromNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBookName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.setParameterSpotColorValueFromNames" title="Link to this definition"></a></dt>
+<dd><p>Set the spotcolor parameter to the appropriate comp node implementation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameterIdentifier</strong> – identifier of the parameter to set</p></li>
+<li><p><strong>aBookName</strong> (<em>str</em>) – book name</p></li>
+<li><p><strong>aColorName</strong> (<em>str</em>) – color name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.setParameterValue">
+<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.setParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Set the parameter to the appropriate comp node implementation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p></li>
+<li><p><strong>aParamValue</strong> (<em>any parameter type</em>) – value of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.setPosition">
+<span class="sig-name descname"><span class="pre">setPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.setPosition" title="Link to this definition"></a></dt>
+<dd><p>Set the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPosition</strong> (<em>a list</em><em> of </em><em>3 float</em>) – The position to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.unsetParameter">
+<span class="sig-name descname"><span class="pre">unsetParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.unsetParameter" title="Link to this definition"></a></dt>
+<dd><p>Unset the given parameter so that it is reset to its default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.compnode.SBSCompNode.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.compnode.SBSCompNode.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../graph/output.html" class="btn btn-neutral float-left" title="output module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="compimplementation.html" class="btn btn-neutral float-right" title="compimplementation module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

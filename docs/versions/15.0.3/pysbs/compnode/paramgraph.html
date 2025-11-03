@@ -1,0 +1,1323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>paramgraph module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="compnode_common module" href="common.html" />
+    <link rel="prev" title="compimplementation module" href="compimplementation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="compnode.html">compnode module: Compositing node definitions</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="compimplementation.html">compimplementation module: Compositing node implementation</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">paramgraph module: FxMaps graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="common.html">common module: Common classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compnode.html#compnode.compnode.SBSCompNode"><code class="docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="compnode.html">compnode module</a></li>
+      <li class="breadcrumb-item active">paramgraph module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-compnode.paramgraph">
+<span id="paramgraph-module"></span><h1>paramgraph module<a class="headerlink" href="#module-compnode.paramgraph" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">Module <strong>paramgraph</strong> provides the definition of all the objects relative to a FxMap graph:</div>
+<div class="line">- <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a></div>
+<div class="line">- <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a></div>
+<div class="line">- <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.paramgraph.</span></span><span class="sig-name descname"><span class="pre">SBSParamsGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUILayoutPGraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRootNode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamsGraphDatas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamsGraphNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIObjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a FxMap graph (e.g. parameters set graph) as defined in a .sbs file.
+Data (parameters) are separated from node instances to allow data reuse and Inheritance.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mName             (str): name (type) of the graph.</p></li>
+<li><p>mUID              (str): unique identifier of the graph in the /paramsGraphs/ context.</p></li>
+<li><p>mGUILayoutPGraph  (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUILayoutComp" title="sbscommon.gui.SBSGUILayoutComp"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayoutComp</span></code></a>, optional): GUI flags and options.</p></li>
+<li><p>mRootNode         (str, optional): uid of the root node.</p></li>
+<li><p>mParamsGraphDatas (list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a>): data set of nodes, with Inheritance system.</p></li>
+<li><p>mParamsGraphNodes (list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>): nodes list of the parameters graph.</p></li>
+<li><p>mGUIObjects       (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>): GUI specific objects.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.computeUniqueIdentifier">
+<span class="sig-name descname"><span class="pre">computeUniqueIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSuffixId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.computeUniqueIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Check if the given identifier is already used and generate a unique identifier if necessary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A unique identifier, which is either the given one or a new one with a suffix: identifier_id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.connectNodes">
+<span class="sig-name descname"><span class="pre">connectNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBottomNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTopNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTopNodeOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.connectNodes" title="Link to this definition"></a></dt>
+<dd><p>Connect the given nodes together: aTopNode(on the output aTopNodeOutput) -&gt; aBottomNode.
+If the top node output is None, the connection will be done for ALL the outputs of the top node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBottomNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str) – Node to connect to</p></li>
+<li><p><strong>aTopNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str) – Node to connect from</p></li>
+<li><p><strong>aTopNodeOutput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a> or str, optional) – Identifier of the output of the top node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.contains" title="Link to this definition"></a></dt>
+<dd><p>Check if the given node belongs to this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str) – The node to check, as a, object or an UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given node belongs to the graph, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.createComment">
+<span class="sig-name descname"><span class="pre">createComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Comment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLinkToNode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.createComment" title="Link to this definition"></a></dt>
+<dd><p>Create a new comment.        If aLinkToNode is not None, this comment will be linked to the given node, and the given GUI position must be relative to this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the comment. Default to ‘Comment’</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – The comment position in the graph. Default to [0,0,0]</p></li>
+<li><p><strong>aLinkToNode</strong> (<em>str</em><em>, </em><em>optional</em>) – UID of the node to associate to this comment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.createFrame">
+<span class="sig-name descname"><span class="pre">createFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFrameTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frame'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisplayTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.createFrame" title="Link to this definition"></a></dt>
+<dd><p>Create a new framed comment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSize</strong> (<em>list</em><em> of </em><em>2 float</em>) – The frame size</p></li>
+<li><p><strong>aFrameTitle</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the frame. Default to ‘Frame’</p></li>
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the frame. Empty by default</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – The frame position in the graph. Default to [0,0,-100]</p></li>
+<li><p><strong>aColor</strong> (<em>list</em><em> of </em><em>4 float between 0 and 1</em><em>, </em><em>optional.</em>) – The frame color. Default to [0.196, 0.196, 0.509, 0.196]</p></li>
+<li><p><strong>aDisplayTitle</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to display the frame title. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.createFrameAroundNodes">
+<span class="sig-name descname"><span class="pre">createFrameAroundNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFrameTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frame'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisplayTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.createFrameAroundNodes" title="Link to this definition"></a></dt>
+<dd><p>Create a new framed comment around the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNodeList</strong> (list of class:<cite>.SBSParamsGraphNode</cite>) – The nodes to include in the frame</p></li>
+<li><p><strong>aFrameTitle</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the frame. Default to ‘Frame’</p></li>
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the frame. Empty by default</p></li>
+<li><p><strong>aColor</strong> (<em>list</em><em> of </em><em>4 float between 0 and 1</em><em>, </em><em>optional.</em>) – The frame color. Default to [0.196, 0.196, 0.509, 0.196]</p></li>
+<li><p><strong>aDisplayTitle</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to display the frame title. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.createFxMapNode">
+<span class="sig-name descname"><span class="pre">createFxMapNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFxMapNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.createFxMapNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new FxMap node (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>) and its associated data (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a>)
+and add them to the FxMap graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFxMapNode</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FxMapNodeEnum" title="sbsenum.FxMapNodeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a> or str) – the kind of FxMap node to create among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.FxMapNodeEnum" title="sbsenum.FxMapNodeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a></p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – position of the node in the graph: [x,y,z]. default value is [0,0,0]</p></li>
+<li><p><strong>aParameters</strong> (dictionary {<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> : parameterValue(str)}, optional) – parameters of the FxMap node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.createIterationOnPattern">
+<span class="sig-name descname"><span class="pre">createIterationOnPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNbIteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs_NextPatternInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.createIterationOnPattern" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Allows to create an iteration in the function defining the value of the given parameter.</div>
+<div class="line">Duplicate nbIteration times the given pattern of nodes, to create this kind of connection:</div>
+<div class="line">Pattern -&gt; Pattern_1 -&gt; Pattern_2 -&gt; … -&gt; Pattern_N</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str) – the FxMap node which contains the parameter definition dynamically driven</p></li>
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – the parameter driven by a dynamic function, on which the iteration will be created</p></li>
+<li><p><strong>aNbIteration</strong> (<em>positive integer</em>) – number of time the pattern must be duplicated</p></li>
+<li><p><strong>aNodeUIDs</strong> (<em>list</em><em> of </em><em>str</em>) – list of node’s UID that constitute the pattern to duplicate</p></li>
+<li><p><strong>aNodeUIDs_NextPattern</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – list of node’s UID that correspond to the next pattern, which must be connected to the given pattern.</p></li>
+<li><p><strong>aGUIOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – pattern position offset. Default to [150, 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of params.SBSParamNode created if succeed</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.createNavigationPin">
+<span class="sig-name descname"><span class="pre">createNavigationPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPinText</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.createNavigationPin" title="Link to this definition"></a></dt>
+<dd><p>Create a new navigation pin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aPinText</strong> (<em>str</em>) – The text of the navigation pin</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em>) – The navigation pin position in the graph</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.deleteComment">
+<span class="sig-name descname"><span class="pre">deleteComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aComment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.deleteComment" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given comment from the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aComment</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> or str) – The comment to remove, as a Comment or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.deleteFrame">
+<span class="sig-name descname"><span class="pre">deleteFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.deleteFrame" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given frame from the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFrame</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> or str) – The frame to remove, as a Frame or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.deleteNavigationPin">
+<span class="sig-name descname"><span class="pre">deleteNavigationPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNavigationPin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.deleteNavigationPin" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given navigation pin from the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNavigationPin</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> or str) – The navigation pin to remove, as a NavigationPin or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.deleteNode">
+<span class="sig-name descname"><span class="pre">deleteNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.deleteNode" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given node from the graph.
+It removes it from the mParamsGraphNodes and mParamsGraphDatas list, and delete all the connection from and to that node in the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str) – The node to remove, as a SBSParamsGraphNode or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.disconnectNodes">
+<span class="sig-name descname"><span class="pre">disconnectNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTopNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBottomNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTopNodeOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.disconnectNodes" title="Link to this definition"></a></dt>
+<dd><p>Disconnect the given nodes: aTopNode(on the output aTopNodeOutput) -&gt; aBottomNode.
+If the top node output is None, all connections will be removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aTopNode</strong> (<a class="reference internal" href="compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>) – Top node</p></li>
+<li><p><strong>aBottomNode</strong> (<a class="reference internal" href="compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>) – Bottom node</p></li>
+<li><p><strong>aTopNodeOutput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a> or str, optional) – Identifier of the output of the top node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.duplicateNode">
+<span class="sig-name descname"><span class="pre">duplicateNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.duplicateNode" title="Link to this definition"></a></dt>
+<dd><p>Duplicate the given node, generate a new UID and add the node to the graph.
+Duplicate also the SPSParamsGraphData associated to this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">SPSParamsGraphNode</span></code> or str) – the node to copy (may be identified by its UID)</p></li>
+<li><p><strong>aGUIOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – node position offset. Default to [150, 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <code class="xref py py-class docutils literal notranslate"><span class="pre">SPSParamsGraphNode</span></code> object</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getAllComments">
+<span class="sig-name descname"><span class="pre">getAllComments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getAllComments" title="Link to this definition"></a></dt>
+<dd><p>Get all comments defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getAllDependencyUID">
+<span class="sig-name descname"><span class="pre">getAllDependencyUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getAllDependencyUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UIDs of the dependencies used by this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of UIDs as strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getAllFrames">
+<span class="sig-name descname"><span class="pre">getAllFrames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getAllFrames" title="Link to this definition"></a></dt>
+<dd><p>Get all frames defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getAllGUIObjects">
+<span class="sig-name descname"><span class="pre">getAllGUIObjects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getAllGUIObjects" title="Link to this definition"></a></dt>
+<dd><p>Get all the GUI objects defined in the graph (Comments, Frames, Navigation Pins)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getAllNavigationPins">
+<span class="sig-name descname"><span class="pre">getAllNavigationPins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getAllNavigationPins" title="Link to this definition"></a></dt>
+<dd><p>Get all the navigation pins defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getAllNodesOfKind">
+<span class="sig-name descname"><span class="pre">getAllNodesOfKind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFxMapNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getAllNodesOfKind" title="Link to this definition"></a></dt>
+<dd><p>Search for all <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> of the given kind (Quadrant, Switch or Iterate).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFxMapNode</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FxMapNodeEnum" title="sbsenum.FxMapNodeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a> str) – kind of FxMap node to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> containing all filters of the given kind.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getAllReferencesOnDependency">
+<span class="sig-name descname"><span class="pre">getAllReferencesOnDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getAllReferencesOnDependency" title="Link to this definition"></a></dt>
+<dd><p>Get all the SBSCompNode that are referencing the given dependency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDependency</strong> (str or <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – The dependency to look for (UID or object)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getCommentsAssociatedToNode">
+<span class="sig-name descname"><span class="pre">getCommentsAssociatedToNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getCommentsAssociatedToNode" title="Link to this definition"></a></dt>
+<dd><p>Get the list of comments associated to the given node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str) – The node to consider, as a SBSParamsGraphNode or given its UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getNode">
+<span class="sig-name descname"><span class="pre">getNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getNode" title="Link to this definition"></a></dt>
+<dd><p>Get the <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> object with the given UID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodeUID</strong> (<em>str</em>) – uid of the node to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getNodeAssociatedToComment">
+<span class="sig-name descname"><span class="pre">getNodeAssociatedToComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aComment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getNodeAssociatedToComment" title="Link to this definition"></a></dt>
+<dd><p>Get the node associated to the given comment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aComment</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The comment to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getNodeData">
+<span class="sig-name descname"><span class="pre">getNodeData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDataUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getNodeData" title="Link to this definition"></a></dt>
+<dd><p>Get the <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a> object with the given UID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDataUID</strong> (<em>str</em>) – uid of the data to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getNodeList">
+<span class="sig-name descname"><span class="pre">getNodeList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodesList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getNodeList" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes of this FxMap graph, or look for the given nodes if aNodesList is not None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodesList</strong> (list of str or list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>, optional) – list of node to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> included in the FxMap graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getNodesInFrame">
+<span class="sig-name descname"><span class="pre">getNodesInFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getNodesInFrame" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes included or partially included in the given frame.
+The frame must be included in this graph, otherwise SBSImpossibleActionError is raised</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFrame</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The frame to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getParamsGraphDataList">
+<span class="sig-name descname"><span class="pre">getParamsGraphDataList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getParamsGraphDataList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a> of this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this paramsGraphData</p>
+<p>return: True if the uid is already used, False otherwise</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.isAPathBetween">
+<span class="sig-name descname"><span class="pre">isAPathBetween</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTopNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBottomNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.isAPathBetween" title="Link to this definition"></a></dt>
+<dd><p>Check if there is a path from the top node to the bottom node with the current connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aTopNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>) – The left node</p></li>
+<li><p><strong>aBottomNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a>) – The right node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a path is found, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.reframeAroundNodes">
+<span class="sig-name descname"><span class="pre">reframeAroundNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.reframeAroundNodes" title="Link to this definition"></a></dt>
+<dd><p>Move and resize a frame to be around the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFrame</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The frame to edit</p></li>
+<li><p><strong>aNodeList</strong> (list of class:<cite>.SBSParamsGraphNode</cite>) – The nodes to include in the frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.setRootNode">
+<span class="sig-name descname"><span class="pre">setRootNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.setRootNode" title="Link to this definition"></a></dt>
+<dd><p>Set the root node of the FxMap graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str) – the node to set as root, or its UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> corresponding to the root node, False if not found</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraph.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraph.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.paramgraph.</span></span><span class="sig-name descname"><span class="pre">SBSParamsGraphData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInherit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a></p>
+<p>Class that contains information on a paramsGraphData as defined in a .sbs file.
+Refers to parameter set of FxMaps.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier  (str): data identifier.</p></li>
+<li><p>mUID         (str): data unique identifier in the /paramsGraphDatas/ context.</p></li>
+<li><p>mType        (str, optional): node type, among the list of available FxMap node identifiers (<a class="reference internal" href="../sbslibrary/sbsfxmapnodes.html#module-pysbs.sbslibrary.sbsfxmapnodes" title="pysbs.sbslibrary.sbsfxmapnodes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsfxmapnodes</span></code></a>)</p></li>
+<li><p>mInherit     (str, optional): uid of the inherited data if exists (/paramsGraphData/uid).</p></li>
+<li><p>mParameters  (list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>): parameters definition.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the FxMap node definition (Inputs, Outputs, Parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.getParameterValue">
+<span class="sig-name descname"><span class="pre">getParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.getParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter with the given name/id among the overloaded parameters and the default node parameters,
+and return its value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – Parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter value if found (string or <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.hasIdenticalParameters">
+<span class="sig-name descname"><span class="pre">hasIdenticalParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.hasIdenticalParameters" title="Link to this definition"></a></dt>
+<dd><p>Allows to check if two nodes has the same parameters defined with the same values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="common.html#compnode.common.SBSCompImplWithParams" title="compnode.common.SBSCompImplWithParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplWithParams</span></code></a>) – the node to compare with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two nodes has the same parameters, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.setDynamicParameter">
+<span class="sig-name descname"><span class="pre">setDynamicParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRelativeTo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.setDynamicParameter" title="Link to this definition"></a></dt>
+<dd><p>Set the given parameter as dynamic, to init its params.SBSDynamicValue.
+If Inheritance is None, the default Inheritance for this node is set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter</p></li>
+<li><p><strong>aRelativeTo</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>) – Inheritance of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object if succeed, None otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.setParameterValue">
+<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.setParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Set the value of the given parameter to the given value, if compatible with this type of FxMap graph node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p></li>
+<li><p><strong>aParamValue</strong> (<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> or any parameter type) – value of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.unsetParameter">
+<span class="sig-name descname"><span class="pre">unsetParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.unsetParameter" title="Link to this definition"></a></dt>
+<dd><p>Unset the given parameter so that it is reset to its default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSLibraryError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphData.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphData.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compnode.paramgraph.</span></span><span class="sig-name descname"><span class="pre">SBSParamsGraphNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGUIName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aConnections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUILayout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></p>
+<p>Class that contains information on a paramsGraphNode as defined in a .sbs file
+Refers to a FxMap graph node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mGUIName     (str): name of the node.</p></li>
+<li><p>mUID         (str): node unique identifier in the /paramsGraphNodes/ context.</p></li>
+<li><p>mType        (str): node type, among the identifiers available for the FxMap node definition (<a class="reference internal" href="../sbslibrary/sbsfxmapnodes.html#module-pysbs.sbslibrary.sbsfxmapnodes" title="pysbs.sbslibrary.sbsfxmapnodes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsfxmapnodes</span></code></a>)</p></li>
+<li><p>mDisabled    (str, optional): this node is disabled (“1” / None).</p></li>
+<li><p>mConnections (list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a>): input (parameter of type ENTRY_PARAMETER) connections list. connRef are nodes unique identifier references (/paramsGraphNode/uid).</p></li>
+<li><p>mData        (str): uid of the data associated to this node (/paramsGraph/paramsGraphDatas/), where the parameters are defined.</p></li>
+<li><p>mGUILayout   (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUILayout" title="sbscommon.gui.SBSGUILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayout</span></code></a>): GUI position/options.</p></li>
+<li><p>mUserId      (str): node id given by the user (used for portal connections display).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getConnectedNodesUID">
+<span class="sig-name descname"><span class="pre">getConnectedNodesUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getConnectedNodesUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UIDs of the nodes connected to this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The UIDs as a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getConnectionOnPin">
+<span class="sig-name descname"><span class="pre">getConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPinIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Get the connection defined on the given input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<em>str</em>) – identifier of the input pin (for <a class="reference internal" href="compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a>, <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> and <a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a>) or of the output pin(for <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a> object corresponding to the connection defined on the given pin. None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getConnections">
+<span class="sig-name descname"><span class="pre">getConnections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getConnections" title="Link to this definition"></a></dt>
+<dd><p>Get the connections defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getConnectionsFromNode">
+<span class="sig-name descname"><span class="pre">getConnectionsFromNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getConnectionsFromNode" title="Link to this definition"></a></dt>
+<dd><p>Get all the connections coming from the given left node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../sbscommon/nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a> or str) – The node to look for in the incoming connections of this node, as an object or a UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getData">
+<span class="sig-name descname"><span class="pre">getData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getData" title="Link to this definition"></a></dt>
+<dd><p>Get the data associated to this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphData" title="compnode.paramgraph.SBSParamsGraphData"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphData</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getDefinedParameters">
+<span class="sig-name descname"><span class="pre">getDefinedParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getDefinedParameters" title="Link to this definition"></a></dt>
+<dd><p>Get the list of parameters defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a> specified on this node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getDefinition">
+<span class="sig-name descname"><span class="pre">getDefinition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the FxMap node definition (Inputs, Outputs, Parameters)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="pysbs.sbslibrary.sbslibclasses.CompNodeDef"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeDef</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getDisplayName">
+<span class="sig-name descname"><span class="pre">getDisplayName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getDisplayName" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of this node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the display name as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getDynamicParameters">
+<span class="sig-name descname"><span class="pre">getDynamicParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getDynamicParameters" title="Link to this definition"></a></dt>
+<dd><p>Get the list of dynamic parameters defined on this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of <a class="reference internal" href="../params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a> specified on this node that have a dynamic function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getInputDefinition">
+<span class="sig-name descname"><span class="pre">getInputDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getInputDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the input definition corresponding to the given identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str, optional) – The identifier to get. If let None, the primary input will be returned</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the input definition as a <a class="reference internal" href="../sbslibrary/sbslibclasses.html#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getOffsetPosition">
+<span class="sig-name descname"><span class="pre">getOffsetPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getOffsetPosition" title="Link to this definition"></a></dt>
+<dd><p>Compute the position of this node offset by the given offset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – the offset to apply to the node’s current position. Default to [0,0]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the offset position</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getParameterValue">
+<span class="sig-name descname"><span class="pre">getParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter among the data (SBSParamsGraphData) with the given name/id, and return its value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – Parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter value if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getPosition">
+<span class="sig-name descname"><span class="pre">getPosition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getPosition" title="Link to this definition"></a></dt>
+<dd><p>Get the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of 3 float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getRect">
+<span class="sig-name descname"><span class="pre">getRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getRect" title="Link to this definition"></a></dt>
+<dd><p>Return the rectangle of this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The rectangle as a <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.hasAReferenceOnDependency">
+<span class="sig-name descname"><span class="pre">hasAReferenceOnDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.hasAReferenceOnDependency" title="Link to this definition"></a></dt>
+<dd><p>Check if this node directly references the given dependency.         For instance if it instantiates a graph or a resource included in this dependency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDependency</strong> (str or <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – The dependency to look for (UID or object)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references this dependency, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.hasAReferenceOnInternalPath">
+<span class="sig-name descname"><span class="pre">hasAReferenceOnInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInternalPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.hasAReferenceOnInternalPath" title="Link to this definition"></a></dt>
+<dd><p>Check if this node references the given internal path (pkg:///).         For instance if it instantiates the graph or the resource pointed at the given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInternalPath</strong> (<em>str</em>) – The internal path to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this node references the given internal path, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.isConnectedTo">
+<span class="sig-name descname"><span class="pre">isConnectedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBottomNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.isConnectedTo" title="Link to this definition"></a></dt>
+<dd><p>Check if the node is connected to the given node, in the direction aLeftNode -&gt; self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBottomNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the nodes are connected, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.isDocked">
+<span class="sig-name descname"><span class="pre">isDocked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.isDocked" title="Link to this definition"></a></dt>
+<dd><p>Check if this node is docked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this node is docked, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.removeConnectionOnPin">
+<span class="sig-name descname"><span class="pre">removeConnectionOnPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.removeConnectionOnPin" title="Link to this definition"></a></dt>
+<dd><p>Remove the connection on the given input pin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPinIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str) – identifier of the input pin (for <a class="reference internal" href="compnode.html#compnode.compnode.SBSCompNode" title="compnode.compnode.SBSCompNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompNode</span></code></a> and <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>) or of the output pin(for <a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>) to disconnect</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a connection is removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.removeConnectionsFrom">
+<span class="sig-name descname"><span class="pre">removeConnectionsFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBottomNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.removeConnectionsFrom" title="Link to this definition"></a></dt>
+<dd><p>Remove the connection between this node and aBottomNode (in the direction self -&gt; aBottomNode)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBottomNode</strong> (<a class="reference internal" href="#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a> or str (UID)) – The node to look for in the connections of this node.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.setDynamicParameter">
+<span class="sig-name descname"><span class="pre">setDynamicParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.setDynamicParameter" title="Link to this definition"></a></dt>
+<dd><p>Set the given parameter as dynamic, to init its params.SBSDynamicValue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object if succeed, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.setParameterValue">
+<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.setParameterValue" title="Link to this definition"></a></dt>
+<dd><p>Find a parameter among the data (SBSParamsGraphData) with the given name/id, and set it to the given value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p></li>
+<li><p><strong>aParamValue</strong> (<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> or any parameter type) – value of the parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.setParentGraph">
+<span class="sig-name descname"><span class="pre">setParentGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.setParentGraph" title="Link to this definition"></a></dt>
+<dd><p>Allows to set the reference to the parent graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParentGraph</strong> (<a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>) – The parent Graph of this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.setPosition">
+<span class="sig-name descname"><span class="pre">setPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.setPosition" title="Link to this definition"></a></dt>
+<dd><p>Set the position of this node in the graph GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPosition</strong> (<em>a list</em><em> of </em><em>3 float</em>) – The position to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.unsetParameter">
+<span class="sig-name descname"><span class="pre">unsetParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.unsetParameter" title="Link to this definition"></a></dt>
+<dd><p>Unset the given parameter so that it is reset to its default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or str) – identifier of the parameter to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compnode.paramgraph.SBSParamsGraphNode.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compnode.paramgraph.SBSParamsGraphNode.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="compimplementation.html" class="btn btn-neutral float-left" title="compimplementation module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common.html" class="btn btn-neutral float-right" title="compnode_common module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,834 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsarchive module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsargraph module" href="sbsargraph.html" />
+    <link rel="prev" title="metadata module" href="../common_interfaces/metadata.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbsarchive module: Substance archive definition (.sbsar)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sbsargraph.html">sbsargraph module: SBSARGraph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarmanager.html">sbsarmanager module: SBSAR file manipulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarmetadata.html">sbsarmetadata module: SBSAR file metadata interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsargui.html">sbsargui module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarguiwidgets.html">sbsarguiwidgets module: SBSAR objects related to user interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsarenum.html">sbsarenum module: SBSAR format enumeration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsarchive.sbsarchive.SBSARGlobalVar"><code class="docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsarchive.sbsarchive.SBSArchive"><code class="docutils literal notranslate"><span class="pre">SBSArchive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbsarchive module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbsarchive-module">
+<span id="ref-to-sbsarchive"></span><h1>sbsarchive module<a class="headerlink" href="#sbsarchive-module" title="Link to this heading"></a></h1>
+<p>Content included in sbsarchive module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sbsargraph.html">sbsargraph module: SBSARGraph definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph"><code class="docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.createMetaDataStr"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.createMetaDataStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.createMetaDataUrl"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.createMetaDataUrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.deleteMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.deleteMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.extractSbsarMetaDataPack"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.extractSbsarMetaDataPack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.extractSbsarMetaDataResource"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.extractSbsarMetaDataResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAllGuiGroups"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAllGuiGroups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAllInputGroups"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAllInputGroups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAllInputs"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAllInputsInGroup"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAllInputsInGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAllMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAllMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAllMetaDataIter"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAllMetaDataIter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAllPresets"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAllPresets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getAttribute"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getGraphOutput"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getGraphOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getGraphOutputType"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getGraphOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getGraphOutputWithUsage"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getGraphOutputWithUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getGraphOutputs"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getGraphOutputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getGuiGroup"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getGuiGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInput"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInputFromUID"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInputFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInputImage"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInputImageWithUsage"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInputImageWithUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInputImages"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInputImages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInputParameter"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInputParameterFromUID"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInputParameterFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getInputParameters"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getInputParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getOutputFormat"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getOutputFormat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getOutputMipmaps"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getOutputMipmaps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getPreset"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getPreset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getPrimaryInput"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getPrimaryInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.getSBSMetaDataTree"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.getSBSMetaDataTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.hasIcon"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.hasIcon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.isPrimaryInput"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.isPrimaryInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.setMetaDataName"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.setMetaDataName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph.setMetaDataValue"><code class="docutils literal notranslate"><span class="pre">SBSARGraph.setMetaDataValue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput"><code class="docutils literal notranslate"><span class="pre">SBSARInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.createMetaDataStr"><code class="docutils literal notranslate"><span class="pre">SBSARInput.createMetaDataStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.createMetaDataUrl"><code class="docutils literal notranslate"><span class="pre">SBSARInput.createMetaDataUrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.deleteMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARInput.deleteMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.formatValueToType"><code class="docutils literal notranslate"><span class="pre">SBSARInput.formatValueToType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getAllMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getAllMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getAttribute"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getClamp"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getDefaultValue"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getDimension"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getDimension()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getDropDownList"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getGroup"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getInputGui"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getInputGui()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getIsConnectable"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getIsConnectable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getLabelFalse"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getLabelFalse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getLabelTrue"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getLabelTrue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getLabels"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getMaxValue"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getMinValue"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getSBSMetaDataTree"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getSBSMetaDataTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getStep"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getType"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getUsages"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getUsages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.getWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInput.getWidget()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.hasUsage"><code class="docutils literal notranslate"><span class="pre">SBSARInput.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.isAnInputImage"><code class="docutils literal notranslate"><span class="pre">SBSARInput.isAnInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.isAnInputParameter"><code class="docutils literal notranslate"><span class="pre">SBSARInput.isAnInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.parse"><code class="docutils literal notranslate"><span class="pre">SBSARInput.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.setMetaDataName"><code class="docutils literal notranslate"><span class="pre">SBSARInput.setMetaDataName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput.setMetaDataValue"><code class="docutils literal notranslate"><span class="pre">SBSARInput.setMetaDataValue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput"><code class="docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.createMetaDataStr"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.createMetaDataStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.createMetaDataUrl"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.createMetaDataUrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.deleteMetaData"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.deleteMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getAllMetaData"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getAllMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getAttribute"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getFormat"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getFormat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getMetaData"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getMipmaps"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getMipmaps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getOutputType"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getSBSMetaDataTree"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getSBSMetaDataTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getType"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.getUsages"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.getUsages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.hasUsage"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.parse"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.setMetaDataName"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.setMetaDataName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput.setMetaDataValue"><code class="docutils literal notranslate"><span class="pre">SBSAROutput.setMetaDataValue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset"><code class="docutils literal notranslate"><span class="pre">SBSARPreset</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset.getInputValue"><code class="docutils literal notranslate"><span class="pre">SBSARPreset.getInputValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset.getPresetInput"><code class="docutils literal notranslate"><span class="pre">SBSARPreset.getPresetInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset.getPresetInputFromIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARPreset.getPresetInputFromIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset.getPresetInputs"><code class="docutils literal notranslate"><span class="pre">SBSARPreset.getPresetInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset.parse"><code class="docutils literal notranslate"><span class="pre">SBSARPreset.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPresetInput"><code class="docutils literal notranslate"><span class="pre">SBSARPresetInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPresetInput.getType"><code class="docutils literal notranslate"><span class="pre">SBSARPresetInput.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPresetInput.getTypedValue"><code class="docutils literal notranslate"><span class="pre">SBSARPresetInput.getTypedValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPresetInput.getValue"><code class="docutils literal notranslate"><span class="pre">SBSARPresetInput.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARPresetInput.parse"><code class="docutils literal notranslate"><span class="pre">SBSARPresetInput.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsarmanager.html">sbsarmanager module: SBSAR file manipulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager"><code class="docutils literal notranslate"><span class="pre">SBSARManager</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.addAllPresets"><code class="docutils literal notranslate"><span class="pre">SBSARManager.addAllPresets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.addIcon"><code class="docutils literal notranslate"><span class="pre">SBSARManager.addIcon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.applyExternalPreset"><code class="docutils literal notranslate"><span class="pre">SBSARManager.applyExternalPreset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.applyInternalPreset"><code class="docutils literal notranslate"><span class="pre">SBSARManager.applyInternalPreset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.changeInputValueFromName"><code class="docutils literal notranslate"><span class="pre">SBSARManager.changeInputValueFromName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.deleteAllPresets"><code class="docutils literal notranslate"><span class="pre">SBSARManager.deleteAllPresets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.deleteIcon"><code class="docutils literal notranslate"><span class="pre">SBSARManager.deleteIcon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.exportAllPresets"><code class="docutils literal notranslate"><span class="pre">SBSARManager.exportAllPresets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.save"><code class="docutils literal notranslate"><span class="pre">SBSARManager.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.saveAllIcons"><code class="docutils literal notranslate"><span class="pre">SBSARManager.saveAllIcons()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.saveAs"><code class="docutils literal notranslate"><span class="pre">SBSARManager.saveAs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSARManager.saveIcon"><code class="docutils literal notranslate"><span class="pre">SBSARManager.saveIcon()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarmanager.html#sbsarchive.sbsarmanager.SBSArchive"><code class="docutils literal notranslate"><span class="pre">SBSArchive</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsarmetadata.html">sbsarmetadata module: SBSAR file metadata interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.createMetaDataStr"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.createMetaDataStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.createMetaDataUrl"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.createMetaDataUrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.deleteMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.deleteMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.getAllMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.getAllMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.getMetaData"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.getMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.getSBSMetaDataTree"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.getSBSMetaDataTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.setMetaDataName"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.setMetaDataName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject.setMetaDataValue"><code class="docutils literal notranslate"><span class="pre">SBSARMetaDataObject.setMetaDataValue()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsargui.html">sbsargui module: SBSAR objects related to user interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARGuiGroup"><code class="docutils literal notranslate"><span class="pre">SBSARGuiGroup</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARGuiGroup.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiGroup.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.aTweakIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.aTweakIdentifier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getAttribute"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getClamp"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getDropDownList"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getGroup"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getLabelFalse"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getLabelFalse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getLabelTrue"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getLabelTrue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getLabels"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getMaxValue"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getMinValue"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getStep"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getUsages"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getUsages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.getWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.getWidget()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.hasUsage"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAButton"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAButton()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAColor"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAComboBox"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAComboBox()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAPosition"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isASlider"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isASlider()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isATransformationForward"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isATransformationForward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isATransformationInverse"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isATransformationInverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAnAngle"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAnAngle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAnEnumButtons"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAnEnumButtons()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAnInputImage"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAnInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAnInputParameter"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAnInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.isAnOffset"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.isAnOffset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.parse"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sAngleWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sAngleWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sButtonWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sButtonWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sColorWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sColorWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sComboBoxWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sComboBoxWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sEnumButtonsWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sEnumButtonsWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sImageWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sImageWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sNormalFormatIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sNormalFormatIdentifier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sOffsetWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sOffsetWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sOutputSizeIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sOutputSizeIdentifier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sPinIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sPinIdentifier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sPositionWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sPositionWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sRandomSeedIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sRandomSeedIdentifier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sSliderWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sSliderWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sTimeIdentifier"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sTimeIdentifier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sTransformationForwardWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sTransformationForwardWidget</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSARInputGui.sTransformationInverseWidget"><code class="docutils literal notranslate"><span class="pre">SBSARInputGui.sTransformationInverseWidget</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSAROutputGui"><code class="docutils literal notranslate"><span class="pre">SBSAROutputGui</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSAROutputGui.getAttribute"><code class="docutils literal notranslate"><span class="pre">SBSAROutputGui.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSAROutputGui.getUsages"><code class="docutils literal notranslate"><span class="pre">SBSAROutputGui.getUsages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSAROutputGui.hasUsage"><code class="docutils literal notranslate"><span class="pre">SBSAROutputGui.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsargui.html#sbsarchive.sbsargui.SBSAROutputGui.parse"><code class="docutils literal notranslate"><span class="pre">SBSAROutputGui.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsarguiwidgets.html">sbsarguiwidgets module: SBSAR objects related to user interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.convertValueToBool"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.convertValueToBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getClamp"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getDropDownList"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getLabels"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getMaxValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getMinValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.getStep"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiAngle.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiAngle.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.convertValueToBool"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.convertValueToBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getClamp"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getDropDownList"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getLabels"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getMaxValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getMinValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.getStep"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiButton.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiButton.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.convertValueToBool"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.convertValueToBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getClamp"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getDropDownList"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getLabels"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getMaxValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getMinValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.getStep"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBox.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBox.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBoxItem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiComboBoxItem.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiComboBoxItem.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiImage"><code class="docutils literal notranslate"><span class="pre">SBSARGuiImage</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiImage.getUsages"><code class="docutils literal notranslate"><span class="pre">SBSARGuiImage.getUsages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiImage.hasUsage"><code class="docutils literal notranslate"><span class="pre">SBSARGuiImage.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiImage.isColor"><code class="docutils literal notranslate"><span class="pre">SBSARGuiImage.isColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiImage.isGrayscale"><code class="docutils literal notranslate"><span class="pre">SBSARGuiImage.isGrayscale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiImage.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiImage.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.convertValueToBool"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.convertValueToBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getClamp"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getDropDownList"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getLabels"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getMaxValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getMinValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.getStep"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiSlider.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiSlider.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.convertValueToBool"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.convertValueToBool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getClamp"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.getClamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getDropDownList"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.getDropDownList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getLabels"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.getLabels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getMaxValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.getMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getMinValue"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.getMinValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.getStep"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.getStep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARGuiWidget.parse"><code class="docutils literal notranslate"><span class="pre">SBSARGuiWidget.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARUsage"><code class="docutils literal notranslate"><span class="pre">SBSARUsage</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsarguiwidgets.html#sbsarchive.sbsarguiwidgets.SBSARUsage.parse"><code class="docutils literal notranslate"><span class="pre">SBSARUsage.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsarenum.html">sbsarenum module: SBSAR format enumeration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.SBSARTypeEnum"><code class="docutils literal notranslate"><span class="pre">SBSARTypeEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsarenum.html#sbsarchive.sbsarenum.convertSbsarType2SbsType"><code class="docutils literal notranslate"><span class="pre">convertSbsarType2SbsType()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p id="module-sbsarchive.sbsarchive">Module <strong>sbsarchive</strong> aims to define SBSARObjects that are relative to a sbsar package,
+mostly <a class="reference internal" href="#sbsarchive.sbsarchive.SBSArchive" title="sbsarchive.sbsarchive.SBSArchive"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSArchive</span></code></a> and <a class="reference internal" href="#sbsarchive.sbsarchive.SBSARGlobalVar" title="sbsarchive.sbsarchive.SBSARGlobalVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSARGlobalVar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarchive.</span></span><span class="sig-name descname"><span class="pre">SBSARGlobalVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSARGlobalVar" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></p>
+<p>Class that contains information on a graph input as defined in a .sbsar file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mInputs   (list of <a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a>): List of global variables used by the substance.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSARGlobalVar.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSARGlobalVar.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarchive.</span></span><span class="sig-name descname"><span class="pre">SBSArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormatVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookerBuild</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAsmUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGlobalVar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Package</span></code>, <a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject" title="sbsarchive.sbsarmetadata.SBSARMetaDataObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARMetaDataObject</span></code></a></p>
+<p>Class used to get information on a .sbsar file.
+It contains the full description of a substance archive, which correspond to the root node &lt;sbsdescription&gt; of the .sbsar file.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mFormatVersion  (str): version of the format</p></li>
+<li><p>mCookerBuild    (str): build number of the Cooker</p></li>
+<li><p>mAsmUID         (str): unique identifier of the .sbsasm file</p></li>
+<li><p>mContent        (str): content type. Default to ‘full’</p></li>
+<li><p>mGlobalVar      (<a class="reference internal" href="#sbsarchive.sbsarchive.SBSARGlobalVar" title="sbsarchive.sbsarchive.SBSARGlobalVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a>): global variables used in the substance</p></li>
+<li><p>mGraphs         (list of <a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph" title="sbsarchive.sbsargraph.SBSARGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a>): list of graphs</p></li>
+<li><p>mContext        (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>): Execution context, with alias definition</p></li>
+<li><p>mFileAbsPath    (str): Absolute path of the package</p></li>
+<li><p>mDirAbsPath     (str): Absolute directory of the package</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.buildAbsPathFromRelToMePath">
+<span class="sig-name descname"><span class="pre">buildAbsPathFromRelToMePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRelPathFromPackage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.buildAbsPathFromRelToMePath" title="Link to this definition"></a></dt>
+<dd><p>Build a path starting from the current package absolute directory and complete it with the given relative path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aRelPathFromPackage</strong> (<em>str</em>) – The relative path from the current package</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The complete path, as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.computeUniqueIdentifier">
+<span class="sig-name descname"><span class="pre">computeUniqueIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSuffixId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.computeUniqueIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Check if the given identifier is already used and generate a unique identifier if necessary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A unique identifier, which is either the given one or a new one with a suffix: identifier_id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.createMetaDataStr">
+<span class="sig-name descname"><span class="pre">createMetaDataStr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.createMetaDataStr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.createMetaDataUrl">
+<span class="sig-name descname"><span class="pre">createMetaDataUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResource</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.createMetaDataUrl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.deleteMetaData">
+<span class="sig-name descname"><span class="pre">deleteMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.deleteMetaData" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.enterSBSARManager">
+<span class="sig-name descname"><span class="pre">enterSBSARManager</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.enterSBSARManager" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.extractSbsarMetaDataJson">
+<span class="sig-name descname"><span class="pre">extractSbsarMetaDataJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDestFolderPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNameToFind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'metadata.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.extractSbsarMetaDataJson" title="Link to this definition"></a></dt>
+<dd><p>Extract the metadata json file in the destFolderPath</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sDestFolderPath</strong> – a directory path</p></li>
+<li><p><strong>aNameToFind</strong> (<em>str</em>) – json file name present in sbsar, by default it’s metadata.json</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complete file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.extractSbsarMetaDataPack">
+<span class="sig-name descname"><span class="pre">extractSbsarMetaDataPack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDestFolderPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.extractSbsarMetaDataPack" title="Link to this definition"></a></dt>
+<dd><p>Extract all metadata resource files present in the sbsar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDestFolderPath</strong> (<em>str</em>) – a directory path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complete file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.extractSbsarMetaDataResource">
+<span class="sig-name descname"><span class="pre">extractSbsarMetaDataResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDestFolderPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSbsarResourcePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.extractSbsarMetaDataResource" title="Link to this definition"></a></dt>
+<dd><p>Extract a resource file present in the sbsar.
+The sbsar resource path is the sbsar relative path to the resource file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aDestFolderPath</strong> (<em>str</em>) – a directory path</p></li>
+<li><p><strong>aSbsarResourcePath</strong> (<em>str</em>) – sbsar relative path to the resource file, ex: “resources/1/untitled.blend”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complete file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.generateThumbnail">
+<span class="sig-name descname"><span class="pre">generateThumbnail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replaceIfExists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saveArchiveAs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.generateThumbnail" title="Link to this definition"></a></dt>
+<dd><p>Generate a 512x512 icon and embeds it to the substance archive.
+Be sure to write the substance doc with doc.writeDoc() if you do some modifications on it.
+Use pysbs.batchtools so be sure to have setup correctly your system paths.
+The thumbnail generation is based on Usage output, if the graph has not the right Usages the thumbnail result can be unexpected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphIdentifier</strong> – the identifier of the graph to be thumbnail rendered, if None thumbnail will be generated for all the graph</p></li>
+<li><p><strong>replaceIfExists</strong> – if a thumbnail already exits for this graph it will be replaced</p></li>
+<li><p><strong>saveArchiveAs</strong> – save a sbsar copy, if None the current sbsar will be saved</p></li>
+<li><p><strong>saveThumbnailAs</strong> – give a correct directory path to save the thumbnail somewhere otherwise thumbnail file will be deleted</p></li>
+<li><p><strong>kwargs</strong> – arguments to pass to the batchtools.thumbnail.generate, quiet, aSize, aThumbnailSize…</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getAllMetaData">
+<span class="sig-name descname"><span class="pre">getAllMetaData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getAllMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get all MetaData under dictionary form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getFirstSBSGraph">
+<span class="sig-name descname"><span class="pre">getFirstSBSGraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getFirstSBSGraph" title="Link to this definition"></a></dt>
+<dd><p>getSBSGraph(aGraphIdentifier)
+Get the first Graph object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphIdentifier</strong> (<em>str</em>) – Identifier of the graph to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../common_interfaces/basegraph.html#common_interfaces.basegraph.Graph" title="common_interfaces.basegraph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code></a> object, a string containing its pkg relative path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getMetaData">
+<span class="sig-name descname"><span class="pre">getMetaData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getMetaData" title="Link to this definition"></a></dt>
+<dd><p>Get a MetaData by its name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aName</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeUrl" title="common_interfaces.metadata.SBSMetaDataTreeUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeUrl</span></code></a> or <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTreeStr" title="common_interfaces.metadata.SBSMetaDataTreeStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTreeStr</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getObjectFromInternalPath">
+<span class="sig-name descname"><span class="pre">getObjectFromInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getObjectFromInternalPath" title="Link to this definition"></a></dt>
+<dd><p>Get the object pointed by the given path, which must reference the current package.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>str</em>) – the relative path, starting with ‘pkg:///’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the pointed <a class="reference internal" href="../common_interfaces/sbsarobject.html#common_interfaces.sbsarobject.SBSARObject" title="common_interfaces.sbsarobject.SBSARObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getSBSGraph">
+<span class="sig-name descname"><span class="pre">getSBSGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getSBSGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARGraph object with the given identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphIdentifier</strong> (<em>str</em>) – Identifier of the graph to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph" title="sbsarchive.sbsargraph.SBSARGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getSBSGraphFromPkgUrl">
+<span class="sig-name descname"><span class="pre">getSBSGraphFromPkgUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPkgUrl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getSBSGraphFromPkgUrl" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSARGraph object with the given package URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPkgUrl</strong> (<em>str</em>) – The graph Url relatively to the package, in the format ‘pkg:///MyGraph’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph" title="sbsarchive.sbsargraph.SBSARGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getSBSGraphList">
+<span class="sig-name descname"><span class="pre">getSBSGraphList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getSBSGraphList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of all graphs defined in the .sbsar file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph" title="sbsarchive.sbsargraph.SBSARGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getSBSGraphPkgUrl">
+<span class="sig-name descname"><span class="pre">getSBSGraphPkgUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getSBSGraphPkgUrl" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the given graph relatively to the current package (pkg:///…/aGraphIdentifier)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraph</strong> (A <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object) – Identifier of the graph to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string containing the relative path from the root content to the given graph, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.getSBSMetaDataTree">
+<span class="sig-name descname"><span class="pre">getSBSMetaDataTree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.getSBSMetaDataTree" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSMetaDataTree structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>class <cite>.SBSMetaDataTree</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.isAPackage">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAPackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.isAPackage" title="Link to this definition"></a></dt>
+<dd><p>Check if the given filename is a .sbs file or .sbsar file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> (<em>str</em>) – Path of the package</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given path ends with .sbs or .sbsar, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.isAnArchive">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAnArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.isAnArchive" title="Link to this definition"></a></dt>
+<dd><p>Check if the given filename is a .sbsar package or a .sbs package</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> (<em>str</em>) – Path of the package</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given path refers to an archive (.sbsar), False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.isInitialized">
+<span class="sig-name descname"><span class="pre">isInitialized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.isInitialized" title="Link to this definition"></a></dt>
+<dd><p>Check if the package is correctly initialized (parsed or well setup for future usage)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the package is initialized, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.parseDoc">
+<span class="sig-name descname"><span class="pre">parseDoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aResolveDependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.parseDoc" title="Link to this definition"></a></dt>
+<dd><p>Parse the SBS File content</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if succeed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.removePackageExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">removePackageExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.removePackageExtension" title="Link to this definition"></a></dt>
+<dd><p>Remove the package extension to the given path (.sbs or .sbsar)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFilePath</strong> (<em>str</em>) – Path of the package</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The same path without the package extension</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.setIcon">
+<span class="sig-name descname"><span class="pre">setIcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIconAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.setIcon" title="Link to this definition"></a></dt>
+<dd><p>Set the given image as the icon of the graph.
+The provided image won’t be re-sized to get a thumbnail, so we strongly recommend that you provide the path to a 128x128 image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aIconAbsPath</strong> (<em>str</em>) – The absolute path of the image to set</p></li>
+<li><p><strong>aGraphIdentifier</strong> (<em>str</em>) – the graph identifier to add the icon</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if succeed False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.setInitialized">
+<span class="sig-name descname"><span class="pre">setInitialized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.setInitialized" title="Link to this definition"></a></dt>
+<dd><p>Set the package as initialized</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.setMetaDataName">
+<span class="sig-name descname"><span class="pre">setMetaDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.setMetaDataName" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.setMetaDataValue">
+<span class="sig-name descname"><span class="pre">setMetaDataValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.setMetaDataValue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../common_interfaces/metadata.html" class="btn btn-neutral float-left" title="metadata module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsargraph.html" class="btn btn-neutral float-right" title="sbsargraph module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

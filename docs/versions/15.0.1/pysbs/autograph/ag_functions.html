@@ -1,0 +1,1117 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ag_functions module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ag_types module" href="ag_types.html" />
+    <link rel="prev" title="autograph module" href="autograph.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ag_functions module: Definition of the function context and the mathematical operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ag_types.html">ag_types module: Definition of all data types used by the automatic generation of function graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ag_layout.html">ag_layout module: Functions for automatically laying out graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="autograph.html">autograph module</a></li>
+      <li class="breadcrumb-item active">ag_functions module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-autograph.ag_functions">
+<span id="ag-functions-module"></span><h1>ag_functions module<a class="headerlink" href="#module-autograph.ag_functions" title="Link to this heading"></a></h1>
+<p>Module <strong>ag_functions</strong> provides the definition of the classes <a class="reference internal" href="#autograph.ag_functions.FunctionContext" title="autograph.ag_functions.FunctionContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionContext</span></code></a>,
+used for making it simpler to define functions using the <a class="reference internal" href="ag_types.html#module-autograph.ag_types" title="autograph.ag_types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ag_types</span></code></a> classes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">autograph.ag_functions.</span></span><span class="sig-name descname"><span class="pre">FunctionContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_constant_cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_unused_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class helping out generating functions by keeping track
+of the document and the root node in which the construction happens</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.input_parameter">
+<span class="sig-name descname"><span class="pre">input_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.input_parameter" title="Link to this definition"></a></dt>
+<dd><p>Creates an input parameter for the graph and returns the node
+for accessing it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – The name of the input parameter</p></li>
+<li><p><strong>widget_type</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a>) – The type with its visual representation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.variable">
+<span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_param_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.variable" title="Link to this definition"></a></dt>
+<dd><p>Creates a reference to a variable in the graph and returns the node
+for accessing it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – The name of the input parameter</p></li>
+<li><p><strong>widget_type</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a>) – The type with its visual representation</p></li>
+<li><p><strong>use_param_type</strong> (<em>bool</em>) – use <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> instead of <a class="reference internal" href="../sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.constant">
+<span class="sig-name descname"><span class="pre">constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">constant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.constant" title="Link to this definition"></a></dt>
+<dd><p>Creates a constant</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>constant</strong> (<em>int</em><em>, </em><em>bool</em><em>, </em><em>float</em><em>, </em><em>[</em><em>int</em><em>]</em><em>, </em><em>[</em><em>float</em><em>]</em>) – The constant value</p></li>
+<li><p><strong>t</strong> (<em>None</em><em> or </em><em>a class such as Float3</em>) – Type constructor None means autodetect</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.import_external_function">
+<span class="sig-name descname"><span class="pre">import_external_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.import_external_function" title="Link to this definition"></a></dt>
+<dd><p>Imports a function from the same document as the function is created in</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>string</em>) – Path to function to import</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a> the node representing the imported function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.import_local_function">
+<span class="sig-name descname"><span class="pre">import_local_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.import_local_function" title="Link to this definition"></a></dt>
+<dd><p>Imports a function from an external file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>string</em>) – Name of function to import</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a> the node representing the imported function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.generate" title="Link to this definition"></a></dt>
+<dd><p>Finalizes function generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output_node</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>) – The node that is the return value</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a> the output node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.dot">
+<span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.dot" title="Link to this definition"></a></dt>
+<dd><p>Dot product</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.sqrt">
+<span class="sig-name descname"><span class="pre">sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.sqrt" title="Link to this definition"></a></dt>
+<dd><p>Sqrt</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.atan2">
+<span class="sig-name descname"><span class="pre">atan2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.atan2" title="Link to this definition"></a></dt>
+<dd><p>Atan2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.abs_of">
+<span class="sig-name descname"><span class="pre">abs_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.abs_of" title="Link to this definition"></a></dt>
+<dd><p>Modulus, or Absolute value, of a.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.log" title="Link to this definition"></a></dt>
+<dd><p>Log</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.exp">
+<span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.exp" title="Link to this definition"></a></dt>
+<dd><p>Exp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.log2">
+<span class="sig-name descname"><span class="pre">log2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.log2" title="Link to this definition"></a></dt>
+<dd><p>Log2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.pow2">
+<span class="sig-name descname"><span class="pre">pow2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.pow2" title="Link to this definition"></a></dt>
+<dd><p>Pow2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.floor">
+<span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.floor" title="Link to this definition"></a></dt>
+<dd><p>Floor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.ceil">
+<span class="sig-name descname"><span class="pre">ceil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.ceil" title="Link to this definition"></a></dt>
+<dd><p>Ceil</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cos">
+<span class="sig-name descname"><span class="pre">cos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cos" title="Link to this definition"></a></dt>
+<dd><p>Cos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.sin">
+<span class="sig-name descname"><span class="pre">sin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.sin" title="Link to this definition"></a></dt>
+<dd><p>Sin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.tan">
+<span class="sig-name descname"><span class="pre">tan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.tan" title="Link to this definition"></a></dt>
+<dd><p>Tan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.rand">
+<span class="sig-name descname"><span class="pre">rand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.rand" title="Link to this definition"></a></dt>
+<dd><p>Rand</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cartesian">
+<span class="sig-name descname"><span class="pre">cartesian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cartesian" title="Link to this definition"></a></dt>
+<dd><p>Cartesian</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>) – input parameter 1, float or list of float</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>) – input parameter 2, float or list of float</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.max_of">
+<span class="sig-name descname"><span class="pre">max_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.max_of" title="Link to this definition"></a></dt>
+<dd><p>Maximum of a and b</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – input parameter 1</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – input parameter 2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.maximum">
+<span class="sig-name descname"><span class="pre">maximum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.maximum" title="Link to this definition"></a></dt>
+<dd><p>Maximum value of the values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – input values</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.min_of">
+<span class="sig-name descname"><span class="pre">min_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.min_of" title="Link to this definition"></a></dt>
+<dd><p>Minimum of a and b</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – input parameter 1</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – input parameter 2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.minimum">
+<span class="sig-name descname"><span class="pre">minimum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.minimum" title="Link to this definition"></a></dt>
+<dd><p>Minimum value of the values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – input values</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.clamp">
+<span class="sig-name descname"><span class="pre">clamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.clamp" title="Link to this definition"></a></dt>
+<dd><p>Clamp value x between a and b.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – min value of clamped x</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of float or list of int) – max value of clamped x</p></li>
+<li><p><strong>x</strong> – value to clamp</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.lerp">
+<span class="sig-name descname"><span class="pre">lerp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.lerp" title="Link to this definition"></a></dt>
+<dd><p>Lerp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 1</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – input parameter 2</p></li>
+<li><p><strong>x</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a> or float) – lerp position</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_float1">
+<span class="sig-name descname"><span class="pre">swizzle_float1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_float1" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Float1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_float2">
+<span class="sig-name descname"><span class="pre">swizzle_float2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_float2" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Float2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_float3">
+<span class="sig-name descname"><span class="pre">swizzle_float3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_float3" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Float3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float3" title="autograph.ag_types.Float3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float3</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_float4">
+<span class="sig-name descname"><span class="pre">swizzle_float4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_float4" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Float4</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float4" title="autograph.ag_types.Float4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float4</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_int1">
+<span class="sig-name descname"><span class="pre">swizzle_int1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_int1" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Int1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int1" title="autograph.ag_types.Int1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int1</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_int2">
+<span class="sig-name descname"><span class="pre">swizzle_int2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_int2" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Int2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int2" title="autograph.ag_types.Int2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int2</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_int3">
+<span class="sig-name descname"><span class="pre">swizzle_int3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_int3" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Int3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int3" title="autograph.ag_types.Int3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int3</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.swizzle_int4">
+<span class="sig-name descname"><span class="pre">swizzle_int4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_vars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.swizzle_int4" title="Link to this definition"></a></dt>
+<dd><p>Swizzle Int4</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – input parameter</p></li>
+<li><p><strong>src</strong> – <a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int</p></li>
+<li><p><strong>out_vars</strong> (<em>list</em><em> of </em><em>int</em>) – Output variable indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int4" title="autograph.ag_types.Int4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int4</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.expand_to_int2">
+<span class="sig-name descname"><span class="pre">expand_to_int2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.expand_to_int2" title="Link to this definition"></a></dt>
+<dd><p>Expands a Int1 to Int2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Int1" title="autograph.ag_types.Int1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int1</span></code></a> or int) – source vector</p></li>
+<li><p><strong>fill</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int) – What to fill the empty values with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int2" title="autograph.ag_types.Int2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int2</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.expand_to_int3">
+<span class="sig-name descname"><span class="pre">expand_to_int3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.expand_to_int3" title="Link to this definition"></a></dt>
+<dd><p>Expands a Int1 or Int2 to Int3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int) – source vector</p></li>
+<li><p><strong>fill</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int) – What to fill the empty values with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int3" title="autograph.ag_types.Int3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int3</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.expand_to_int4">
+<span class="sig-name descname"><span class="pre">expand_to_int4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.expand_to_int4" title="Link to this definition"></a></dt>
+<dd><p>Expands a Int1, Int2 or Int3 to Int4</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int) – source vector</p></li>
+<li><p><strong>fill</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int) – What to fill the empty values with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int4" title="autograph.ag_types.Int4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int4</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.expand_to_float2">
+<span class="sig-name descname"><span class="pre">expand_to_float2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.expand_to_float2" title="Link to this definition"></a></dt>
+<dd><p>Expands a Float1 to Float2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a> or float) – source vector</p></li>
+<li><p><strong>fill</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – What to fill the empty values with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.expand_to_float3">
+<span class="sig-name descname"><span class="pre">expand_to_float3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.expand_to_float3" title="Link to this definition"></a></dt>
+<dd><p>Expands a Float1 or Float2 to Float3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – source vector</p></li>
+<li><p><strong>fill</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – What to fill the empty values with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float3" title="autograph.ag_types.Float3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float3</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.expand_to_float4">
+<span class="sig-name descname"><span class="pre">expand_to_float4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.expand_to_float4" title="Link to this definition"></a></dt>
+<dd><p>Expands a Float1, Float2 or Float3 to Float4</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – source vector</p></li>
+<li><p><strong>fill</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a>, float or list of float) – What to fill the empty values with</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float4" title="autograph.ag_types.Float4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float4</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.expand">
+<span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">vectors</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.expand" title="Link to this definition"></a></dt>
+<dd><p>Expand two vector to a vector of the appropriate type and dimension.</p>
+<p>The sum of the dimension of the input vectors must not be larger than 4.
+Plus all input vectors must be integers or all input vectors must be float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vectors</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, int, float, list of int, list of float) – vectors to concatenate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_float1">
+<span class="sig-name descname"><span class="pre">cast_to_float1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_float1" title="Link to this definition"></a></dt>
+<dd><p>Casts an Int1 to Float1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Int1" title="autograph.ag_types.Int1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int1</span></code></a> or int) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_float2">
+<span class="sig-name descname"><span class="pre">cast_to_float2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_float2" title="Link to this definition"></a></dt>
+<dd><p>Casts an Int2 to Float2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Int2" title="autograph.ag_types.Int2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int2</span></code></a> or list of int) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_float3">
+<span class="sig-name descname"><span class="pre">cast_to_float3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_float3" title="Link to this definition"></a></dt>
+<dd><p>Casts an Int3 to Float3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Int3" title="autograph.ag_types.Int3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int3</span></code></a> or list of int) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float3" title="autograph.ag_types.Float3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float3</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_float4">
+<span class="sig-name descname"><span class="pre">cast_to_float4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_float4" title="Link to this definition"></a></dt>
+<dd><p>Casts an Int4 to Float4</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Int4" title="autograph.ag_types.Int4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int4</span></code></a> or list of int) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float4" title="autograph.ag_types.Float4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float4</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.auto_cast_to_float">
+<span class="sig-name descname"><span class="pre">auto_cast_to_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.auto_cast_to_float" title="Link to this definition"></a></dt>
+<dd><p>Casts a numeric vector to a float vector of the same dimension</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a>, int or list of int) – source vector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_int1">
+<span class="sig-name descname"><span class="pre">cast_to_int1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_int1" title="Link to this definition"></a></dt>
+<dd><p>Casts a Float1 to Int1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a> or float) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int1" title="autograph.ag_types.Int1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int1</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_int2">
+<span class="sig-name descname"><span class="pre">cast_to_int2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_int2" title="Link to this definition"></a></dt>
+<dd><p>Casts a Float2 to Int2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a> or list of float) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int2" title="autograph.ag_types.Int2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int2</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_int3">
+<span class="sig-name descname"><span class="pre">cast_to_int3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_int3" title="Link to this definition"></a></dt>
+<dd><p>Casts a Float3 to Int3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float3" title="autograph.ag_types.Float3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float3</span></code></a> or list of float) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int3" title="autograph.ag_types.Int3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int3</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.cast_to_int4">
+<span class="sig-name descname"><span class="pre">cast_to_int4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.cast_to_int4" title="Link to this definition"></a></dt>
+<dd><p>Casts a Float4 to Int4</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float4" title="autograph.ag_types.Float4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float4</span></code></a> or list of float) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Int4" title="autograph.ag_types.Int4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Int4</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.auto_cast_to_int">
+<span class="sig-name descname"><span class="pre">auto_cast_to_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.auto_cast_to_int" title="Link to this definition"></a></dt>
+<dd><p>Casts a numeric vector to an Int vector of the same dimension</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a> float or list of float) – source vector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.IntType" title="autograph.ag_types.IntType"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.if_else">
+<span class="sig-name descname"><span class="pre">if_else</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_on_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_on_false</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.if_else" title="Link to this definition"></a></dt>
+<dd><p>Choose one of two values based on a condition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>condition</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Boolean" title="autograph.ag_types.Boolean"><code class="xref py py-class docutils literal notranslate"><span class="pre">Boolean</span></code></a> or bool) – The condition to select on</p></li>
+<li><p><strong>value_on_true</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, float, int, list of float or list of int) – Return value for true</p></li>
+<li><p><strong>value_on_false</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a>, float, int, list of float or list of int) – Return value for false</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType" title="autograph.ag_types.VectorType"><code class="xref py py-class docutils literal notranslate"><span class="pre">VectorType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.seq">
+<span class="sig-name descname"><span class="pre">seq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.seq" title="Link to this definition"></a></dt>
+<dd><p>Execute all nodes resulting in branch a then execute all nodes resulting in branch b.
+Outputs the output of branch b.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>) – input sequence 1</p></li>
+<li><p><strong>b</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>) – input sequence 2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.sequence">
+<span class="sig-name descname"><span class="pre">sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.sequence" title="Link to this definition"></a></dt>
+<dd><p>Execute all nodes in sequence and output the output of the last input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>) – input sequences</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.set_var">
+<span class="sig-name descname"><span class="pre">set_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.set_var" title="Link to this definition"></a></dt>
+<dd><p>Set a variable name to the give value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>, bool, int, float, list of int or list of float) – value to set</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name of the set value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.create_color_sampler">
+<span class="sig-name descname"><span class="pre">create_color_sampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.create_color_sampler" title="Link to this definition"></a></dt>
+<dd><p>Creates a color sampler</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a> or list of float) – Point to sample</p></li>
+<li><p><strong>input_index</strong> (<em>int</em>) – Index of input to sample from</p></li>
+<li><p><strong>filtering_mode</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FilteringEnum" title="sbsenum.FilteringEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilteringEnum</span></code></a>) – Filter to use for the sampler</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float4" title="autograph.ag_types.Float4"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float4</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.create_gray_sampler">
+<span class="sig-name descname"><span class="pre">create_gray_sampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.create_gray_sampler" title="Link to this definition"></a></dt>
+<dd><p>Creates a gray scale sampler</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Float2" title="autograph.ag_types.Float2"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float2</span></code></a> or list of float) – Point to sample</p></li>
+<li><p><strong>input_index</strong> (<em>int</em>) – Index of input to sample from</p></li>
+<li><p><strong>filtering_mode</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FilteringEnum" title="sbsenum.FilteringEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilteringEnum</span></code></a>) – Filter to use for the sampler</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.Float1" title="autograph.ag_types.Float1"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float1</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.create_passthrough">
+<span class="sig-name descname"><span class="pre">create_passthrough</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.create_passthrough" title="Link to this definition"></a></dt>
+<dd><p>passthrough(src)
+Create a PassThrough (dot) node function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>src</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.Type" title="autograph.ag_types.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>, any class that inherits Type) – source</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autograph.ag_functions.FunctionContext.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.FunctionContext.normalize" title="Link to this definition"></a></dt>
+<dd><p>Normalize a vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a> or list of float) – Vector to normalize</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType" title="autograph.ag_types.FloatType"><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autograph.ag_functions.generate_function">
+<span class="sig-prename descclassname"><span class="pre">autograph.ag_functions.</span></span><span class="sig-name descname"><span class="pre">generate_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_unused_nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autograph.ag_functions.generate_function" title="Link to this definition"></a></dt>
+<dd><p>Generates a function by calling back to the generator function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fn</strong> (Python function, taking as unique parameter a <a class="reference internal" href="#autograph.ag_functions.FunctionContext" title="autograph.ag_functions.FunctionContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionContext</span></code></a>) – Function taking a FunctionContext as input that generates the actual operations</p></li>
+<li><p><strong>doc</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The document to create the network in</p></li>
+<li><p><strong>fn_node</strong> (<a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>) – A function node in which the function should be created, must be None if the name is not None</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – Name of the function to be created. Must be None if fn_node is not None</p></li>
+<li><p><strong>layout_nodes</strong> (<em>bool</em>) – Whether the nodes should be laid out left to right</p></li>
+<li><p><strong>remove_unused_nodes</strong> (<em>bool</em>) – Whether nodes not connected to the output node should be removed.
+Only works if layout_nodes is true</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>function to call to create node</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="autograph.html" class="btn btn-neutral float-left" title="autograph module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ag_types.html" class="btn btn-neutral float-right" title="ag_types module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>context module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="functions module" href="functions.html" />
+    <link rel="prev" title="qtvariantwriter module" href="qtclasses/qtvariantwriter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#execution-context">Execution context</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">context module: Execution context</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#context.Context"><code class="docutils literal notranslate"><span class="pre">Context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#context.ProjectMgr"><code class="docutils literal notranslate"><span class="pre">ProjectMgr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#context.UrlAliasMgr"><code class="docutils literal notranslate"><span class="pre">UrlAliasMgr</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="functions.html">functions module: Entry point for functions called by Substance Designer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">context module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-context">
+<span id="context-module"></span><h1>context module<a class="headerlink" href="#module-context" title="Link to this heading"></a></h1>
+<p>Module <strong>context</strong> provides object relatives to the execution environment (file path, platform, aliases for package).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="context.Context">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">context.</span></span><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUrlAliasMgr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMDLManager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aProjectMgr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used to purpose information on the application environment</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="context.Context.ActiveModuleRegister">
+<span class="sig-name descname"><span class="pre">ActiveModuleRegister</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#context.Context.ActiveModuleRegister" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="context.Context.ModuleRegisters">
+<span class="sig-name descname"><span class="pre">ModuleRegisters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#context.Context.ModuleRegisters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.addMDLRootPath">
+<span class="sig-name descname"><span class="pre">addMDLRootPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.addMDLRootPath" title="Link to this definition"></a></dt>
+<dd><p>Add the given path to the existing MDL root path list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>str</em>) – The absolute path to add as a MDL root path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.addSBSObjectToResolve">
+<span class="sig-name descname"><span class="pre">addSBSObjectToResolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.addSBSObjectToResolve" title="Link to this definition"></a></dt>
+<dd><p>When parsing a .sbs file, some objects need the parsing to be complete to finalize their initialization and resolve their dependencies (the CompInstance for example).
+In order to do so, they must register to the context by calling addSBSObjectToResolve when they are parsed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSObject</strong> (<a class="reference internal" href="common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The object to register for later resolution</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.canReadSBSPackage">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">canReadSBSPackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFormatVersion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUpdaterVersion</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.canReadSBSPackage" title="Link to this definition"></a></dt>
+<dd><p>Check if a SBS package with the given format version and updater version can be read by the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFormatVersion</strong> (<em>string</em>) – the format version of the package</p></li>
+<li><p><strong>aUpdaterVersion</strong> (<em>string</em>) – the updater version of the package</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the package is compatible with this API, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.clonePackage">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clonePackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.clonePackage" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the given document</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The SBSDocument to clone</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new document as a <a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.declarePackage">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">declarePackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.declarePackage" title="Link to this definition"></a></dt>
+<dd><p>Add the given SBSDocument to the list of known packages on the Context</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The SBSDocument to declare</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getAutomationToolkitInstallPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAutomationToolkitInstallPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getAutomationToolkitInstallPath" title="Link to this definition"></a></dt>
+<dd><p>Get Substance Automation Toolkit installation path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The installation path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getBatchToolExeName">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getBatchToolExeName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBatchTool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getBatchToolExeName" title="Link to this definition"></a></dt>
+<dd><p>Get a batch tool executable name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBatchTool</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.BatchToolsEnum" title="sbsenum.BatchToolsEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BatchToolsEnum</span></code></a>) – The batch tool to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The executable path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getBatchToolExePath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getBatchToolExePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBatchTool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBatchToolsFolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getBatchToolExePath" title="Link to this definition"></a></dt>
+<dd><p>Get the batch tool executable corresponding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBatchTool</strong> (<a class="reference internal" href="sbsenum.html#sbsenum.BatchToolsEnum" title="sbsenum.BatchToolsEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BatchToolsEnum</span></code></a>) – The batch tool to get</p></li>
+<li><p><strong>aBatchToolsFolder</strong> (<em>str</em><em>, </em><em>optional</em>) – The batch tools folder path. If not provided, use the Substance Automation Toolkit installation folder.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The executable path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getDefaultPackagePath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getDefaultPackagePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getDefaultPackagePath" title="Link to this definition"></a></dt>
+<dd><p>Get the default resource package path, which corresponds to the alias sbs://</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The resource package path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getMDLMgr">
+<span class="sig-name descname"><span class="pre">getMDLMgr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getMDLMgr" title="Link to this definition"></a></dt>
+<dd><p>Get the mdl manager</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="mdl/mdlmanager.html#mdl.mdlmanager.MDLManager" title="mdl.mdlmanager.MDLManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLManager</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getMDLRootPaths">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMDLRootPaths</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getMDLRootPaths" title="Link to this definition"></a></dt>
+<dd><p>Get the list of MDL root paths</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The MDL root paths package path as a list of strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getPSDParseExePath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPSDParseExePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getPSDParseExePath" title="Link to this definition"></a></dt>
+<dd><p>Get PsdParse executable path, which is provided by Substance Automation Toolkit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The executable path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getPackage">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getPackage" title="Link to this definition"></a></dt>
+<dd><p>Look for the given absolute path in the already parsed package and return it if found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAbsPath</strong> (<em>str</em>) – Absolute path of the package</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getProjectMgr">
+<span class="sig-name descname"><span class="pre">getProjectMgr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSbsPrjFile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getProjectMgr" title="Link to this definition"></a></dt>
+<dd><p>Get the project manager
+if a path is given, it will be parsed by the ProjectMgr
+:param aSbsPrjFile:
+:return: a <a class="reference internal" href="#context.ProjectMgr" title="context.ProjectMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProjectMgr</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getSBSARFormatVersion">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSARFormatVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getSBSARFormatVersion" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSAR format version compatible with this version of the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The format version as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getSBSFormatVersion">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSFormatVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getSBSFormatVersion" title="Link to this definition"></a></dt>
+<dd><p>Get the SBS format version compatible with this version of the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The format version as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getSBSUpdaterVersion">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSUpdaterVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getSBSUpdaterVersion" title="Link to this definition"></a></dt>
+<dd><p>Get the SBS updater version compatible with this version of the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The updater version as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getSubstanceDesignerInstallPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSubstanceDesignerInstallPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getSubstanceDesignerInstallPath" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.getUrlAliasMgr">
+<span class="sig-name descname"><span class="pre">getUrlAliasMgr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.getUrlAliasMgr" title="Link to this definition"></a></dt>
+<dd><p>Get the url alias manager</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="#context.UrlAliasMgr" title="context.UrlAliasMgr"><code class="xref py py-class docutils literal notranslate"><span class="pre">UrlAliasMgr</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.resolveDependencies">
+<span class="sig-name descname"><span class="pre">resolveDependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.resolveDependencies" title="Link to this definition"></a></dt>
+<dd><p>This function must be called once the parsing of a .sbs is over, to allow all the registered objects to finalize their initialization.
+This function calls the callback of each registered object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The SBSDocument to finalize</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.resolveDependency">
+<span class="sig-name descname"><span class="pre">resolveDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.resolveDependency" title="Link to this definition"></a></dt>
+<dd><p>This function allows to set and eventually parse the referenced package of the given dependency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aParentDocument</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The SBSDocument which contains the dependency</p></li>
+<li><p><strong>aSBSDependency</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – The dependency to handle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the package referenced by the dependency if found, as a <a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.setAutomationToolkitInstallPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setAutomationToolkitInstallPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">automationToolkitInstallPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.setAutomationToolkitInstallPath" title="Link to this definition"></a></dt>
+<dd><p>Set the installation folder of Substance Automation Toolkit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>automationToolkitInstallPath</strong> (<em>str</em>) – the absolute path to Substance Automation Toolkit installation folder</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.setDefaultPackagePath">
+<span class="sig-name descname"><span class="pre">setDefaultPackagePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">defaultLibraryPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.setDefaultPackagePath" title="Link to this definition"></a></dt>
+<dd><p>Set the default package library path, which corresponds to the alias sbs://</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.setMDLRootPaths">
+<span class="sig-name descname"><span class="pre">setMDLRootPaths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPathList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.setMDLRootPaths" title="Link to this definition"></a></dt>
+<dd><p>setMDLRootPath(aPathList)
+Set the list of MDL root path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPathList</strong> (<em>list</em><em> of </em><em>string</em>) – The list of absolute paths to add as MDL root paths</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.setModuleRegisters">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setModuleRegisters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.setModuleRegisters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.Context.setSubstanceDesignerInstallPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setSubstanceDesignerInstallPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.Context.setSubstanceDesignerInstallPath" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="context.ProjectMgr">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">context.</span></span><span class="sig-name descname"><span class="pre">ProjectMgr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSbsPrjFilePath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSProject</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that manage the sbsprj (currently, readonly).
+For instance it’s usable to get params values i.e: aSbsPrj.getSettingsInfo().getVersion().getValue()
+Or populate the AliasUrlMgr with the alias’ sbsprj file.
+It is retrievable by a Context: aContext.getProjectMgr() a aSbsPrjFilePath file path can be pass as arg.
+Or as create an instance aPrjMgr = ProjectMgr() a aSbsPrjFilePath file path can be pass as arg.
+The context is also retrievable directly from aPrjMgr.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.getContext">
+<span class="sig-name descname"><span class="pre">getContext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.getContext" title="Link to this definition"></a></dt>
+<dd><p>get the Context class from ProjectMgr</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.getDependenciesPathStorageMethod">
+<span class="sig-name descname"><span class="pre">getDependenciesPathStorageMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_near_or_under'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.getDependenciesPathStorageMethod" title="Link to this definition"></a></dt>
+<dd><p>Shortcut in order to get the dependencies path storage method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>method</strong> – not_near_or_under or near_or_under</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSPRJDependenciesPathStorageMethods</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.getOcioConfigFilePath">
+<span class="sig-name descname"><span class="pre">getOcioConfigFilePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.getOcioConfigFilePath" title="Link to this definition"></a></dt>
+<dd><p>Shortcut in order to get the config.ocio path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.getSBSProject">
+<span class="sig-name descname"><span class="pre">getSBSProject</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.getSBSProject" title="Link to this definition"></a></dt>
+<dd><p>get the SBSProject class which containt the options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.getUrlAliasMgr">
+<span class="sig-name descname"><span class="pre">getUrlAliasMgr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.getUrlAliasMgr" title="Link to this definition"></a></dt>
+<dd><p>get the SBSProject class which containt the options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.parseADoc">
+<span class="sig-name descname"><span class="pre">parseADoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSbsPrjFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.parseADoc" title="Link to this definition"></a></dt>
+<dd><p>Parse the sbsprj file in order to populate the ProjectMgr</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSbsPrjFilePath</strong> – a sbsprj file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.populateUrlAliasesMgr">
+<span class="sig-name descname"><span class="pre">populateUrlAliasesMgr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.populateUrlAliasesMgr" title="Link to this definition"></a></dt>
+<dd><p>Complete UrlAliasesMgr with the sbsprj’s aliases</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.setDependenciesPathStorageMethod">
+<span class="sig-name descname"><span class="pre">setDependenciesPathStorageMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'not_near_or_under'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.setDependenciesPathStorageMethod" title="Link to this definition"></a></dt>
+<dd><p>Shortcut in order to set the dependencies path storage method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> – sbsproject.SBSDependenciesPathTypes enum</p></li>
+<li><p><strong>value</strong> – sbsproject.SBSDependenciesPathMethods enum</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSPRJDependenciesPathStorageMethods</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.ProjectMgr.setOcioConfigFilePath">
+<span class="sig-name descname"><span class="pre">setOcioConfigFilePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.ProjectMgr.setOcioConfigFilePath" title="Link to this definition"></a></dt>
+<dd><p>Shortcut to set the config ocio file path and switch pref to custom</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – str file path of config.ocio</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="context.UrlAliasMgr">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">context.</span></span><span class="sig-name descname"><span class="pre">UrlAliasMgr</span></span><a class="headerlink" href="#context.UrlAliasMgr" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that contains Url Aliases information</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.buildTmpFolderPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">buildTmpFolderPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFolderName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.buildTmpFolderPath" title="Link to this definition"></a></dt>
+<dd><p>Build a temporary folder path in the Substance Automation Toolkit temporary directory, with the given folder name and a unique part (aFolderName_XXXXXX)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFolderName</strong> (<em>str</em>) – The name of the folder to create in the temporary directory</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the directory path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.convertToAliasedPath">
+<span class="sig-name descname"><span class="pre">convertToAliasedPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUrl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.convertToAliasedPath" title="Link to this definition"></a></dt>
+<dd><p>Tries to convert the given url with an aliased one.
+If the url starts with the absolute path of a registered alias, this part will be expressed using the alias.
+If no conversion possible, the url is returned as is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUrl</strong> (<em>str</em>) – The absolute url to convert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The same url expressed with an alias if possible, or the url itself otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.getAliasAbsPath">
+<span class="sig-name descname"><span class="pre">getAliasAbsPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAliasName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.getAliasAbsPath" title="Link to this definition"></a></dt>
+<dd><p>Get the absolute path associated to the given alias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAliasName</strong> (<em>str</em>) – Name of the alias</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The absolute path of this alias if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.getAliasInPath">
+<span class="sig-name descname"><span class="pre">getAliasInPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUrl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.getAliasInPath" title="Link to this definition"></a></dt>
+<dd><p>Get the alias part in the given url, if this alias has been declared.
+For instance, if the url is in the format myalias://rest/of/the/path.ext, the function will return ‘myalias’
+if this alias has been registered in the aliases dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUrl</strong> (<em>str</em>) – URL</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The name of the alias if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.getAllAliases">
+<span class="sig-name descname"><span class="pre">getAllAliases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.getAllAliases" title="Link to this definition"></a></dt>
+<dd><p>Get all aliases as a list of strings correctly formatted: alias://path/to/the/alias</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>includeDefault</strong> (<em>bool</em><em>, </em><em>optional</em>) – True to include the default alias (sbs://). Default to False</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.getTemporaryDirectoryPath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getTemporaryDirectoryPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.getTemporaryDirectoryPath" title="Link to this definition"></a></dt>
+<dd><p>Get the temporary folder dedicated to Substance Automation Toolkit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The temporary folder as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.isUnderPath">
+<span class="sig-name descname"><span class="pre">isUnderPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUrl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.isUnderPath" title="Link to this definition"></a></dt>
+<dd><p>Check if the aUrl path is by or below the aDirAbsPath.
+:param aUrl: The URL to convert to a relative path
+:param aDirAbsPath: The absolute directory path
+:type aUrl: str
+:type aDirAbsPath: str
+:return: True if under aDirAbsPath otherwise False</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.normalizePath">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalizePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.normalizePath" title="Link to this definition"></a></dt>
+<dd><p>Return a correctly normalized path considering the running OS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPath</strong> (<em>str</em>) – The path to normalize</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The normalized path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.setAliasAbsPath">
+<span class="sig-name descname"><span class="pre">setAliasAbsPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAliasName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.setAliasAbsPath" title="Link to this definition"></a></dt>
+<dd><p>Save the given alias into the alias dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aAliasName</strong> (<em>str</em>) – Name of the alias, without ‘://’.</p></li>
+<li><p><strong>aAbsPath</strong> (<em>str</em>) – Absolute directory of this alias</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.toAbsPath">
+<span class="sig-name descname"><span class="pre">toAbsPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUrl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.toAbsPath" title="Link to this definition"></a></dt>
+<dd><p>Convert the given url into an absolute path, considering the given absolute directory path.
+This means that if the url is relative, it will be considered as relative to the given directory path.
+If the url contains a registered alias, the alias part in the url will be replaced by the alias absolute path.
+If the url is already absolute, it will be only formatted correctly for the running platform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUrl</strong> (<em>str</em>) – The URL to convert to an absolute path</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – The absolute directory path</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The absolute path corresponding to the given url, correctly formatted for the running platform.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.toRelPath">
+<span class="sig-name descname"><span class="pre">toRelPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUrl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.toRelPath" title="Link to this definition"></a></dt>
+<dd><p>Convert the given url into a relative path, relatively to the given directory absolute path.
+If the url is expressed using an alias, it will be returned as is.
+If the path of a registered alias is found in the url, it will be expressed with this alias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUrl</strong> (<em>str</em>) – The URL to convert to a relative path</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – The absolute directory path</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The relative path corresponding to the given url.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="context.UrlAliasMgr.urlToFilePath">
+<span class="sig-name descname"><span class="pre">urlToFilePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUrl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#context.UrlAliasMgr.urlToFilePath" title="Link to this definition"></a></dt>
+<dd><p>Convert an url type <a class="reference external" href="file:///tmp/afile.sbs">file:///tmp/afile.sbs</a> to a path file /tmp/afile.sbs
+:param aUrl: The URL to convert to a relative path
+:return: a file path</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qtclasses/qtvariantwriter.html" class="btn btn-neutral float-left" title="qtvariantwriter module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="functions.html" class="btn btn-neutral float-right" title="functions module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

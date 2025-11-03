@@ -1,0 +1,2005 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>resource module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="graph module" href="../graph/graph.html" />
+    <link rel="prev" title="content module" href="content.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="substance.html">substance module: Substance definition (.sbs)</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="content.html">content module: Package content</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">resource module: Resource definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance.html#substance.substance.FeatureVersionsOption"><code class="docutils literal notranslate"><span class="pre">FeatureVersionsOption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance.html#substance.substance.SBSDependency"><code class="docutils literal notranslate"><span class="pre">SBSDependency</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance.html#substance.substance.SBSDocument"><code class="docutils literal notranslate"><span class="pre">SBSDocument</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="substance.html">substance module</a></li>
+      <li class="breadcrumb-item active">resource module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-substance.resource">
+<span id="resource-module"></span><h1>resource module<a class="headerlink" href="#module-substance.resource" title="Link to this heading"></a></h1>
+<p>Module <strong>resource</strong> provides the definition of the classes relative to a SBSResource:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="#substance.resource.SBSSource" title="substance.resource.SBSSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSource</span></code></a></dt><dd><ul>
+<li><p><a class="reference internal" href="#substance.resource.SBSSourceExternalCopy" title="substance.resource.SBSSourceExternalCopy"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceExternalCopy</span></code></a></p></li>
+<li><p><a class="reference internal" href="#substance.resource.SBSSourceBinboon" title="substance.resource.SBSSourceBinboon"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceBinboon</span></code></a></p></li>
+<li><p><a class="reference internal" href="#substance.resource.SBSSourceBinembedded" title="substance.resource.SBSSourceBinembedded"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceBinembedded</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a></p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="#substance.resource.SBSResourceScene" title="substance.resource.SBSResourceScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResourceScene</span></code></a></dt><dd><ul>
+<li><p><a class="reference internal" href="#substance.resource.SBSSceneMaterialMapEntry" title="substance.resource.SBSSceneMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSceneMaterialMapEntry</span></code></a></p></li>
+<li><p><a class="reference internal" href="#substance.resource.SBSUVSetMaterialMap" title="substance.resource.SBSUVSetMaterialMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMap</span></code></a></p></li>
+<li><p><a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a></p></li>
+<li><p><a class="reference internal" href="#substance.resource.SBSUVSetMaterial" title="substance.resource.SBSUVSetMaterial"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterial</span></code></a></p></li>
+<li><p><a class="reference internal" href="#substance.resource.SBSOptionsByUrlMapEntry" title="substance.resource.SBSOptionsByUrlMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOptionsByUrlMapEntry</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceExternalCopy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSSourceExternalCopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceExternalCopy" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a source external copy as defined in a .sbs file.
+External copy refers to an external file copied in a sub-folder of the application and entirely managed (iTunes style).</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mFilename  (str): name of the managed file.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceExternalCopy.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceExternalCopy.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceExternalCopy.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceExternalCopy.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceExternalCopy.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceExternalCopy.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceExternalCopy.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceExternalCopy.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinboon">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSSourceBinboon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDatalength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCompressedlength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinboon" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a source binary file bounded to the package as defined in a .sbs file.
+Binboon refers to a file saved in a binary file bounded to this package.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mOffset           (str): offset in the binary file in bytes.</p></li>
+<li><p>mDatalength       (str): length of the data in the binary file in bytes.</p></li>
+<li><p>mFormat           (str, optional): zlib, raw, etc.</p></li>
+<li><p>mCompressedlength (str, optional): size of the compressed data (if applicable).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinboon.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinboon.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinboon.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinboon.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinboon.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinboon.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinboon.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinboon.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinembedded">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSSourceBinembedded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDatalength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aStrdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinembedded" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a source binary file embedded to the package as defined in a .sbs file.
+Binembedded refers to a content embedded in the package file.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mDatalength (str): size of the binary data in bytes.</p></li>
+<li><p>mFormat     (str, optional): zlibbase64, rawbase64, etc.</p></li>
+<li><p>mStrdata    (str): data in base64 ASCII format.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinembedded.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinembedded.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinembedded.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinembedded.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinembedded.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinembedded.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSourceBinembedded.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSourceBinembedded.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aExternalCopy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBinBoon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBinEmbedded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSource" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a source as defined in a .sbs file
+Embedded or managed source. The three children are exclusives.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mExternalCopy (<a class="reference internal" href="#substance.resource.SBSSourceExternalCopy" title="substance.resource.SBSSourceExternalCopy"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceExternalCopy</span></code></a>): external file copied in a sub-folder of the application and entirely managed (iTunes style).</p></li>
+<li><p>mBinBoon      (<a class="reference internal" href="#substance.resource.SBSSourceBinboon" title="substance.resource.SBSSourceBinboon"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceBinboon</span></code></a>): file saved in a binary file bounded to this package.</p></li>
+<li><p>mBinEmbedded  (<a class="reference internal" href="#substance.resource.SBSSourceBinembedded" title="substance.resource.SBSSourceBinembedded"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceBinembedded</span></code></a>): content embedded in the package file.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSource.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSource.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSource.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSource.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSource.getSource">
+<span class="sig-name descname"><span class="pre">getSource</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSource.getSource" title="Link to this definition"></a></dt>
+<dd><p>Get the source, accordingly to the kind of source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a <a class="reference internal" href="#substance.resource.SBSSourceExternalCopy" title="substance.resource.SBSSourceExternalCopy"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceExternalCopy</span></code></a>,  <a class="reference internal" href="#substance.resource.SBSSourceBinboon" title="substance.resource.SBSSourceBinboon"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceBinboon</span></code></a> or <a class="reference internal" href="#substance.resource.SBSSourceBinembedded" title="substance.resource.SBSSourceBinembedded"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSourceBinembedded</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSource.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSource.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSource.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSource.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSResource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedQuality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSource</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRefDocument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColorSpace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPremultipliedAlpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a substance resource as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier       (str): identifier of the file.</p></li>
+<li><p>mUID              (str): unique identifier of this resource in the package/ context.</p></li>
+<li><p>mType             (str): type of the resource (‘bitmap’,’svg’,…)</p></li>
+<li><p>mFormat           (str): original format of the resource (e.g. BMP, JPG for bitmap type resources).</p></li>
+<li><p>mColorSpace       (str, optional): colorspace transformation to apply based on ocio config file.</p></li>
+<li><p>mPremultipliedAlpha (bool, optional): alpha is premultiplied or not.</p></li>
+<li><p>mCookedFormat     (str, optional): format of the resource after the cooking stage (among <a class="reference internal" href="../sbsenum.html#sbsenum.BitmapFormatEnum" title="sbsenum.BitmapFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a> for bitmap resources)</p></li>
+<li><p>mCookedQuality    (float as a string, optional): quality of resource after the cooking stage (percentage for a bitmap type with a cookedFormat JPEG).</p></li>
+<li><p>mFilePath         (str): path and name of the origin file.</p></li>
+<li><p>mAttributes       (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSAttributes" title="sbscommon.values.SBSAttributes"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAttributes</span></code></a>): various attributes (author, description, …)</p></li>
+<li><p>mSource           (<a class="reference internal" href="#substance.resource.SBSSource" title="substance.resource.SBSSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSource</span></code></a>): embedded or managed source.</p></li>
+<li><p>mOptions          (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a>): additional options.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.resolveDependency">
+<span class="sig-name descname"><span class="pre">resolveDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.resolveDependency" title="Link to this definition"></a></dt>
+<dd><p>Allow to resolve the dependency of the resource on the root package that contains it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The root document</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getAllowedAttributes">
+<span class="sig-name descname"><span class="pre">getAllowedAttributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getAllowedAttributes" title="Link to this definition"></a></dt>
+<dd><p>Get the attributes allowed on a SBSResource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of attribute enumeration allowed (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.isAllowedExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAllowedExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aExtension</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.isAllowedExtension" title="Link to this definition"></a></dt>
+<dd><p>Check if the given extension is allowed for this type of resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aResourceType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a> or str) – the kind of resource to consider</p></li>
+<li><p><strong>aExtension</strong> (<em>str</em>) – the extension to check (ex: ‘.png’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this extension is allowed for this kind of resource, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setAttribute">
+<span class="sig-name descname"><span class="pre">setAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributeValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setAttribute" title="Link to this definition"></a></dt>
+<dd><p>Set the given attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – The attribute identifier to set</p></li>
+<li><p><strong>aAttributeValue</strong> (<em>str</em>) – The attribute value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setAttributes">
+<span class="sig-name descname"><span class="pre">setAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setAttributes" title="Link to this definition"></a></dt>
+<dd><p>Set the given attributes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value}) – The attributes to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setColorSpace">
+<span class="sig-name descname"><span class="pre">setColorSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColorSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setColorSpace" title="Link to this definition"></a></dt>
+<dd><p>Set colorspace value to apply to the resource bitmap
+:param aColorSpace: str colorspace value
+:param aContext: str colorspace value
+:type aContext: aContext <a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setPremultipliedAlpha">
+<span class="sig-name descname"><span class="pre">setPremultipliedAlpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIsPremultipliedAlpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setPremultipliedAlpha" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setCookedFormat">
+<span class="sig-name descname"><span class="pre">setCookedFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCookedFormat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setCookedFormat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getPkgResourcePath">
+<span class="sig-name descname"><span class="pre">getPkgResourcePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getPkgResourcePath" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the resource relatively to its parent package (pkg:///).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getResolvedFilePath">
+<span class="sig-name descname"><span class="pre">getResolvedFilePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getResolvedFilePath" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the resource relatively to its parent package (SBSDocument)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getOption">
+<span class="sig-name descname"><span class="pre">getOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getOption" title="Link to this definition"></a></dt>
+<dd><p>Get the option identified by the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the option as a <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getOptions">
+<span class="sig-name descname"><span class="pre">getOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options defined on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getBakingOptions">
+<span class="sig-name descname"><span class="pre">getBakingOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getBakingOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options related to the baking parameters on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getSceneOptions">
+<span class="sig-name descname"><span class="pre">getSceneOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getSceneOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options related to the 3D Scene on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getSceneInfoOptions">
+<span class="sig-name descname"><span class="pre">getSceneInfoOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getSceneInfoOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options related to the 3D Scene information on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setOptions">
+<span class="sig-name descname"><span class="pre">setOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setOptions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getResourceTypeEnum">
+<span class="sig-name descname"><span class="pre">getResourceTypeEnum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getResourceTypeEnum" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the resource type as a <a class="reference internal" href="../sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a> if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.createBakingParameters">
+<span class="sig-name descname"><span class="pre">createBakingParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.createBakingParameters" title="Link to this definition"></a></dt>
+<dd><p>Create the baking parameters for this Scene resource, and init all required values.
+No converter is added by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <a class="reference internal" href="../sbsbakers/sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters" title="pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParameters</span></code></a> object created</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getBakingParameters">
+<span class="sig-name descname"><span class="pre">getBakingParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getBakingParameters" title="Link to this definition"></a></dt>
+<dd><p>Decode the baking parameters option and convert it into an editable object structure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The baking parameters as a <a class="reference internal" href="../sbsbakers/sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters" title="pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParameters</span></code></a> object if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setBakingParameters">
+<span class="sig-name descname"><span class="pre">setBakingParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBakingParameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setBakingParameters" title="Link to this definition"></a></dt>
+<dd><p>Set the given baking parameters on this resource.
+The function converts the baking parameters into a list of SBSOptions, as saved in .sbs format.
+All the previous options related to Baking Parameters will be removed before creating the new ones.
+Raise an exception if the resource is not a Scene.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBakingParameters</strong> (<a class="reference internal" href="../sbsbakers/sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters" title="pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParameters</span></code></a>) – The baking parameters to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.isLinked">
+<span class="sig-name descname"><span class="pre">isLinked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.isLinked" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the resource is just linked with its path to the document (by opposition to imported)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.setResourceIsBakingOutput">
+<span class="sig-name descname"><span class="pre">setResourceIsBakingOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBakedSceneResource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBaker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.setResourceIsBakingOutput" title="Link to this definition"></a></dt>
+<dd><p>Declare this Bitmap resource as the output of a Baking process</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBakedSceneResource</strong> (<a class="reference internal" href="#substance.resource.SBSResourceScene" title="substance.resource.SBSResourceScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResourceScene</span></code></a>) – The scene resource used to bake maps</p></li>
+<li><p><strong>aBaker</strong> (<a class="reference internal" href="../sbsbakers/sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="pysbs.sbsbakers.sbsbakersenum.BakerEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakerEnum</span></code></a> or str) – The baker used (as a BakerEnum or an identifier, for instance ‘Curvature Map from Mesh [2]’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getPhysicalResourceList">
+<span class="sig-name descname"><span class="pre">getPhysicalResourceList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getPhysicalResourceList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of physical files associated to this resource.
+This allow for the particular case of a resource pointing to the output of a baking with Udims, to get the list of corresponding files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResource.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResource.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSResourceScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookedQuality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSource</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRefDocument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsUdim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSceneMaterialMap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a></p>
+<p>Class that contains information on a substance scene/mesh resource as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier       (str): identifier of the file.</p></li>
+<li><p>mUID              (str): unique identifier of this resource in the package/ context.</p></li>
+<li><p>mType             (str): type of the resource (‘bitmap’,’svg’,…)</p></li>
+<li><p>mFormat           (str): original format of the resource (e.g. BMP, JPG for bitmap type resources).</p></li>
+<li><p>mCookedFormat     (str, optional): format of the resource after the cooking stage (among <a class="reference internal" href="../sbsenum.html#sbsenum.BitmapFormatEnum" title="sbsenum.BitmapFormatEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a> for bitmap resources)</p></li>
+<li><p>mCookedQuality    (float as a string, optional): quality of resource after the cooking stage (percentage for a bitmap type with a cookedFormat JPEG).</p></li>
+<li><p>mFilePath         (str): path and name of the origin file.</p></li>
+<li><p>mAttributes       (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSAttributes" title="sbscommon.values.SBSAttributes"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAttributes</span></code></a>): various attributes (author, description, …)</p></li>
+<li><p>mSource           (<a class="reference internal" href="#substance.resource.SBSSource" title="substance.resource.SBSSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSource</span></code></a>): embedded or managed source.</p></li>
+<li><p>mOptions          (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a>): additional options.</p></li>
+<li><p>mIsUdim           (str, optional): flag indicating whether this scene must be managed as a mesh unwrapped on multiple UV-tiles</p></li>
+<li><p>mSceneMaterialMap (list of <a class="reference internal" href="#substance.resource.SBSSceneMaterialMapEntry" title="substance.resource.SBSSceneMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSceneMaterialMapEntry</span></code></a>): An associative list that store material-graph affectation for the scene resource.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setMaterialMapEntries">
+<span class="sig-name descname"><span class="pre">setMaterialMapEntries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMaterialsList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setMaterialMapEntries" title="Link to this definition"></a></dt>
+<dd><p>Init the material map entries given the list of materials of the mesh resource.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aMaterialsList</strong> (<em>list</em><em> of </em><em>str</em>) – list of material names</p></li>
+<li><p><strong>nbUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – number of UV-sets of the mesh. Default to 1</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getMaterialMapEntry">
+<span class="sig-name descname"><span class="pre">getMaterialMapEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMaterialName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getMaterialMapEntry" title="Link to this definition"></a></dt>
+<dd><p>Get the material map entry corresponding to the given material name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aMaterialName</strong> (<em>str</em>) – The material name to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#substance.resource.SBSSceneMaterialMapEntry" title="substance.resource.SBSSceneMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSceneMaterialMapEntry</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getMaterialMapEntries">
+<span class="sig-name descname"><span class="pre">getMaterialMapEntries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getMaterialMapEntries" title="Link to this definition"></a></dt>
+<dd><p>Get the list of material entries of this scene resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#substance.resource.SBSSceneMaterialMapEntry" title="substance.resource.SBSSceneMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSSceneMaterialMapEntry</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.createBakingParameters">
+<span class="sig-name descname"><span class="pre">createBakingParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.createBakingParameters" title="Link to this definition"></a></dt>
+<dd><p>Create the baking parameters for this Scene resource, and init all required values.
+No converter is added by default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <a class="reference internal" href="../sbsbakers/sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters" title="pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParameters</span></code></a> object created</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getAllowedAttributes">
+<span class="sig-name descname"><span class="pre">getAllowedAttributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getAllowedAttributes" title="Link to this definition"></a></dt>
+<dd><p>Get the attributes allowed on a SBSResource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of attribute enumeration allowed (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getBakingOptions">
+<span class="sig-name descname"><span class="pre">getBakingOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getBakingOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options related to the baking parameters on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getBakingParameters">
+<span class="sig-name descname"><span class="pre">getBakingParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getBakingParameters" title="Link to this definition"></a></dt>
+<dd><p>Decode the baking parameters option and convert it into an editable object structure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The baking parameters as a <a class="reference internal" href="../sbsbakers/sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters" title="pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParameters</span></code></a> object if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getOption">
+<span class="sig-name descname"><span class="pre">getOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptionName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getOption" title="Link to this definition"></a></dt>
+<dd><p>Get the option identified by the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the option as a <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getOptions">
+<span class="sig-name descname"><span class="pre">getOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options defined on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getPhysicalResourceList">
+<span class="sig-name descname"><span class="pre">getPhysicalResourceList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getPhysicalResourceList" title="Link to this definition"></a></dt>
+<dd><p>Get the list of physical files associated to this resource.
+This allow for the particular case of a resource pointing to the output of a baking with Udims, to get the list of corresponding files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getPkgResourcePath">
+<span class="sig-name descname"><span class="pre">getPkgResourcePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getPkgResourcePath" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the resource relatively to its parent package (pkg:///).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getResolvedFilePath">
+<span class="sig-name descname"><span class="pre">getResolvedFilePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getResolvedFilePath" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the resource relatively to its parent package (SBSDocument)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The path as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getResourceTypeEnum">
+<span class="sig-name descname"><span class="pre">getResourceTypeEnum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getResourceTypeEnum" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the resource type as a <a class="reference internal" href="../sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a> if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getSceneInfoOptions">
+<span class="sig-name descname"><span class="pre">getSceneInfoOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getSceneInfoOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options related to the 3D Scene information on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getSceneOptions">
+<span class="sig-name descname"><span class="pre">getSceneOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getSceneOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options related to the 3D Scene on this resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.isAllowedExtension">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAllowedExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aExtension</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.isAllowedExtension" title="Link to this definition"></a></dt>
+<dd><p>Check if the given extension is allowed for this type of resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aResourceType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ResourceTypeEnum" title="sbsenum.ResourceTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a> or str) – the kind of resource to consider</p></li>
+<li><p><strong>aExtension</strong> (<em>str</em>) – the extension to check (ex: ‘.png’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this extension is allowed for this kind of resource, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.isLinked">
+<span class="sig-name descname"><span class="pre">isLinked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.isLinked" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the resource is just linked with its path to the document (by opposition to imported)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.resolveDependency">
+<span class="sig-name descname"><span class="pre">resolveDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.resolveDependency" title="Link to this definition"></a></dt>
+<dd><p>Allow to resolve the dependency of the resource on the root package that contains it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aSBSDocument</strong> (<a class="reference internal" href="substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – The root document</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setAttribute">
+<span class="sig-name descname"><span class="pre">setAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributeValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setAttribute" title="Link to this definition"></a></dt>
+<dd><p>Set the given attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – The attribute identifier to set</p></li>
+<li><p><strong>aAttributeValue</strong> (<em>str</em>) – The attribute value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setAttributes">
+<span class="sig-name descname"><span class="pre">setAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setAttributes" title="Link to this definition"></a></dt>
+<dd><p>Set the given attributes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributes</strong> (dictionary in the format {<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a> : value}) – The attributes to set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setBakingParameters">
+<span class="sig-name descname"><span class="pre">setBakingParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBakingParameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setBakingParameters" title="Link to this definition"></a></dt>
+<dd><p>Set the given baking parameters on this resource.
+The function converts the baking parameters into a list of SBSOptions, as saved in .sbs format.
+All the previous options related to Baking Parameters will be removed before creating the new ones.
+Raise an exception if the resource is not a Scene.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBakingParameters</strong> (<a class="reference internal" href="../sbsbakers/sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters" title="pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingParameters</span></code></a>) – The baking parameters to set</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setColorSpace">
+<span class="sig-name descname"><span class="pre">setColorSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aColorSpace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setColorSpace" title="Link to this definition"></a></dt>
+<dd><p>Set colorspace value to apply to the resource bitmap
+:param aColorSpace: str colorspace value
+:param aContext: str colorspace value
+:type aContext: aContext <a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setCookedFormat">
+<span class="sig-name descname"><span class="pre">setCookedFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCookedFormat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setCookedFormat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setOptions">
+<span class="sig-name descname"><span class="pre">setOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOptions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setOptions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setPremultipliedAlpha">
+<span class="sig-name descname"><span class="pre">setPremultipliedAlpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIsPremultipliedAlpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setPremultipliedAlpha" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSResourceScene.setResourceIsBakingOutput">
+<span class="sig-name descname"><span class="pre">setResourceIsBakingOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBakedSceneResource</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aBaker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSResourceScene.setResourceIsBakingOutput" title="Link to this definition"></a></dt>
+<dd><p>Declare this Bitmap resource as the output of a Baking process</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aBakedSceneResource</strong> (<a class="reference internal" href="#substance.resource.SBSResourceScene" title="substance.resource.SBSResourceScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResourceScene</span></code></a>) – The scene resource used to bake maps</p></li>
+<li><p><strong>aBaker</strong> (<a class="reference internal" href="../sbsbakers/sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="pysbs.sbsbakers.sbsbakersenum.BakerEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakerEnum</span></code></a> or str) – The baker used (as a BakerEnum or an identifier, for instance ‘Curvature Map from Mesh [2]’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSSceneMaterialMapEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSceneMaterialName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSetMaterialMapList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains the description of the affections for a given material of the <a class="reference internal" href="#substance.resource.SBSResourceScene" title="substance.resource.SBSResourceScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResourceScene</span></code></a></p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mSceneMaterialName    (str): the affected material name.</p></li>
+<li><p>mUVSetMaterialMapList (list of <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMap" title="substance.resource.SBSUVSetMaterialMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMap</span></code></a>): a list that describe the affectations by UV-set</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.getAllUVTilesAssociatedToGraph">
+<span class="sig-name descname"><span class="pre">getAllUVTilesAssociatedToGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVTileFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sbsenum.UVTileFormat.UDIM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.getAllUVTilesAssociatedToGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the list of UV-tiles associated to the given graph internal path (pkg://…), for the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The internal path of the graph to consider (pkg://…)</p></li>
+<li><p><strong>aUVTileFormat</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.UVTileFormat" title="sbsenum.UVTileFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">UVTileFormat</span></code></a>, optional) – The format desired for the UV-tiles. Default to UDIM</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to consider. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of UV-tiles in the expected format</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.getUVSetMaterialMap">
+<span class="sig-name descname"><span class="pre">getUVSetMaterialMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.getUVSetMaterialMap" title="Link to this definition"></a></dt>
+<dd><p>Get the uvSetMaterialMap corresponding to the given UV-set number, for the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to consider. Default to 0</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMap" title="substance.resource.SBSUVSetMaterialMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMap</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.getUVSetMaterialMapEntry">
+<span class="sig-name descname"><span class="pre">getUVSetMaterialMapEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.getUVSetMaterialMapEntry" title="Link to this definition"></a></dt>
+<dd><p>Get the uvSetMaterialMapEntry corresponding to the given UV-tile and UV-set, for the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUVTile</strong> (<em>str</em>) – Id of the UV-tile to get, as saved in the .sbs format (‘0x0’ for instance), or ‘all’ to ge the material map entry corresponding to all UV-tiles</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to consider. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.getUVSetMaterialMapEntries">
+<span class="sig-name descname"><span class="pre">getUVSetMaterialMapEntries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.getUVSetMaterialMapEntries" title="Link to this definition"></a></dt>
+<dd><p>Get the list of SBSUVSetMaterialMapEntry in this SBSUVSetMaterialMap, for the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to consider. Default to 0</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.assignDefaultSBSGraph">
+<span class="sig-name descname"><span class="pre">assignDefaultSBSGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.assignDefaultSBSGraph" title="Link to this definition"></a></dt>
+<dd><p>Assign the given SBSGraph as the default for all UV-tiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The compositing graph to assign, given its internal path (pkg:///myGraph)</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to modify. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> corresponding to the assignment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.assignSBSGraphToUVTile">
+<span class="sig-name descname"><span class="pre">assignSBSGraphToUVTile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVTile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.assignSBSGraphToUVTile" title="Link to this definition"></a></dt>
+<dd><p>Assign the given UV-tile to the given SBSGraph, for the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The compositing graph to assign, given its internal path (pkg:///myGraph)</p></li>
+<li><p><strong>aUVTile</strong> (<em>str</em><em>, </em><em>list</em><em> or </em><em>tuple</em>) – The UV-tile to affect (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) ), or ‘all’ to assign this graph to all UV-tiles</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to modify. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> corresponding to the assignment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.assignSBSGraphToUVTiles">
+<span class="sig-name descname"><span class="pre">assignSBSGraphToUVTiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVTileList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.assignSBSGraphToUVTiles" title="Link to this definition"></a></dt>
+<dd><p>Assign the given list of UV-tile to the given SBSGraph, for the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The compositing graph to assign, given its internal path (pkg:///myGraph)</p></li>
+<li><p><strong>aUVTileList</strong> (<em>list</em>) – The list of UV-tiles to affect (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) )</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to modify. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> corresponding to the assignments</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.removeAllAssignationsToGraph">
+<span class="sig-name descname"><span class="pre">removeAllAssignationsToGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.removeAllAssignationsToGraph" title="Link to this definition"></a></dt>
+<dd><p>Remove all the entries (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated to the given graph, in the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The internal path of the graph to consider (pkg://…)</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to modify. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number of entries removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.removeDefaultUVTileAssignation">
+<span class="sig-name descname"><span class="pre">removeDefaultUVTileAssignation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.removeDefaultUVTileAssignation" title="Link to this definition"></a></dt>
+<dd><p>Remove the entry (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated by default, in the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to modify. Default to 0</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the UV-tile is found and removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.removeUVTileAssignation">
+<span class="sig-name descname"><span class="pre">removeUVTileAssignation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.removeUVTileAssignation" title="Link to this definition"></a></dt>
+<dd><p>Remove the entry (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated to the given UV-tile, in the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUVTile</strong> (<em>string</em><em>, </em><em>list</em><em> or </em><em>tuple</em>) – The UV-tile to look for (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) ), or ‘all’ to look for the default assignation</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to modify. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the UV-tile is found and removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.removeUVTilesAssignation">
+<span class="sig-name descname"><span class="pre">removeUVTilesAssignation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTileList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVSet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.removeUVTilesAssignation" title="Link to this definition"></a></dt>
+<dd><p>Remove the entries (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated to the given UV-tile list, in the given UV-set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aUVTileList</strong> (<em>list</em>) – The list of UV-tile to look for (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) )</p></li>
+<li><p><strong>aUVSet</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the UV-set to modify. Default to 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number of entries removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSSceneMaterialMapEntry.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSSceneMaterialMapEntry.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSUVSetMaterialMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aEntries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptionsByGraph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that describe the affectations for a given UV-set</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mEntries        (list of <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>): a list that associates a graph to one or more UV-tile</p></li>
+<li><p>mOptionsByGraph (list of <a class="reference internal" href="#substance.resource.SBSOptionsByUrlMapEntry" title="substance.resource.SBSOptionsByUrlMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOptionsByUrlMapEntry</span></code></a>, optional): a map that lists options for some graph edited in the context of the current <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMap" title="substance.resource.SBSUVSetMaterialMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMap</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.assignDefaultSBSGraph">
+<span class="sig-name descname"><span class="pre">assignDefaultSBSGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.assignDefaultSBSGraph" title="Link to this definition"></a></dt>
+<dd><p>Assign the given SBSGraph as the default for all UV-tiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphPath</strong> (<em>str</em>) – The compositing graph to assign, given its internal path (pkg:///myGraph)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> corresponding to the assignment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.assignSBSGraphToUVTile">
+<span class="sig-name descname"><span class="pre">assignSBSGraphToUVTile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVTile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.assignSBSGraphToUVTile" title="Link to this definition"></a></dt>
+<dd><p>Assign the given SBSGraph to the given UV-tile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The compositing graph to assign, given its internal path (pkg:///myGraph)</p></li>
+<li><p><strong>aUVTile</strong> (<em>str</em><em>, </em><em>list</em><em> or </em><em>tuple</em>) – The UV-tile to affect (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) ), or ‘all’ to assign this graph to all UV-tiles</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> corresponding to the assignment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.assignSBSGraphToUVTiles">
+<span class="sig-name descname"><span class="pre">assignSBSGraphToUVTiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUVTileList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.assignSBSGraphToUVTiles" title="Link to this definition"></a></dt>
+<dd><p>Assign the given SBSGraph to the given list of UV-tile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The compositing graph to assign, given its internal path (pkg:///myGraph)</p></li>
+<li><p><strong>aUVTileList</strong> (<em>list</em>) – The list of UV-tiles to affect (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) )</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> corresponding to the assignments</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.getAllEntriesAssociatedToGraph">
+<span class="sig-name descname"><span class="pre">getAllEntriesAssociatedToGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.getAllEntriesAssociatedToGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the list of entries associated to the given graph internal path (pkg://…)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphPath</strong> (<em>str</em>) – The internal path of the graph to consider (pkg://…)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.getAllUVTilesAssociatedToGraph">
+<span class="sig-name descname"><span class="pre">getAllUVTilesAssociatedToGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UVTileFormat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sbsenum.UVTileFormat.UDIM</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.getAllUVTilesAssociatedToGraph" title="Link to this definition"></a></dt>
+<dd><p>Get the list of UV-tiles associated to the given graph internal path (pkg://…)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aGraphPath</strong> (<em>str</em>) – The internal path of the graph to consider (pkg://…)</p></li>
+<li><p><strong>aUVTileFormat</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.UVTileFormat" title="sbsenum.UVTileFormat"><code class="xref py py-class docutils literal notranslate"><span class="pre">UVTileFormat</span></code></a>, optional) – The format desired for the UV-tiles. Default to UDIM</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of UV-tiles in the expected format</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.getUVSetMaterialMapEntries">
+<span class="sig-name descname"><span class="pre">getUVSetMaterialMapEntries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.getUVSetMaterialMapEntries" title="Link to this definition"></a></dt>
+<dd><p>Get the list of SBSUVSetMaterialMapEntry in this SBSUVSetMaterialMap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.getUVSetMaterialMapEntry">
+<span class="sig-name descname"><span class="pre">getUVSetMaterialMapEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.getUVSetMaterialMapEntry" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSUVSetMaterialMapEntry corresponding to this UVTile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUVTile</strong> (<em>string</em><em>, </em><em>list</em><em> or </em><em>tuple</em>) – The UV-tile to look for (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) ), or ‘all’ to look for the default assignation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.getGraphAssignedByDefault">
+<span class="sig-name descname"><span class="pre">getGraphAssignedByDefault</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.getGraphAssignedByDefault" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the graph assigned by default to all UV-tiles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the graph internal path as a string if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.getGraphAssignedToUVTile">
+<span class="sig-name descname"><span class="pre">getGraphAssignedToUVTile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.getGraphAssignedToUVTile" title="Link to this definition"></a></dt>
+<dd><p>Get the path of the graph assigned to this UVTile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUVTile</strong> (<em>string</em><em>, </em><em>list</em><em> or </em><em>tuple</em>) – The UV-tile to look for (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) )</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the graph internal path as a string if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.removeAllAssignationsToGraph">
+<span class="sig-name descname"><span class="pre">removeAllAssignationsToGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.removeAllAssignationsToGraph" title="Link to this definition"></a></dt>
+<dd><p>Remove all the entries (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated to the given graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGraphPath</strong> (<em>str</em>) – The internal path of the graph to consider (pkg://…)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number of entries removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.removeDefaultUVTileAssignation">
+<span class="sig-name descname"><span class="pre">removeDefaultUVTileAssignation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.removeDefaultUVTileAssignation" title="Link to this definition"></a></dt>
+<dd><p>Remove the entry (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated by default</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the UV-tile is found and removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.removeUVTileAssignation">
+<span class="sig-name descname"><span class="pre">removeUVTileAssignation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.removeUVTileAssignation" title="Link to this definition"></a></dt>
+<dd><p>Remove the entry (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated to the given UV-tile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUVTile</strong> (<em>string</em><em>, </em><em>list</em><em> or </em><em>tuple</em>) – The UV-tile to look for (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) ), or ‘all’ to look for the default assignation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the UV-tile is found and removed, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.removeUVTilesAssignation">
+<span class="sig-name descname"><span class="pre">removeUVTilesAssignation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTileList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.removeUVTilesAssignation" title="Link to this definition"></a></dt>
+<dd><p>Remove the entries (<a class="reference internal" href="#substance.resource.SBSUVSetMaterialMapEntry" title="substance.resource.SBSUVSetMaterialMapEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMapEntry</span></code></a>) associated to the given UV-tile list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUVTileList</strong> (<em>list</em>) – The list of UV-tile to look for (different format accepted: ‘UDIM’, ‘u{U}_v{V}’, ‘{U}x{V}’, [U,V], (U,V) )</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number of entries removed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMap.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMap.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMapEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSUVSetMaterialMapEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUVTiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMaterial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMapEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that associate a <em>graph</em> to one or more UV-tile</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mUVTiles  (str): a formatted string that list the UV-tiles of this entry. Might be “all” or the UV-tile coordinate formatted as “{U}x{V}”</p></li>
+<li><p>mMaterial (<a class="reference internal" href="#substance.resource.SBSUVSetMaterial" title="substance.resource.SBSUVSetMaterial"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterial</span></code></a>): the description of the affected material.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMapEntry.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMapEntry.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMapEntry.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMapEntry.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMapEntry.getGraphPath">
+<span class="sig-name descname"><span class="pre">getGraphPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMapEntry.getGraphPath" title="Link to this definition"></a></dt>
+<dd><p>Get the graph internal path associated to this UV-tile</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the path as a string if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMapEntry.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMapEntry.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterialMapEntry.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterialMapEntry.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterial">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSUVSetMaterial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSGraphUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterial" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains the description of the affected material. It only contains a reference to a graph at the moment, but it may be extended in the future.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mSBSGraphUrl (str): path of the graph definition.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterial.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterial.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterial.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterial.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterial.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterial.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSUVSetMaterial.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSUVSetMaterial.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="substance.resource.SBSOptionsByUrlMapEntry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">substance.resource.</span></span><span class="sig-name descname"><span class="pre">SBSOptionsByUrlMapEntry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aURL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSOptionsByUrlMapEntry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that list options for a graph in the context of the parent <a class="reference internal" href="#substance.resource.SBSUVSetMaterialMap" title="substance.resource.SBSUVSetMaterialMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSUVSetMaterialMap</span></code></a>.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mURL     (str): path of the graph definition to which the options apply.</p></li>
+<li><p>mOptions (list of <a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a>, optional): the options associated with this graph in the current context.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSOptionsByUrlMapEntry.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSOptionsByUrlMapEntry.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSOptionsByUrlMapEntry.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSOptionsByUrlMapEntry.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSOptionsByUrlMapEntry.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSOptionsByUrlMapEntry.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="substance.resource.SBSOptionsByUrlMapEntry.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#substance.resource.SBSOptionsByUrlMapEntry.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="content.html" class="btn btn-neutral float-left" title="content module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../graph/graph.html" class="btn btn-neutral float-right" title="graph module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
