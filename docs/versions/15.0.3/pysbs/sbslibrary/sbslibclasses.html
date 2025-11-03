@@ -1,0 +1,1176 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbslibclasses module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsfilters module" href="sbsfilters.html" />
+    <link rel="prev" title="sbsdictionaries module" href="sbsdictionaries.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbslibrary.html">sbslibrary module: Substance libraries</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsdictionaries.html">sbsdictionaries module: Dictionaries of all strings used in the libraries</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbslibclasses module: Classes used by the library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfilters.html">sbsfilters module (not exposed): Filters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfunctions.html">sbsfunctions module (not exposed): Functions definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsfxmapnodes.html">sbsfxmapnodes module (not exposed): FxMap nodes definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbswidgets.html">sbswidgets module (not exposed): GUI Widgets definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.__convertToEnum"><code class="docutils literal notranslate"><span class="pre">__convertToEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAllWidgetFunctionButtonByType"><code class="docutils literal notranslate"><span class="pre">getAllWidgetFunctionButtonByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getAngleWidgetByType"><code class="docutils literal notranslate"><span class="pre">getAngleWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getButtonWidgetByType"><code class="docutils literal notranslate"><span class="pre">getButtonWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getColorWidgetByType"><code class="docutils literal notranslate"><span class="pre">getColorWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDefaultWidget"><code class="docutils literal notranslate"><span class="pre">getDefaultWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getDropDownWidgetByType"><code class="docutils literal notranslate"><span class="pre">getDropDownWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getEnumButtonsWidgetByType"><code class="docutils literal notranslate"><span class="pre">getEnumButtonsWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterDefinition"><code class="docutils literal notranslate"><span class="pre">getFilterDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFilterEnum"><code class="docutils literal notranslate"><span class="pre">getFilterEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionDefinition"><code class="docutils literal notranslate"><span class="pre">getFunctionDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionEnum"><code class="docutils literal notranslate"><span class="pre">getFunctionEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFunctionGetType"><code class="docutils literal notranslate"><span class="pre">getFunctionGetType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeDefinition"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getFxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">getFxMapNodeEnum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getInputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getInputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getIterationParamInput"><code class="docutils literal notranslate"><span class="pre">getIterationParamInput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOffsetWidgetByType"><code class="docutils literal notranslate"><span class="pre">getOffsetWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getOutputBridgeDefinition"><code class="docutils literal notranslate"><span class="pre">getOutputBridgeDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getPositionWidgetByType"><code class="docutils literal notranslate"><span class="pre">getPositionWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getSliderWidgetByType"><code class="docutils literal notranslate"><span class="pre">getSliderWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationForwardWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationForwardWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getTransformationInverseWidgetByType"><code class="docutils literal notranslate"><span class="pre">getTransformationInverseWidgetByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbslibrary.html#sbslibrary.sbslibrary.getWidgetByType"><code class="docutils literal notranslate"><span class="pre">getWidgetByType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbslibrary.html">sbslibrary module</a></li>
+      <li class="breadcrumb-item active">sbslibclasses module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbslibclasses-module">
+<h1>sbslibclasses module<a class="headerlink" href="#sbslibclasses-module" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsPrimary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsMultiInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code></p>
+<p>This class contains the definition of an input of a Compositing node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier   (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str): identifier of the input.</p></li>
+<li><p>mType         (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the input.</p></li>
+<li><p>mIsPrimary    (bool): defines if the input is the primary input of the node</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeInput.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the input identifier as an enum value if possible, or as a string if it is a custom input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input identifier as an integer if possible, or as a string otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeInput.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Get the input identifier as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeInput.isVariant">
+<span class="sig-name descname"><span class="pre">isVariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput.isVariant" title="Link to this definition"></a></dt>
+<dd><p>Check if input has a variant type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this input is variant, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeOutput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code></p>
+<p>This class contains the definition of an output of a Compositing node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier   (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a> or str): identifier of the output.</p></li>
+<li><p>mType         (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the output.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeOutput.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeOutput.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the output identifier as an enum value if possible, or as a string if it is a custom output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the output identifier as an integer if possible, or as a string otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeOutput.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeOutput.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Get the output identifier as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the output identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsConnectable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code></p>
+<p>This class contains the definition of a parameter of a Compositing node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mParameter     (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a>): identifier of the parameter.</p></li>
+<li><p>mType          (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the parameter.</p></li>
+<li><p>mDefaultValue  (depends on the type): default value of the parameter.</p></li>
+<li><p>mIsConnectable boolean. decides whether the param is connectable in a graph</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the parameter identifier as an enum value if possible, or as a string if it is a custom parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the parameter identifier as an integer if possible, or as a string otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Get the parameter identifier as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the parameter identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIsConnectable">
+<span class="sig-name descname"><span class="pre">getIsConnectable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam.getIsConnectable" title="Link to this definition"></a></dt>
+<dd><p>Returns True if the input is connectable</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeDef</span></code></p>
+<p>This class contains the definition of a Compositing node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier (<a class="reference internal" href="../sbsenum.html#sbsenum.FilterEnum" title="sbsenum.FilterEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterEnum</span></code></a>): identifier of the compositing node</p></li>
+<li><p>mInputs     (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a>): the input entries of the node.</p></li>
+<li><p>mOutputs    (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CompNodeOutput" title="pysbs.sbslibrary.sbslibclasses.CompNodeOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeOutput</span></code></a>): the outputs of the node.</p></li>
+<li><p>mParameters (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a>): the parameters available on this node.</p></li>
+<li><p>mInheritance(list of <a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>): the available inheritance property on this compositing node</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.addBaseParameters">
+<span class="sig-name descname"><span class="pre">addBaseParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.addBaseParameters" title="Link to this definition"></a></dt>
+<dd><p>Add all the base parameters to the CompNode definition</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllInputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the input identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputs">
+<span class="sig-name descname"><span class="pre">getAllInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the inputs of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> if found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllOutputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllOutputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllOutputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the output identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllOutputs">
+<span class="sig-name descname"><span class="pre">getAllOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllOutputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the outputs of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> if found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllParameterIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllParameterIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllParameterIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameter identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllParameters">
+<span class="sig-name descname"><span class="pre">getAllParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllParameters" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameters of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getFirstInputOfType">
+<span class="sig-name descname"><span class="pre">getFirstInputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getFirstInputOfType" title="Link to this definition"></a></dt>
+<dd><p>Gets the first imput of a specific type, checks both inputs and connectable parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>) – The type to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> or <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getFirstOutputOfType">
+<span class="sig-name descname"><span class="pre">getFirstOutputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getFirstOutputOfType" title="Link to this definition"></a></dt>
+<dd><p>Get the first NodeOutput with the given type. This considers the variant types as compatible types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><em>sbsenum.ParamTypeEnum</em></a>) – The required type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getIdentifier" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The identifier of the node definition as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getInput" title="Link to this definition"></a></dt>
+<dd><p>Get the input with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str) – The required input</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the output with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a> or str) – The required output</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getParameter">
+<span class="sig-name descname"><span class="pre">getParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getParameter" title="Link to this definition"></a></dt>
+<dd><p>Get the required parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParamEnum</span></code> or str) – The parameter</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.isBaseParameter">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isBaseParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.isBaseParameter" title="Link to this definition"></a></dt>
+<dd><p>Check if the given parameter is one of the base parameter or not (Output size, Pixel format, …)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParam</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CompNodeParamEnum" title="sbsenum.CompNodeParamEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a> or <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code>) – The parameter to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if there is at least one variant output and no COLOR_MODE parameter, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.isVariant">
+<span class="sig-name descname"><span class="pre">isVariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.isVariant" title="Link to this definition"></a></dt>
+<dd><p>Check if at least one NodeOutput has a variant type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if there is at least one variant output and no COLOR_MODE parameter, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.setInputs">
+<span class="sig-name descname"><span class="pre">setInputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.setInputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.setOutputs">
+<span class="sig-name descname"><span class="pre">setOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.setOutputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionInput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code></p>
+<p>This class contains the definition of an input of a Function node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier   (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str): identifier of the input.</p></li>
+<li><p>mType         (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the output.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionInput.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionInput.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the input identifier as an enum value if possible, or as a string if it is a custom input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input identifier as an integer if possible, or as a string otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionInput.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionInput.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Get the input identifier as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionOutput" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code></p>
+<p>This class contains the definition of an output of a Function node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier   (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a> or str): identifier of the output.</p></li>
+<li><p>mType         (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the output.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionOutput.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionOutput.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the output identifier as an enum value if possible, or as a string if it is a custom output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the output identifier as an integer if possible, or as a string otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionOutput.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionOutput.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Get the output identifier as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the output identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionParam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code></p>
+<p>This class contains the definition of a parameter of a Function node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mParameter    (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a>): identifier of the parameter.</p></li>
+<li><p>mType         (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the parameter.</p></li>
+<li><p>mDefaultValue (depends on the type): default value of the parameter.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionParam.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam.getIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the parameter identifier as an enum value if possible, or as a string if it is a custom parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the parameter identifier as an integer if possible, or as a string otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionParam.getIdentifierStr">
+<span class="sig-name descname"><span class="pre">getIdentifierStr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam.getIdentifierStr" title="Link to this definition"></a></dt>
+<dd><p>Get the parameter identifier as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the parameter identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionParam.getIsConnectable">
+<span class="sig-name descname"><span class="pre">getIsConnectable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam.getIsConnectable" title="Link to this definition"></a></dt>
+<dd><p>Returns True if the input is connectable</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(bool)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunctionDatas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTemplate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseNodeDef</span></code></p>
+<p>This class contains the definition of a Function node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier    (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a>): identifier of the function node</p></li>
+<li><p>mInputs        (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.FunctionInput" title="pysbs.sbslibrary.sbslibclasses.FunctionInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInput</span></code></a>): the inputs of the node.</p></li>
+<li><p>mOutputs       (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.FunctionOutput" title="pysbs.sbslibrary.sbslibclasses.FunctionOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionOutput</span></code></a>): the outputs of the node.</p></li>
+<li><p>mFunctionDatas (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam" title="pysbs.sbslibrary.sbslibclasses.FunctionParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionParam</span></code></a>): the parameters available on this node.</p></li>
+<li><p>mTemplate1     (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): for a function with a variant type, provide the allowed types.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllInputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the input identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputs">
+<span class="sig-name descname"><span class="pre">getAllInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the inputs of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> if found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllOutputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllOutputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllOutputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the output identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllOutputs">
+<span class="sig-name descname"><span class="pre">getAllOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllOutputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the outputs of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> if found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllParameterIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllParameterIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllParameterIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameter identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllParameters">
+<span class="sig-name descname"><span class="pre">getAllParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllParameters" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameters of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getFirstInputOfType">
+<span class="sig-name descname"><span class="pre">getFirstInputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getFirstInputOfType" title="Link to this definition"></a></dt>
+<dd><p>Get the first NodeInput with the given type. This considers the variant types as compatible types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><em>sbsenum.ParamTypeEnum</em></a>) – The required type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getFirstOutputOfType">
+<span class="sig-name descname"><span class="pre">getFirstOutputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getFirstOutputOfType" title="Link to this definition"></a></dt>
+<dd><p>Get the first NodeOutput with the given type. This considers the variant types as compatible types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><em>sbsenum.ParamTypeEnum</em></a>) – The required type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getIdentifier" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The identifier of the node definition as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getInput" title="Link to this definition"></a></dt>
+<dd><p>Get the input with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str) – The required input</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getInputType">
+<span class="sig-name descname"><span class="pre">getInputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aResolved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getInputType" title="Link to this definition"></a></dt>
+<dd><p>Get the input type of the input with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str) – The required input</p></li>
+<li><p><strong>aResolved</strong> (<em>bool</em>) – In the case of a Template type, True to return the value of the template, False to get TEMPLATE1</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the output with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a> or str) – The required output</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getParameter">
+<span class="sig-name descname"><span class="pre">getParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getParameter" title="Link to this definition"></a></dt>
+<dd><p>Get the required parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a> or str) – The parameter</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam" title="pysbs.sbslibrary.sbslibclasses.FunctionParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionParam</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.setInputs">
+<span class="sig-name descname"><span class="pre">setInputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.setInputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.setOutputs">
+<span class="sig-name descname"><span class="pre">setOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.setOutputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FxMapNodeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeDef</span></code></p>
+<p>This class contains the definition of a FxMap node.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier (<a class="reference internal" href="../sbsenum.html#sbsenum.FxMapNodeEnum" title="sbsenum.FxMapNodeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a>): identifier of the compositing node</p></li>
+<li><p>mInputs     (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="pysbs.sbslibrary.sbslibclasses.CompNodeInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeInput</span></code></a>): the input entries of the node.</p></li>
+<li><p>mOutputs    (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CompNodeOutput" title="pysbs.sbslibrary.sbslibclasses.CompNodeOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeOutput</span></code></a>): the outputs of the node.</p></li>
+<li><p>mParameters (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="pysbs.sbslibrary.sbslibclasses.CompNodeParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">CompNodeParam</span></code></a>): the parameters available on this node.</p></li>
+<li><p>mInheritance(list of <a class="reference internal" href="../sbsenum.html#sbsenum.ParamInheritanceEnum" title="sbsenum.ParamInheritanceEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a>): the available inheritance property on this compositing node</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllInputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the input identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputs">
+<span class="sig-name descname"><span class="pre">getAllInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the inputs of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> if found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllOutputIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllOutputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllOutputIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the output identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllOutputs">
+<span class="sig-name descname"><span class="pre">getAllOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllOutputs" title="Link to this definition"></a></dt>
+<dd><p>Get all the outputs of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> if found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllParameterIdentifiers">
+<span class="sig-name descname"><span class="pre">getAllParameterIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllParameterIdentifiers" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameter identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllParameters">
+<span class="sig-name descname"><span class="pre">getAllParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllParameters" title="Link to this definition"></a></dt>
+<dd><p>Get all the parameters of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getFirstInputOfType">
+<span class="sig-name descname"><span class="pre">getFirstInputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getFirstInputOfType" title="Link to this definition"></a></dt>
+<dd><p>Get the first NodeInput with the given type. This considers the variant types as compatible types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><em>sbsenum.ParamTypeEnum</em></a>) – The required type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getFirstOutputOfType">
+<span class="sig-name descname"><span class="pre">getFirstOutputOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getFirstOutputOfType" title="Link to this definition"></a></dt>
+<dd><p>Get the first NodeOutput with the given type. This considers the variant types as compatible types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aType</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><em>sbsenum.ParamTypeEnum</em></a>) – The required type</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getIdentifier">
+<span class="sig-name descname"><span class="pre">getIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getIdentifier" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The identifier of the node definition as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getInput">
+<span class="sig-name descname"><span class="pre">getInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getInput" title="Link to this definition"></a></dt>
+<dd><p>Get the input with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str) – The required input</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getOutput">
+<span class="sig-name descname"><span class="pre">getOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getOutput" title="Link to this definition"></a></dt>
+<dd><p>Get the output with the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOutput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.OutputEnum" title="sbsenum.OutputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">OutputEnum</span></code></a> or str) – The required output</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getParameter">
+<span class="sig-name descname"><span class="pre">getParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getParameter" title="Link to this definition"></a></dt>
+<dd><p>Get the required parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParameter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParamEnum</span></code> or str) – The parameter</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isBaseParameter">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isBaseParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isBaseParameter" title="Link to this definition"></a></dt>
+<dd><p>Check if the given parameter is one of the base parameter or not (Output size, Pixel format, …)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aParam</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code>) – The parameter to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>False, there is no base parameters on the FxMap nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isVariant">
+<span class="sig-name descname"><span class="pre">isVariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isVariant" title="Link to this definition"></a></dt>
+<dd><p>Check if at least one NodeOutput has a variant type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if there is at least one variant output and no COLOR_MODE parameter, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.setInputs">
+<span class="sig-name descname"><span class="pre">setInputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.setInputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.setOutputs">
+<span class="sig-name descname"><span class="pre">setOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.setOutputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.GradientKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">GradientKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMidpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.GradientKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
+<p>Class that provides a description of a gradient key for the Gradient Map filter.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mPosition (float): the position of the key between 0 and 1</p></li>
+<li><p>mValue    (list of 4 floats): the color value of the key.</p></li>
+<li><p>mMidpoint (float, optional): default is -1</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CurveKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsLeftBroken</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsRightBroken</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsLocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveKey" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
+<p>Class that provides a description of a curve key for the Curve filter.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mPosition       (list of two float) : position of the key in two dimensions between 0 and 1</p></li>
+<li><p>mLeft           (list of two float) : position of the left handle of the key</p></li>
+<li><p>mRight          (list of two float) : position of the right handle of the key</p></li>
+<li><p>mIsLeftBroken   (boolean) : True to set the left handle squared instead of rounded. Default to False</p></li>
+<li><p>mIsRightBroken  (boolean) : True to set the right handle squared instead of rounded. Default to False</p></li>
+<li><p>mIsLocked       (boolean) : True to lock the key handle. Default to True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CurveDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCurveKeys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
+<p>Class that provides a description of a curve for the Curve filter.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier     (<a class="reference internal" href="../sbsenum.html#sbsenum.CurveTypeEnum" title="sbsenum.CurveTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a>): the identifier of the curve</p></li>
+<li><p>mCurveKeys      (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CurveKey" title="pysbs.sbslibrary.sbslibclasses.CurveKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveKey</span></code></a>) : the list of keys</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveDefinition.addCurveKey">
+<span class="sig-name descname"><span class="pre">addCurveKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCurveKey</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition.addCurveKey" title="Link to this definition"></a></dt>
+<dd><p>Add the given curve key to the curve definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aCurveKey</strong> (<a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CurveKey" title="pysbs.sbslibrary.sbslibclasses.CurveKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveKey</span></code></a>) – The key to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveDefinition.initCurve">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition.initCurve" title="Link to this definition"></a></dt>
+<dd><p>Create the initial curve with the bottom left and top right keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.CurveTypeEnum" title="sbsenum.CurveTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a>) – Identifier of the curve</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition" title="pysbs.sbslibrary.sbslibclasses.CurveDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveDefinition</span></code></a> object initialized with the default keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveDefinition.moveKeyTo">
+<span class="sig-name descname"><span class="pre">moveKeyTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCurveKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition.moveKeyTo" title="Link to this definition"></a></dt>
+<dd><p>Move the given key to the given position.
+The resulting position is clamped to the allowed space for this key, considering the previous and next key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aCurveKey</strong> (<a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.CurveKey" title="pysbs.sbslibrary.sbslibclasses.CurveKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurveKey</span></code></a>) – The key to move</p></li>
+<li><p><strong>aPosition</strong> (<em>list</em><em> of </em><em>two float between 0 and 1</em>) – The target position</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The resulting position for this key</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.WidgetOption">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">WidgetOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.WidgetOption" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
+<p>This class provide the definition of an option of a GUI widget associated to an Input Parameter of a Graph.</p>
+<dl class="simple">
+<dt>Members</dt><dd><ul class="simple">
+<li><p>mOption (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>): identifier of the option</p></li>
+<li><p>mType   (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the option</p></li>
+<li><p>mValue  (str): value of the option</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.InputParamWidget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">InputParamWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aWidget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.InputParamWidget" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
+<p>Class providing the definition of the GUI widget associated to an Input Parameter of a Graph.</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mWidget  (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a>): identifier of the widget</p></li>
+<li><p>mType    (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the value driven by this widget</p></li>
+<li><p>mOptions (list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.WidgetOption" title="pysbs.sbslibrary.sbslibclasses.WidgetOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOption</span></code></a>): options of this widget (min and max values, step, clamp, …)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.InputParamWidget.getDefaultValue">
+<span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.InputParamWidget.getDefaultValue" title="Link to this definition"></a></dt>
+<dd><p>Get the default value of this widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the default value as a string if it is defined on this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.InputParamWidget.getOption">
+<span class="sig-name descname"><span class="pre">getOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOption</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.InputParamWidget.getOption" title="Link to this definition"></a></dt>
+<dd><p>Get the given option.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOption</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>) – The option to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the option as a <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.WidgetOption" title="pysbs.sbslibrary.sbslibclasses.WidgetOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOption</span></code></a> if it is defined on this widget, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.InputParamWidget.getOptions">
+<span class="sig-name descname"><span class="pre">getOptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.InputParamWidget.getOptions" title="Link to this definition"></a></dt>
+<dd><p>Get all the options of this widget.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the options of this widget as a list of <a class="reference internal" href="#pysbs.sbslibrary.sbslibclasses.WidgetOption" title="pysbs.sbslibrary.sbslibclasses.WidgetOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOption</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.InputParamWidget.hasOption">
+<span class="sig-name descname"><span class="pre">hasOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOption</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.InputParamWidget.hasOption" title="Link to this definition"></a></dt>
+<dd><p>Check if the given option is defined on this widget</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOption</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>) – The option to get</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the option is defined on this widget, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsdictionaries.html" class="btn btn-neutral float-left" title="sbsdictionaries module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsfilters.html" class="btn btn-neutral float-right" title="sbsfilters module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

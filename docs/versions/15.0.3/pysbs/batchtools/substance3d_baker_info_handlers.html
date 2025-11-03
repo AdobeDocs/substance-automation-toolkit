@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>substance3d_baker_info_handlers module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsrender_render_handlers module" href="sbsrender_render_handlers.html" />
+    <link rel="prev" title="output_handlers module" href="output_handlers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="info_mesh_parser.html"> info mesh parser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="batchtools.html"> batchtools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="output_handlers.html"> output handlers</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"> substance3d_baker info handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsrender_render_handlers.html"> sbsrender render handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spotcolorinfo_handlers.html"> spotcolorinfo handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thumbnail.html"> thumbnail</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="batchtools%20overview.html">batchtools modules</a></li>
+      <li class="breadcrumb-item active">substance3d_baker_info_handlers module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-batchtools.substance3d_baker_info_handlers">
+<span id="substance3d-baker-info-handlers-module"></span><span id="ref-to-substance3d-baker-info-handlers"></span><h1>substance3d_baker_info_handlers module<a class="headerlink" href="#module-batchtools.substance3d_baker_info_handlers" title="Link to this heading"></a></h1>
+<p>Example of usage with Substance3dBakerInfoOutputHandler (<a class="reference internal" href="output_handlers.html#ref-to-output-handlers"><span class="std std-ref">output_handlers module</span></a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># call a substance3d_baker_info with the kwarg output_handler=True to get an OutputHandler instead of Popen</span>
+<span class="c1"># the OutputHandler will stop the interpreter during the batchtool process exactly like Popen.wait()</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">batchtools</span><span class="o">.</span><span class="n">substance3d_baker_info</span><span class="p">(</span><span class="s1">&#39;foo.fbx&#39;</span><span class="p">,</span> <span class="n">output_handler</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<span class="c1"># &lt;pysbs.batchtools.output_handlers.Substance3dBakerInfoOutputHandler object at 0x7f8808fe1c50&gt;</span>
+<span class="c1"># to get the result use get_results, an OutputHandler&#39;s common method that extracts the meshes information from the raw output</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="c1"># [&lt;pysbs.batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct object at 0x7f7757881c10&gt;, &lt;pysbs.batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct object at 0x7f7757881e10&gt;]</span>
+<span class="c1"># Substance3dBakerInfoOutputHandler.get_results() return a list of Substance3dBakerInfoMeshStruct. Follow the doc to get more details of Substance3dBakerInfoMeshStruct</span>
+<span class="c1"># as much as possible each member type is converted in a python type.</span>
+<span class="k">for</span> <span class="n">mesh</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="c1"># some examples of its different members</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices_number</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">uv</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">uvs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">uv</span><span class="o">.</span><span class="n">udim_tiles</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">subpart</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">geom_subsets</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">subpart</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+<span class="c1"># it become easy to retrieve all the udims or uv tiles:</span>
+<span class="n">all_udims</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">udim</span> <span class="k">for</span> <span class="n">mesh</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">for</span> <span class="n">uv</span> <span class="ow">in</span> <span class="n">mesh</span><span class="o">.</span><span class="n">uvs</span> <span class="k">for</span> <span class="n">udim</span> <span class="ow">in</span> <span class="n">uv</span><span class="o">.</span><span class="n">udim_tiles</span><span class="p">])</span>
+
+<span class="c1"># an other OutputHandler common method is dump() to write the output in a stream IO (file)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dumped_file.ext&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoBboxStruct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">batchtools.substance3d_baker_info_handlers.</span></span><span class="sig-name descname"><span class="pre">Substance3dBakerInfoBboxStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minimal_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximal_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoBboxStruct" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Bbox handles bounding box info of a mesh, member of <a class="reference internal" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct" title="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Substance3dBakerInfoMeshStruct</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>minimal_point</strong> – the smallest point of the box</p></li>
+<li><p><strong>maximal_point</strong> – the highest point of the box</p></li>
+<li><p><strong>center</strong> – the center of the box</p></li>
+<li><p><strong>size</strong> – the size of the box</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoGeomSubsetStruct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">batchtools.substance3d_baker_info_handlers.</span></span><span class="sig-name descname"><span class="pre">Substance3dBakerInfoGeomSubsetStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_ID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoGeomSubsetStruct" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>GeomSubset handles material info for each mesh’s geomsubset, member of <a class="reference internal" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct" title="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Substance3dBakerInfoMeshStruct</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – path to the object in the scene</p></li>
+<li><p><strong>material_ID</strong> – material name</p></li>
+<li><p><strong>color</strong> – color assignation</p></li>
+<li><p><strong>faces_number</strong> – faces number present in this geomsubset</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoLocStruct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">batchtools.substance3d_baker_info_handlers.</span></span><span class="sig-name descname"><span class="pre">Substance3dBakerInfoLocStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_transformation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_transformation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoLocStruct" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Loc handles location info of a mesh, member of <a class="reference internal" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct" title="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Substance3dBakerInfoMeshStruct</span></code></a>.
+Warning, the values is not relevant with obj format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>local_transformation</strong> – local transformation matrix</p></li>
+<li><p><strong>global_transformation</strong> – global transformation matrix</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">batchtools.substance3d_baker_info_handlers.</span></span><span class="sig-name descname"><span class="pre">Substance3dBakerInfoMeshStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_ID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uvs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geom_subsets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounding_box</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mesh is the higher structure of substance3d_baker info. It defines the mesh object in the scene.
+Substance3dBakerInfoOutputHandler.get_results returns a list of Substance3dBakerInfoMeshStruct instances.
+Each argument is accessible with attribute members.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – path to the object in the scene</p></li>
+<li><p><strong>name</strong> – name of the mesh part</p></li>
+<li><p><strong>enabled</strong> – if the object is enabled</p></li>
+<li><p><strong>vertices_number</strong> – mesh’s vertices number</p></li>
+<li><p><strong>faces_number</strong> – faces number</p></li>
+<li><p><strong>material_ID</strong> – material name</p></li>
+<li><p><strong>color</strong> – color assignation</p></li>
+<li><p><strong>uvs</strong> – uv info handled by Substance3dBakerInfoUvStruct</p></li>
+<li><p><strong>geom_subsets</strong> – sub parts of a mesh, usually defined by a material assignation or a shader group</p></li>
+<li><p><strong>bounding_box</strong> – bounding box info handled by <a class="reference internal" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoBboxStruct" title="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoBboxStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Substance3dBakerInfoBboxStruct</span></code></a>.</p></li>
+<li><p><strong>location</strong> – location info handled by <a class="reference internal" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoLocStruct" title="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoLocStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Substance3dBakerInfoLocStruct</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct.convert_str_value">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_str_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct.convert_str_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct.enabled">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enabled</span></span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct.enabled" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">batchtools.substance3d_baker_info_handlers.</span></span><span class="sig-name descname"><span class="pre">Substance3dBakerInfoUvStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_in_unit_square</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uv_tiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">udim_tiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Uv handles UV info for each mesh’s uv sets, member of <a class="reference internal" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct" title="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">Substance3dBakerInfoMeshStruct</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_in_unit_square</strong> – if all the uvs is in the 0-1 space</p></li>
+<li><p><strong>points_number</strong> – points number</p></li>
+<li><p><strong>uv_tiles</strong> – uv tiles where points are present (could be several)</p></li>
+<li><p><strong>udim_tiles</strong> – udim tiles where points are present (could be several)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct.udim_tiles">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">udim_tiles</span></span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct.udim_tiles" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct.uv_tiles">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uv_tiles</span></span><a class="headerlink" href="#batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoUvStruct.uv_tiles" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="output_handlers.html" class="btn btn-neutral float-left" title="output_handlers module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsrender_render_handlers.html" class="btn btn-neutral float-right" title="sbsrender_render_handlers module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gui module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="values module" href="values.html" />
+    <link rel="prev" title="connections module" href="connections.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbscommon.html">sbscommon module: Common classes related to SBS package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="nodes.html">nodes module: Base class of all nodes (compositing nodes, function nodes) and facilities for nodes list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connections.html">connections module: Connections between nodes definition</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">gui module: GUI objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="values.html">values module: Constant values, data type</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbscommon.html">sbscommon module</a></li>
+      <li class="breadcrumb-item active">gui module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbscommon.gui">
+<span id="gui-module"></span><h1>gui module<a class="headerlink" href="#module-sbscommon.gui" title="Link to this heading"></a></h1>
+<p>Module <strong>gui</strong> provides the definition of the classes relative to the GUI:
+- <a class="reference internal" href="#sbscommon.gui.SBSGUILayout" title="sbscommon.gui.SBSGUILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayout</span></code></a>
+- <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>
+- <a class="reference internal" href="#sbscommon.gui.SBSGUILayoutComp" title="sbscommon.gui.SBSGUILayoutComp"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayoutComp</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbscommon.gui.</span></span><span class="sig-name descname"><span class="pre">GUIObjectList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIObjectsAttr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used to provide common methods to SBSObjects that contains a list of GUIObjects:
+- <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>
+- <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a>
+- <a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraph" title="compnode.paramgraph.SBSParamsGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraph</span></code></a></p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mParentObject    (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>): Parent object that contains the GUI object list.</p></li>
+<li><p>mGUIObjectsAttr  (str): attribute member name in the parent object that corresponds to the GUI object list.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.createComment">
+<span class="sig-name descname"><span class="pre">createComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Comment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.createComment" title="Link to this definition"></a></dt>
+<dd><p>Create a new comment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the comment. Default to ‘Comment’</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – The comment position in the graph. Default to [0,0,0]</p></li>
+<li><p><strong>aLinkToNode</strong> (<em>str</em><em>, </em><em>optional</em>) – The UID of the node to associate to this comment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.createFrame">
+<span class="sig-name descname"><span class="pre">createFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFrameTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frame'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisplayTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.createFrame" title="Link to this definition"></a></dt>
+<dd><p>Create a new framed comment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSize</strong> (<em>list</em><em> of </em><em>2 float</em>) – The frame size</p></li>
+<li><p><strong>aFrameTitle</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the frame. Default to ‘Frame’</p></li>
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the frame. Empty by default</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – The frame position in the graph. Default to [0,0,-100]</p></li>
+<li><p><strong>aColor</strong> (<em>list</em><em> of </em><em>4 float between 0 and 1</em><em>, </em><em>optional.</em>) – The frame color. Default to [0.196, 0.196, 0.509, 0.196]</p></li>
+<li><p><strong>aDisplayTitle</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to display the frame title. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.createFrameAroundNodes">
+<span class="sig-name descname"><span class="pre">createFrameAroundNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFrameTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frame'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisplayTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.createFrameAroundNodes" title="Link to this definition"></a></dt>
+<dd><p>Create a new framed comment around the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNodeList</strong> (list of class:<cite>.SBSNode</cite>) – The nodes to include in the frame</p></li>
+<li><p><strong>aFrameTitle</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the frame. Default to ‘Frame’</p></li>
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the frame. Empty by default</p></li>
+<li><p><strong>aColor</strong> (<em>list</em><em> of </em><em>4 float between 0 and 1</em><em>, </em><em>optional.</em>) – The frame color. Default to [0.196, 0.196, 0.509, 0.196]</p></li>
+<li><p><strong>aDisplayTitle</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to display the frame title. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.createNavigationPin">
+<span class="sig-name descname"><span class="pre">createNavigationPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPinText</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.createNavigationPin" title="Link to this definition"></a></dt>
+<dd><p>Create a new navigation pin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aPinText</strong> (<em>str</em>) – The text of the navigation pin</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – The navigation pin position in the graph. Default to [0,0,0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.deleteGUIObject">
+<span class="sig-name descname"><span class="pre">deleteGUIObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGUIObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.deleteGUIObject" title="Link to this definition"></a></dt>
+<dd><p>deleteGUIObject(aGUIObject):
+Allows to delete the given GUI object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGUIObject</strong> (<a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> or str) – The GUI object to remove, as a SBSGUIObject or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.getAllComments">
+<span class="sig-name descname"><span class="pre">getAllComments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.getAllComments" title="Link to this definition"></a></dt>
+<dd><p>Get all comments defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.getAllFrames">
+<span class="sig-name descname"><span class="pre">getAllFrames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.getAllFrames" title="Link to this definition"></a></dt>
+<dd><p>Get all frames defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.getAllGUIObjects">
+<span class="sig-name descname"><span class="pre">getAllGUIObjects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.getAllGUIObjects" title="Link to this definition"></a></dt>
+<dd><p>Get all the GUI objects defined in the graph (Comments, Frames, Navigation Pins)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.getAllNavigationPins">
+<span class="sig-name descname"><span class="pre">getAllNavigationPins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.getAllNavigationPins" title="Link to this definition"></a></dt>
+<dd><p>Get all the navigation pins defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.getFrameRectAroundNodes">
+<span class="sig-name descname"><span class="pre">getFrameRectAroundNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.getFrameRectAroundNodes" title="Link to this definition"></a></dt>
+<dd><p>Return the rectangle a frame would fill to be around the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodeList</strong> (list of class:<cite>.SBSNode</cite>) – The nodes to include in the frame</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.getGUIObject">
+<span class="sig-name descname"><span class="pre">getGUIObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGUIObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.getGUIObject" title="Link to this definition"></a></dt>
+<dd><p>getGUIObject(aGUIObject):
+Search for the given GUI object in the list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aGUIObject</strong> (<a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> or str) – GUI object to get, identified by its uid or as a <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.getNodesInFrame">
+<span class="sig-name descname"><span class="pre">getNodesInFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.getNodesInFrame" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes included or partially included in the given frame.
+The frame must be included in the parent graph, otherwise SBSImpossibleActionError is raised</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFrame</strong> (<a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The frame to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="nodes.html#sbscommon.nodes.SBSNode" title="sbscommon.nodes.SBSNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSNode</span></code></a></p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.GUIObjectList.reframeAroundNodes">
+<span class="sig-name descname"><span class="pre">reframeAroundNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.GUIObjectList.reframeAroundNodes" title="Link to this definition"></a></dt>
+<dd><p>Move and resize a frame to be around the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFrame</strong> (<a class="reference internal" href="#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The frame to edit</p></li>
+<li><p><strong>aNodeList</strong> (list of class:<cite>.SBSNode</cite>) – The nodes to include in the frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbscommon.gui.Rect">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbscommon.gui.</span></span><span class="sig-name descname"><span class="pre">Rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aTop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aHeight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.Rect" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.Rect.containsPoint">
+<span class="sig-name descname"><span class="pre">containsPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.Rect.containsPoint" title="Link to this definition"></a></dt>
+<dd><p>Check if the given point is contained in the Rectangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aPoint</strong> – The point to test</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of 2 float [x, y] or tuple</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the given point is contained in the Rectangle, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.Rect.getCorners">
+<span class="sig-name descname"><span class="pre">getCorners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.Rect.getCorners" title="Link to this definition"></a></dt>
+<dd><p>Get the 4 corner points of this rectangle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The corners of this rectangle, as a list of tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.Rect.overlapsWith">
+<span class="sig-name descname"><span class="pre">overlapsWith</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.Rect.overlapsWith" title="Link to this definition"></a></dt>
+<dd><p>Check if the two rectangles overlap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOther</strong> (<a class="reference internal" href="#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a>) – The other rectangle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two rectangles overlap</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.Rect.union">
+<span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOther</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.Rect.union" title="Link to this definition"></a></dt>
+<dd><p>Create the union of two rectangles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aOther</strong> (<a class="reference internal" href="#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a>) – The other rectangle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The rectangle which is the union of the two rectangles</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbscommon.gui.</span></span><span class="sig-name descname"><span class="pre">SBSGUILayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDockDistance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayout" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a GUILayout (GUI position and options) as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mGPos         (list of 3 float, optional): position in the graph layout.</p></li>
+<li><p>mDocked       (str, optional): object is in a docked state.</p></li>
+<li><p>mDockDistance (str, optional): original distance between the docked node and its parent (for undock purpose).</p></li>
+<li><p>mSize         (str, optional): size of the object.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayout.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayout.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayout.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayout.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayout.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayout.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayout.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayout.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayoutComp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbscommon.gui.</span></span><span class="sig-name descname"><span class="pre">SBSGUILayoutComp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDisplay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGRoi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGZoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayoutComp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a GUILayoutComp (Gui flags and options) as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mDisplay (str): display type (graph, stack, etc.).</p></li>
+<li><p>mGRoi    (str): visualized Region Of Interest of the graph.</p></li>
+<li><p>mGZoom   (str): graph zoom.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayoutComp.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayoutComp.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayoutComp.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayoutComp.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayoutComp.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayoutComp.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUILayoutComp.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUILayoutComp.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbscommon.gui.</span></span><span class="sig-name descname"><span class="pre">SBSGUIObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIDependency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUILayout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFrameColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsTitleVisible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsFrameVisible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a GUIObject as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mUID            (str): node unique identifier in the /GUIObjects/ context.</p></li>
+<li><p>mType           (str): type of GUI object (comment, navigation pin, etc.)</p></li>
+<li><p>mGUIDependency  (str): dependency of this GUI Object on an object in the graph ( format : Type?uid(?uid…) )</p></li>
+<li><p>mGUILayout      (<a class="reference internal" href="#sbscommon.gui.SBSGUILayout" title="sbscommon.gui.SBSGUILayout"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUILayout</span></code></a>):</p></li>
+<li><p>mGUIName        (str): name of the GUI object.</p></li>
+<li><p>mOptions        (list of <a class="reference internal" href="values.html#sbscommon.values.SBSOption" title="sbscommon.values.SBSOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSOption</span></code></a>): list of specific options of the GUI object type.</p></li>
+<li><p>mTitle          (str, optional): The object Title</p></li>
+<li><p>mFrameColor     (str, optional): frame color (RGBA Float)</p></li>
+<li><p>mIsTitleVisible (str, optional): bool to set title visibility</p></li>
+<li><p>mIsFrameVisible (str, optional): bool to set frame visibility</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.getDependencyUID">
+<span class="sig-name descname"><span class="pre">getDependencyUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.getDependencyUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UID of the node associated to this GUIObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the UID as a string if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.getRect">
+<span class="sig-name descname"><span class="pre">getRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.getRect" title="Link to this definition"></a></dt>
+<dd><p>Return the rectangle of this GUIObject</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The rectangle as a <a class="reference internal" href="#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of this SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID to check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p>AttributeError if the function getUidIsUsed in not properly overloaded on this SBSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.hasDependencyOn">
+<span class="sig-name descname"><span class="pre">hasDependencyOn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.hasDependencyOn" title="Link to this definition"></a></dt>
+<dd><p>Checks if this GUI Object has a dependency on the given UID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – The UID to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if this GUI Object has a dependency on the object with the given UID, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.isAComment">
+<span class="sig-name descname"><span class="pre">isAComment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.isAComment" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this GUIObject is a simple comment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.isAFrame">
+<span class="sig-name descname"><span class="pre">isAFrame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.isAFrame" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this GUIObject is a framed comment</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.isANavigationPin">
+<span class="sig-name descname"><span class="pre">isANavigationPin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.isANavigationPin" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this GUIObject is a navigation pin</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.sDefaultColor">
+<span class="sig-name descname"><span class="pre">sDefaultColor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0.196078435,</span> <span class="pre">0.196078435,</span> <span class="pre">0.509803951,</span> <span class="pre">0.196078435]</span></em><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.sDefaultColor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbscommon.gui.SBSGUIObject.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbscommon.gui.SBSGUIObject.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="connections.html" class="btn btn-neutral float-left" title="connections module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="values.html" class="btn btn-neutral float-right" title="values module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

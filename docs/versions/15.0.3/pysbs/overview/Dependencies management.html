@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dependency path storage method &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PySbs batchtools module" href="Pysbs%20batchtools%20module.html" />
+    <link rel="prev" title="Substances modification" href="Substances%20modification.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies-management">Dependencies management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-a-package-with-its-dependencies">Exporting a package with its dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#impact-propagation">Impact propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-all-substance-dependencies-recursively">Get all substance dependencies recursively</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependency-path-resolution-method">Dependency path resolution method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SAT%20demos.html">SAT demos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="overview.html">API overview</a></li>
+      <li class="breadcrumb-item active">Dependency path storage method</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dependency-path-storage-method">
+<span id="ref-to-api-dependencies"></span><h1>Dependency path storage method<a class="headerlink" href="#dependency-path-storage-method" title="Link to this heading"></a></h1>
+<p><a class="reference internal" href="../sbsproject/projectmgrdoc.html#ref-to-projectmgrdoc-dep"><span class="std std-ref">Dependency path resolution method</span></a>.</p>
+</section>
+<section id="dependencies-management">
+<h1>Dependencies management<a class="headerlink" href="#dependencies-management" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">The API provides features for managing dependencies in a Substance document.</div>
+<div class="line">More details on how to use the API is available at <a class="reference internal" href="Basic%20manipulation.html#ref-to-api-requestinfo"><span class="std std-ref">Requesting information on a Substance</span></a>.</div>
+</div>
+<section id="exporting-a-package-with-its-dependencies">
+<h2>Exporting a package with its dependencies<a class="headerlink" href="#exporting-a-package-with-its-dependencies" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">The module <a class="reference internal" href="../sbsexporter.html#module-sbsexporter" title="sbsexporter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsexporter</span></code></a> helps exporting a package with its dependencies and resources in a self-contained</div>
+<div class="line">directory or zip in the same way as Substance Designer can do.</div>
+<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoExportWithDependencies" title="demos.demoExportWithDependencies"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoExportWithDependencies()</span></code></a> demonstrates this feature and using the SBSExporter.export() function.</div>
+</div>
+<div class="line-block">
+<div class="line">To launch the demo use this command line in the folder <em>demos/</em>:</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoExportWithDependencies<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;../sample/argsDemoExportWithDependencies.xml&quot;</span>
+</pre></div>
+</div>
+<p>The scripts will generate the folder <em>sample/ExportSBS/</em> with two exports of the TerrainMultiFractal substance, one zipped and the other one in a folder.</p>
+<a class="reference internal image-reference" href="../../_images/ExportFolder.png"><img alt="../../_images/ExportFolder.png" class="align-center" src="../../_images/ExportFolder.png" style="width: 513px;" />
+</a>
+<p>The following code exports a package into a self-contained directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">substance</span><span class="p">,</span> <span class="n">sbscleaner</span><span class="p">,</span> <span class="n">sbsexporter</span>
+
+<span class="c1"># Parse the document to export</span>
+<span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+
+<span class="c1"># You may want to clean up the Substance before exporting it</span>
+<span class="c1"># This will remove all isolated nodes, useless parameters, unused dependencies from the Substance</span>
+<span class="n">sbscleaner</span><span class="o">.</span><span class="n">cleanSubstance</span><span class="p">(</span><span class="n">sbsDoc</span><span class="p">)</span>   <span class="c1"># User can pick whatever he wants to clean, see signature of sbscleaner.cleanSubstance()</span>
+<span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">()</span>
+
+<span class="c1"># Create an exporter</span>
+<span class="n">aExporter</span> <span class="o">=</span> <span class="n">sbsexporter</span><span class="o">.</span><span class="n">SBSExporter</span><span class="p">()</span>
+
+<span class="c1"># Export the package into an archived self-contained package, in the folder aDestFolderAbsPath</span>
+<span class="c1"># The resources and dependencies of this package will be included in the archive, including the ones referred by the alias sbs://</span>
+<span class="n">aResultingArchive</span> <span class="o">=</span> <span class="n">aExporter</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span> <span class="n">aExportFolder</span> <span class="o">=</span> <span class="n">aDestFolderAbsPath</span><span class="p">,</span>
+                                     <span class="n">aBuildArchive</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">aAliasesToExport</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sbs&#39;</span><span class="p">])</span>
+
+<span class="c1"># Same as before, without archiving the resulting folder</span>
+<span class="n">aResultingPath</span> <span class="o">=</span> <span class="n">aExporter</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span> <span class="n">aExportFolder</span> <span class="o">=</span> <span class="n">aDestFolderAbsPath</span><span class="p">,</span>
+                                  <span class="n">aAliasesToExport</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sbs&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="impact-propagation">
+<h2>Impact propagation<a class="headerlink" href="#impact-propagation" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">This API allows to get all the Substances with a dependency on another Substance within a particular tree and</div>
+<div class="line">moving Substances from one folder to another making sure any relative paths are correctly updated.</div>
+<div class="line">Use the module <a class="reference internal" href="../sbsimpactmanager.html#module-sbsimpactmanager" title="sbsimpactmanager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsimpactmanager</span></code></a> for propagating changes.</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">context</span><span class="p">,</span> <span class="n">sbsimpactmanager</span>
+
+<span class="n">aContext</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+<span class="n">aSBSFile</span> <span class="o">=</span> <span class="s1">&#39;myAbsPath/ToSubstance.sbs&#39;</span>  <span class="c1"># The Substance to look for</span>
+<span class="n">aTreePath</span> <span class="o">=</span> <span class="s1">&#39;myAbsPath/ToTree/&#39;</span>         <span class="c1"># The folder tree to browse</span>
+
+<span class="c1"># Getting all the Substances referencing another Substance</span>
+<span class="n">IM</span> <span class="o">=</span> <span class="n">sbsimpactmanager</span><span class="o">.</span><span class="n">SBSImpactManager</span><span class="p">()</span>
+<span class="n">referencingSBS</span> <span class="o">=</span> <span class="n">IM</span><span class="o">.</span><span class="n">getAllSubstancesWithDependencyOn</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">substancePath</span><span class="o">=</span><span class="n">aSBSFile</span><span class="p">,</span> <span class="n">withinTree</span><span class="o">=</span><span class="n">aTreePath</span><span class="p">)</span>
+
+<span class="c1"># Updating all references of a Substance that has been moved to another path</span>
+<span class="c1"># This process can be interactive or not</span>
+<span class="n">aNewPath</span> <span class="o">=</span> <span class="s1">&#39;myNewAbsPath/ToSubstance.sbs&#39;</span>
+<span class="n">updatedSBS</span> <span class="o">=</span> <span class="n">IM</span><span class="o">.</span><span class="n">declareSBSMoved</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">oldPath</span><span class="o">=</span><span class="n">aSBSFile</span><span class="p">,</span> <span class="n">newPath</span><span class="o">=</span><span class="n">aNewPath</span><span class="p">,</span> <span class="n">withinTree</span><span class="o">=</span><span class="n">aTreePath</span><span class="p">,</span> <span class="n">interactiveMode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-substance-dependencies-recursively">
+<h2>Get all substance dependencies recursively<a class="headerlink" href="#get-all-substance-dependencies-recursively" title="Link to this heading"></a></h2>
+<p id="ref-to-dependencies-rec">This API allows you to get a list of all the substance dependencies from a substance file or a directory (can be a tree directory).
+For each dependency found a status is given like if the file exist or if there is a warning like a wrong substance version.
+Use the module <a class="reference internal" href="../sbsimpactmanager.html#module-sbsimpactmanager" title="sbsimpactmanager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsimpactmanager</span></code></a>, more details in docstring</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pysbs</span><span class="w"> </span><span class="kn">import</span> <span class="n">context</span><span class="p">,</span> <span class="n">sbsimpactmanager</span>
+
+<span class="c1"># init an impactmanager instance with a context</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">sbsimpactmanager</span><span class="o">.</span><span class="n">SBSImpactManager</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">())</span>
+
+<span class="c1"># get a dependencies tree of a sbs file</span>
+<span class="n">result_tree</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">getSBSTreeDependencies</span><span class="p">(</span><span class="s2">&quot;/tmp/a/file.sbs&quot;</span><span class="p">,</span> <span class="n">escapeDefaultSbs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">escapeMismatchVersion</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">checkMissingFile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># same for a directory tree</span>
+<span class="c1"># result_tree = im.getSBSTreeDependenciesForAllSubstanceInTree(&quot;/tmp/a/substance/directory&quot;, escapeDefaultSbs=True, escapeMismatchVersion=False, checkMissingFile=True)</span>
+
+<span class="c1"># get missing dependencies</span>
+<span class="n">missing_files</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">missingFiles</span>
+
+<span class="c1"># get mismatch version dependencies</span>
+<span class="n">mismatch_files</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">mismatchVersionFiles</span>
+
+<span class="c1"># reset impact manager</span>
+<span class="n">im</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="dependency-path-resolution-method">
+<h2>Dependency path resolution method<a class="headerlink" href="#dependency-path-resolution-method" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Since 2019.1, Designer has two different dependency path storage methods.</dt><dd><ul class="simple">
+<li><p>The old one which is the default behaviour, is relative storage. Directory that are not subdirectories of the package.sbs will be replaced by a dotdot symbol (dotdot or ../ in a path resolution mean “parent directory” or “go up one directory”).</p></li>
+<li><p>The second method is a absolute storage. Dependencies that are not subdirectories of the package they will be written as absolute paths.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This option is handled by the Preferences &gt; Project &gt; General &gt; Dependencies Path &gt; …absolute paths parameter of the sbsprj file.</p>
+<p>This choice can be configured from the ProjectMgr.
+If you instantiate a ProjectMgr with a sbsprj file or if you parse it (with .parseADoc) it will be used in
+the pysbs execution context.
+You can retrieve this option or tweak the value using the following functions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get dependency path storage method</span>
+<span class="n">aEnumDepsMethod</span> <span class="o">=</span> <span class="n">aProjectMgr</span><span class="o">.</span><span class="n">getDependenciesPathStorageMethod</span><span class="p">()</span>
+<span class="c1"># Set dependency path storage method</span>
+<span class="n">aProjectMgr</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">ProjectMgr</span><span class="p">(</span><span class="n">aSbsPrjFilePath</span><span class="o">=</span><span class="n">sbsPrj</span><span class="p">)</span>
+<span class="n">aProjectMgr</span><span class="o">.</span><span class="n">setDependenciesPathStorageMethod</span><span class="p">(</span><span class="n">sbsproject</span><span class="o">.</span><span class="n">SBSPRJDependenciesPathStorageMethods</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="n">aProjectMgr</span><span class="o">.</span><span class="n">setDependenciesPathStorageMethod</span><span class="p">(</span><span class="n">sbsproject</span><span class="o">.</span><span class="n">SBSPRJDependenciesPathStorageMethods</span><span class="o">.</span><span class="n">RELATIVE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../sbsproject/projectmgrdoc.html#ref-to-projectmgrdoc"><span class="std std-ref">Project Manager How To</span></a> contains more information about the sbs project manager.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Substances%20modification.html" class="btn btn-neutral float-left" title="Substances modification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Pysbs%20batchtools%20module.html" class="btn btn-neutral float-right" title="PySbs batchtools module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

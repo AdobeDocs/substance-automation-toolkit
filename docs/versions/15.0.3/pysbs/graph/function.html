@@ -1,0 +1,1081 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>function module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="inputparameters module" href="inputparameters.html" />
+    <link rel="prev" title="graph module" href="graph.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="graph.html">graph module: Graph and Function definition</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">function module: Function graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inputparameters.html">inputparameters module: Input parameters definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="output.html">output module: Graph output definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="graph.html#graph.graph.SBSGraph"><code class="docutils literal notranslate"><span class="pre">SBSGraph</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="graph.html">graph module</a></li>
+      <li class="breadcrumb-item active">function module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-graph.function">
+<span id="function-module"></span><h1>function module<a class="headerlink" href="#module-graph.function" title="Link to this heading"></a></h1>
+<p>Module <strong>function</strong> provides the definition of the class <a class="reference internal" href="#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>: which allows to define a function graph.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="graph.function.SBSFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graph.function.</span></span><span class="sig-name descname"><span class="pre">SBSFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
+<p>Class that contains information on a function as defined in a .sbs file</p>
+<dl class="simple">
+<dt>Members:</dt><dd><ul class="simple">
+<li><p>mIdentifier  (str): name of the function definition.</p></li>
+<li><p>mUID         (str): unique identifier in the package/ context.</p></li>
+<li><p>mAttributes  (<a class="reference internal" href="../sbscommon/values.html#sbscommon.values.SBSAttributes" title="sbscommon.values.SBSAttributes"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAttributes</span></code></a>): various attributes</p></li>
+<li><p>mParamInputs (list of <a class="reference internal" href="inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a>, optional): list of parameters inputs of the function.</p></li>
+<li><p>mType        (str): type of the function return.</p></li>
+<li><p>mParamValue  (<a class="reference internal" href="../params/params.html#params.params.SBSParamValue" title="params.params.SBSParamValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamValue</span></code></a>): definition of the function.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.addInputParameter">
+<span class="sig-name descname"><span class="pre">addInputParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aWidget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGroup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUserData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aVisibleIf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.addInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Create a <a class="reference internal" href="inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> with the given parameters and add it to the ParamsInput of the function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aIdentifier</strong> (<em>str</em>) – identifier of the input parameter. It may change to ensure having a unique identifier.</p></li>
+<li><p><strong>aWidget</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetEnum" title="sbsenum.WidgetEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a>) – widget to use for this parameter</p></li>
+<li><p><strong>aOptions</strong> (dictionary in the format {<a class="reference internal" href="../sbsenum.html#sbsenum.WidgetOptionEnum" title="sbsenum.WidgetOptionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a>: value(str)}, optional) – options</p></li>
+<li><p><strong>aDescription</strong> (<em>str</em><em>, </em><em>optional</em>) – textual description</p></li>
+<li><p><strong>aLabel</strong> (<em>str</em><em>, </em><em>optional</em>) – GUI label for this input parameter</p></li>
+<li><p><strong>aGroup</strong> (<em>str</em><em>, </em><em>optional</em>) – string that contains a group name. Can uses path with ‘/’ separators.</p></li>
+<li><p><strong>aUserData</strong> (<em>str</em><em>, </em><em>optional</em>) – user tags</p></li>
+<li><p><strong>aVisibleIf</strong> (<em>str</em><em>, </em><em>optional</em>) – string bool expression based on graph inputs values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created <a class="reference internal" href="inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> object, or None if this input parameter is already defined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.computeUniqueInputIdentifier">
+<span class="sig-name descname"><span class="pre">computeUniqueInputIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSuffixId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.computeUniqueInputIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Check if the given identifier is already used in the function inputs and generate a unique identifier if necessary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A unique identifier, which is either the given one or a new one with a suffix: identifier_id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.connectNodes">
+<span class="sig-name descname"><span class="pre">connectNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNodeInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sbsenum.FunctionInputEnum.VALUE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.connectNodes" title="Link to this definition"></a></dt>
+<dd><p>Connect the given nodes together: aLeftNode -&gt; aRightNode(on the input aRightNodeInputIdentifier)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aLeftNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – Node to connect from, as a SBSParamNode or given its UID</p></li>
+<li><p><strong>aRightNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – Node to connect to, as a SBSParamNode or given its UID</p></li>
+<li><p><strong>aRightNodeInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str, optional) – Identifier of the input of the right node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The connection if success, None otherwise (in case of type incompatibility for instance)</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.contains" title="Link to this definition"></a></dt>
+<dd><p>Check if the given node belongs to this function graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – The node to check, as a, object or an UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the given node belongs to the node list, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createComment">
+<span class="sig-name descname"><span class="pre">createComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Comment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLinkToNode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createComment" title="Link to this definition"></a></dt>
+<dd><p>Create a new comment.        If aLinkToNode is not None, this comment will be linked to the given node, and the given GUI position must be relative to this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the comment. Default to ‘Comment’</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – The comment position in the graph. Default to [0,0,0]</p></li>
+<li><p><strong>aLinkToNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str, optional) – The node to associate to this comment, as a SBSParamNode or given its UID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createFrame">
+<span class="sig-name descname"><span class="pre">createFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFrameTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frame'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisplayTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createFrame" title="Link to this definition"></a></dt>
+<dd><p>Create a new framed comment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSize</strong> (<em>list</em><em> of </em><em>2 float</em>) – The frame size</p></li>
+<li><p><strong>aFrameTitle</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the frame. Default to ‘Frame’</p></li>
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the frame. Empty by default</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – The frame position in the graph. Default to [0,0,-100]</p></li>
+<li><p><strong>aColor</strong> (<em>list</em><em> of </em><em>4 float between 0 and 1</em><em>, </em><em>optional.</em>) – The frame color. Default to [0.196, 0.196, 0.509, 0.196]</p></li>
+<li><p><strong>aDisplayTitle</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to display the frame title. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createFrameAroundNodes">
+<span class="sig-name descname"><span class="pre">createFrameAroundNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFrameTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frame'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCommentText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDisplayTitle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createFrameAroundNodes" title="Link to this definition"></a></dt>
+<dd><p>Create a new framed comment around the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNodeList</strong> (list of class:<cite>.SBSParamNode</cite>) – The nodes to include in the frame</p></li>
+<li><p><strong>aFrameTitle</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the frame. Default to ‘Frame’</p></li>
+<li><p><strong>aCommentText</strong> (<em>str</em><em>, </em><em>optional</em>) – The text of the frame. Empty by default</p></li>
+<li><p><strong>aColor</strong> (<em>list</em><em> of </em><em>4 float between 0 and 1</em><em>, </em><em>optional.</em>) – The frame color. Default to [0.196, 0.196, 0.509, 0.196]</p></li>
+<li><p><strong>aDisplayTitle</strong> (<em>boolean</em><em>, </em><em>optional</em>) – True to display the frame title. Default to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createFunctionInstanceNode">
+<span class="sig-name descname"><span class="pre">createFunctionInstanceNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createFunctionInstanceNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new function node of kind ‘instance’ which references the given function.</p>
+<dl class="simple">
+<dt>Note:</dt><dd><ul class="simple">
+<li><p>The function must be defined in the given SBSDocument.</p></li>
+<li><p>Use <a class="reference internal" href="#graph.function.SBSFunction.createFunctionInstanceNodeFromPath" title="graph.function.SBSFunction.createFunctionInstanceNodeFromPath"><code class="xref py py-func docutils literal notranslate"><span class="pre">createFunctionInstanceNodeFromPath()</span></code></a> to add an instance of a function included in an external package.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – current edited document</p></li>
+<li><p><strong>aFunction</strong> (<a class="reference internal" href="#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a>) – Function of which this node will be an instance of</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – position of the node in the graph: [x,y,z]. default value is [0,0,0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createFunctionInstanceNodeFromPath">
+<span class="sig-name descname"><span class="pre">createFunctionInstanceNodeFromPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createFunctionInstanceNodeFromPath" title="Link to this definition"></a></dt>
+<dd><p>Create a new function node of kind ‘instance’ which references the function pointed by the given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – current edited document</p></li>
+<li><p><strong>aPath</strong> (<em>str</em>) – <p>path of the function definition (absolute, relative to the current .sbs file, or given with an alias, for instance <em>sbs://functions.sbs/Functions/Math/Pi</em>)</p>
+<ul>
+<li><p>If the function is included in the current package, use: <em>pkg:///MyFunctionIdentifier</em></p></li>
+<li><p>If the path uses an alias, use: <em>myalias://MyFileName.sbs/MyFunctionIdentifier</em></p></li>
+<li><p>If the path is relative to the current package or absolute, use <em>MyAbsoluteOrRelativePath/MyFileName.sbs/MyFunctionIdentifier</em></p></li>
+<li><p>Note that if the function identifier is equivalent to the filename, the part <em>/MyFunctionIdentifier</em> may be omit.</p></li>
+</ul>
+</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – position of the node in the graph: [x,y,z]. default value is [0,0,0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createFunctionNode">
+<span class="sig-name descname"><span class="pre">createFunctionNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createFunctionNode" title="Link to this definition"></a></dt>
+<dd><p>Create a new function node and add it to the ParamNodes of the function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFunction</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a> or str) – kind of function to create, among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a></p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em><em>, </em><em>optional</em>) – position of the node in the graph: [x,y,z]. default value is [0,0,0]</p></li>
+<li><p><strong>aParameters</strong> (<em>dictionary {sbsenum.FunctionEnum : parameterValue</em><em>(</em><em>str</em><em>)</em><em>}</em><em>, </em><em>optional</em>) – parameters of the function node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createIterationOnPattern">
+<span class="sig-name descname"><span class="pre">createIterationOnPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNbIteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeUIDs_NextPatternInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createIterationOnPattern" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Duplicate NbIteration times the given pattern of function nodes, and connect each pattern with the previous one to create this kind of connection:</div>
+<div class="line">Pattern -&gt; Pattern_1 -&gt; Pattern_2 -&gt; … -&gt; Pattern_N</div>
+<div class="line">It allows to completely define the way two successive patterns are connected.</div>
+<div class="line">For instance, provide aNodeUIDs = [A, B, C] and aNodeUIDs_NextPatternInput = [A’],
+if the pattern is A -&gt; B -&gt; C, and if C is connected to A’</div>
+<div class="line">If aNodeUIDs_NextPatternInput is let empty, the function will try to connect the successive patterns
+by the most obvious way, respecting the input / output type (float / integer / …)</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aNbIteration</strong> (<em>positive integer</em>) – number of time the pattern must be duplicated</p></li>
+<li><p><strong>aNodeUIDs</strong> (<em>list</em><em> of </em><em>str</em>) – list of node’s UID that constitute the pattern to duplicate</p></li>
+<li><p><strong>aNodeUIDs_NextPattern</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – list of node’s UID that correspond to the next pattern, which must be connected to the given pattern. Default to []</p></li>
+<li><p><strong>aGUIOffset</strong> (<em>list</em><em> of </em><em>2 float</em><em>, </em><em>optional</em>) – pattern position offset. Default to [150, 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> created (including the nodes given in aNodeUIDs_NextPatternInput), None if failed</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.createNavigationPin">
+<span class="sig-name descname"><span class="pre">createNavigationPin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPinText</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGUIPos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.createNavigationPin" title="Link to this definition"></a></dt>
+<dd><p>Create a new navigation pin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aPinText</strong> (<em>str</em>) – The text of the navigation pin</p></li>
+<li><p><strong>aGUIPos</strong> (<em>list</em><em> of </em><em>3 float</em>) – The navigation pin position in the graph</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.deleteComment">
+<span class="sig-name descname"><span class="pre">deleteComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aComment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.deleteComment" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given comment from the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aComment</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> or str) – The comment to remove, as a Comment or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.deleteFrame">
+<span class="sig-name descname"><span class="pre">deleteFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.deleteFrame" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given frame from the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFrame</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a> or str) – The frame to remove, as a Frame or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.deleteInputParameter">
+<span class="sig-name descname"><span class="pre">deleteInputParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.deleteInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given input parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParameter</strong> (<a class="reference internal" href="inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> or str) – The input parameter to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.deleteNode">
+<span class="sig-name descname"><span class="pre">deleteNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.deleteNode" title="Link to this definition"></a></dt>
+<dd><p>Allows to delete the given node from the function graph.
+It removes it from the ParamNode list, and delete all the connection from and to that node in the function graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – The node to remove, as a SBSParamNode or an UID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if success</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.disconnectNodes">
+<span class="sig-name descname"><span class="pre">disconnectNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNodeInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.disconnectNodes" title="Link to this definition"></a></dt>
+<dd><p>Disconnect the given nodes: aLeftNode -&gt; aRightNode(on the input aRightNodeInputIdentifier).
+If the right node input is None, all connections will be removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aLeftNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – Left node, as a SBSParamNode or given its UID</p></li>
+<li><p><strong>aRightNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – Right node, as a SBSParamNode or given its UID</p></li>
+<li><p><strong>aRightNodeInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str, optional) – Identifier of the input of the right node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.equals">
+<span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.equals" title="Link to this definition"></a></dt>
+<dd><p>Check if this SBSObject is equivalent to the other SBSObject.
+Some members may be excluded from this check, the UIDs or GUILayout for instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>) – The <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> to compare to</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the two <a class="reference internal" href="../common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> are similar according to their definition.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllComments">
+<span class="sig-name descname"><span class="pre">getAllComments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllComments" title="Link to this definition"></a></dt>
+<dd><p>Get all comments defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllDependencyUID">
+<span class="sig-name descname"><span class="pre">getAllDependencyUID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllDependencyUID" title="Link to this definition"></a></dt>
+<dd><p>Get the UIDs of the dependencies used by this graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of UIDs as strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllFrames">
+<span class="sig-name descname"><span class="pre">getAllFrames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllFrames" title="Link to this definition"></a></dt>
+<dd><p>Get all frames defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllFunctionsOfKind">
+<span class="sig-name descname"><span class="pre">getAllFunctionsOfKind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllFunctionsOfKind" title="Link to this definition"></a></dt>
+<dd><p>Search for all SBSParamNode which represents the given filter kind.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFunction</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionEnum" title="sbsenum.FunctionEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a> str) – kind of filters to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> containing all functions of the given kind.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllGUIObjects">
+<span class="sig-name descname"><span class="pre">getAllGUIObjects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllGUIObjects" title="Link to this definition"></a></dt>
+<dd><p>Get all the GUI objects defined in the graph (Comments, Frames, Navigation Pins)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllNavigationPins">
+<span class="sig-name descname"><span class="pre">getAllNavigationPins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllNavigationPins" title="Link to this definition"></a></dt>
+<dd><p>Get all the navigation pins defined in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllNodeInstancesOf">
+<span class="sig-name descname"><span class="pre">getAllNodeInstancesOf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSDocument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllNodeInstancesOf" title="Link to this definition"></a></dt>
+<dd><p>Search for all SBSParamNode of kind ‘instance’, which reference the given function path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSDocument</strong> (<a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>) – current SBSDocument</p></li>
+<li><p><strong>aPath</strong> (<em>str</em>) – <p>path of the function definition (absolute, relative to the current .sbs file, or given with an alias, for instance <em>sbs://functions.sbs/Functions/Math/Pi</em>)</p>
+<ul>
+<li><p>If the function is included in the current package, use: <em>pkg:///MyFunctionIdentifier</em></p></li>
+<li><p>If the path uses an alias, use: <em>myalias://MyFileName.sbs/MyFunctionIdentifier</em></p></li>
+<li><p>If the path is relative to the current package or absolute, use <em>MyAbsoluteOrRelativePath/MyFileName.sbs/MyFunctionIdentifier</em></p></li>
+<li><p>Note that if the function identifier is equivalent to the filename, the part <em>/MyFunctionIdentifier</em> may be omit.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> containing all instance nodes of the given function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllReferencesOnDependency">
+<span class="sig-name descname"><span class="pre">getAllReferencesOnDependency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDependency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllReferencesOnDependency" title="Link to this definition"></a></dt>
+<dd><p>Get all the SBSParamNode that are referencing the given dependency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDependency</strong> (str or <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – The dependency to look for (UID or object)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAllowedAttributes">
+<span class="sig-name descname"><span class="pre">getAllowedAttributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAllowedAttributes" title="Link to this definition"></a></dt>
+<dd><p>Get the attributes allowed on a SBSFunction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of attribute enumeration allowed (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getAttribute">
+<span class="sig-name descname"><span class="pre">getAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getAttribute" title="Link to this definition"></a></dt>
+<dd><p>Get the given attribute value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – the attribute identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the attribute value if defined, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getCommentsAssociatedToNode">
+<span class="sig-name descname"><span class="pre">getCommentsAssociatedToNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getCommentsAssociatedToNode" title="Link to this definition"></a></dt>
+<dd><p>Get the list of comments associated to the given node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – The node to consider, as a SBSParamNode or given its UID</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getConnectionsFromNode">
+<span class="sig-name descname"><span class="pre">getConnectionsFromNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getConnectionsFromNode" title="Link to this definition"></a></dt>
+<dd><p>Get the connections starting from the output of the given left node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the node to consider, as a SBSParamNode or given its uid</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getConnectionsToNode">
+<span class="sig-name descname"><span class="pre">getConnectionsToNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNodeInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getConnectionsToNode" title="Link to this definition"></a></dt>
+<dd><p>Get the connections incoming to the given right node, to a particular input or for all its inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aRightNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the node to consider, as a SBSParamNode or given its uid</p></li>
+<li><p><strong>aRightNodeInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str, optional) – the pin input identifier to consider. If let None, all the inputs will be considered</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../sbscommon/connections.html#sbscommon.connections.SBSConnection" title="sbscommon.connections.SBSConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSConnection</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getDynamicValue">
+<span class="sig-name descname"><span class="pre">getDynamicValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getDynamicValue" title="Link to this definition"></a></dt>
+<dd><p>Get the function definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <a class="reference internal" href="../params/dynamicvalue.html#params.dynamicvalue.SBSDynamicValue" title="params.dynamicvalue.SBSDynamicValue"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDynamicValue</span></code></a> object that defines this function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getInputParameter">
+<span class="sig-name descname"><span class="pre">getInputParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getInputParameter" title="Link to this definition"></a></dt>
+<dd><p>Get the SBSParamInput definition associated to the given identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – input parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the corresponding <a class="reference internal" href="inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getInputParameterIndex">
+<span class="sig-name descname"><span class="pre">getInputParameterIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getInputParameterIndex" title="Link to this definition"></a></dt>
+<dd><p>Get the index of the given input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – input parameter identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the index of the input entry as an integer if found, -1 otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getInputParameters">
+<span class="sig-name descname"><span class="pre">getInputParameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getInputParameters" title="Link to this definition"></a></dt>
+<dd><p>Get the list of inputs parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getInputParametersInVisibleIfExpression">
+<span class="sig-name descname"><span class="pre">getInputParametersInVisibleIfExpression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aVisibleIf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getInputParametersInVisibleIfExpression" title="Link to this definition"></a></dt>
+<dd><p>Get the list of inputs parameters referenced in the given VisibleIf expression</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aVisibleIf</strong> (<em>str</em>) – the VisibleIf expression</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getNode">
+<span class="sig-name descname"><span class="pre">getNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getNode" title="Link to this definition"></a></dt>
+<dd><p>Search for the given function node in the node list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – node to get, identified by its uid or as a <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getNodeAssociatedToComment">
+<span class="sig-name descname"><span class="pre">getNodeAssociatedToComment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aComment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getNodeAssociatedToComment" title="Link to this definition"></a></dt>
+<dd><p>Get the node associated to the given comment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aComment</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The comment to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getNodeList">
+<span class="sig-name descname"><span class="pre">getNodeList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodesList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getNodeList" title="Link to this definition"></a></dt>
+<dd><p>Get all the function nodes of this function, or look for the given nodes if aNodesList is not None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodesList</strong> (list of str or list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>, optional) – list of node to look for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> included in the function graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getNodesConnectedFrom">
+<span class="sig-name descname"><span class="pre">getNodesConnectedFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getNodesConnectedFrom" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes connected to the output of the given node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aLeftNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the node to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getNodesConnectedTo">
+<span class="sig-name descname"><span class="pre">getNodesConnectedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRightNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNodeInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getNodesConnectedTo" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes connected to the given input of the given node.
+If aInputIdentifier is let None, consider all the inputs of the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aRightNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the node to consider, as an object or given its uid</p></li>
+<li><p><strong>aRightNodeInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str, optional) – the input to take in account</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getNodesDockedTo">
+<span class="sig-name descname"><span class="pre">getNodesDockedTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getNodesDockedTo" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes that are docked to the given node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>) – the node to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> corresponding to the nodes that are docked to the given node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getNodesInFrame">
+<span class="sig-name descname"><span class="pre">getNodesInFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getNodesInFrame" title="Link to this definition"></a></dt>
+<dd><p>Get all the nodes included or partially included in the given frame.
+The frame must be included in this function, otherwise SBSImpossibleActionError is raised</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aFrame</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The frame to consider</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getOutputNode">
+<span class="sig-name descname"><span class="pre">getOutputNode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getOutputNode" title="Link to this definition"></a></dt>
+<dd><p>Get the output node of the function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> object corresponding to the output node if defined, None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getOutputType">
+<span class="sig-name descname"><span class="pre">getOutputType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getOutputType" title="Link to this definition"></a></dt>
+<dd><p>Get the output type of the function.
+The output type can be VOID_TYPE or FUNCTION_ALL if the output node is not set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The output type, as a <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getRect">
+<span class="sig-name descname"><span class="pre">getRect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getRect" title="Link to this definition"></a></dt>
+<dd><p>Get the rectangle occupied by all the nodes of this function graph, or use only the given nodes if aNodeList is not None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNodeList</strong> (list of str or list of <a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>, optional) – The list of node to take in account for the GUI rectangle. None to consider the node list pointed by itself.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.Rect" title="sbscommon.gui.Rect"><code class="xref py py-class docutils literal notranslate"><span class="pre">Rect</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.getUidIsUsed">
+<span class="sig-name descname"><span class="pre">getUidIsUsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.getUidIsUsed" title="Link to this definition"></a></dt>
+<dd><p>Check if the given uid is already used in the context of the function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aUID</strong> (<em>str</em>) – UID ti check</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the uid is already used, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.initFunction">
+<span class="sig-name descname"><span class="pre">initFunction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.initFunction" title="Link to this definition"></a></dt>
+<dd><p>Init the function with default value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.isAPathBetween">
+<span class="sig-name descname"><span class="pre">isAPathBetween</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeftNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRightNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.isAPathBetween" title="Link to this definition"></a></dt>
+<dd><p>Check if there is a path from the left node to the right node with the current connections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aLeftNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – The left node</p></li>
+<li><p><strong>aRightNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – The right node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if a path is found, False otherwise</p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.moveConnectionOnPinInput">
+<span class="sig-name descname"><span class="pre">moveConnectionOnPinInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInitialNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTargetNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInitialNodeInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTargetNodeInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.moveConnectionOnPinInput" title="Link to this definition"></a></dt>
+<dd><p>Allows to move the connection connected to the given pin input of the given node to the target pin input of the target node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aInitialNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the node initially connected, as an object or given its uid</p></li>
+<li><p><strong>aTargetNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the target node, which should be connected after this function, as an object or given its uid</p></li>
+<li><p><strong>aInitialNodeInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str, optional) – the identifier of the input initially connected in aInitialNode</p></li>
+<li><p><strong>aTargetNodeInput</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.FunctionInputEnum" title="sbsenum.FunctionInputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a> or str, optional) – the identifier of the input targeted on aTargetNode</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.moveConnectionsOnPinOutput">
+<span class="sig-name descname"><span class="pre">moveConnectionsOnPinOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInitialNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTargetNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.moveConnectionsOnPinOutput" title="Link to this definition"></a></dt>
+<dd><p>Allows to move all the connections connected to the output of the given node to the output of the target node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aInitialNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the node initially connected, as an object or given its uid</p></li>
+<li><p><strong>aTargetNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – the target node, which should be connected after this function, as an object or given its uid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Raise<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>) – execution context</p></li>
+<li><p><strong>aDirAbsPath</strong> (<em>str</em>) – the absolute directory containing the current parsed package (.sbs file)</p></li>
+<li><p><strong>aSBSParser</strong> (<a class="reference internal" href="../sbsparser.html#sbsparser.SBSParser" title="sbsparser.SBSParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParser</span></code></a>) – the substance parser</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to parse</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.reframeAroundNodes">
+<span class="sig-name descname"><span class="pre">reframeAroundNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aNodeList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.reframeAroundNodes" title="Link to this definition"></a></dt>
+<dd><p>Move and resize a frame to be around the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aFrame</strong> (<a class="reference internal" href="../sbscommon/gui.html#sbscommon.gui.SBSGUIObject" title="sbscommon.gui.SBSGUIObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGUIObject</span></code></a>) – The frame to edit</p></li>
+<li><p><strong>aNodeList</strong> (list of class:<cite>.SBSParamNode</cite>) – The nodes to include in the frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>SBSImpossibleActionError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.setAttribute">
+<span class="sig-name descname"><span class="pre">setAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aAttributeIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributeValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.setAttribute" title="Link to this definition"></a></dt>
+<dd><p>Set the given attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aAttributeIdentifier</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.AttributesEnum" title="sbsenum.AttributesEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a>) – The attribute identifier to set</p></li>
+<li><p><strong>aAttributeValue</strong> (<em>str</em>) – The attribute value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.setInputParameterIndex">
+<span class="sig-name descname"><span class="pre">setInputParameterIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputParamIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIndex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.setInputParameterIndex" title="Link to this definition"></a></dt>
+<dd><p>Set the index of the given input parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aInputParamIdentifier</strong> (<em>str</em>) – input parameter identifier</p></li>
+<li><p><strong>aIndex</strong> (<em>int</em>) – index to set, in the range [0 ; nbInputParameters[</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code> if failed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.setOutputNode">
+<span class="sig-name descname"><span class="pre">setOutputNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.setOutputNode" title="Link to this definition"></a></dt>
+<dd><p>Set the output node of the function. This may change the type of the function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a> or str) – The node to set as output, as an object or identified by its UID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.sortNodesAsDAG">
+<span class="sig-name descname"><span class="pre">sortNodesAsDAG</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.sortNodesAsDAG" title="Link to this definition"></a></dt>
+<dd><p>Sort the ParamNode list of the function to order them as a DAG. The member mParamNodes of the DynamicValue is updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the sorted node list.</p>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">api_exceptions.SBSImpossibleActionError</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="graph.function.SBSFunction.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.function.SBSFunction.write" title="Link to this definition"></a></dt>
+<dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aSBSWriter</strong> (<a class="reference internal" href="../sbswriter.html#sbswriter.SBSWriter" title="sbswriter.SBSWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSWriter</span></code></a>) – the substance writer</p></li>
+<li><p><strong>aXmlNode</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code>) – the xml node to fill</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="graph.html" class="btn btn-neutral float-left" title="graph module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inputparameters.html" class="btn btn-neutral float-right" title="inputparameters module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

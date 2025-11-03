@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsparser module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sbswriter module" href="sbswriter.html" />
+    <link rel="prev" title="sbsimpactmanager module" href="sbsimpactmanager.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbsparser module: Substance parser: used to deserialize a .sbs file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sbsparser.FileTypeEnum"><code class="docutils literal notranslate"><span class="pre">FileTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsparser.SBSParser"><code class="docutils literal notranslate"><span class="pre">SBSParser</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbsparser module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbsparser">
+<span id="sbsparser-module"></span><h1>sbsparser module<a class="headerlink" href="#module-sbsparser" title="Link to this heading"></a></h1>
+<p>Module sbsparser provides the class SBSParser which allows the deserialization of a .sbs file into a <a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a></p>
+<p>All derived <a class="reference internal" href="common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a> have a <em>parse</em> function with the same signature than on the base class
+<a class="reference internal" href="common_interfaces/sbsobject.html#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a>: <code class="xref py py-func docutils literal notranslate"><span class="pre">common_interface.SBSObject.parse()</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsparser.FileTypeEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsparser.</span></span><span class="sig-name descname"><span class="pre">FileTypeEnum</span></span><a class="headerlink" href="#sbsparser.FileTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of different document types SBSParser can read</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SBS</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">SBSAR</span>  <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SBSPRS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">SBSPRJ</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sbsparser.FileTypeEnum.SBS">
+<span class="sig-name descname"><span class="pre">SBS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#sbsparser.FileTypeEnum.SBS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sbsparser.FileTypeEnum.SBSAR">
+<span class="sig-name descname"><span class="pre">SBSAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#sbsparser.FileTypeEnum.SBSAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sbsparser.FileTypeEnum.SBSPRJ">
+<span class="sig-name descname"><span class="pre">SBSPRJ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#sbsparser.FileTypeEnum.SBSPRJ" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sbsparser.FileTypeEnum.SBSPRS">
+<span class="sig-name descname"><span class="pre">SBSPRS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#sbsparser.FileTypeEnum.SBSPRS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsparser.SBSParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsparser.</span></span><span class="sig-name descname"><span class="pre">SBSParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used to provide useful functions when parsing a .sbs (=xml) file</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getAllSBSElementsIn">
+<span class="sig-name descname"><span class="pre">getAllSBSElementsIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTagName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSClass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getAllSBSElementsIn" title="Link to this definition"></a></dt>
+<dd><p>Search for all children with the given tag under the given xmlNode, and parse them recursively</p>
+<p>&lt;xmlNode&gt;&lt;tagname&gt;…&lt;/tagname&gt;&lt;tagname&gt;…&lt;/tagname&gt;…&lt;/xmlNode&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of SBS objects corresponding to the given tag, or [] if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getAllSBSElementsInMulti">
+<span class="sig-name descname"><span class="pre">getAllSBSElementsInMulti</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTagConstructorDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getAllSBSElementsInMulti" title="Link to this definition"></a></dt>
+<dd><p>Search for all children with various names under the given xmlNode, and parse them recursively
+using the parse function from the tag constructor dict</p>
+<p>&lt;xmlNode&gt;&lt;tagnameA&gt;…&lt;/tagnameA&gt;&lt;tagnameB&gt;…&lt;/tagnameB&gt;…&lt;/xmlNode&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of SBS objects corresponding to the given tag, or [] if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getAllXmlElementsUnder">
+<span class="sig-name descname"><span class="pre">getAllXmlElementsUnder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aXmlElement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTagName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getAllXmlElementsUnder" title="Link to this definition"></a></dt>
+<dd><p>Get the xmlElements with the given tagName under the given xmlElement:</p>
+<p>&lt;xmlElement&gt;&lt;tagname&gt;…&lt;/tagname&gt;&lt;tagname&gt;…&lt;/tagname&gt;…&lt;/xmlElement&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of xmlElement</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getRootNode">
+<span class="sig-name descname"><span class="pre">getRootNode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getRootNode" title="Link to this definition"></a></dt>
+<dd><p>Get the .sbs file root node
+:return: element of type etree</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getSBSElementIn">
+<span class="sig-name descname"><span class="pre">getSBSElementIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTagName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSClass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getSBSElementIn" title="Link to this definition"></a></dt>
+<dd><p>Search for first child with the given tag under the given xmlNode, and parse them recursively</p>
+<p>&lt;xmlNode&gt;&lt;tagname&gt;…&lt;/tagname&gt;&lt;tagname&gt;…&lt;/tagname&gt;…&lt;/xmlNode&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SBS object corresponding to the given tag, or None if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getSBSElementList">
+<span class="sig-name descname"><span class="pre">getSBSElementList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTagName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aChildTagName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSClass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getSBSElementList" title="Link to this definition"></a></dt>
+<dd><p>Search for all children with the tag childtagname under the tag tagname under the given xmlNode, and parse them recursively:</p>
+<p>&lt;xmlNode&gt;&lt;tagname&gt;&lt;childtagname&gt;…&lt;/childtagname&gt;&lt;childtagname&gt;…&lt;/childtagname&gt;… &lt;/tagname&gt;&lt;/xmlNode&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The list of SBS objects corresponding to the tag childtagname, or [] if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getXmlElementAttribValue">
+<span class="sig-name descname"><span class="pre">getXmlElementAttribValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aXmlElement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAttributeName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getXmlElementAttribValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the attribute with the given name on the given xmlElement:</p>
+<p>&lt;xmlElement attributeName=””/&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The attribute value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getXmlElementVAttribValue">
+<span class="sig-name descname"><span class="pre">getXmlElementVAttribValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aXmlElementParent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aChildName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getXmlElementVAttribValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the attribute ‘v’ on the given child element under xmlElementParent:</p>
+<p>&lt;xmlElementParent&gt;&lt;childName v=””/&gt; … &lt;/xmlElementParent&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The attribute value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.getXmlFilePathValue">
+<span class="sig-name descname"><span class="pre">getXmlFilePathValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aXmlElementParent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aChildName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.getXmlFilePathValue" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the attribute ‘v’ on the given child element under xmlElementParent:
+&lt;xmlElementParent&gt;&lt;childName v=””/&gt; … &lt;/xmlElementParent&gt;
+Then convert attribute path given as a relative path.
+:return: The attribute value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.isValid">
+<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.isValid" title="Link to this definition"></a></dt>
+<dd><p>Check if the package is valid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the package is valid, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.parseSBSNode">
+<span class="sig-name descname"><span class="pre">parseSBSNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTagName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSClass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.parseSBSNode" title="Link to this definition"></a></dt>
+<dd><p>Search for a child node with the given tag in the given XmlNode, and parse the corresponding SBS object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the SBSObject parsed, or None if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sbsparser.SBSParser.parseSBSNodeFromXmlNode">
+<span class="sig-name descname"><span class="pre">parseSBSNodeFromXmlNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSClass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsparser.SBSParser.parseSBSNodeFromXmlNode" title="Link to this definition"></a></dt>
+<dd><p>Search for a child node with the given tag in the given XmlNode, and parse the corresponding SBS object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the SBSObject parsed, or None if not found</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsimpactmanager.html" class="btn btn-neutral float-left" title="sbsimpactmanager module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbswriter.html" class="btn btn-neutral float-right" title="sbswriter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
