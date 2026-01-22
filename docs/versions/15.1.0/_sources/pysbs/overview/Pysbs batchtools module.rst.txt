@@ -1,0 +1,154 @@
+.. _ref-to-overview-batchtools:
+
+
+PySbs batchtools module
+^^^^^^^^^^^^^^^^^^^^^^^
+The PySbs batchtools module allows you to call the different command line tools like ordinary python commands.
+
+:ref:`ref-to-batchtools-batchtools` batchtools api reference.
+
+
+The batchtools module wraps subprocess.Popen and makes it possible to use different command options as native arguments
+in python.
+The common structure of a batchtool is:
+
+.. code-block:: python
+
+    {toolName}_{toolCommand}(an_input_file, bool_flag=True, string_flag="a value", int_flag=1, list_flag=["a value", "other value"], ...)
+
+    # I.E
+    # a batchtool commandline conversion:
+    # substance3d_baker AmbientOcclusion.Raytraced /a/path/to/a/mesh/foo_low.fbx --output_size 256,256 --high_scene_paths a/path/to/a/mesh/foo_hi.fbx --output_name baked_name
+    # PySBS version :
+    proc = substance3d_baker_ambient_occlusion_raytraced("/a/path/to/a/mesh/foo_low.fbx", output_size=(256, 256),
+                                                high_scene_paths="/a/path/to/a/mesh/foo_hi.fbx", output_name="baked_name")
+    proc.wait() # wait the end of the process
+
+
+It is important to call `.wait()` on the returned process handle before using any output data from the command.
+
+:ref:`ref-to-demo-batchtools` Examples which demonstrates an automated pipeline using a mesh with udims.
+
+
+.. _ref-to-overview-batchtools-outputhandlers:
+
+batchtool's OutputHandlers
+--------------------------
+
+For some batchtools it can be an advantage to retrieve information from the output of the process. As instance
+`batchtools.substance3d_baker_info` output is very useful to retrieve mesh information like udims or color id but the process
+management and the information parsing may become painful.
+That's why SAT introduced some OutputHandlers to handle this for you. An OutputHandler become the result of a batchtools
+call instead of a Popen object.
+The OutputHandler digests the process and its output to give an usable object depend of the batchtool.
+
+Example:
+
+.. code-block:: python
+
+    # call a substance3d_baker_info with the kwarg output_handler=True to get an OutputHandler instead of Popen
+    # the OutputHandler will stop the interpreter during the batchtool process exactly like Popen.wait()
+    out = batchtools.substance3d_baker_info('foo.fbx', output_handler=True)
+    print(out)
+    # <pysbs.batchtools.output_handlers.Substance3dBakerInfoOutputHandler object at 0x7f8808fe1c50>
+    # to get the result use get_results, an OutputHandler's common method that extracts the information from the raw output
+    results = out.get_results()
+    print(results)
+    # [<pysbs.batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct object at 0x7f7757881c10>, <pysbs.batchtools.substance3d_baker_info_handlers.Substance3dBakerInfoMeshStruct object at 0x7f7757881e10>]
+    # Substance3dBakerInfoOutputHandler.get_results() return a list of Substance3dBakerInfoMeshStruct. Follow the doc to get more details of Substance3dBakerInfoMeshStruct
+    # as much as possible each member type is converted in a python type.
+    for mesh in results:
+        # some examples of its different members
+        print(mesh.path)
+        print(mesh.vertices_number)
+        for uv in mesh.uvs:
+            print(uv.udim_tiles)
+        for subpart in mesh.geom_subsets:
+            print(subpart.color)
+    # it become easy to retrieve all the udims or uv tiles:
+    all_udims = set([udim for mesh in results for uv in mesh.uvs for udim in uv.udim_tiles])
+
+    # an other OutputHandler common method is dump() to write the output in a stream IO (file)
+    with open("dumped_file.ext", 'w') as f:
+        out.dump(f)
+
+
+More details on the different OutputHandlers and it's associated objects :
+
+SbsRenderOutputHandler :ref:`ref-to-output_handlers`
+
+SbsRenderGraphStruct :ref:`ref-to-sbsrender_render_handlers`
+
+Substance3dBakerInfoOutputHandler :ref:`ref-to-output_handlers`
+
+Substance3dBakerInfoMeshStruct :ref:`ref-to-substance3d_baker_info_handlers`
+
+
+.. _ref-to-render-animate:
+
+render animation sequence
+-------------------------
+
+As part of batchtools there is also `sbsrender_render_animate` function that allows you to render an image sequence.
+`sbsrender_render_animate` renders an image sequence from an sbsar input using sbsrender.
+It takes a start frame, an end frame and frames per second.
+The sbsrender command line tool will be called once for each frame.
+
+By default the $time parameter will be generated for each frame based on start, end and fps.
+It is also possible to set pass in other sbsrender parameters globally.
+
+To animate other parameters than $time `sbsrender_render_animate` has the `animated_parameters` argument .
+This argument allow to pass a list of pairs of parameter names and functions taking frame and fps as parameters allowing
+you to generate them over the image sequence.
+
+More details about the different arguments on the api reference page :ref:`ref-to-batchtools-batchtools`
+
+Example:
+
+.. code-block:: python
+
+    batchtools.sbsrender_render_animate("explosion.sbsar",
+                                        start=0,
+                                        end=50,
+                                        fps=24,
+                                        output_path="{inputPath}/animate_outputs",
+                                        output_name="animate_frame_####",
+                                        input_graph_output="output",
+                                        animated_parameters=[
+                                            ("input", lambda frame, fps: frame / fps)],
+                                        multi_proc=4)
+
+This example renders 51 frames with a frame rate of 24. Note that the output_name value has a sequence padding
+looking like `###` to specify the frame name in the filename.
+In this example the `animated_parameters` is used to tweak the `input` parameter over time using a lambda function
+taking the two arguments `frame` and `fps`
+
+.. image:: ../images/explosion.gif
+    :width: 384px
+    :align: center
+
+
+.. _ref-to-overview-batchtools-commandonly:
+
+command_only option
+-------------------
+
+Sometimes it could be great to only query the command line without execute it. As instance all the batchtools commands
+could be "starting" on the user local machine but not executed instead all the commands are written in a file that will
+be executed later by a renderfarm.
+Simple example:
+
+.. code-block:: python
+
+    from pysbs import batchtools
+    cmds = []
+    cmds.append(batchtools.sbscooker("foo.sbs", output_path="/output", command_only=True))
+    cmds.append(batchtools.sbsrender_render("/output/foo.sbsar", output_path="/output", command_only=True))
+    with open("/output/batchcommands.txt", "w") as f:
+        f.writelines('\n'.join(cmds))
+
+
+Generate thumbnails
+-------------------
+
+Generate thumbnails with SAT :ref:`ref-to-overview-thumbnail`

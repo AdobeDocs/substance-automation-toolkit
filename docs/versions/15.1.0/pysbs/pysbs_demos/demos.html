@@ -1,0 +1,1082 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>demos module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="demos_batchtools module" href="demos_batchtools.html" />
+    <link rel="prev" title="demohelloworld module" href="demohelloworld.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview/overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview/Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview/SAT%20demos.html">SAT demos</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="demohelloworld.html">demohelloworld module: A very simple function that creates a basic Substance, which uses the API without argument file</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">demos module: Set a sample functions to demonstrate the use of the API, using argument files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoBakingParameters"><code class="docutils literal notranslate"><span class="pre">demoBakingParameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoBuildSBSFromPainterBitmaps"><code class="docutils literal notranslate"><span class="pre">demoBuildSBSFromPainterBitmaps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoCreation"><code class="docutils literal notranslate"><span class="pre">demoCreation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoCreationMDL"><code class="docutils literal notranslate"><span class="pre">demoCreationMDL()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoExportWithDependencies"><code class="docutils literal notranslate"><span class="pre">demoExportWithDependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoIteration"><code class="docutils literal notranslate"><span class="pre">demoIteration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoIterationFlame"><code class="docutils literal notranslate"><span class="pre">demoIterationFlame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoIterationPixProc"><code class="docutils literal notranslate"><span class="pre">demoIterationPixProc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoMassiveModification"><code class="docutils literal notranslate"><span class="pre">demoMassiveModification()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demos.demoReadWriteSBS"><code class="docutils literal notranslate"><span class="pre">demoReadWriteSBS()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos_batchtools.html">demos_batchtools module: Set a sample functions to demonstrate the use of the API with the batchtools, using argument files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="script_update_with_sbsupdater.html">script_update_with_sbsupdater: Script allowing to update all Substances in a folder using the Batch Tool SBSUpdater</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview/overview.html">API overview</a></li>
+          <li class="breadcrumb-item"><a href="../overview/SAT%20demos.html">SAT demos</a></li>
+      <li class="breadcrumb-item active">demos module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-demos">
+<span id="demos-module"></span><span id="ref-to-demo-module"></span><h1>demos module<a class="headerlink" href="#module-demos" title="Link to this heading"></a></h1>
+<p>Module <strong>demos</strong> provides samples of usage of Pysbs.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoBakingParameters">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoBakingParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoBakingParameters" title="Link to this definition"></a></dt>
+<dd><p>Demonstrates the creation and edition of the baking parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – The absolute path of the file</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoBakingParameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Parse the .sbs file and provide the object structure of the entire substance</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">():</span>
+        <span class="c1"># Add a new Scene resource to the document</span>
+        <span class="n">aRelPath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="n">aRelPathFromPackage</span><span class="o">=</span><span class="s1">&#39;./Models/m41_low.fbx&#39;</span><span class="p">)</span>
+        <span class="n">aNewResource</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createLinkedResource</span><span class="p">(</span><span class="n">aIdentifier</span><span class="o">=</span><span class="s1">&#39;LowResMesh&#39;</span><span class="p">,</span>
+                                                   <span class="n">aResourcePath</span><span class="o">=</span><span class="n">aRelPath</span><span class="p">,</span>
+                                                   <span class="n">aResourceTypeEnum</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">SCENE</span><span class="p">)</span>
+
+        <span class="c1"># Create BakingParameters for this resource</span>
+        <span class="n">aBakingParams</span> <span class="o">=</span> <span class="n">aNewResource</span><span class="o">.</span><span class="n">createBakingParameters</span><span class="p">()</span>
+
+        <span class="c1"># Add a high poly mesh from a file path</span>
+        <span class="n">aHighPolyFilePath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;./Models/m41_high.fbx&#39;</span><span class="p">)</span>
+        <span class="n">aBakingParams</span><span class="o">.</span><span class="n">addHighDefinitionMeshFromFile</span><span class="p">(</span><span class="n">aHighPolyFilePath</span><span class="p">)</span>
+
+        <span class="c1"># Set default Antialiasing value</span>
+        <span class="n">aBakingParams</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DEFAULT__SUB_SAMPLING</span><span class="p">,</span> <span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerFromMeshSubSamplingEnum</span><span class="o">.</span><span class="n">SUBSAMPLING_4x4</span><span class="p">)</span>
+
+        <span class="c1"># Add a Bent Normal From Mesh baker</span>
+        <span class="n">BN_baker</span> <span class="o">=</span> <span class="n">aBakingParams</span><span class="o">.</span><span class="n">addBaker</span><span class="p">(</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">BENT_NORMALS_FROM_MESH</span><span class="p">)</span>
+
+        <span class="c1"># Add a Normal Map From Mesh baker</span>
+        <span class="n">NM_baker</span> <span class="o">=</span> <span class="n">aBakingParams</span><span class="o">.</span><span class="n">addBaker</span><span class="p">(</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">NORMAL_MAP_FROM_MESH</span><span class="p">)</span>
+
+        <span class="c1"># Set Antialiasing value specifically to NormalMap baker</span>
+        <span class="n">NM_baker</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL__SUB_SAMPLING</span><span class="p">,</span>
+                                   <span class="n">aParamValue</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerFromMeshSubSamplingEnum</span><span class="o">.</span><span class="n">SUBSAMPLING_2x2</span><span class="p">)</span>
+
+        <span class="c1"># Add an Ambient Occlusion baker which uses the resulting map of the Normal Map From Mesh baker</span>
+        <span class="n">AO_baker</span> <span class="o">=</span> <span class="n">aBakingParams</span><span class="o">.</span><span class="n">addBaker</span><span class="p">(</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">AMBIENT_OCCLUSION</span><span class="p">)</span>
+        <span class="n">AO_baker</span><span class="o">.</span><span class="n">setFileParameterValueFromPreviousBaker</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="n">sbsbakers</span><span class="o">.</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_MAP</span><span class="p">,</span>
+                                                        <span class="n">aPreviousBaker</span><span class="o">=</span><span class="n">NM_baker</span><span class="p">)</span>
+
+        <span class="c1"># Set back the baking parameters into the options of the second resource</span>
+        <span class="n">aNewResource</span><span class="o">.</span><span class="n">setBakingParameters</span><span class="p">(</span><span class="n">aBakingParams</span><span class="p">)</span>
+
+        <span class="c1"># Write back the document structure into the destination .sbs file</span>
+        <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoBakingParameters] Failed to edit the baking parameters&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoBuildSBSFromPainterBitmaps">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoBuildSBSFromPainterBitmaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoBuildSBSFromPainterBitmaps" title="Link to this definition"></a></dt>
+<dd><p>Create a graph with as many Bitmap &amp; Output node as picture files in the Painter folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting SBS file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoBuildSBSFromPainterBitmaps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">xOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">yOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">initPos</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Create a new SBSDocument from scratch</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">sbsgenerator</span><span class="o">.</span><span class="n">createSBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span>
+                            <span class="n">aFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">,</span>
+                            <span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;PainterFilter&#39;</span><span class="p">,</span>
+                            <span class="n">aParameters</span>  <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span><span class="p">:[</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">,</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">],</span>
+                                            <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputFormatEnum</span><span class="o">.</span><span class="n">FORMAT_16BITS</span><span class="p">},</span>
+                            <span class="n">aInheritance</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">,</span>
+                                            <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">})</span>
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;PainterFilter&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Retrieve bitmaps</span>
+    <span class="n">aPathOutputs</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">mDirAbsPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
+    <span class="n">aListOutputs</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">aPathOutputs</span><span class="o">+</span><span class="s2">&quot;*.png&quot;</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aListOutputs</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">aListOutputs</span><span class="p">)):</span>
+
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">aListOutputs</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+        <span class="c1"># Create a Bitmap node</span>
+        <span class="n">aBitmapNode</span>   <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createBitmapNode</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                            <span class="n">aResourcePath</span>  <span class="o">=</span> <span class="n">aListOutputs</span><span class="p">[</span><span class="n">x</span><span class="p">],</span>
+                            <span class="n">aGUIPos</span>        <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">yOffset</span><span class="p">],</span>
+                            <span class="n">aParameters</span>    <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span><span class="p">:</span><span class="kc">True</span><span class="p">},</span>
+                            <span class="n">aCookedFormat</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">BitmapFormatEnum</span><span class="o">.</span><span class="n">JPG</span><span class="p">,</span>
+                            <span class="n">aCookedQuality</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">aId</span> <span class="o">=</span> <span class="n">aListOutputs</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">aListOutputs</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+
+        <span class="c1"># Create a Output color node</span>
+        <span class="n">aOutputNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="n">aId</span><span class="p">,</span>
+                            <span class="n">aGUIPos</span>        <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="nb">zip</span><span class="p">([</span><span class="n">y</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">yOffset</span><span class="p">],</span> <span class="n">xOffset</span><span class="p">)),</span>
+                            <span class="n">aOutputFormat</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TextureFormatEnum</span><span class="o">.</span><span class="n">DEFAULT_FORMAT</span><span class="p">,</span>
+                            <span class="n">aAttributes</span>    <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Description</span><span class="p">:</span> <span class="s1">&#39;Exported from painter: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">aId</span><span class="p">},</span>
+                            <span class="n">aMipmaps</span>       <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">MipmapEnum</span><span class="o">.</span><span class="n">LEVELS_12</span><span class="p">,</span>
+                            <span class="n">aUsages</span>        <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">DIFFUSE</span><span class="p">:</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span><span class="p">},</span>
+                                              <span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">:</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">R</span><span class="p">}})</span>
+
+        <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span>  <span class="o">=</span> <span class="n">aBitmapNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aOutputNode</span><span class="p">,</span>
+                            <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT_NODE_OUTPUT</span> <span class="p">)</span>
+
+        <span class="c1"># Update node position</span>
+        <span class="n">initPos</span> <span class="o">+=</span> <span class="n">yOffset</span>
+
+    <span class="c1"># Write back the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">()</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoBuildSBSFromPainterBitmaps] Failed to create the new package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoCreation">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoCreation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoCreation" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Demonstrates all what is possible to create using this API:</dt><dd><ul class="simple">
+<li><p>A new substance from scratch</p></li>
+<li><p>Compositing graph (all filters, instance of graphs, inputs and outputs…)</p></li>
+<li><p>Function graph (all functions, instance of functions, …)</p></li>
+<li><p>Definition of input parameters for graphs and functions</p></li>
+<li><p>Definition of a dynamic parameter</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoCreation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Create a new package</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">sbsgenerator</span><span class="o">.</span><span class="n">createSBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;MyGraph&#39;</span><span class="p">,</span>
+                                <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputFormatEnum</span><span class="o">.</span><span class="n">FORMAT_16BITS</span><span class="p">},</span>
+                                <span class="n">aInheritance</span><span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">})</span>
+    <span class="n">aSubGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;MySubGraph&#39;</span><span class="p">)</span>
+    <span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createFunction</span><span class="p">(</span><span class="n">aFunctionIdentifier</span> <span class="o">=</span> <span class="s1">&#39;MyFunction&#39;</span><span class="p">)</span>
+    <span class="n">aResourceGroup</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createGroup</span><span class="p">(</span> <span class="n">aParentFolder</span> <span class="o">=</span> <span class="s1">&#39;MyResources&#39;</span><span class="p">,</span> <span class="n">aGroupIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Bitmaps&#39;</span> <span class="p">)</span>
+
+    <span class="n">startPos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">48</span><span class="p">,</span>  <span class="mi">48</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+    <span class="n">xOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+    <span class="n">yOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">192</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+    <span class="n">xyOffset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># ------------------------------------------------------------------------------------------</span>
+    <span class="c1"># Create the graph &#39;MySubGraph&#39;</span>
+    <span class="c1"># ------------------------------------------------------------------------------------------</span>
+
+    <span class="c1"># Create Input parameters for MySubGraph</span>
+    <span class="c1"># - Parameter InputColor(RGBA)</span>
+    <span class="n">aSubGraph</span><span class="o">.</span><span class="n">addInputParameter</span><span class="p">(</span><span class="n">aIdentifier</span>   <span class="o">=</span> <span class="s1">&#39;InputColor&#39;</span><span class="p">,</span>
+                        <span class="n">aWidget</span>       <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">COLOR_FLOAT4</span><span class="p">,</span>
+                        <span class="n">aDefaultValue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">aLabel</span>        <span class="o">=</span> <span class="s1">&#39;Input Color&#39;</span><span class="p">)</span>
+
+    <span class="c1"># - Parameter Blending(DropDown list)</span>
+    <span class="n">aParam</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="o">.</span><span class="n">addInputParameter</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Blending&#39;</span><span class="p">,</span>
+                        <span class="n">aWidget</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">DROPDOWN_INT1</span><span class="p">,</span>
+                        <span class="n">aLabel</span>  <span class="o">=</span> <span class="s1">&#39;Blending&#39;</span><span class="p">)</span>
+    <span class="n">aParam</span><span class="o">.</span><span class="n">setDropDownList</span><span class="p">(</span><span class="n">aValueMap</span><span class="o">=</span><span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">BlendBlendingModeEnum</span><span class="o">.</span><span class="n">MULTIPLY</span><span class="p">:</span> <span class="s1">&#39;Multiply&#39;</span><span class="p">,</span>
+                                      <span class="n">sbsenum</span><span class="o">.</span><span class="n">BlendBlendingModeEnum</span><span class="o">.</span><span class="n">OVERLAY</span><span class="p">:</span> <span class="s1">&#39;Overlay&#39;</span><span class="p">,</span>
+                                      <span class="n">sbsenum</span><span class="o">.</span><span class="n">BlendBlendingModeEnum</span><span class="o">.</span><span class="n">SOFT_LIGHT</span><span class="p">:</span> <span class="s1">&#39;Soft Light&#39;</span><span class="p">})</span>
+    <span class="n">aParam</span><span class="o">.</span><span class="n">setDefaultValue</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">BlendBlendingModeEnum</span><span class="o">.</span><span class="n">MULTIPLY</span><span class="p">)</span>
+
+    <span class="c1"># Create the content of the graph MySubGraph</span>
+    <span class="c1"># - Uniform color filter</span>
+    <span class="n">aUniformColor</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ColorModeEnum</span><span class="o">.</span><span class="n">COLOR</span><span class="p">,</span>
+                                       <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.54</span><span class="p">,</span><span class="mf">0.063</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]},</span>
+                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">startPos</span><span class="p">)</span>
+
+    <span class="c1"># - Input node color</span>
+    <span class="n">aInputNode</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="o">.</span><span class="n">createInputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;MyInput&#39;</span><span class="p">,</span>
+                        <span class="n">aColorMode</span>   <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ColorModeEnum</span><span class="o">.</span><span class="n">COLOR</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span>      <span class="o">=</span> <span class="n">aUniformColor</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">),</span>
+                        <span class="n">aAttributes</span>  <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Label</span><span class="p">:</span> <span class="s1">&#39;My Input&#39;</span><span class="p">},</span>
+                        <span class="n">aUsages</span>      <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">BASECOLOR</span><span class="p">:{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGB</span><span class="p">}})</span>
+
+    <span class="c1"># - Blend filter</span>
+    <span class="n">aBlendNode</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">BLEND</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span>      <span class="o">=</span> <span class="n">aUniformColor</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">),</span>
+                        <span class="n">aParameters</span>  <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BLENDING_MODE</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">BlendBlendingModeEnum</span><span class="o">.</span><span class="n">MULTIPLY</span><span class="p">,</span>
+                                        <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OPACITY</span><span class="p">:</span> <span class="mf">0.67</span><span class="p">},</span>
+                        <span class="n">aInheritance</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">PARENT</span><span class="p">})</span>
+
+    <span class="c1"># - Output node</span>
+    <span class="n">aOutputNode</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;MyOutput&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span>       <span class="o">=</span> <span class="n">aBlendNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                        <span class="n">aOutputFormat</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TextureFormatEnum</span><span class="o">.</span><span class="n">DEFAULT_FORMAT</span><span class="p">,</span>
+                        <span class="n">aAttributes</span>   <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Description</span><span class="p">:</span> <span class="s1">&#39;SubGraph Output&#39;</span><span class="p">},</span>
+                        <span class="n">aUsages</span>       <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">BASECOLOR</span><span class="p">:</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span><span class="p">}})</span>
+
+    <span class="c1"># Connect the nodes</span>
+    <span class="n">aSubGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span>  <span class="o">=</span> <span class="n">aInputNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aBlendNode</span><span class="p">,</span>
+                        <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">DESTINATION</span><span class="p">)</span>
+    <span class="n">aSubGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span>  <span class="o">=</span> <span class="n">aUniformColor</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aBlendNode</span><span class="p">,</span>
+                        <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">SOURCE</span><span class="p">)</span>
+    <span class="n">aSubGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span>  <span class="o">=</span> <span class="n">aBlendNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aOutputNode</span><span class="p">,</span>
+                        <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">InputEnum</span><span class="o">.</span><span class="n">INPUT_NODE_OUTPUT</span><span class="p">)</span>
+
+    <span class="c1"># Define some dynamic parameters, handled by the input parameters defined in SubGraph:</span>
+    <span class="n">aDynFunction</span> <span class="o">=</span> <span class="n">aUniformColor</span><span class="o">.</span><span class="n">setDynamicParameter</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">)</span>
+    <span class="n">aDynFunction</span><span class="o">.</span><span class="n">setToInputParam</span><span class="p">(</span><span class="n">aParentGraph</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="p">,</span> <span class="n">aInputParamIdentifier</span> <span class="o">=</span> <span class="s1">&#39;InputColor&#39;</span><span class="p">)</span>
+
+    <span class="n">aDynFunction</span> <span class="o">=</span> <span class="n">aBlendNode</span><span class="o">.</span><span class="n">setDynamicParameter</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">BLENDING_MODE</span><span class="p">)</span>
+    <span class="n">aDynFunction</span><span class="o">.</span><span class="n">setToInputParam</span><span class="p">(</span><span class="n">aParentGraph</span> <span class="o">=</span> <span class="n">aSubGraph</span><span class="p">,</span> <span class="n">aInputParamIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Blending&#39;</span><span class="p">)</span>
+
+
+    <span class="c1"># ------------------------------------------------------------------------------------------</span>
+    <span class="c1"># Create the function &#39;MyFunction&#39;</span>
+    <span class="c1"># ------------------------------------------------------------------------------------------</span>
+    <span class="n">aFunction</span><span class="o">.</span><span class="n">initFunction</span><span class="p">()</span>
+
+    <span class="c1"># - Definition of the function input parameter: BlurIntensity</span>
+    <span class="n">aParamBlur</span> <span class="o">=</span> <span class="s1">&#39;BlurIntensity&#39;</span>
+    <span class="n">aFunction</span><span class="o">.</span><span class="n">addInputParameter</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="n">aParamBlur</span><span class="p">,</span>
+                        <span class="n">aWidget</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_FLOAT1</span><span class="p">)</span>
+
+    <span class="c1"># - Function node Get_Float(BlurIntensity)</span>
+    <span class="n">aNodeGet</span> <span class="o">=</span> <span class="n">aFunction</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT1</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT1</span><span class="p">:</span> <span class="n">aParamBlur</span><span class="p">},</span>
+                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">startPos</span><span class="p">)</span>
+
+    <span class="c1"># - Function node Pi (instance included in package sbs://functions.sbs)</span>
+    <span class="n">aNodePi</span> <span class="o">=</span> <span class="n">aFunction</span><span class="o">.</span><span class="n">createFunctionInstanceNodeFromPath</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aPath</span> <span class="o">=</span> <span class="s1">&#39;sbs://functions.sbs/Functions/Math/Pi&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aNodeGet</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+
+    <span class="c1"># - Function node Mul</span>
+    <span class="n">aNodeMult</span> <span class="o">=</span> <span class="n">aFunction</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">MUL</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aNodeGet</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
+
+    <span class="c1"># Connect the nodes</span>
+    <span class="n">aFunction</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aNodeGet</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span> <span class="n">aNodeMult</span><span class="p">,</span> <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">aFunction</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aNodePi</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aNodeMult</span><span class="p">,</span> <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">B</span><span class="p">)</span>
+    <span class="n">aFunction</span><span class="o">.</span><span class="n">setOutputNode</span><span class="p">(</span><span class="n">aNodeMult</span><span class="p">)</span>
+
+
+    <span class="c1"># ------------------------------------------------------------------------------------------</span>
+    <span class="c1"># Create the graph &#39;MyGraph&#39;</span>
+    <span class="c1"># ------------------------------------------------------------------------------------------</span>
+
+    <span class="c1"># Create Input parameters for MyGraph</span>
+    <span class="n">aParam</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">addInputParameter</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="n">aParamBlur</span><span class="p">,</span>
+                        <span class="n">aWidget</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">WidgetEnum</span><span class="o">.</span><span class="n">SLIDER_FLOAT1</span><span class="p">,</span>
+                        <span class="n">aLabel</span>  <span class="o">=</span> <span class="s1">&#39;Blur Intensity&#39;</span><span class="p">)</span>
+    <span class="n">aParam</span><span class="o">.</span><span class="n">setDefaultValue</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">aParam</span><span class="o">.</span><span class="n">setMaxValue</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># Create the content of MyGraph</span>
+
+    <span class="c1"># - FxMap Node</span>
+    <span class="n">aFxMapNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">FXMAPS</span><span class="p">,</span>
+                        <span class="n">aParameters</span><span class="o">=</span><span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ColorModeEnum</span><span class="o">.</span><span class="n">GRAYSCALE</span><span class="p">,</span>
+                                     <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">RANDOM_SEED</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">startPos</span><span class="p">)</span>
+
+    <span class="c1">#  - Creation of the FxMap graph:</span>
+    <span class="n">aFxMapGraph</span> <span class="o">=</span> <span class="n">aFxMapNode</span><span class="o">.</span><span class="n">getFxMapGraph</span><span class="p">()</span>
+
+    <span class="c1">#   - First Quadrant node (root)</span>
+    <span class="n">aQuadrant1</span> <span class="o">=</span> <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">createFxMapNode</span><span class="p">(</span><span class="n">aFxMapNode</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FxMapNodeEnum</span><span class="o">.</span><span class="n">QUADRANT</span><span class="p">)</span>
+    <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">setRootNode</span><span class="p">(</span><span class="n">aQuadrant1</span><span class="p">)</span>
+
+    <span class="c1">#   - Second Quadrant node</span>
+    <span class="n">aQuadrant2</span> <span class="o">=</span> <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">createFxMapNode</span><span class="p">(</span><span class="n">aFxMapNode</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FxMapNodeEnum</span><span class="o">.</span><span class="n">QUADRANT</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aQuadrant1</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+
+    <span class="c1">#   - Third Quadrant node</span>
+    <span class="n">aQuadrant3</span> <span class="o">=</span> <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">createFxMapNode</span><span class="p">(</span><span class="n">aFxMapNode</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FxMapNodeEnum</span><span class="o">.</span><span class="n">QUADRANT</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aQuadrant2</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">),</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_TYPE</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FX_PatternType</span><span class="o">.</span><span class="n">PYRAMID</span><span class="p">})</span>
+
+    <span class="c1">#   - Define several functions for the third quadrant node</span>
+    <span class="c1">#    =&gt; Random luminosity (Float1 between 0 and 1)</span>
+    <span class="n">aFuncLum</span> <span class="o">=</span> <span class="n">aQuadrant3</span><span class="o">.</span><span class="n">setDynamicParameter</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_COLOR_LUM</span><span class="p">)</span>
+    <span class="n">aFloatNode</span> <span class="o">=</span> <span class="n">aFuncLum</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="n">aRandNode</span> <span class="o">=</span> <span class="n">aFuncLum</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">RAND</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aFloatNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="n">aFuncLum</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">aFloatNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">aRandNode</span><span class="p">)</span>
+    <span class="n">aFuncLum</span><span class="o">.</span><span class="n">setOutputNode</span><span class="p">(</span><span class="n">aRandNode</span><span class="p">)</span>
+
+    <span class="c1">#    =&gt; Random pattern rotation (Float1 between 0 and 1)</span>
+    <span class="n">aFuncRotation</span> <span class="o">=</span> <span class="n">aFuncLum</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">aQuadrant3</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_ROTATION</span><span class="p">,</span> <span class="n">aFuncRotation</span><span class="p">)</span>
+
+    <span class="c1">#    =&gt; Random pattern offset (Float2 between -1 and 1)</span>
+    <span class="n">aFuncOffset</span> <span class="o">=</span> <span class="n">aQuadrant3</span><span class="o">.</span><span class="n">setDynamicParameter</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_OFFSET</span><span class="p">)</span>
+    <span class="n">aRandNode</span> <span class="o">=</span> <span class="n">aFuncOffset</span><span class="o">.</span><span class="n">createFunctionInstanceNodeFromPath</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aPath</span>   <span class="o">=</span> <span class="s1">&#39;sbs://functions.sbs/Functions/Random/Uniform_[-1,1[&#39;</span><span class="p">)</span>
+    <span class="n">aRandNode2</span> <span class="o">=</span> <span class="n">aFuncOffset</span><span class="o">.</span><span class="n">createFunctionInstanceNodeFromPath</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aPath</span>   <span class="o">=</span> <span class="s1">&#39;sbs://functions.sbs/Functions/Random/Uniform_[-1,1[&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+
+    <span class="n">aVec2Node</span> <span class="o">=</span> <span class="n">aFuncOffset</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR2</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
+
+    <span class="n">aFuncOffset</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aVec2Node</span><span class="p">,</span>
+                        <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">)</span>
+    <span class="n">aFuncOffset</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aRandNode2</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aVec2Node</span><span class="p">,</span>
+                        <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">)</span>
+    <span class="n">aFuncOffset</span><span class="o">.</span><span class="n">setOutputNode</span><span class="p">(</span><span class="n">aVec2Node</span><span class="p">)</span>
+
+    <span class="c1">#    =&gt; Random pattern size (Float2 between 0.5 and 2)</span>
+    <span class="n">aFuncSize</span> <span class="o">=</span> <span class="n">aQuadrant3</span><span class="o">.</span><span class="n">setDynamicParameter</span><span class="p">(</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">FX_PATTERN_SIZE</span><span class="p">)</span>
+    <span class="n">aFloatNode1</span> <span class="o">=</span> <span class="n">aFuncSize</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
+    <span class="n">aFloatNode2</span> <span class="o">=</span> <span class="n">aFuncSize</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">CONST_FLOAT</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aFloatNode1</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+    <span class="n">aRandNode</span> <span class="o">=</span> <span class="n">aFuncSize</span><span class="o">.</span><span class="n">createFunctionInstanceNodeFromPath</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aPath</span>   <span class="o">=</span> <span class="s1">&#39;sbs://functions.sbs/Functions/Random/Uniform_[A,B[&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aFloatNode1</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
+    <span class="n">aVec2Node</span> <span class="o">=</span> <span class="n">aFuncSize</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">VECTOR2</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="n">aFuncSize</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aFloatNode1</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+    <span class="n">aFuncSize</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aFloatNode2</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span>
+    <span class="n">aFuncSize</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aVec2Node</span><span class="p">,</span> <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_IN</span><span class="p">)</span>
+    <span class="n">aFuncSize</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aRandNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aVec2Node</span><span class="p">,</span> <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">COMPONENTS_LAST</span><span class="p">)</span>
+    <span class="n">aFuncSize</span><span class="o">.</span><span class="n">setOutputNode</span><span class="p">(</span><span class="n">aVec2Node</span><span class="p">)</span>
+
+    <span class="c1">#   - Fourth and Fifth Quadrant nodes, copies of the third one</span>
+    <span class="n">aQuadrant4</span> <span class="o">=</span> <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">duplicateNode</span><span class="p">(</span><span class="n">aQuadrant3</span><span class="p">,</span> <span class="n">aGUIOffset</span> <span class="o">=</span> <span class="n">yOffset</span><span class="p">)</span>
+    <span class="n">aQuadrant5</span> <span class="o">=</span> <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">duplicateNode</span><span class="p">(</span><span class="n">aQuadrant4</span><span class="p">,</span> <span class="n">aGUIOffset</span> <span class="o">=</span> <span class="n">yOffset</span><span class="p">)</span>
+
+    <span class="c1">#   - Connections of the quadrant nodes</span>
+    <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aTopNode</span> <span class="o">=</span> <span class="n">aQuadrant1</span><span class="p">,</span> <span class="n">aBottomNode</span> <span class="o">=</span> <span class="n">aQuadrant2</span><span class="p">)</span>
+    <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aTopNode</span> <span class="o">=</span> <span class="n">aQuadrant2</span><span class="p">,</span> <span class="n">aBottomNode</span> <span class="o">=</span> <span class="n">aQuadrant3</span><span class="p">)</span>
+    <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aTopNode</span> <span class="o">=</span> <span class="n">aQuadrant3</span><span class="p">,</span> <span class="n">aBottomNode</span> <span class="o">=</span> <span class="n">aQuadrant4</span><span class="p">)</span>
+    <span class="n">aFxMapGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aTopNode</span> <span class="o">=</span> <span class="n">aQuadrant4</span><span class="p">,</span> <span class="n">aBottomNode</span> <span class="o">=</span> <span class="n">aQuadrant5</span><span class="p">)</span>
+
+
+    <span class="c1"># - Gradient Filter with key values</span>
+    <span class="n">gradientKeyValues</span> <span class="o">=</span> <span class="p">[</span><span class="n">sbslibrary</span><span class="o">.</span><span class="n">GradientKey</span><span class="p">(</span><span class="n">aPosition</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>     <span class="n">aValue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span>
+                         <span class="n">sbslibrary</span><span class="o">.</span><span class="n">GradientKey</span><span class="p">(</span><span class="n">aPosition</span> <span class="o">=</span> <span class="mf">0.330</span><span class="p">,</span> <span class="n">aValue</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])]</span>
+    <span class="n">aGradientNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createGradientMapNode</span><span class="p">(</span><span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aFxMapNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                                                 <span class="n">aKeyValues</span> <span class="o">=</span> <span class="n">gradientKeyValues</span><span class="p">,</span>
+                                                 <span class="n">aParameters</span><span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">GRADIENT_ADDRESSING</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">GradientAddressingEnum</span><span class="o">.</span><span class="n">REPEAT</span><span class="p">})</span>
+
+    <span class="c1"># - Instance of graph SubGraph created previously</span>
+    <span class="n">aInstanceNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createCompInstanceNode</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aGraph</span>  <span class="o">=</span> <span class="n">aSubGraph</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">aGradientNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="c1"># - Instance of substance Blur_Hq included in the default package sbs://</span>
+    <span class="n">aBlurHQNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createCompInstanceNodeFromPath</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aPath</span>       <span class="o">=</span> <span class="s1">&#39;sbs://blur_hq.sbs/blur_hq&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span>     <span class="o">=</span> <span class="n">aInstanceNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Intensity&#39;</span><span class="p">:</span><span class="mf">2.8</span><span class="p">})</span>
+
+    <span class="c1">#   - Definition of a dynamic parameter for the Blur_Hq Intensity parameter:</span>
+    <span class="n">aBlurFunction</span> <span class="o">=</span> <span class="n">aBlurHQNode</span><span class="o">.</span><span class="n">setDynamicParameter</span><span class="p">(</span><span class="n">aParameter</span> <span class="o">=</span> <span class="s1">&#39;Intensity&#39;</span><span class="p">)</span>
+    <span class="n">aGetFloatNode</span> <span class="o">=</span> <span class="n">aBlurFunction</span><span class="o">.</span><span class="n">createFunctionNode</span><span class="p">(</span><span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT1</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionEnum</span><span class="o">.</span><span class="n">GET_FLOAT1</span><span class="p">:</span> <span class="n">aParamBlur</span><span class="p">})</span>
+
+    <span class="c1">#   - Creation of an instance of function MyFunction defined previously:</span>
+    <span class="n">aFctInstanceNode</span> <span class="o">=</span> <span class="n">aBlurFunction</span><span class="o">.</span><span class="n">createFunctionInstanceNode</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aFunction</span> <span class="o">=</span> <span class="n">aFunction</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span>   <span class="o">=</span> <span class="n">aGetFloatNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="c1">#   - Connect the nodes</span>
+    <span class="n">aBlurFunction</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aGetFloatNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aFctInstanceNode</span><span class="p">)</span>
+    <span class="n">aBlurFunction</span><span class="o">.</span><span class="n">setOutputNode</span><span class="p">(</span><span class="n">aFctInstanceNode</span><span class="p">)</span>
+
+    <span class="c1"># - SVG node</span>
+    <span class="n">aSvgPath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;Bitmaps/SD_Icon_Color.svg&#39;</span> <span class="p">)</span>
+    <span class="n">aSVGNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createSvgNode</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span>
+                        <span class="n">aResourcePath</span>  <span class="o">=</span> <span class="n">aSvgPath</span><span class="p">,</span>
+                        <span class="n">aResourceGroup</span> <span class="o">=</span> <span class="n">aResourceGroup</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span>        <span class="o">=</span> <span class="n">aBlurHQNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                        <span class="n">aParameters</span>    <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ColorModeEnum</span><span class="o">.</span><span class="n">COLOR</span><span class="p">,</span>
+                                          <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span><span class="p">:[</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">,</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">],</span>
+                                          <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TILING_MODE</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">TilingEnum</span><span class="o">.</span><span class="n">NO_TILING</span><span class="p">},</span>
+                        <span class="n">aInheritance</span>   <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">,</span>
+                                          <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">TILING_MODE</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">INPUT</span><span class="p">},</span>
+                        <span class="n">aCookedQuality</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># - Output node</span>
+    <span class="n">aOutputNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;MainOutput&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span>       <span class="o">=</span> <span class="n">aSVGNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                        <span class="n">aOutputFormat</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">TextureFormatEnum</span><span class="o">.</span><span class="n">DEFAULT_FORMAT</span><span class="p">,</span>
+                        <span class="n">aAttributes</span>   <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Description</span><span class="p">:</span> <span class="s1">&#39;Main Output&#39;</span><span class="p">},</span>
+                        <span class="n">aMipmaps</span>      <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">MipmapEnum</span><span class="o">.</span><span class="n">LEVELS_12</span><span class="p">,</span>
+                        <span class="n">aUsages</span>       <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">BASECOLOR</span><span class="p">:</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span><span class="p">}})</span>
+
+    <span class="c1"># Connect the nodes</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aFxMapNode</span><span class="p">,</span>    <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aGradientNode</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aGradientNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aInstanceNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="s1">&#39;MyInput&#39;</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aInstanceNode</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aBlurHQNode</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aBlurHQNode</span><span class="p">,</span>   <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aSVGNode</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">aSVGNode</span><span class="p">,</span>      <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aOutputNode</span><span class="p">)</span>
+
+    <span class="c1"># Tweak parameters</span>
+    <span class="n">aInstanceNode</span><span class="o">.</span><span class="n">getParameterValue</span><span class="p">(</span><span class="s1">&#39;InputColor&#39;</span><span class="p">)</span>
+    <span class="n">aInstanceNode</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="s1">&#39;InputColor&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">aInstanceNode</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="s1">&#39;Blending&#39;</span><span class="p">,</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">BlendBlendingModeEnum</span><span class="o">.</span><span class="n">OVERLAY</span><span class="p">)</span>
+
+    <span class="c1"># Set graph attributes and icon</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">aAttributeIdentifier</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Author</span><span class="p">,</span> <span class="n">aAttributeValue</span> <span class="o">=</span> <span class="s1">&#39;Substance Designer API&#39;</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">setIcon</span><span class="p">(</span><span class="n">aIconAbsPath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;Bitmaps/graphIcon.jpg&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Write the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">()</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoCreation] Failed to create the new package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoCreationMDL">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoCreationMDL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoCreationMDL" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Demonstrates the MDL graph creation using this API:</dt><dd><ul class="simple">
+<li><p>MDL Graph</p></li>
+<li><p>MDL Nodes of any kind (constants, native mdl nodes, mdl graph instances, …)</p></li>
+<li><p>Declaring the input of the graph</p></li>
+<li><p>Setting parameters and annotations</p></li>
+<li><p>Create resources dedicated to MDL graphs (light profile or bsdf measurement)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoCreationMDL:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">startPos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">48</span><span class="p">,</span>  <span class="mi">48</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+    <span class="n">xOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+    <span class="n">yOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">192</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+    <span class="n">xyOffset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Create a new package and a MDL graph</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">sbsgenerator</span><span class="o">.</span><span class="n">createSBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="n">mdlGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createMDLGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span><span class="o">=</span><span class="s1">&#39;DemoMDLGraph&#39;</span><span class="p">,</span> <span class="n">aCreateOutputNode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Create a new Substance graph, which will be used in the MDL graph</span>
+    <span class="n">sbsGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span><span class="o">=</span><span class="s1">&#39;SBSGraph&#39;</span><span class="p">)</span>
+    <span class="n">aNode</span> <span class="o">=</span> <span class="n">sbsGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span><span class="p">,</span>
+                                        <span class="n">aParameters</span><span class="o">=</span><span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]},</span>
+                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">startPos</span><span class="p">)</span>
+    <span class="n">aOutput</span> <span class="o">=</span> <span class="n">sbsGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span><span class="o">=</span><span class="s1">&#39;Output&#39;</span><span class="p">,</span>
+                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">aNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+    <span class="n">sbsGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">aNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">aOutput</span><span class="p">)</span>
+
+
+    <span class="c1"># Create the microfacet ggx branch</span>
+    <span class="n">inputRoughness</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeConst</span><span class="p">(</span><span class="n">aName</span><span class="o">=</span><span class="s1">&#39;roughness&#39;</span><span class="p">,</span> <span class="n">aConstTypePath</span><span class="o">=</span><span class="s1">&#39;mdl::float&#39;</span><span class="p">,</span> <span class="n">aExposed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">aValue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                                        <span class="n">aAnnotations</span><span class="o">=</span><span class="p">{</span><span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">DISPLAY_NAME</span><span class="p">:</span><span class="s1">&#39;Roughness&#39;</span><span class="p">,</span>
+                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">GAMMA_TYPE</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">SAMPLER_USAGE</span><span class="p">:</span><span class="s1">&#39;roughness&#39;</span><span class="p">,</span>
+                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">HARD_RANGE</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]},</span>
+                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">startPos</span><span class="p">)</span>
+    <span class="n">sbsInstance</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeSBSGraphInstance</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">sbsDoc</span><span class="p">,</span>
+                                                         <span class="n">aGraph</span><span class="o">=</span><span class="n">sbsGraph</span><span class="p">,</span>
+                                                         <span class="n">aGUIPos</span><span class="o">=</span><span class="n">inputRoughness</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+
+    <span class="n">mulNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::operator*(float,float)&#39;</span><span class="p">,</span>
+                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">inputRoughness</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="n">ggxNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::df::microfacet_ggx_smith_bsdf$1.5(float,float,color,float3,::df::scatter_mode,string)&#39;</span><span class="p">,</span>
+                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">mulNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">inputRoughness</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">inputRoughness</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;roughness_u&#39;</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;roughness_v&#39;</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">sbsInstance</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;tint&#39;</span><span class="p">)</span>
+
+
+    <span class="c1"># Create a new light profile resource</span>
+    <span class="n">aPath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;Bitmaps/Comet.IES&#39;</span><span class="p">)</span>
+    <span class="n">aRes</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createLinkedResource</span><span class="p">(</span><span class="n">aResourcePath</span><span class="o">=</span><span class="n">aPath</span><span class="p">,</span><span class="n">aResourceTypeEnum</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">LIGHT_PROFILE</span><span class="p">)</span>
+
+    <span class="c1"># Create a IES profile node that uses this resource and generate a &#39;material_emission&#39;</span>
+    <span class="n">iesNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::light_profile(string)&#39;</span><span class="p">,</span>
+                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">sbsInstance</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+    <span class="n">iesNode</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">aParamValue</span><span class="o">=</span><span class="n">aRes</span><span class="o">.</span><span class="n">getPkgResourcePath</span><span class="p">())</span>
+
+    <span class="n">edfNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::df::measured_edf(light_profile,float,bool,float3x3,float3,string)&#39;</span><span class="p">,</span>
+                                             <span class="n">aParameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;multiplier&#39;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">},</span>
+                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">iesNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+    <span class="n">matEmissionNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::material_emission(edf,color,intensity_mode)&#39;</span><span class="p">,</span>
+                                                     <span class="n">aParameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;intensity&#39;</span><span class="p">:[</span><span class="mf">0.000619</span><span class="p">,</span><span class="mf">0.000387</span><span class="p">,</span><span class="mf">0.000077</span><span class="p">]},</span>
+                                                     <span class="n">aGUIPos</span><span class="o">=</span><span class="n">edfNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">iesNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">edfNode</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">edfNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matEmissionNode</span><span class="p">)</span>
+
+    <span class="c1"># Handle the material_geometry</span>
+    <span class="n">stateNormal</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::state::normal()&#39;</span><span class="p">,</span>
+                                                 <span class="n">aGUIPos</span><span class="o">=</span><span class="n">iesNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+
+    <span class="n">inputNormal</span> <span class="o">=</span>  <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeConst</span><span class="p">(</span><span class="n">aName</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">aConstTypePath</span><span class="o">=</span><span class="s1">&#39;mdl::float3&#39;</span><span class="p">,</span> <span class="n">aExposed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                        <span class="n">aAnnotations</span><span class="o">=</span><span class="p">{</span><span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">DISPLAY_NAME</span><span class="p">:</span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span>
+                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">GAMMA_TYPE</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">SAMPLER_USAGE</span><span class="p">:</span><span class="s1">&#39;normal&#39;</span><span class="p">},</span>
+                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">stateNormal</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="n">matGeometryNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::material_geometry(float3,float,float3)&#39;</span><span class="p">,</span>
+                                                     <span class="n">aGUIPos</span><span class="o">=</span><span class="n">inputNormal</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
+
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">stateNormal</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">inputNormal</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">inputNormal</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matGeometryNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create the material_surface</span>
+    <span class="n">matSurfaceNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::material_surface(bsdf,material_emission)&#39;</span><span class="p">,</span>
+                                                    <span class="n">aGUIPos</span><span class="o">=</span><span class="n">ggxNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
+    <span class="n">matSurfaceNode</span><span class="o">.</span><span class="n">setPinVisibilityForParameter</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="s1">&#39;emission&#39;</span><span class="p">,</span> <span class="n">aVisible</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matSurfaceNode</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">matEmissionNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matSurfaceNode</span><span class="p">)</span>
+
+    <span class="c1"># Get the output node</span>
+    <span class="n">outputNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getGraphOutput</span><span class="p">()</span>
+    <span class="n">outputNode</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">matSurfaceNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
+
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">matSurfaceNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">outputNode</span><span class="p">)</span>
+    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">matGeometryNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">outputNode</span><span class="p">)</span>
+
+    <span class="c1"># Write back the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span><span class="o">=</span><span class="n">aDestFileAbsPath</span><span class="p">)</span>
+
+    <span class="k">del</span> <span class="n">sbsDoc</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoCreationMDL] Failed to modify package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoExportWithDependencies">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoExportWithDependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFolderAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoExportWithDependencies" title="Link to this definition"></a></dt>
+<dd><p>Export the given package into the given destination folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – The absolute path of the package</p></li>
+<li><p><strong>aDestFolderAbsPath</strong> (<em>str</em>) – The absolute folder where to export the package</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoExportWithDependencies:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">aDestFolderAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFolderAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">python_helpers</span><span class="o">.</span><span class="n">createFolderIfNotExists</span><span class="p">(</span><span class="n">aDestFolderAbsPath</span><span class="p">)</span>
+
+    <span class="c1"># Parse the document to export</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+
+    <span class="c1"># Create an exporter</span>
+    <span class="n">aExporter</span> <span class="o">=</span> <span class="n">sbsexporter</span><span class="o">.</span><span class="n">SBSExporter</span><span class="p">()</span>
+
+    <span class="c1"># Export the package into an archived self-contained package, in the folder aDestFolderAbsPath</span>
+    <span class="c1"># The resources and dependencies of this package will be included in the archive, including the ones referred by the alias sbs://</span>
+    <span class="n">aResultingArchive</span> <span class="o">=</span> <span class="n">aExporter</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span> <span class="n">aExportFolder</span> <span class="o">=</span> <span class="n">aDestFolderAbsPath</span><span class="p">,</span>
+                                         <span class="n">aBuildArchive</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">aAliasesToExport</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sbs&#39;</span><span class="p">])</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Archive created at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aResultingArchive</span><span class="p">)</span>
+
+    <span class="c1"># Same as before, without archiving the resulting folder</span>
+    <span class="n">aResultingPath</span> <span class="o">=</span> <span class="n">aExporter</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">aSBSDocument</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="p">,</span> <span class="n">aExportFolder</span> <span class="o">=</span> <span class="n">aDestFolderAbsPath</span><span class="p">,</span>
+                                      <span class="n">aAliasesToExport</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sbs&#39;</span><span class="p">])</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Substance exported with its dependencies at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aResultingPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoExportWithDependencies] Failed to export the package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoIteration">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoIteration" title="Link to this definition"></a></dt>
+<dd><p>Demonstrates the iteration creation of a single node and of a complete pattern.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – The absolute path of the file</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoIteration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Parse the .sbs file and provide the object structure of the entire substance</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+
+    <span class="c1"># Duplicate 5 times a single node</span>
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoIterationSubGraph&#39;</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnNode</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+                                 <span class="n">aNodeUID</span> <span class="o">=</span> <span class="s1">&#39;1255032103&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Duplicate 3 times the node (test the automatic detection of compatible inputs / outputs)</span>
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoIterationSubGraphDouble&#39;</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnNode</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                                 <span class="n">aNodeUID</span> <span class="o">=</span> <span class="s1">&#39;1255523774&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Duplicate 3 times the pattern of nodes (test the automatic detection of compatible inputs / outputs)</span>
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span><span class="o">=</span><span class="s1">&#39;DemoIterationPattern&#39;</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                    <span class="n">aNodeUIDs</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1255034408&#39;</span><span class="p">,</span> <span class="s1">&#39;1255026224&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029181&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029884&#39;</span><span class="p">,</span>
+                                                   <span class="s1">&#39;1255029987&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029994&#39;</span><span class="p">,</span> <span class="s1">&#39;1255029049&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Duplicate 3 times the pattern of nodes, specifying way to connect two successive patterns</span>
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;DemoIterationVerticalPattern&#39;</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                                    <span class="n">aNodeUIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262168894&#39;</span><span class="p">,</span> <span class="s1">&#39;1262168896&#39;</span><span class="p">],</span>
+                                    <span class="n">aNodeUIDs_NextPattern</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262169024&#39;</span><span class="p">,</span> <span class="s1">&#39;1262168960&#39;</span><span class="p">],</span>
+                                    <span class="n">aGUIOffset</span>    <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span>
+
+    <span class="c1"># Write back the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+
+    <span class="k">del</span> <span class="n">sbsDoc</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoIteration] Failed to modify package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoIterationFlame">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoIterationFlame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoIterationFlame" title="Link to this definition"></a></dt>
+<dd><p>Demonstrates the iteration creation of a pattern inside a Function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – The absolute path of the file</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoIterationFlame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Parse the .sbs file and provide the object structure of the entire substance</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+
+    <span class="c1"># Duplicate 63 times the pattern inside function RayMarch</span>
+    <span class="n">aFunction</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSFunction</span><span class="p">(</span><span class="n">aFunctionIdentifier</span><span class="o">=</span> <span class="s1">&#39;RayMarch&#39;</span><span class="p">)</span>
+    <span class="n">createdNodes</span> <span class="o">=</span> <span class="n">aFunction</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">63</span><span class="p">,</span>
+                        <span class="n">aGUIOffset</span>            <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+                        <span class="n">aNodeUIDs</span>             <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262101431&#39;</span><span class="p">,</span> <span class="s1">&#39;1262101516&#39;</span><span class="p">],</span>
+                        <span class="n">aNodeUIDs_NextPattern</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1262101533&#39;</span><span class="p">,</span> <span class="s1">&#39;1262101527&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Connect the last created node with the end of the function</span>
+    <span class="n">aEndNode</span> <span class="o">=</span> <span class="n">aFunction</span><span class="o">.</span><span class="n">getNode</span><span class="p">(</span><span class="s1">&#39;1262095290&#39;</span><span class="p">)</span>
+    <span class="n">aFunction</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">createdNodes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">aEndNode</span><span class="p">,</span>
+                           <span class="n">aRightNodeInput</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FunctionInputEnum</span><span class="o">.</span><span class="n">SEQUENCE_IN</span><span class="p">)</span>
+
+    <span class="c1"># Write back the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoIterationFlame] Failed to create the iterations&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoIterationPixProc">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoIterationPixProc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoIterationPixProc" title="Link to this definition"></a></dt>
+<dd><p>Demonstrates the iteration inside a pixel processor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – The absolute path of the file</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoIterationPixProc:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">pass</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Parse the .sbs file and provide the object structure of the entire substance</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+
+    <span class="c1"># Get the graph &#39;TerrainMultiFractal&#39;</span>
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;TerrainMultiFractal&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Get the pixel processor node where the iteration will be created, and its dynamic function</span>
+    <span class="n">aPixProcNode</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNode</span><span class="p">(</span><span class="s1">&#39;1260898088&#39;</span><span class="p">)</span>
+    <span class="n">aDynFct</span> <span class="o">=</span> <span class="n">aPixProcNode</span><span class="o">.</span><span class="n">getPixProcFunction</span><span class="p">()</span>
+
+    <span class="c1"># Duplicate 10 times the pattern, indicating the way to reconnect to the next pattern</span>
+    <span class="n">createdNodes</span> <span class="o">=</span> <span class="n">aDynFct</span><span class="o">.</span><span class="n">createIterationOnPattern</span><span class="p">(</span><span class="n">aNbIteration</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                        <span class="n">aGUIOffset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+                        <span class="n">aNodeUIDs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1263052178&#39;</span><span class="p">,</span> <span class="s1">&#39;1263052114&#39;</span> <span class="p">],</span>
+                        <span class="n">aNodeUIDs_NextPattern</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1263052279&#39;</span><span class="p">,</span> <span class="s1">&#39;1263052278&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Connect the last node of the iteration to the end part of the pixel processor function</span>
+    <span class="n">aDynFct</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">createdNodes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">aRightNode</span><span class="o">=</span><span class="s1">&#39;1257621570&#39;</span><span class="p">)</span>
+    <span class="n">aDynFct</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">createdNodes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">aRightNode</span><span class="o">=</span><span class="s1">&#39;1257624564&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Write back the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+
+    <span class="k">del</span> <span class="n">sbsDoc</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoIteration] Failed to modify package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoMassiveModification">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoMassiveModification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoMassiveModification" title="Link to this definition"></a></dt>
+<dd><p>Demonstrates the massive modification of a Substance.
+In this sample, a substance containing 3 graph with lots of Input nodes will be modified so that all Graphs and Input
+nodes pixel format are set to 16 bits per channel, without inheritance from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – The absolute path of the file</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoMassiveModification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Parse the .sbs file and provide the object structure of the entire substance</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+
+    <span class="c1"># Parse all graphs</span>
+    <span class="k">for</span> <span class="n">aGraph</span> <span class="ow">in</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraphList</span><span class="p">():</span>
+
+        <span class="c1"># Set pixel format and output size of the graph</span>
+        <span class="n">aGraph</span><span class="o">.</span><span class="n">setBaseParameterValue</span><span class="p">(</span><span class="n">aParameter</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">,</span>
+                                     <span class="n">aParamValue</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputFormatEnum</span><span class="o">.</span><span class="n">FORMAT_16BITS</span><span class="p">,</span>
+                                     <span class="n">aRelativeTo</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">)</span>
+        <span class="n">aGraph</span><span class="o">.</span><span class="n">setBaseParameterValue</span><span class="p">(</span><span class="n">aParameter</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_SIZE</span><span class="p">,</span>
+                                     <span class="n">aParamValue</span> <span class="o">=</span> <span class="p">[</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">,</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputSizeEnum</span><span class="o">.</span><span class="n">SIZE_1024</span><span class="p">],</span>
+                                     <span class="n">aRelativeTo</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">)</span>
+
+        <span class="c1"># Set pixel format for all input nodes</span>
+        <span class="n">inputNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getAllInputNodes</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">inputNode</span> <span class="ow">in</span> <span class="n">inputNodes</span><span class="p">:</span>
+            <span class="n">inputNode</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span>  <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_FORMAT</span><span class="p">,</span>
+                                        <span class="n">aParamValue</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">OutputFormatEnum</span><span class="o">.</span><span class="n">FORMAT_16BITS</span><span class="p">,</span>
+                                        <span class="n">aRelativeTo</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ParamInheritanceEnum</span><span class="o">.</span><span class="n">ABSOLUTE</span><span class="p">)</span>
+
+    <span class="c1"># Write back the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+
+    <span class="k">del</span> <span class="n">sbsDoc</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoMassiveModification] Failed to modify package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demos.demoReadWriteSBS">
+<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoReadWriteSBS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoReadWriteSBS" title="Link to this definition"></a></dt>
+<dd><p>Allow to validate the deserialization and serialization of a .sbs without doing any modification on it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
+<li><p><strong>aFileAbsPath</strong> (<em>str</em>) – The absolute path of the file</p></li>
+<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoReadWriteSBS:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Parse document</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">substance</span><span class="o">.</span><span class="n">SBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aFileAbsPath</span><span class="p">)</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">parseDoc</span><span class="p">()</span>
+
+    <span class="c1"># Display its dependencies and resources</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Dependencies: &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSDependencyList</span><span class="p">():</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mFileAbsPath</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resources: &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSResourceList</span><span class="p">():</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">getResolvedFilePath</span><span class="p">())</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mFileAbsPath</span><span class="p">)</span>
+
+    <span class="c1"># Write the document</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoHelloWorld] Failed to create the new package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="demohelloworld.html" class="btn btn-neutral float-left" title="demohelloworld module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="demos_batchtools.html" class="btn btn-neutral float-right" title="demos_batchtools module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
