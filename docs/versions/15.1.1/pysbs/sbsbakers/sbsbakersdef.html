@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsbakersdef module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsbakersdefaultprops module" href="sbsbakersdefaultprops.html" />
+    <link rel="prev" title="sbsscenedata module" href="sbsscenedata.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersenum.html">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdefaultprops.html">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverterparam.html">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier"><code class="docutils literal notranslate"><span class="pre">getBakerDefaultIdentifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefinition"><code class="docutils literal notranslate"><span class="pre">getBakerDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerEnum"><code class="docutils literal notranslate"><span class="pre">getBakerEnum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsbakerslibrary.html">sbsbakerslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsbakersdef module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbsbakers.sbsbakersdef">
+<span id="sbsbakersdef-module"></span><h1>sbsbakersdef module<a class="headerlink" href="#module-pysbs.sbsbakers.sbsbakersdef" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsbakersdef</strong> provides the definition of all the bakers (<a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter" title="pysbs.sbsbakers.sbsbakingconverter.BakingConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingConverter</span></code></a>) available in Substance Designer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that in addition to their specific properties, all bakers have a list of ‘Output’ properties and ‘Common to all bakers’ properties, which are defined in the module <a class="reference internal" href="sbsbakersdefaultprops.html#module-pysbs.sbsbakers.sbsbakersdefaultprops" title="pysbs.sbsbakers.sbsbakersdefaultprops"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsbakersdefaultprops</span></code></a></p>
+</div>
+<ul>
+<li><p>baker_AMBIENT_OCCLUSION:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_AMBIENT_OCCLUSION</span><span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Ambient Occlusion&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.SeAO&#39;</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__INVERT_GREEN</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerNormalOrientationEnum</span><span class="o">.</span><span class="n">DIRECTX</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_MAP</span><span class="p">,</span>         <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_WORLD_SPACE</span><span class="p">,</span>          <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span> <span class="kc">False</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">SEAO__INVERT_NORMALS</span>      <span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">False</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">SEAO__QUALITY</span>             <span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerAOQualityEnum</span><span class="o">.</span><span class="n">MEDIUM</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">SEAO__USE_NEIGHBORS</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">False</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">SEAO__DISTANCE_FADE</span>       <span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">SEAO__ERROR_BIAS</span>      <span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_AMBIENT_OCCLUSION_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_AMBIENT_OCCLUSION_FROM_MESH</span><span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Ambient Occlusion Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.AOFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sSecondaryRayCommonProperties</span> <span class="o">+</span>
+    <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_AO__ATTENUATION</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerAOAttenuationEnum</span><span class="o">.</span><span class="n">LINEAR</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__INVERT_GREEN</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerNormalOrientationEnum</span><span class="o">.</span><span class="n">DIRECTX</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_MAP</span><span class="p">,</span>         <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_WORLD_SPACE</span><span class="p">,</span>          <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">False</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_BENT_NORMALS_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_BENT_NORMALS_FROM_MESH</span><span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Bent Normals Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.BentNormalsFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sSecondaryRayCommonProperties</span> <span class="o">+</span>
+                  <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sNormalBakersCommonProperties</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_COLOR_MAP_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_COLOR_MAP_FROM_MESH</span><span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Color Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.ColorFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_COLOR__COLOR_GENERATOR</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerColorGeneratorEnum</span><span class="o">.</span><span class="n">HUE_SHIFT</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_COLOR__COLOR_SOURCE</span><span class="p">,</span>       <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerColorSourceEnum</span><span class="o">.</span><span class="n">VERTEX_COLOR</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_CONVERT_UV_TO_SVG:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_CONVERT_UV_TO_SVG</span><span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Convert UV to SVG&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;VectorialMeshConverter&#39;</span><span class="p">,</span>
+    <span class="n">aForcedOutputFormat</span> <span class="o">=</span> <span class="n">bakersdict</span><span class="o">.</span><span class="n">getBakerOutputFormatName</span><span class="p">(</span><span class="n">BakerOutputFormatEnum</span><span class="o">.</span><span class="n">SVG</span><span class="p">),</span>
+    <span class="n">aBakerType</span> <span class="o">=</span> <span class="s1">&#39;vectorialmeshconverter&#39;</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">UV2SVG__COLOR_MODE</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="n">BakerColorModeEnum</span><span class="o">.</span><span class="n">HUE_SHIFT</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">UV2SVG__PADDING</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_CURVATURE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_CURVATURE</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Curvature&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.Curvature&#39;</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__INVERT_GREEN</span><span class="p">,</span>                <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerNormalOrientationEnum</span><span class="o">.</span><span class="n">DIRECTX</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_MAP</span><span class="p">,</span>                        <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_WORLD_SPACE</span><span class="p">,</span>                         <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">False</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">CURVATURE__PER_VERTEX</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerCurvatureAlgoEnum</span><span class="o">.</span><span class="n">PER_PIXEL</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">CURVATURE__CURVATURE_MULTIPLIER</span><span class="p">,</span>      <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">CURVATURE__ENABLE_SEAMS</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">True</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">CURVATURE__SEAMS_POWER</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_CURVATURE_MAP_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_CURVATURE_MAP_FROM_MESH</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Curvature Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.CurvatureFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_CURVATURE__INTENSITY</span><span class="p">,</span>      <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_CURVATURE__SOFT_SATURATE</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>      <span class="kc">True</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_CURVATURE__MAXIMIZE_RANGE</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>     <span class="kc">False</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_HEIGHT_MAP_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_HEIGHT_MAP_FROM_MESH</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Height Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.HeightFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDistanceCommonProperties</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_NORMAL_MAP_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_NORMAL_MAP_FROM_MESH</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Normal Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.NormalFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sNormalBakersCommonProperties</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_OPACITY_MASK_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_OPACITY_MASK_FROM_MESH</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Opacity Mask from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.MaskFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_POSITION:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_POSITION</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Position&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.Position&#39;</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sPositionBakersCommonProperties</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_POSITION_MAP_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_POSITION_MAP_FROM_MESH</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Position Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.PositionFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sPositionBakersCommonProperties</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_THICKNESS_MAP_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_THICKNESS_MAP_FROM_MESH</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Thickness Map from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.ThicknessFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sSecondaryRayCommonProperties</span> <span class="o">+</span>
+                  <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDistanceCommonProperties</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_TRANSFERRED_TEXTURE_FROM_MESH:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_TRANSFERRED_TEXTURE_FROM_MESH</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Transferred Texture from Mesh&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.TextureFromDetail&#39;</span><span class="p">,</span>
+    <span class="n">aCommonProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sDetailBakerCommonProperties</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="n">sbsbakersdefaultprops</span><span class="o">.</span><span class="n">sNormalBakersCommonProperties</span> <span class="o">+</span>
+    <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_TEXTURE__FILTERING_MODE</span><span class="p">,</span>     <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerFilteringModeEnum</span><span class="o">.</span><span class="n">BILINEAR</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_TEXTURE__HIGH_POLY_UV_SET</span><span class="p">,</span>   <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="mi">0</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_TEXTURE__IS_NORMAL_MAP</span><span class="p">,</span>         <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">BOOL</span><span class="p">,</span>   <span class="kc">False</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">DETAIL_TEXTURE__TEXTURE_FILE</span><span class="p">,</span>       <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_WORLD_SPACE_DIRECTION:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_WORLD_SPACE_DIRECTION</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;World Space Direction&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.WorldDirection&#39;</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">WORLD_DIRECTION__CONST_DIRECTION</span><span class="p">,</span>    <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerInputDirectionEnum</span><span class="o">.</span><span class="n">FROM_UNIFORM_VECTOR</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">WORLD_DIRECTION__DIRECTION_MAP</span><span class="p">,</span>     <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__INVERT_GREEN</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerNormalOrientationEnum</span><span class="o">.</span><span class="n">DIRECTX</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">WORLD_DIRECTION__X</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">WORLD_DIRECTION__Y</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">WORLD_DIRECTION__Z</span><span class="p">,</span>  <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">DOUBLE</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>baker_WORLD_SPACE_NORMALS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baker_WORLD_SPACE_NORMALS</span> <span class="o">=</span> <span class="n">BakingConverter</span><span class="p">(</span>
+    <span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;World Space Normals&#39;</span><span class="p">,</span>
+    <span class="n">aConverterID</span> <span class="o">=</span> <span class="s1">&#39;BakerMeshConverterGLMapBakerManager.NormalWS&#39;</span><span class="p">,</span>
+    <span class="n">aProperties</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">NORMAL_WORLD_SPACE__BAKE_TYPE</span><span class="p">,</span>          <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerBakingTypeEnum</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__NORMAL_MAP</span><span class="p">,</span>         <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">STRING</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)),</span>
+        <span class="n">BakingConverterParam</span><span class="p">(</span><span class="n">ConverterParamEnum</span><span class="o">.</span><span class="n">ADDITIONAL__INVERT_GREEN</span><span class="p">,</span> <span class="n">QtVariant</span><span class="p">(</span><span class="n">QtVariantTypeEnum</span><span class="o">.</span><span class="n">INT</span><span class="p">,</span>    <span class="n">BakerNormalOrientationEnum</span><span class="o">.</span><span class="n">DIRECTX</span><span class="p">))</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsscenedata.html" class="btn btn-neutral float-left" title="sbsscenedata module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsbakersdefaultprops.html" class="btn btn-neutral float-right" title="sbsbakersdefaultprops module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

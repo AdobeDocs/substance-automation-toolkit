@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsbakerslibrary module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsbakersenum module" href="sbsbakersenum.html" />
+    <link rel="prev" title="sbswidgets module" href="../sbslibrary/sbswidgets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbsbakers module: Baking Parameters library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersenum.html">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdef.html">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdefaultprops.html">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverterparam.html">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier"><code class="docutils literal notranslate"><span class="pre">getBakerDefaultIdentifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsbakers.sbsbakerslibrary.getBakerDefinition"><code class="docutils literal notranslate"><span class="pre">getBakerDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsbakers.sbsbakerslibrary.getBakerEnum"><code class="docutils literal notranslate"><span class="pre">getBakerEnum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbsbakerslibrary module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sbsbakerslibrary-module">
+<h1>sbsbakerslibrary module<a class="headerlink" href="#sbsbakerslibrary-module" title="Link to this heading"></a></h1>
+<p>Content included in sbsbakers module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sbsbakersenum.html">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerEnum"><code class="docutils literal notranslate"><span class="pre">BakerEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakingStructureTagEnum"><code class="docutils literal notranslate"><span class="pre">BakingStructureTagEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum"><code class="docutils literal notranslate"><span class="pre">ConverterParamEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.SceneSelectionModeEnum"><code class="docutils literal notranslate"><span class="pre">SceneSelectionModeEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerAOAttenuationEnum"><code class="docutils literal notranslate"><span class="pre">BakerAOAttenuationEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerAOQualityEnum"><code class="docutils literal notranslate"><span class="pre">BakerAOQualityEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerBakingTypeEnum"><code class="docutils literal notranslate"><span class="pre">BakerBakingTypeEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerColorGeneratorEnum"><code class="docutils literal notranslate"><span class="pre">BakerColorGeneratorEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerColorModeEnum"><code class="docutils literal notranslate"><span class="pre">BakerColorModeEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerColorSourceEnum"><code class="docutils literal notranslate"><span class="pre">BakerColorSourceEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerCurvatureAlgoEnum"><code class="docutils literal notranslate"><span class="pre">BakerCurvatureAlgoEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerDistributionEnum"><code class="docutils literal notranslate"><span class="pre">BakerDistributionEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerFilteringModeEnum"><code class="docutils literal notranslate"><span class="pre">BakerFilteringModeEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshDistanceWithEnum"><code class="docutils literal notranslate"><span class="pre">BakerFromMeshDistanceWithEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshMatchEnum"><code class="docutils literal notranslate"><span class="pre">BakerFromMeshMatchEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshSubSamplingEnum"><code class="docutils literal notranslate"><span class="pre">BakerFromMeshSubSamplingEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerInputDirectionEnum"><code class="docutils literal notranslate"><span class="pre">BakerInputDirectionEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerMapTypeEnum"><code class="docutils literal notranslate"><span class="pre">BakerMapTypeEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerNormalOrientationEnum"><code class="docutils literal notranslate"><span class="pre">BakerNormalOrientationEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerOutputFormatEnum"><code class="docutils literal notranslate"><span class="pre">BakerOutputFormatEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerPositionAxisEnum"><code class="docutils literal notranslate"><span class="pre">BakerPositionAxisEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerPositionModeEnum"><code class="docutils literal notranslate"><span class="pre">BakerPositionModeEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerPositionNormalizationEnum"><code class="docutils literal notranslate"><span class="pre">BakerPositionNormalizationEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerResourceMethodEnum"><code class="docutils literal notranslate"><span class="pre">BakerResourceMethodEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerUVSetEnum"><code class="docutils literal notranslate"><span class="pre">BakerUVSetEnum</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersdictionaries.html#pysbs.sbsbakers.sbsbakersdictionaries.getBakerOutputFormatEnum"><code class="docutils literal notranslate"><span class="pre">getBakerOutputFormatEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersdictionaries.html#pysbs.sbsbakers.sbsbakersdictionaries.getBakerOutputFormatName"><code class="docutils literal notranslate"><span class="pre">getBakerOutputFormatName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersdictionaries.html#pysbs.sbsbakers.sbsbakersdictionaries.getBakingStructureTagEnum"><code class="docutils literal notranslate"><span class="pre">getBakingStructureTagEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersdictionaries.html#pysbs.sbsbakers.sbsbakersdictionaries.getBakingStructureTagName"><code class="docutils literal notranslate"><span class="pre">getBakingStructureTagName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersdictionaries.html#pysbs.sbsbakers.sbsbakersdictionaries.getConverterParamEnum"><code class="docutils literal notranslate"><span class="pre">getConverterParamEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersdictionaries.html#pysbs.sbsbakers.sbsbakersdictionaries.getConverterParamName"><code class="docutils literal notranslate"><span class="pre">getConverterParamName()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakersdictionaries.html#pysbs.sbsbakers.sbsbakersdictionaries.getDefaultFromCommon"><code class="docutils literal notranslate"><span class="pre">getDefaultFromCommon()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters"><code class="docutils literal notranslate"><span class="pre">BakingParameters</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.addBaker"><code class="docutils literal notranslate"><span class="pre">BakingParameters.addBaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.addHighDefinitionMeshFromFile"><code class="docutils literal notranslate"><span class="pre">BakingParameters.addHighDefinitionMeshFromFile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.addHighDefinitionMeshFromResource"><code class="docutils literal notranslate"><span class="pre">BakingParameters.addHighDefinitionMeshFromResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.computeUniqueIdentifier"><code class="docutils literal notranslate"><span class="pre">BakingParameters.computeUniqueIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.fromSBSTree"><code class="docutils literal notranslate"><span class="pre">BakingParameters.fromSBSTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.getBaker"><code class="docutils literal notranslate"><span class="pre">BakingParameters.getBaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.getNbBakers"><code class="docutils literal notranslate"><span class="pre">BakingParameters.getNbBakers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.getParameter"><code class="docutils literal notranslate"><span class="pre">BakingParameters.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.getParameterValue"><code class="docutils literal notranslate"><span class="pre">BakingParameters.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.getSubMeshColor"><code class="docutils literal notranslate"><span class="pre">BakingParameters.getSubMeshColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.getSubMeshColorHexa"><code class="docutils literal notranslate"><span class="pre">BakingParameters.getSubMeshColorHexa()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.getSubMeshSelection"><code class="docutils literal notranslate"><span class="pre">BakingParameters.getSubMeshSelection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.isSubMeshSelected"><code class="docutils literal notranslate"><span class="pre">BakingParameters.isSubMeshSelected()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.moveDownBaker"><code class="docutils literal notranslate"><span class="pre">BakingParameters.moveDownBaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.moveUpBaker"><code class="docutils literal notranslate"><span class="pre">BakingParameters.moveUpBaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.removeBaker"><code class="docutils literal notranslate"><span class="pre">BakingParameters.removeBaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.selectBaker"><code class="docutils literal notranslate"><span class="pre">BakingParameters.selectBaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.setFileParameterValueFromPath"><code class="docutils literal notranslate"><span class="pre">BakingParameters.setFileParameterValueFromPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.setFileParameterValueFromResource"><code class="docutils literal notranslate"><span class="pre">BakingParameters.setFileParameterValueFromResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.setParameterValue"><code class="docutils literal notranslate"><span class="pre">BakingParameters.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.setSubMeshColorHexa"><code class="docutils literal notranslate"><span class="pre">BakingParameters.setSubMeshColorHexa()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.setSubMeshSelection"><code class="docutils literal notranslate"><span class="pre">BakingParameters.setSubMeshSelection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingparameters.html#pysbs.sbsbakers.sbsbakingparameters.BakingParameters.toSBSOptionList"><code class="docutils literal notranslate"><span class="pre">BakingParameters.toSBSOptionList()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshColor"><code class="docutils literal notranslate"><span class="pre">SubMeshColor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshColor.fromSBSTree"><code class="docutils literal notranslate"><span class="pre">SubMeshColor.fromSBSTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshColor.getColorHexa"><code class="docutils literal notranslate"><span class="pre">SubMeshColor.getColorHexa()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshColor.setColorHexa"><code class="docutils literal notranslate"><span class="pre">SubMeshColor.setColorHexa()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshColor.toSBSOptionList"><code class="docutils literal notranslate"><span class="pre">SubMeshColor.toSBSOptionList()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshSelection"><code class="docutils literal notranslate"><span class="pre">SubMeshSelection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshSelection.fromSBSTree"><code class="docutils literal notranslate"><span class="pre">SubMeshSelection.fromSBSTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsscenedata.html#pysbs.sbsbakers.sbsscenedata.SubMeshSelection.toSBSOptionList"><code class="docutils literal notranslate"><span class="pre">SubMeshSelection.toSBSOptionList()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsbakersdef.html">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbsbakersdefaultprops.html">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbsbakingconverterparam.html">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam"><code class="docutils literal notranslate"><span class="pre">BakingParam</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getType"><code class="docutils literal notranslate"><span class="pre">BakingParam.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getValue"><code class="docutils literal notranslate"><span class="pre">BakingParam.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.getValueStr"><code class="docutils literal notranslate"><span class="pre">BakingParam.getValueStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.setValue"><code class="docutils literal notranslate"><span class="pre">BakingParam.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.isAResourceParam"><code class="docutils literal notranslate"><span class="pre">BakingParam.isAResourceParam()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.fromSBSTree"><code class="docutils literal notranslate"><span class="pre">BakingParam.fromSBSTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingParam.toSBSOptionList"><code class="docutils literal notranslate"><span class="pre">BakingParam.toSBSOptionList()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingConverterParam"><code class="docutils literal notranslate"><span class="pre">BakingConverterParam</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingConverterParam.toSBSOptionList"><code class="docutils literal notranslate"><span class="pre">BakingConverterParam.toSBSOptionList()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam"><code class="docutils literal notranslate"><span class="pre">BakingGlobalParam</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam.fromSBSTree"><code class="docutils literal notranslate"><span class="pre">BakingGlobalParam.fromSBSTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverterparam.html#pysbs.sbsbakers.sbsbakingconverterparam.BakingGlobalParam.toSBSOptionList"><code class="docutils literal notranslate"><span class="pre">BakingGlobalParam.toSBSOptionList()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter"><code class="docutils literal notranslate"><span class="pre">BakingConverter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.fromSBSTree"><code class="docutils literal notranslate"><span class="pre">BakingConverter.fromSBSTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.getAllParameters"><code class="docutils literal notranslate"><span class="pre">BakingConverter.getAllParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.getOverrideState"><code class="docutils literal notranslate"><span class="pre">BakingConverter.getOverrideState()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.getParameter"><code class="docutils literal notranslate"><span class="pre">BakingConverter.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.getParameterValue"><code class="docutils literal notranslate"><span class="pre">BakingConverter.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.moveDown"><code class="docutils literal notranslate"><span class="pre">BakingConverter.moveDown()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.moveUp"><code class="docutils literal notranslate"><span class="pre">BakingConverter.moveUp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.resetDefaultProperty"><code class="docutils literal notranslate"><span class="pre">BakingConverter.resetDefaultProperty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.setFileParameterValueFromPath"><code class="docutils literal notranslate"><span class="pre">BakingConverter.setFileParameterValueFromPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.setFileParameterValueFromPreviousBaker"><code class="docutils literal notranslate"><span class="pre">BakingConverter.setFileParameterValueFromPreviousBaker()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.setFileParameterValueFromResource"><code class="docutils literal notranslate"><span class="pre">BakingConverter.setFileParameterValueFromResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.setGlobalParams"><code class="docutils literal notranslate"><span class="pre">BakingConverter.setGlobalParams()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.setParameterValue"><code class="docutils literal notranslate"><span class="pre">BakingConverter.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.setSelected"><code class="docutils literal notranslate"><span class="pre">BakingConverter.setSelected()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.toSBSOptionList"><code class="docutils literal notranslate"><span class="pre">BakingConverter.toSBSOptionList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.updateDefaultProperties"><code class="docutils literal notranslate"><span class="pre">BakingConverter.updateDefaultProperties()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter.updateDefaultProperty"><code class="docutils literal notranslate"><span class="pre">BakingConverter.updateDefaultProperty()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p id="module-sbsbakers.sbsbakerslibrary">Module <strong>sbsbakerslibrary</strong> provides the libraries of Bakers and their parameters that are defined in the
+modules <a class="reference internal" href="sbsbakersdef.html#module-pysbs.sbsbakers.sbsbakersdef" title="pysbs.sbsbakers.sbsbakersdef"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsbakersdef</span></code></a> and <a class="reference internal" href="sbsbakingparameters.html#module-pysbs.sbsbakers.sbsbakingparameters" title="pysbs.sbsbakers.sbsbakingparameters"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sbsbakingparameters</span></code></a>.</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt><strong>Libraries:</strong></dt><dd><ul>
+<li><p>__library_Bakers: the library of Bakers, identified by <a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="pysbs.sbsbakers.sbsbakersenum.BakerEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakerEnum</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__library_Bakers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">AMBIENT_OCCLUSION</span>             <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_AMBIENT_OCCLUSION</span>               <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">AMBIENT_OCCLUSION_FROM_MESH</span>   <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_AMBIENT_OCCLUSION_FROM_MESH</span>     <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">BENT_NORMALS_FROM_MESH</span>        <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_BENT_NORMALS_FROM_MESH</span>          <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">COLOR_MAP_FROM_MESH</span>           <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_COLOR_MAP_FROM_MESH</span>             <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">CONVERT_UV_TO_SVG</span>             <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_CONVERT_UV_TO_SVG</span>               <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">CURVATURE</span>                     <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_CURVATURE</span>                       <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">CURVATURE_MAP_FROM_MESH</span>       <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_CURVATURE_MAP_FROM_MESH</span>         <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">HEIGHT_MAP_FROM_MESH</span>          <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_HEIGHT_MAP_FROM_MESH</span>            <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">NORMAL_MAP_FROM_MESH</span>          <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_NORMAL_MAP_FROM_MESH</span>            <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">OPACITY_MASK_FROM_MESH</span>        <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_OPACITY_MASK_FROM_MESH</span>          <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">POSITION</span>                      <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_POSITION</span>                        <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">POSITION_MAP_FROM_MESH</span>        <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_POSITION_MAP_FROM_MESH</span>          <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">THICKNESS_MAP_FROM_MESH</span>       <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_THICKNESS_MAP_FROM_MESH</span>         <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">TRANSFERRED_TEXTURE_FROM_MESH</span> <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_TRANSFERRED_TEXTURE_FROM_MESH</span>   <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">WORLD_SPACE_DIRECTION</span>         <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_WORLD_SPACE_DIRECTION</span>           <span class="p">,</span>
+    <span class="n">sbsbakersenum</span><span class="o">.</span><span class="n">BakerEnum</span><span class="o">.</span><span class="n">WORLD_SPACE_NORMALS</span>           <span class="p">:</span> <span class="n">sbsbakersdef</span><span class="o">.</span><span class="n">baker_WORLD_SPACE_NORMALS</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier">
+<span class="sig-prename descclassname"><span class="pre">sbsbakers.sbsbakerslibrary.</span></span><span class="sig-name descname"><span class="pre">getBakerDefaultIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBaker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Get the default string identifier of the given baker (from its ConverterID or identifier)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBaker</strong> (<a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="pysbs.sbsbakers.sbsbakersenum.BakerEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakerEnum</span></code></a> or str (ConverterID or identifier)) – baker identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the default identifier as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsbakers.sbsbakerslibrary.getBakerDefinition">
+<span class="sig-prename descclassname"><span class="pre">sbsbakers.sbsbakerslibrary.</span></span><span class="sig-name descname"><span class="pre">getBakerDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBaker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsbakers.sbsbakerslibrary.getBakerDefinition" title="Link to this definition"></a></dt>
+<dd><p>Get the definition of the given baker identifier (from its ConverterID or identifier)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBaker</strong> (<a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="pysbs.sbsbakers.sbsbakersenum.BakerEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakerEnum</span></code></a> or str (ConverterID or identifier)) – baker identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a <a class="reference internal" href="sbsbakingconverter.html#pysbs.sbsbakers.sbsbakingconverter.BakingConverter" title="pysbs.sbsbakers.sbsbakingconverter.BakingConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakingConverter</span></code></a> object if found, None otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sbsbakers.sbsbakerslibrary.getBakerEnum">
+<span class="sig-prename descclassname"><span class="pre">sbsbakers.sbsbakerslibrary.</span></span><span class="sig-name descname"><span class="pre">getBakerEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aBakerID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsbakers.sbsbakerslibrary.getBakerEnum" title="Link to this definition"></a></dt>
+<dd><p>Get the enum value of the given baker (from its ConverterID or identifier)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aBakerID</strong> (<em>str</em>) – baker ConverterID (ex: ‘BakerMeshConverterGLMapBakerManager.Curvature’) or identifier (ex: ‘Curvature [2]’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the baker as a <a class="reference internal" href="sbsbakersenum.html#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="pysbs.sbsbakers.sbsbakersenum.BakerEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">BakerEnum</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sbslibrary/sbswidgets.html" class="btn btn-neutral float-left" title="sbswidgets module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsbakersenum.html" class="btn btn-neutral float-right" title="sbsbakersenum module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

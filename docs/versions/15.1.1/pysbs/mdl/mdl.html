@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mdl module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mdlmanager module" href="mdlmanager.html" />
+    <link rel="prev" title="values module" href="../sbscommon/values.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../common_interfaces/common_interfaces.html">common_interfaces module: Common interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsarchive/sbsarchive.html">sbsarchive module: Substance archive definition (.sbsar)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../substance/substance.html">substance module: Substance definition (.sbs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph/graph.html">graph module: Graph and Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">mdl module: MDL graph definition and all objects related to MDL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mdlmanager.html">mdlmanager module: MDL manager, handles the MDL library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlgraph.html">mdlgraph module: MDL graph definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnode.html">mdlnode module: MDL node definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdloperand.html">mdloperand module: MDL operand definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlannotation.html">mdlannotation module: MDL annotation definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdlenum.html">mdlenum module: list of enumerations used for MDL objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdllibclasses.html">mdllibclasses module: provides the classes used to create the MDL library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modulegraph/modulegraphindex.html">ModuleGraph module: ModuleGraph definition and all objects related to ModuleGraph</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">mdl module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mdl-module">
+<h1>mdl module<a class="headerlink" href="#mdl-module" title="Link to this heading"></a></h1>
+<p>Content included in mdl module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mdlmanager.html">mdlmanager module: MDL manager, handles the MDL library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager"><code class="docutils literal notranslate"><span class="pre">MDLManager</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.MATERIAL_CONSTRUCTOR_FUNCTION"><code class="docutils literal notranslate"><span class="pre">MDLManager.MATERIAL_CONSTRUCTOR_FUNCTION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.addRootPath"><code class="docutils literal notranslate"><span class="pre">MDLManager.addRootPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.extractMDLModulesFrom"><code class="docutils literal notranslate"><span class="pre">MDLManager.extractMDLModulesFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.getAcceptConnectionByDefaultForType"><code class="docutils literal notranslate"><span class="pre">MDLManager.getAcceptConnectionByDefaultForType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.getConstantDefaultAnnotations"><code class="docutils literal notranslate"><span class="pre">MDLManager.getConstantDefaultAnnotations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.getGraphDefaultAnnotations"><code class="docutils literal notranslate"><span class="pre">MDLManager.getGraphDefaultAnnotations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.getMDLAnnotationDefinition"><code class="docutils literal notranslate"><span class="pre">MDLManager.getMDLAnnotationDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.getMDLNodeDefinition"><code class="docutils literal notranslate"><span class="pre">MDLManager.getMDLNodeDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.getMDLTypeDefinition"><code class="docutils literal notranslate"><span class="pre">MDLManager.getMDLTypeDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.getRootPaths"><code class="docutils literal notranslate"><span class="pre">MDLManager.getRootPaths()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.initAllMDLModules"><code class="docutils literal notranslate"><span class="pre">MDLManager.initAllMDLModules()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.isAColor"><code class="docutils literal notranslate"><span class="pre">MDLManager.isAColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.isModulePathDenyListed"><code class="docutils literal notranslate"><span class="pre">MDLManager.isModulePathDenyListed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.parseJsonData"><code class="docutils literal notranslate"><span class="pre">MDLManager.parseJsonData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.resolveVersionnedFunctionPath"><code class="docutils literal notranslate"><span class="pre">MDLManager.resolveVersionnedFunctionPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlmanager.html#mdl.mdlmanager.MDLManager.setRootPaths"><code class="docutils literal notranslate"><span class="pre">MDLManager.setRootPaths()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdlgraph.html">mdlgraph module: MDL graph definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph"><code class="docutils literal notranslate"><span class="pre">MDLGraph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.computeUniqueInputIdentifier"><code class="docutils literal notranslate"><span class="pre">MDLGraph.computeUniqueInputIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.connectNodes"><code class="docutils literal notranslate"><span class="pre">MDLGraph.connectNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.contains"><code class="docutils literal notranslate"><span class="pre">MDLGraph.contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.copyNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.copyNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createComment"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createFrame"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createFrameAroundNodes"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createFrameAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createIterationOnNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createIterationOnNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createIterationOnPattern"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createIterationOnPattern()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeConst"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeConst()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeInstance"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeMDLGraphInstance"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeMDLGraphInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeMDLGraphInstanceFromPath"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeMDLGraphInstanceFromPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeOutput"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodePassThrough"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodePassThrough()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeSBSGraphInstance"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeSBSGraphInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeSBSGraphInstanceFromPath"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeSBSGraphInstanceFromPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMDLNodeSelector"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMDLNodeSelector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMetaDataStr"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMetaDataStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createMetaDataUrl"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createMetaDataUrl()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.createNavigationPin"><code class="docutils literal notranslate"><span class="pre">MDLGraph.createNavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.deleteComment"><code class="docutils literal notranslate"><span class="pre">MDLGraph.deleteComment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.deleteFrame"><code class="docutils literal notranslate"><span class="pre">MDLGraph.deleteFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.deleteInputParameter"><code class="docutils literal notranslate"><span class="pre">MDLGraph.deleteInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.deleteMetaData"><code class="docutils literal notranslate"><span class="pre">MDLGraph.deleteMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.deleteNavigationPin"><code class="docutils literal notranslate"><span class="pre">MDLGraph.deleteNavigationPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.deleteNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.deleteNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.disconnectNodes"><code class="docutils literal notranslate"><span class="pre">MDLGraph.disconnectNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.duplicateNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.duplicateNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.equals"><code class="docutils literal notranslate"><span class="pre">MDLGraph.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllComments"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllComments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllDependencyUID"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllFrames"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllFrames()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllGUIObjects"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllGUIObjects()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllInputGroups"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllInputGroups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllInputIdentifiers"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllInputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllInputs"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllInputsInGroup"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllInputsInGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLConstants"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLConstants()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLConstantsOfType"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLConstantsOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLConstantsWithName"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLConstantsWithName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLGraphInstances"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLGraphInstances()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLGraphInstancesOf"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLGraphInstancesOf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLInstances"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLInstances()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLInstancesOf"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLInstancesOf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLSelectors"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLSelectors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLSelectorsOfType"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLSelectorsOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMDLSelectorsWithName"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMDLSelectorsWithName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllMetaData"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllNavigationPins"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllNavigationPins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllReferencesOnDependency"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllReferencesOnDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllReferencesOnResource"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllReferencesOnResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllResourcesUsed"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllResourcesUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllSBSInstances"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllSBSInstances()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllSBSInstancesOf"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllSBSInstancesOf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAllowedAttributes"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAllowedAttributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAnnotationValue"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAnnotationValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getAttribute"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getCommentsAssociatedToNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getCommentsAssociatedToNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getConnectionsFromNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getConnectionsFromNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getConnectionsToNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getConnectionsToNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getFirstInputOfType"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getFirstInputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getGraphOutput"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getGraphOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getGraphOutputNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getGraphOutputNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getGraphOutputType"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getGraphOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getGroup"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getIcon"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getIcon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getIconBytes"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getIconBytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getIdentifier"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInput"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputFromUID"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputImage"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputImageWithUsage"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputImageWithUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputImages"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputImages()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputIndex"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputIndex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputParameter"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputParameterFromUID"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputParameterFromUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputParameters"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getInputWithUsage"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getInputWithUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getMDLInput"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getMDLInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getMetaData"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getMetaData()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getNodeList"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getNodeList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getNodesConnectedFrom"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getNodesConnectedFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getNodesConnectedTo"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getNodesConnectedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getNodesDockedTo"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getNodesDockedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getNodesInFrame"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getNodesInFrame()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getRect"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getSBSMetaDataTree"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getSBSMetaDataTree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.getUsage"><code class="docutils literal notranslate"><span class="pre">MDLGraph.getUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.hasUsage"><code class="docutils literal notranslate"><span class="pre">MDLGraph.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.isAPathBetween"><code class="docutils literal notranslate"><span class="pre">MDLGraph.isAPathBetween()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.moveConnectionOnPinInput"><code class="docutils literal notranslate"><span class="pre">MDLGraph.moveConnectionOnPinInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.moveConnectionsOnPinOutput"><code class="docutils literal notranslate"><span class="pre">MDLGraph.moveConnectionsOnPinOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.parse"><code class="docutils literal notranslate"><span class="pre">MDLGraph.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.reframeAroundNodes"><code class="docutils literal notranslate"><span class="pre">MDLGraph.reframeAroundNodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.removeAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLGraph.removeAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setAttribute"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setAttribute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setAttributes"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setAttributes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setConstantAsInputParameter"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setConstantAsInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setGroup"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setIcon"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setIcon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setInputIndex"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setInputIndex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setMetaDataName"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setMetaDataName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setMetaDataValue"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setMetaDataValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setOutputNode"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setOutputNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.setUsage"><code class="docutils literal notranslate"><span class="pre">MDLGraph.setUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.sortNodesAsDAG"><code class="docutils literal notranslate"><span class="pre">MDLGraph.sortNodesAsDAG()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLGraph.write"><code class="docutils literal notranslate"><span class="pre">MDLGraph.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLInput"><code class="docutils literal notranslate"><span class="pre">MDLInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLInput.equals"><code class="docutils literal notranslate"><span class="pre">MDLInput.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLInput.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLInput.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLInput.parse"><code class="docutils literal notranslate"><span class="pre">MDLInput.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlgraph.html#mdl.mdlgraph.MDLInput.write"><code class="docutils literal notranslate"><span class="pre">MDLInput.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdlnode.html">mdlnode module: MDL node definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode"><code class="docutils literal notranslate"><span class="pre">MDLNode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.changeDependencyUID"><code class="docutils literal notranslate"><span class="pre">MDLNode.changeDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.changeResourcePath"><code class="docutils literal notranslate"><span class="pre">MDLNode.changeResourcePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.classify"><code class="docutils literal notranslate"><span class="pre">MDLNode.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.equals"><code class="docutils literal notranslate"><span class="pre">MDLNode.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getConnectedNodesUID"><code class="docutils literal notranslate"><span class="pre">MDLNode.getConnectedNodesUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">MDLNode.getConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getConnections"><code class="docutils literal notranslate"><span class="pre">MDLNode.getConnections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getConnectionsFromNode"><code class="docutils literal notranslate"><span class="pre">MDLNode.getConnectionsFromNode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLNode.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLNode.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLNode.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getMDLImplConstant"><code class="docutils literal notranslate"><span class="pre">MDLNode.getMDLImplConstant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getMDLImplMDLGraphInstance"><code class="docutils literal notranslate"><span class="pre">MDLNode.getMDLImplMDLGraphInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getMDLImplMDLInstance"><code class="docutils literal notranslate"><span class="pre">MDLNode.getMDLImplMDLInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getMDLImplSBSInstance"><code class="docutils literal notranslate"><span class="pre">MDLNode.getMDLImplSBSInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getMDLImplSelector"><code class="docutils literal notranslate"><span class="pre">MDLNode.getMDLImplSelector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getMDLImplementation"><code class="docutils literal notranslate"><span class="pre">MDLNode.getMDLImplementation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getOffsetPosition"><code class="docutils literal notranslate"><span class="pre">MDLNode.getOffsetPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLNode.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLNode.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLNode.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getPosition"><code class="docutils literal notranslate"><span class="pre">MDLNode.getPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getRect"><code class="docutils literal notranslate"><span class="pre">MDLNode.getRect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getResourcesPath"><code class="docutils literal notranslate"><span class="pre">MDLNode.getResourcesPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLNode.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.hasAReferenceOnDependency"><code class="docutils literal notranslate"><span class="pre">MDLNode.hasAReferenceOnDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.hasAReferenceOnInternalPath"><code class="docutils literal notranslate"><span class="pre">MDLNode.hasAReferenceOnInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isAConstant"><code class="docutils literal notranslate"><span class="pre">MDLNode.isAConstant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isAPassthrough"><code class="docutils literal notranslate"><span class="pre">MDLNode.isAPassthrough()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isAPotentialOutput"><code class="docutils literal notranslate"><span class="pre">MDLNode.isAPotentialOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isASelector"><code class="docutils literal notranslate"><span class="pre">MDLNode.isASelector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isAnInput"><code class="docutils literal notranslate"><span class="pre">MDLNode.isAnInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isConnectedTo"><code class="docutils literal notranslate"><span class="pre">MDLNode.isConnectedTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isDocked"><code class="docutils literal notranslate"><span class="pre">MDLNode.isDocked()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isMDLGraphInstance"><code class="docutils literal notranslate"><span class="pre">MDLNode.isMDLGraphInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isMDLInstance"><code class="docutils literal notranslate"><span class="pre">MDLNode.isMDLInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.isSBSInstance"><code class="docutils literal notranslate"><span class="pre">MDLNode.isSBSInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.parse"><code class="docutils literal notranslate"><span class="pre">MDLNode.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.removeConnectionOnPin"><code class="docutils literal notranslate"><span class="pre">MDLNode.removeConnectionOnPin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.removeConnectionsFrom"><code class="docutils literal notranslate"><span class="pre">MDLNode.removeConnectionsFrom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLNode.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLNode.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.setPinVisibilityForParameter"><code class="docutils literal notranslate"><span class="pre">MDLNode.setPinVisibilityForParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.setPosition"><code class="docutils literal notranslate"><span class="pre">MDLNode.setPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.useResource"><code class="docutils literal notranslate"><span class="pre">MDLNode.useResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnode.html#mdl.mdlnode.MDLNode.write"><code class="docutils literal notranslate"><span class="pre">MDLNode.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdlnodeimpl.html">mdlnodeimpl module: defines the different implementations of a MDL node</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getAnnotationValue"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getAnnotationValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getConstantOperand"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getConstantOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getGroup"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getIdentifier"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getOperand"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getOperands"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getOperands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.getUsage"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.getUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.hasUsage"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.isAnInput"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.isAnInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.isAnInputImage"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.isAnInputImage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.isAnInputParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.isAnInputParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.isExposed"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.isExposed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.isVisibleByDefault"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.isVisibleByDefault()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.removeAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.removeAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.setAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.setAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.setExposed"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.setExposed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.setGroup"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.setGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.setIdentifier"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.setIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.setUsage"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.setUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplConstant.write"><code class="docutils literal notranslate"><span class="pre">MDLImplConstant.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.changeDependencyUID"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.changeDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.changeInstancePath"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.changeInstancePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getDependencyUID"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getOperand"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getOperands"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getOperands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getReferenceAbsPath"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getReferenceAbsPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getReferenceInternalPath"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getReferenceInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.resolveDependency"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.resolveDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLGraphInstance.write"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLGraphInstance.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getOperand"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getOperands"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getOperands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.isAnInstanceOf"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.isAnInstanceOf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplMDLInstance.write"><code class="docutils literal notranslate"><span class="pre">MDLImplMDLInstance.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplPassThrough.write"><code class="docutils literal notranslate"><span class="pre">MDLImplPassThrough.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.changeDependencyUID"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.changeDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.changeInstancePath"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.changeInstancePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getDependencyUID"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getDependencyUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getInputBridgeUID"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getInputBridgeUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getInputIdentifier"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getInputIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getOutputBridgeUID"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getOutputBridgeUID()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getOutputIdentifier"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getOutputIdentifier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getReferenceAbsPath"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getReferenceAbsPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getReferenceInternalPath"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getReferenceInternalPath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.resolveDependency"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.resolveDependency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSBSInstance.write"><code class="docutils literal notranslate"><span class="pre">MDLImplSBSInstance.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getMemberList"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getMemberList()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplSelector.write"><code class="docutils literal notranslate"><span class="pre">MDLImplSelector.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation"><code class="docutils literal notranslate"><span class="pre">MDLImplementation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.getImplementation"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.getImplementation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.getImplementationKind"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.getImplementationKind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.isAConstant"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.isAConstant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.isAPassthrough"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.isAPassthrough()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.isASelector"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.isASelector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.isMDLGraphInstance"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.isMDLGraphInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.isMDLInstance"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.isMDLInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.isSBSInstance"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.isSBSInstance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.isSBSPassThrough"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.isSBSPassThrough()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlnodeimpl.html#mdl.mdlnodeimpl.MDLImplementation.write"><code class="docutils literal notranslate"><span class="pre">MDLImplementation.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdloperand.html">mdloperand module: MDL operand definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand"><code class="docutils literal notranslate"><span class="pre">MDLOperand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.acceptConnection"><code class="docutils literal notranslate"><span class="pre">MDLOperand.acceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.equals"><code class="docutils literal notranslate"><span class="pre">MDLOperand.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.getSBSTag"><code class="docutils literal notranslate"><span class="pre">MDLOperand.getSBSTag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.getType"><code class="docutils literal notranslate"><span class="pre">MDLOperand.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLOperand.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.getValue"><code class="docutils literal notranslate"><span class="pre">MDLOperand.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.isDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperand.isDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.parse"><code class="docutils literal notranslate"><span class="pre">MDLOperand.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.setConnectionAccepted"><code class="docutils literal notranslate"><span class="pre">MDLOperand.setConnectionAccepted()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.setIsDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperand.setIsDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperand.write"><code class="docutils literal notranslate"><span class="pre">MDLOperand.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.acceptConnection"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.acceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.addItem"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.addItem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.equals"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.getItem"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.getItem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.getItems"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.getItems()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.getSBSTag"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.getSBSTag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.getSize"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.getSize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.getType"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.getValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.isDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.isDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.parse"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.setConnectionAccepted"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.setConnectionAccepted()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.setIsDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.setIsDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.setValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandArray.write"><code class="docutils literal notranslate"><span class="pre">MDLOperandArray.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.acceptConnection"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.acceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.equals"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.isDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.isDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.isEmpty"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.isEmpty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.parse"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.setConnectionAccepted"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.setConnectionAccepted()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.setIsDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.setIsDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandMetaData.write"><code class="docutils literal notranslate"><span class="pre">MDLOperandMetaData.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.acceptConnection"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.acceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.equals"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.getMembers"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.getMembers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.getOperand"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.getOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.getSBSTag"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.getSBSTag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.getType"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.getValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.isDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.isDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.parse"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.setConnectionAccepted"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.setConnectionAccepted()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.setIsDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.setIsDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.setValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandStruct.write"><code class="docutils literal notranslate"><span class="pre">MDLOperandStruct.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.acceptConnection"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.acceptConnection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.equals"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.getSBSTag"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.getSBSTag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.getType"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.getTypedValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.getTypedValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.getValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.isDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.isDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.parse"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.setConnectionAccepted"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.setConnectionAccepted()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.setIsDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.setIsDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.setValue"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperandValue.write"><code class="docutils literal notranslate"><span class="pre">MDLOperandValue.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands"><code class="docutils literal notranslate"><span class="pre">MDLOperands</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.equals"><code class="docutils literal notranslate"><span class="pre">MDLOperands.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.equalsTo"><code class="docutils literal notranslate"><span class="pre">MDLOperands.equalsTo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getAllOperands"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getAllOperands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getAllOperandsValue"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getAllOperandsValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getNbOperands"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getNbOperands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getOperand"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getOperandByIndex"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getOperandByIndex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getOperandValue"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getOperandValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getOperandValueByIndex"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getOperandValueByIndex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLOperands.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.parse"><code class="docutils literal notranslate"><span class="pre">MDLOperands.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdloperand.html#mdl.mdloperand.MDLOperands.write"><code class="docutils literal notranslate"><span class="pre">MDLOperands.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdlannotation.html">mdlannotation module: MDL annotation definition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLAnnotation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation.equals"><code class="docutils literal notranslate"><span class="pre">MDLAnnotation.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLAnnotation.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation.getValue"><code class="docutils literal notranslate"><span class="pre">MDLAnnotation.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation.parse"><code class="docutils literal notranslate"><span class="pre">MDLAnnotation.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation.setValue"><code class="docutils literal notranslate"><span class="pre">MDLAnnotation.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlannotation.html#mdl.mdlannotation.MDLAnnotation.write"><code class="docutils literal notranslate"><span class="pre">MDLAnnotation.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdlsbsbridge.html">mdlsbsbridge module: bridge for a SBSGraph instance inside a MDL graph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLInputBridging"><code class="docutils literal notranslate"><span class="pre">MDLInputBridging</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLInputBridging.equals"><code class="docutils literal notranslate"><span class="pre">MDLInputBridging.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLInputBridging.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLInputBridging.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLInputBridging.parse"><code class="docutils literal notranslate"><span class="pre">MDLInputBridging.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLInputBridging.write"><code class="docutils literal notranslate"><span class="pre">MDLInputBridging.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLOutputBridging"><code class="docutils literal notranslate"><span class="pre">MDLOutputBridging</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLOutputBridging.equals"><code class="docutils literal notranslate"><span class="pre">MDLOutputBridging.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLOutputBridging.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLOutputBridging.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLOutputBridging.parse"><code class="docutils literal notranslate"><span class="pre">MDLOutputBridging.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLOutputBridging.write"><code class="docutils literal notranslate"><span class="pre">MDLOutputBridging.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue"><code class="docutils literal notranslate"><span class="pre">MDLParamValue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.equals"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.getType"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.getTypedValue"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.getTypedValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.getValue"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.parse"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.setValue"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParamValue.write"><code class="docutils literal notranslate"><span class="pre">MDLParamValue.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter"><code class="docutils literal notranslate"><span class="pre">MDLParameter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.equals"><code class="docutils literal notranslate"><span class="pre">MDLParameter.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.getType"><code class="docutils literal notranslate"><span class="pre">MDLParameter.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.getTypedValue"><code class="docutils literal notranslate"><span class="pre">MDLParameter.getTypedValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLParameter.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.getValue"><code class="docutils literal notranslate"><span class="pre">MDLParameter.getValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.isDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLParameter.isDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.parse"><code class="docutils literal notranslate"><span class="pre">MDLParameter.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.setIsDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLParameter.setIsDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.setValue"><code class="docutils literal notranslate"><span class="pre">MDLParameter.setValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlsbsbridge.html#mdl.mdlsbsbridge.MDLParameter.write"><code class="docutils literal notranslate"><span class="pre">MDLParameter.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdlcommon.html">mdlcommon module: defines common interfaces for MDL objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.classify"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.equals"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getOperand"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getOperands"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getOperands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.parse"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLImplWithOperands.write"><code class="docutils literal notranslate"><span class="pre">MDLImplWithOperands.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.classify"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.classify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.equals"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.equals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.getDefinition"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.getDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.getDisplayName"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.getDisplayName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.getInputDefinition"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.getInputDefinition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.getOutputType"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.getOutputType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.getParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.getParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.getParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.getUidIsUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.parse"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.resetParameter"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.resetParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.setParameterValue"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.setParameterValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLNodeImpl.write"><code class="docutils literal notranslate"><span class="pre">MDLNodeImpl.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.getAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.getAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.getAnnotationValue"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.getAnnotationValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.getGroup"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.getGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.getUsage"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.getUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.hasUsage"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.hasUsage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.removeAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.removeAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.setAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.setAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.setGroup"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.setGroup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdlcommon.html#mdl.mdlcommon.MDLObjectWithAnnotations.setUsage"><code class="docutils literal notranslate"><span class="pre">MDLObjectWithAnnotations.setUsage()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdldictionaries.html">mdldictionaries module: list of string dictionaries used for MDL objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdldictionaries.html#mdl.mdldictionaries.getAnnotationEnum"><code class="docutils literal notranslate"><span class="pre">getAnnotationEnum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdldictionaries.html#mdl.mdldictionaries.getAnnotationPath"><code class="docutils literal notranslate"><span class="pre">getAnnotationPath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdldictionaries.html#mdl.mdldictionaries.getMDLGraphTemplatePath"><code class="docutils literal notranslate"><span class="pre">getMDLGraphTemplatePath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdldictionaries.html#mdl.mdldictionaries.getMDLPredefTypePath"><code class="docutils literal notranslate"><span class="pre">getMDLPredefTypePath()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdldictionaries.html#mdl.mdldictionaries.getMDLTypeDefKind"><code class="docutils literal notranslate"><span class="pre">getMDLTypeDefKind()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdldictionaries.html#mdl.mdldictionaries.getMDLTypeDefKindEnum"><code class="docutils literal notranslate"><span class="pre">getMDLTypeDefKindEnum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdlenum.html">mdlenum module: list of enumerations used for MDL objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLImplementationKindEnum"><code class="docutils literal notranslate"><span class="pre">MDLImplementationKindEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLAnnotationEnum"><code class="docutils literal notranslate"><span class="pre">MDLAnnotationEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLTypeDefKindEnum"><code class="docutils literal notranslate"><span class="pre">MDLTypeDefKindEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLTypeModifierEnum"><code class="docutils literal notranslate"><span class="pre">MDLTypeModifierEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLPredefTypes"><code class="docutils literal notranslate"><span class="pre">MDLPredefTypes</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdlenum.html#mdl.mdlenum.MDLGraphTemplateEnum"><code class="docutils literal notranslate"><span class="pre">MDLGraphTemplateEnum</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdllibclasses.html">mdllibclasses module: provides the classes used to create the MDL library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLAnnotationDef"><code class="docutils literal notranslate"><span class="pre">MDLAnnotationDef</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLAnnotationDef.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLAnnotationDef.fromJSON()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLAnnotationDef.fromMDLAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLAnnotationDef.fromMDLAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLAnnotationDef.toMDLAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLAnnotationDef.toMDLAnnotation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLLibObject"><code class="docutils literal notranslate"><span class="pre">MDLLibObject</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLLibObject.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLLibObject.fromJSON()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.fromJSON()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getAllInputIdentifiers"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getAllInputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getAllInputs"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getAllInputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getAllOutputIdentifiers"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getAllOutputIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getAllOutputs"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getAllOutputs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getAllParameterIdentifiers"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getAllParameterIdentifiers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getAllParameters"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getAllParameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getDefaultOperands"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getDefaultOperands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getFirstInputOfType"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getFirstInputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getFirstOutputOfType"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getFirstOutputOfType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getInput"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getInput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getOutput"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getOutput()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDef.getParameter"><code class="docutils literal notranslate"><span class="pre">MDLNodeDef.getParameter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefInput"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefInput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefInput.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefInput.fromJSON()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefInput.fromMDLInputBridging"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefInput.fromMDLInputBridging()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefInput.fromMDLOperand"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefInput.fromMDLOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefInput.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefInput.getIdentifierStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefInput.getType"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefInput.getType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefOutput"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefOutput</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefOutput.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefOutput.fromJSON()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefOutput.fromMDLOutputBridging"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefOutput.fromMDLOutputBridging()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefOutput.getIdentifierStr"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefOutput.getIdentifierStr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefOutput.getType"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefOutput.getType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam.fromJSON()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam.fromMDLOperand"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam.fromMDLOperand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam.fromMDLParameter"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam.fromMDLParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam.getAnnotation"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam.getAnnotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam.getDefaultValue"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam.getDefaultValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam.getType"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam.getType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParam.toMDLOperand"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParam.toMDLOperand()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParamValue"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParamValue</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParamValue.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParamValue.fromJSON()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefParamValue.getType"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefParamValue.getType()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefType"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefType</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLNodeDefType.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLNodeDefType.fromJSON()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.fromJSON()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.getModuleName"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.getModuleName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.getModulePath"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.getModulePath()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isArray"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isArray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isAtomic"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isAtomic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isCall"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isCall()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isCompound"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isCompound()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isEnum"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isEnum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isMaterial"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isReference"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isReference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isResource"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isResource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isString"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isString()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.isStruct"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.isStruct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeDef.toMDLOperand"><code class="docutils literal notranslate"><span class="pre">MDLTypeDef.toMDLOperand()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeStructMemberDef"><code class="docutils literal notranslate"><span class="pre">MDLTypeStructMemberDef</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mdllibclasses.html#mdl.mdllibclasses.MDLTypeStructMemberDef.fromJSON"><code class="docutils literal notranslate"><span class="pre">MDLTypeStructMemberDef.fromJSON()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-mdl"></span></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sbscommon/values.html" class="btn btn-neutral float-left" title="values module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mdlmanager.html" class="btn btn-neutral float-right" title="mdlmanager module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

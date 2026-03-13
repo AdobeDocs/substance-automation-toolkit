@@ -1,0 +1,828 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>batchtools module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="output_handlers module" href="output_handlers.html" />
+    <link rel="prev" title="info_mesh_parser module" href="info_mesh_parser.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../autograph/autograph.html">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="info_mesh_parser.html"> info mesh parser</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"> batchtools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="output_handlers.html"> output handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="substance3d_baker_info_handlers.html"> substance3d_baker info handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsrender_render_handlers.html"> sbsrender render handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spotcolorinfo_handlers.html"> spotcolorinfo handlers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thumbnail.html"> thumbnail</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="batchtools%20overview.html">batchtools modules</a></li>
+      <li class="breadcrumb-item active">batchtools module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="batchtools-module">
+<span id="ref-to-batchtools-batchtools"></span><h1>batchtools module<a class="headerlink" href="#batchtools-module" title="Link to this heading"></a></h1>
+<p>Content included in batchtools package:</p>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="py function" id="module-batchtools.batchtools">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbscooker">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbscooker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbscooker" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbscooker</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbscooker</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbscooker</span> <span class="pre">--help-advanced</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbscooker</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbscooker</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsmutator_edit">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsmutator_edit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsmutator_edit" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">edit</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">edit</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">edit</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">edit</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">edit</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsmutator_export">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsmutator_export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsmutator_export" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">export</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">export</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">export</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">export</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">export</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsmutator_info">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsmutator_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsmutator_info" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">info</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">info</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">info</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">info</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">info</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsmutator_instantiate">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsmutator_instantiate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsmutator_instantiate" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">instantiate</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">instantiate</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">instantiate</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">instantiate</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsmutator</span> <span class="pre">instantiate</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsrender_info">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsrender_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsrender_info" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">info</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">info</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">info</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">info</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">info</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsrender_render">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsrender_render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsrender_render" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command or SbsRenderOutputHandler if output_handler=True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsrender_render_animate">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsrender_render_animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_sbsar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">24</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animated_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmds_output_stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_proc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsrender_render_animate" title="Link to this definition"></a></dt>
+<dd><p>Renders an image sequence from an sbsar input using sbsrender.
+It takes a start frame, an end frame and frames per second.
+The sbsrender command line tool will be run once for each frame.</p>
+<p>By default the $time will be generated for each frame based on start, end and fps.
+It is possible to set sbsrender arguments as global frame parameters.</p>
+<p>The <cite>animated_parameters</cite> can be used to tweak other sbsar parameters than $time
+This argument allow to pass a list of pairs of parameter names and functions taking <cite>frame</cite> and <cite>fps</cite> as parameters.
+e.g: animated_parameters=[(“input”, compute_input)] the value named “input” will be set to the result of
+calling compute_input(frame, fps).
+A lambda can also be used be used, e.g: animated_parameters=[(“input”, lambda frame, fps: frame / fps)]
+Multiple values can be animated by supplying a list of parameters and functions,
+e.g: animated_parameters=[(“input”, lambda frame, fps: frame / fps), (“other”, a_python_def(frame, fps))]</p>
+<p>If setting multi_proc to a non-zero value the rendering will be multi processed in the specified number
+of processes executing the rendering sequentially frame by frame.</p>
+<p>By providing a path to the argument <cite>cmds_output_path</cite> the sbsrender will not be executed but all
+command lines will be written in the file.
+So it possible for instance to dispatch theses command line through a render farm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_sbsar</strong> (<em>str</em>) – sbsar path file as input</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – start frame</p></li>
+<li><p><strong>end</strong> (<em>int</em>) – end frame</p></li>
+<li><p><strong>output_name</strong> (<em>str</em>) – the name of the ouput files, it must contain a sequence pattern, e.g: ### or %3d for three digit.</p></li>
+<li><p><strong>fps</strong> (<em>int</em>) – frame rate</p></li>
+<li><p><strong>animated_parameters</strong> (<em>(</em><em>str</em><em>, </em><em>function</em><em>(</em><em>fram</em><em>, </em><em>fps</em><em>) or </em><em>[</em><em>(</em><em>str</em><em>, </em><em>function</em><em>(</em><em>fram</em><em>, </em><em>fps</em><em>)</em><em>]</em>) – a pair of parameter name and corresponding function to compute it or a list of such pairs.</p></li>
+<li><p><strong>cmds_output_stream</strong> (<em>io.TextIOBase</em>) – stream to write commands to instead of executing them</p></li>
+<li><p><strong>multi_proc</strong> (<em>int</em>) – if greater than 0 the rendering will be parallelize by the multi_proc value.</p></li>
+<li><p><strong>kwargs</strong> – other key arguments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool, true if all frames succeeded, otherwise false</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.sbsupdater">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">sbsupdater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.sbsupdater" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">sbsupdater</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsupdater</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsupdater</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsupdater</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsupdater</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.spotcolorinfo_from_ids">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">spotcolorinfo_from_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.spotcolorinfo_from_ids" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">spotcolorinfo</span> <span class="pre">from-ids</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command or SpotColorInfoOutputHandler if output_handler=True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.spotcolorinfo_from_names">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">spotcolorinfo_from_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.spotcolorinfo_from_names" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">spotcolorinfo</span> <span class="pre">from-names</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command or SpotColorInfoOutputHandler if output_handler=True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.spotcolorinfo_list">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">spotcolorinfo_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.spotcolorinfo_list" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">spotcolorinfo</span> <span class="pre">list</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">sbsrender</span> <span class="pre">render</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command or SpotColorInfoOutputHandler if output_handler=True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_ambient_occlusion_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_ambient_occlusion_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_ambient_occlusion_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">AmbientOcclusion.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to
+<code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">AmbientOcclusion.Raytraced</span></code>, with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code>
+or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">AmbientOcclusion.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">AmbientOcclusion.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">AmbientOcclusion.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_color_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_color_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_color_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Color.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Color.Raytraced</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Color.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Color.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Color.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_curvature_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_curvature_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_curvature_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Curvature.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Curvature.Raytraced</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Curvature.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Curvature.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Curvature.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_height_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_height_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_height_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Height.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Height.Raytraced</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Height.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Height.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Height.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_info">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_info" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">info</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">info</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">info</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">info</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">info</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command or Substance3dBakerInfoOutputHandler if output_handler=True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_info_get_mesh_info">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_info_get_mesh_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sceneFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_info_get_mesh_info" title="Link to this definition"></a></dt>
+<dd><p>Get the list of materials, mesh_paths, and number of UV set of the given mesh and return them as a triplet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sceneFilePath</strong> (<em>str</em>) – File path of the mesh scene to inspect</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A triplet: [materials],[mesh_paths],nb_of_uvset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_normal_bent_normals">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_normal_bent_normals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_normal_bent_normals" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.BentNormals</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to
+<code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.BentNormals</span></code>, with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>
+removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.BentNormals</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.BentNormals</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.BentNormals</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_normal_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_normal_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_normal_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.Raytraced</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_normal_tangent_to_world">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_normal_tangent_to_world</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_normal_tangent_to_world" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.TangentToWorld</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.TangentToWorld</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.TangentToWorld</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.TangentToWorld</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.TangentToWorld</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_normal_world_to_tangent">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_normal_world_to_tangent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_normal_world_to_tangent" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.WorldToTangent</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to
+<code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.WorldToTangent</span></code>, with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>
+removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.WorldToTangent</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.WorldToTangent</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Normal.WorldToTangent</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_opacity_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_opacity_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_opacity_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Opacity.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to
+<code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Opacity.Raytraced</span></code>, with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>
+removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Opacity.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Opacity.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Opacity.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_position_rasterised">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_position_rasterised</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_position_rasterised" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Rasterised</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Rasterised</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Rasterised</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Rasterised</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Rasterised</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_position_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_position_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_position_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Raytraced</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Position.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_run">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_run" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">run</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">run</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">run</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">run</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">run</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_texture_transfer_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_texture_transfer_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_texture_transfer_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">TextureTransfer.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">TextureTransfer.Raytraced</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">TextureTransfer.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">TextureTransfer.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">TextureTransfer.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_thickness_raytraced">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_thickness_raytraced</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_thickness_raytraced" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Thickness.Raytraced</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Thickness.Raytraced</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Thickness.Raytraced</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Thickness.Raytraced</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">Thickness.Raytraced</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="batchtools.batchtools.substance3d_baker_update">
+<span class="sig-prename descclassname"><span class="pre">batchtools.batchtools.</span></span><span class="sig-name descname"><span class="pre">substance3d_baker_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pargs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#batchtools.batchtools.substance3d_baker_update" title="Link to this definition"></a></dt>
+<dd><p>Launch process <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">update</span></code> with given positional arguments and options.</p>
+<p>The call is done by <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> from the standard library.
+This function accepts the same keyword arguments.
+The other possible keywords arguments correspond to the possible options to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">update</span></code>,
+with dashes <code class="docutils literal notranslate"><span class="pre">-</span></code> replaced with underscores <code class="docutils literal notranslate"><span class="pre">_</span></code> and with the leading <code class="docutils literal notranslate"><span class="pre">--</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> removed.
+Run <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">update</span> <span class="pre">--help</span></code> to see the list of possible options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pargs</strong> – the positional arguments to give to <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">update</span></code></p></li>
+<li><p><strong>kwargs</strong> – keyword arguments that can be given to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> or that correspond to
+options of <code class="docutils literal notranslate"><span class="pre">substance3d_baker</span> <span class="pre">update</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The popen object used to call the command or the updated <code class="docutils literal notranslate"><span class="pre">dict</span></code> if given argument is a Python <code class="docutils literal notranslate"><span class="pre">dict</span></code> object
+in a format compatible with valid JSON</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="info_mesh_parser.html" class="btn btn-neutral float-left" title="info_mesh_parser module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="output_handlers.html" class="btn btn-neutral float-right" title="output_handlers module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

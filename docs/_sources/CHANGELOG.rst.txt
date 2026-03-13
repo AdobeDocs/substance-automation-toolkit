@@ -1,6 +1,24 @@
 Changelog
 =========
 
+15.1.3 / 2025.1.3 (2026-03-12)
+------------------------------
+- [Update][Content] Content updated with Designer 15.1.3
+- [Update][Engine] Upgrade Substance engine to v9.3.4
+- [Dependencies][pysbs] Remove dependency on distutils package (deprecated in Python 3.12+)
+- [Added][substance3d_baker] Add a outputsize macros for the filename
+- [Added][substance3d_baker] Update the description of the 'output-size' option with size macros
+- [Added][substance3d_baker][Settings] Set the 'Name filtering mode' default value to 'Parent name (Legacy)'
+- [Added][substance3d_baker] Convert input texture format to the requested format
+- [Fix][substance3d_baker] Material colors not correct
+- [Fix][substance3d_baker][UDIM] Offset map is only applied to UDIM 1001
+- [Fix][substance3d_baker] Multiple high poly meshes are ignored in some situations
+- [Fix][substance3d_baker] Failure when baking from high poly missing tangent and bitangents that are not required
+- [Fix][substance3d_baker] Texture transfer: A grayscale input does not result in a grayscale output
+- [Fix][substance3d_baker] Normal: Black output when using anti-aliasing and diffusion (macOS only)
+- [Fix][substance3d_baker] Color: Crash when baking UV islands
+- [Fix][substance3d_baker] Color baker takes excessively long to finish in specific cases
+
 15.1.1 / 2025.1.1 (2026-01-22)
 ------------------------------
 - [Update] Update the Substance Engine to v9.3.2

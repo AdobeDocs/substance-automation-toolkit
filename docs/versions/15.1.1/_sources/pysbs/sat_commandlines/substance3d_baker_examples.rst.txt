@@ -1,0 +1,257 @@
+.. _ref-to-sat-substance3d_bakerexamples:
+
+substance3d_baker Example Command Lines
+=======================================
+
+This page contains examples of command lines for various environments to showcase how to invoke the command line processors. In the examples the command line tools are assumed to be in the path.
+
+Bake 1024x1024 normal map for a mesh
+------------------------------------
+
+This showcases a world space normals bake. The main takeaways are:
+
+- Spaces in paths are dealt with slightly different on different platforms. In our examples we use the python subprocess and os.path libraries to make sure these things are dealt with correctly.
+- Resolution to the baker is given as N the number of pixels
+- Any vector data, the resolution in this case, is given as a pair of number separated with a comma. Note that there can be no spaces in these string so an option like "--output_size 1024, 1024" would generate an error
+
+This call generates a file called 'mesh_World Space Normals.png' in the directory the call is made from.
+
+.. code-block:: shell
+
+    # Powershell (Windows)
+    substance3d_baker.exe Normal.TangentToWorld 'C:\path with spaces\mesh.fbx' --output_size 1024,1024
+
+.. code-block:: shell
+
+    # Windows command prompt
+    substance3d_baker.exe Normal.TangentToWorld "c:\path with spaces\mesh.fbx" --output_size 1024,1024
+
+.. code-block:: shell
+
+    # Linux/MacOSX
+    substance3d_baker Normal.TangentToWorld path\ with\ spaces/mesh.fbx --output_size 1024,1024
+
+
+Bake 512x512 material color map from a high resolution map to the texture space of a low resolution mesh
+--------------------------------------------------------------------------------------------------------
+
+This showcases an example of how to bake details from a high resolution mesh to a low resolution mesh. The main takeaways are:
+
+- Some bake operations have both a low resolution mesh and high resolution mesh as an input. This allows having a more detailed mesh when generating maps such as ambient occlusion, normals etc. that doesn't have to be unwrapped. The results will be stored in the texture space of the low resolution.
+- Many bake operation have specific options, --color_source is only valid for Color.Raytraced passes.
+
+This call generates a file called 'mesh_low_Color Map from Mesh.png' in the directory the call is made from.
+
+.. code-block:: shell
+
+    substance3d_baker Color.Raytraced mesh_low.fbx --high_scene_paths mesh_high.fbx --color_source mesh_index --output_size 512,512
+
+
+Bake 512x512 material color map from a low resolution mesh
+----------------------------------------------------------
+
+This showcases an example of how to bake a color map without involving a high resolution mesh. The main takeaways are:
+
+- Some bake operations only exists in the from-mesh form. They can still be used without a high resolution mesh by giving the --use_lowdef_as_highdef option.
+
+This call generates a file called 'mesh_Color Map from Mesh.png' in the directory the call is made from.
+
+.. code-block:: shell
+
+    substance3d_baker Color.Raytraced mesh.fbx --use_lowdef_as_highdef true --color_source mesh_index --output_size 512,512
+
+
+Bake 512x512 curvature map and control the name and the image file type
+-----------------------------------------------------------------------
+
+This showcases how to control the name and file type of the generated file. The main takeaways are:
+
+- The bakers can output images in multiple formats
+- substance3d_baker gives you control over the name
+- You can integrate input mesh scene, udim and bake operation names in the generated name if you want using \{bakername}, \{udim} and \{scenename}. Note that the \{ and \} characters may need special treatment by the shell to avoid problems.
+
+This call generates a file called 'Curvature Map from Mesh_mesh_1001_test.tiff' in the directory bake_results
+
+.. code-block:: shell
+
+    # Powershell (Windows)
+    substance3d_baker.exe Curvature.Raytraced mesh.fbx --use_lowdef_as_highdef true --output_size 512,512 --output_path bake_results --output_name '{bakername}_{scenename}_{udim}_test' --output_format tiff
+
+.. code-block:: shell
+
+    # Windows Command Prompt
+    substance3d_baker.exe Curvature.Raytraced mesh.fbx --use_lowdef_as_highdef true --output_size 512,512 --output_path bake_results --output_name {bakername}_{scenename}_{udim}_test --output_format tiff
+
+.. code-block:: shell
+
+    # Linux/MacOSX
+    substance3d_baker Curvature.Raytraced mesh.fbx --use_lowdef_as_highdef true --output_size 512,512 --output_path bake_results --output_name {bakername}_{scenename}_{udim}_test --output_format tiff
+
+
+substance3d_baker run, use a Designer baker preset file as input
+----------------------------------------------------------------
+
+With Designer it's possible to save a baker preset file under json format ("Preset">"Save preset" button).
+It's also possible to create or edit your own json file (with python as an instance) by respecting the SD preset syntax.
+
+The most advantage of `substance3d_baker run` is that it keeps meshes file in memory for each baking. If several baking tasks are not parallelized between different machines, substance3d_baker run is by far the fastest way to process several bake on a single machine with SAT.
+
+This file can be pass to the `substance3d_baker run`:
+
+.. code-block:: shell
+
+    substance3d_baker run --json sd_baker_preset.json
+
+substance3d_baker will process each bakers with its parameters present in the json file.
+The baking is done sequentially. One of the weaknesses of this method is that `substance3d_baker run` reload the mesh file for each baker.
+It is not recommended to use this method if a performance gain is required.
+
+It's possible to update a json preset file saved from previous SD version to match the latest SD preset syntax, using the `substance3d_baker update` command:
+
+.. code-block:: shell
+
+    substance3d_baker update --input sd_old_baker_preset.json --output sd_latest_baker_preset.json
+
+Simple json file:
+
+.. code-block:: python
+
+    {
+        "Common": {
+            "base.uv_set": 0,
+            "output_format": "png",
+            "output_name": "$(scenename)_$(bakername)_$(udim)",
+            "output_size": [
+                2048,
+                2048
+            ],
+            "selected_meshes": [
+            ]
+        },
+        "CommonProjection": {
+            "cage_scene_path": "",
+            "cull_backfaces": true,
+            "high_scene_paths": [
+            ],
+            "hit_strategy": "inward",
+            "max_depth": 0.009999999776482582,
+            "max_height": 0.009999999776482582,
+            "mesh_match_mode": "match_all",
+            "normalized_distance": true,
+            "offset_map_path": "",
+            "sampling_rate": "none",
+            "skew_correction": false,
+            "skew_map_invert": false,
+            "skew_map_path": "",
+            "smooth_normals": true,
+            "use_cage": false,
+            "use_lowdef_as_highdef": true
+        },
+        "bakers": [
+            {
+                "baker": "AmbientOcclusion.Raytraced",
+                "identifier": "Ambient Occlusion Map from Mesh",
+                "parameters": {
+                    "attenuation": "linear",
+                    "base.uv_set": "Value from Common/base.uv_set",
+                    "cage_scene_path": "Value from CommonProjection/cage_scene_path",
+                    "culling_mode": "never",
+                    "enable_ground_plane": false,
+                    "ground_offset": 0,
+                    "high_scene_paths": "Value from CommonProjection/high_scene_paths",
+                    "is_selected": true,
+                    "normal_map_orientation": "directx",
+                    "normal_map_path": "",
+                    "normal_map_space": "tangent_space",
+                    "output_format": "Value from Common/output_format",
+                    "output_name": "Value from Common/output_name",
+                    "output_size": [
+                        1024,
+                        1024
+                    ],
+                    "projection.cull_backfaces": "Value from CommonProjection/cull_backfaces",
+                    "projection.hit_strategy": "Value from CommonProjection/hit_strategy",
+                    "projection.max_depth": "Value from CommonProjection/max_depth",
+                    "projection.max_height": "Value from CommonProjection/max_height",
+                    "projection.mesh_match_mode": "Value from CommonProjection/mesh_match_mode",
+                    "projection.normalized_distance": "Value from CommonProjection/normalized_distance",
+                    "projection.offset_map_path": "Value from CommonProjection/offset_map_path",
+                    "projection.sampling_rate": "Value from CommonProjection/sampling_rate",
+                    "projection.skew_map_invert": "Value from CommonProjection/skew_map_invert",
+                    "projection.skew_map_path": "Value from CommonProjection/skew_map_path",
+                    "projection.smooth_normals": "Value from CommonProjection/smooth_normals",
+                    "secondary.max_distance": 1,
+                    "secondary.mesh_match_mode": "match_all",
+                    "secondary.min_distance": 9.999999747378752e-06,
+                    "secondary.normalized_distance": true,
+                    "secondary.sample_count": 64,
+                    "secondary.sample_distribution": "cosine",
+                    "secondary.spread_angle": 180,
+                    "selected_meshes": "Value from Common/selected_meshes",
+                    "skew_correction": "Value from CommonProjection/skew_correction",
+                    "use_cage": "Value from CommonProjection/use_cage",
+                    "use_lowdef_as_highdef": "Value from CommonProjection/use_lowdef_as_highdef"
+                }
+            },
+            {
+                "baker": "Position.Rasterised",
+                "identifier": "Position",
+                "parameters": {
+                    "axis": "x",
+                    "base.uv_set": "Value from Common/base.uv_set",
+                    "is_selected": true,
+                    "mode": "all_axes",
+                    "normalization": "bsphere",
+                    "normalization_scale": "full_scene",
+                    "output_format": "Value from Common/output_format",
+                    "output_name": "Value from Common/output_name",
+                    "output_size": [
+                        512,
+                        512
+                    ],
+                    "selected_meshes": "Value from Common/selected_meshes"
+                }
+            }
+        ],
+        "enable_mip_diffusion": true,
+        "low_scene_path": "input_mesh.fbx",
+        "output_path": "output_path/directory",
+        "padding_radius": 1,
+        "per_fragment_binormal": false,
+        "save_stencil": false,
+        "sbsoutput_place_into_specific_folder": false,
+        "sbsoutput_resource_method": "linked",
+        "settingsInfo": {
+            "version": 2
+        }
+    }
+
+In versions 11.2.0 to 14.1.2, uvTiles values were stored in a string using either the two zero-based indices convention (e.g. `"uvTiles": "0x0 1x0 0x1 1x1"`) or UDIM convention (e.g. `"uvTiles": "1001 1002 1011 1012"`).
+Starting from 15.0.0 version, they are stored in a JSON array and use only the two zero-based indices convention:
+
+.. code-block:: python
+
+    {
+        "Common": {
+            ...
+            "uv_tiles": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1
+                ],
+                [
+                    1,
+                    1
+                ]
+            ]
+        }
+        ...
+    }

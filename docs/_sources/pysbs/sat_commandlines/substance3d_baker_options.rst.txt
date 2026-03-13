@@ -229,7 +229,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -287,6 +287,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -500,7 +502,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -864,7 +866,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -922,6 +924,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -1135,7 +1139,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -1356,7 +1360,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -1414,6 +1418,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -1627,7 +1633,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -1925,7 +1931,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -1983,6 +1989,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -2196,7 +2204,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -2413,7 +2421,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -2471,6 +2479,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -2684,7 +2694,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -2999,7 +3009,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -3057,6 +3067,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -3270,7 +3282,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -3486,7 +3498,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -3544,6 +3556,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -3808,7 +3822,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -3866,6 +3880,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -4150,7 +4166,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -4208,6 +4224,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -4421,7 +4439,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -4609,7 +4627,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -4667,6 +4685,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -4936,7 +4956,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -4994,6 +5014,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -5207,7 +5229,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -5456,7 +5478,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -5514,6 +5536,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -5727,7 +5751,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>
@@ -6006,7 +6030,7 @@ substance3d_baker command line options
       <dt>
         <strong>--name_filtering_mode</strong>
         <em>&lt;string&gt;</em>
-        [default: &quot;geometry_name&quot;]
+        [default: &quot;parent_name&quot;]
       </dt>
       <dd>
         The scene object which names should be used for matching the low poly and high poly scene objects:
@@ -6064,6 +6088,8 @@ substance3d_baker command line options
           - {scenename}. Replaced by the scene name before the last &quot;.&quot; (E.g.: scene.ext.fbx --&gt; scene.ext)
           - {bakername}. Replaced by the current baker's name
           - {udim}. Replaced by the UDIM ID of the current tile (MARI convention).
+          - {sizex} &frasl; {sizey}. Replaced by the size of the output image in X&frasl;Y, in pixels.
+          - {sizexk} &frasl; {sizeyk}. Replaced by the shorthand for the output image size as a multiple of 1024. (E.g.: 2k for 2048)
         
       </dd>
     </dl>
@@ -6277,7 +6303,7 @@ substance3d_baker command line options
         <em>&lt;string&gt;</em>
       </dt>
       <dd>
-        The path of a grayscale texture which values are added to the distance or the rays' source.
+        The path of a grayscale texture used to adjust the projection cage, by applying a per-pixel offset to the Max frontal distance.
         
       </dd>
     </dl>

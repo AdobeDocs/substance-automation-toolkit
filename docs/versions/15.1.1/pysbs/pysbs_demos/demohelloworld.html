@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>demohelloworld module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="demos module" href="demos.html" />
+    <link rel="prev" title="SAT demos" href="../overview/SAT%20demos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview/overview.html">API overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview/Basic%20manipulation.html">Basic manipulation of a Substance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substance%20creation.html">Creation of a Substance from scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Substances%20modification.html">Modification of Substances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html">Dependency path storage method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Dependencies%20management.html#dependencies-management">Dependencies management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Pysbs%20batchtools%20module.html">PySBS batchtools presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/metadata%20manipulation.html">Package metadata manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Spot%20Colors.html">SAT and Spot colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Thumbnail%20creation%20with%20SAT.html">Generate thumbnails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview/Edit%20sbsar%20with%20SBSARManager.html">Edit sbsar with SBSARManager</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview/SAT%20demos.html">SAT demos</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">demohelloworld module: A very simple function that creates a basic Substance, which uses the API without argument file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#demohelloworld.demoHelloWorld"><code class="docutils literal notranslate"><span class="pre">demoHelloWorld()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demohelloworld.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="demos.html">demos module: Set a sample functions to demonstrate the use of the API, using argument files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="demos_batchtools.html">demos_batchtools module: Set a sample functions to demonstrate the use of the API with the batchtools, using argument files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="script_update_with_sbsupdater.html">script_update_with_sbsupdater: Script allowing to update all Substances in a folder using the Batch Tool SBSUpdater</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview/overview.html">API overview</a></li>
+          <li class="breadcrumb-item"><a href="../overview/SAT%20demos.html">SAT demos</a></li>
+      <li class="breadcrumb-item active">demohelloworld module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-demohelloworld">
+<span id="demohelloworld-module"></span><span id="ref-to-demo-helloworld"></span><h1>demohelloworld module<a class="headerlink" href="#module-demohelloworld" title="Link to this heading"></a></h1>
+<p>Module <strong>demohelloworld</strong> provides a very simple example of usage of the Pysbs, without using argument file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="demohelloworld.demoHelloWorld">
+<span class="sig-prename descclassname"><span class="pre">demohelloworld.</span></span><span class="sig-name descname"><span class="pre">demoHelloWorld</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demohelloworld.demoHelloWorld" title="Link to this definition"></a></dt>
+<dd><p>Create a substance with a very simple material definition: uniform colors for BaseColor, Roughness and Metallic, and
+save it to ‘sample/resultDemoHelloWorld.sbs’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting SBS file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p>Here is the code of function demoHelloWorld:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">aContext</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">()</span>
+<span class="c1">#aContext.getUrlAliasMgr().setAliasAbsPath(aAliasName = &#39;myAlias&#39;, aAbsPath = &#39;myAliasAbsolutePath&#39;)</span>
+
+<span class="n">startPos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">xOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">yOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Create a new SBSDocument from scratch, with a graph named &#39;SimpleMaterial&#39;</span>
+    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">sbsgenerator</span><span class="o">.</span><span class="n">createSBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span>
+                            <span class="n">aFileAbsPath</span> <span class="o">=</span> <span class="n">aDestFileAbsPath</span><span class="p">,</span>
+                            <span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;SimpleMaterial&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Get the graph &#39;SimpleMaterial&#39;</span>
+    <span class="n">aGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">getSBSGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span> <span class="o">=</span> <span class="s1">&#39;SimpleMaterial&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create three Uniform color nodes, for BaseColor, Roughness and Metallic</span>
+    <span class="n">baseColor</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span>
+                        <span class="n">aGUIPos</span>     <span class="o">=</span> <span class="n">startPos</span><span class="p">)</span>
+
+    <span class="n">roughness</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ColorModeEnum</span><span class="o">.</span><span class="n">GRAYSCALE</span><span class="p">,</span>
+                                       <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">},</span>
+                        <span class="n">aGUIPos</span>     <span class="o">=</span> <span class="n">baseColor</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+
+    <span class="n">metallic</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span> <span class="o">=</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span><span class="p">,</span>
+                        <span class="n">aParameters</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">COLOR_MODE</span><span class="p">:</span> <span class="n">sbsenum</span><span class="o">.</span><span class="n">ColorModeEnum</span><span class="o">.</span><span class="n">GRAYSCALE</span><span class="p">,</span>
+                                       <span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">},</span>
+                        <span class="n">aGUIPos</span>     <span class="o">=</span> <span class="n">roughness</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
+
+    <span class="c1"># Create three Output nodes, for BaseColor, Roughness and Metallic</span>
+    <span class="n">outBaseColor</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;BaseColor&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">baseColor</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                        <span class="n">aUsages</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">BASECOLOR</span><span class="p">:</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span><span class="p">}})</span>
+
+    <span class="n">outRoughness</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Roughness&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">roughness</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                        <span class="n">aUsages</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ROUGHNESS</span><span class="p">:</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span><span class="p">}})</span>
+
+    <span class="n">outMetallic</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span> <span class="o">=</span> <span class="s1">&#39;Metallic&#39;</span><span class="p">,</span>
+                        <span class="n">aGUIPos</span> <span class="o">=</span> <span class="n">metallic</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">),</span>
+                        <span class="n">aUsages</span> <span class="o">=</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">METALLIC</span><span class="p">:</span> <span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageDataEnum</span><span class="o">.</span><span class="n">COMPONENTS</span><span class="p">:</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ComponentsEnum</span><span class="o">.</span><span class="n">RGBA</span><span class="p">}})</span>
+
+    <span class="c1"># Connect the Uniform color nodes to their respective Output node</span>
+    <span class="c1"># (no need to precise aLeftNodeOutput and aRightNodeInput here as there is no ambiguity)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">baseColor</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">outBaseColor</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">roughness</span><span class="p">,</span> <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">outRoughness</span><span class="p">)</span>
+    <span class="n">aGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span> <span class="o">=</span> <span class="n">metallic</span><span class="p">,</span>  <span class="n">aRightNode</span> <span class="o">=</span> <span class="n">outMetallic</span><span class="p">)</span>
+
+    <span class="c1"># Write back the document structure into the destination .sbs file</span>
+    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">()</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoHelloWorld] Failed to create the new package&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="demohelloworld.main">
+<span class="sig-prename descclassname"><span class="pre">demohelloworld.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#demohelloworld.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../overview/SAT%20demos.html" class="btn btn-neutral float-left" title="SAT demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="demos.html" class="btn btn-neutral float-right" title="demos module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

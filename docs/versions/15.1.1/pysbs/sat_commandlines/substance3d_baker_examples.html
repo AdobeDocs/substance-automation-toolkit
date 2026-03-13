@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>substance3d_baker Example Command Lines &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cooks .sbs files to .sbsar files ready to be rendered with sbsrender." href="sbscooker.html" />
+    <link rel="prev" title="substance3d_baker command line options" href="substance3d_baker_options.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">API Content</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="sat_commandlines.html">Command Line Tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="substance3d_baker.html"> substance3d_baker — Bakes out mesh specific data such as ambient occlusion or normal data to textures.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="substance3d_baker_options.html"> substance3d_baker command line options</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"> substance3d_baker Example Command Lines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bake-1024x1024-normal-map-for-a-mesh">Bake 1024x1024 normal map for a mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bake-512x512-material-color-map-from-a-high-resolution-map-to-the-texture-space-of-a-low-resolution-mesh">Bake 512x512 material color map from a high resolution map to the texture space of a low resolution mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bake-512x512-material-color-map-from-a-low-resolution-mesh">Bake 512x512 material color map from a low resolution mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bake-512x512-curvature-map-and-control-the-name-and-the-image-file-type">Bake 512x512 curvature map and control the name and the image file type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#substance3d-baker-run-use-a-designer-baker-preset-file-as-input">substance3d_baker run, use a Designer baker preset file as input</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sbscooker.html"> sbscooker — Cooks .sbs files to .sbsar files ready to be rendered with sbsrender.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsmutator.html"> sbsmutator — Modifies and specializes .sbs files.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsrender.html"> sbsrender — Renders out maps from .sbsar files.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sbsupdater.html"> sbsupdater — Updates .sbs files to the current version of the batch tools.</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="sat_commandlines.html">Command Line Tools</a></li>
+          <li class="breadcrumb-item"><a href="substance3d_baker.html">substance3d_baker</a></li>
+      <li class="breadcrumb-item active">substance3d_baker Example Command Lines</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="substance3d-baker-example-command-lines">
+<span id="ref-to-sat-substance3d-bakerexamples"></span><h1>substance3d_baker Example Command Lines<a class="headerlink" href="#substance3d-baker-example-command-lines" title="Link to this heading"></a></h1>
+<p>This page contains examples of command lines for various environments to showcase how to invoke the command line processors. In the examples the command line tools are assumed to be in the path.</p>
+<section id="bake-1024x1024-normal-map-for-a-mesh">
+<h2>Bake 1024x1024 normal map for a mesh<a class="headerlink" href="#bake-1024x1024-normal-map-for-a-mesh" title="Link to this heading"></a></h2>
+<p>This showcases a world space normals bake. The main takeaways are:</p>
+<ul class="simple">
+<li><p>Spaces in paths are dealt with slightly different on different platforms. In our examples we use the python subprocess and os.path libraries to make sure these things are dealt with correctly.</p></li>
+<li><p>Resolution to the baker is given as N the number of pixels</p></li>
+<li><p>Any vector data, the resolution in this case, is given as a pair of number separated with a comma. Note that there can be no spaces in these string so an option like “–output_size 1024, 1024” would generate an error</p></li>
+</ul>
+<p>This call generates a file called ‘mesh_World Space Normals.png’ in the directory the call is made from.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Powershell (Windows)</span>
+substance3d_baker.exe<span class="w"> </span>Normal.TangentToWorld<span class="w"> </span><span class="s1">&#39;C:\path with spaces\mesh.fbx&#39;</span><span class="w"> </span>--output_size<span class="w"> </span><span class="m">1024</span>,1024
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows command prompt</span>
+substance3d_baker.exe<span class="w"> </span>Normal.TangentToWorld<span class="w"> </span><span class="s2">&quot;c:\path with spaces\mesh.fbx&quot;</span><span class="w"> </span>--output_size<span class="w"> </span><span class="m">1024</span>,1024
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linux/MacOSX</span>
+substance3d_baker<span class="w"> </span>Normal.TangentToWorld<span class="w"> </span>path<span class="se">\ </span>with<span class="se">\ </span>spaces/mesh.fbx<span class="w"> </span>--output_size<span class="w"> </span><span class="m">1024</span>,1024
+</pre></div>
+</div>
+</section>
+<section id="bake-512x512-material-color-map-from-a-high-resolution-map-to-the-texture-space-of-a-low-resolution-mesh">
+<h2>Bake 512x512 material color map from a high resolution map to the texture space of a low resolution mesh<a class="headerlink" href="#bake-512x512-material-color-map-from-a-high-resolution-map-to-the-texture-space-of-a-low-resolution-mesh" title="Link to this heading"></a></h2>
+<p>This showcases an example of how to bake details from a high resolution mesh to a low resolution mesh. The main takeaways are:</p>
+<ul class="simple">
+<li><p>Some bake operations have both a low resolution mesh and high resolution mesh as an input. This allows having a more detailed mesh when generating maps such as ambient occlusion, normals etc. that doesn’t have to be unwrapped. The results will be stored in the texture space of the low resolution.</p></li>
+<li><p>Many bake operation have specific options, –color_source is only valid for Color.Raytraced passes.</p></li>
+</ul>
+<p>This call generates a file called ‘mesh_low_Color Map from Mesh.png’ in the directory the call is made from.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>substance3d_baker<span class="w"> </span>Color.Raytraced<span class="w"> </span>mesh_low.fbx<span class="w"> </span>--high_scene_paths<span class="w"> </span>mesh_high.fbx<span class="w"> </span>--color_source<span class="w"> </span>mesh_index<span class="w"> </span>--output_size<span class="w"> </span><span class="m">512</span>,512
+</pre></div>
+</div>
+</section>
+<section id="bake-512x512-material-color-map-from-a-low-resolution-mesh">
+<h2>Bake 512x512 material color map from a low resolution mesh<a class="headerlink" href="#bake-512x512-material-color-map-from-a-low-resolution-mesh" title="Link to this heading"></a></h2>
+<p>This showcases an example of how to bake a color map without involving a high resolution mesh. The main takeaways are:</p>
+<ul class="simple">
+<li><p>Some bake operations only exists in the from-mesh form. They can still be used without a high resolution mesh by giving the –use_lowdef_as_highdef option.</p></li>
+</ul>
+<p>This call generates a file called ‘mesh_Color Map from Mesh.png’ in the directory the call is made from.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>substance3d_baker<span class="w"> </span>Color.Raytraced<span class="w"> </span>mesh.fbx<span class="w"> </span>--use_lowdef_as_highdef<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--color_source<span class="w"> </span>mesh_index<span class="w"> </span>--output_size<span class="w"> </span><span class="m">512</span>,512
+</pre></div>
+</div>
+</section>
+<section id="bake-512x512-curvature-map-and-control-the-name-and-the-image-file-type">
+<h2>Bake 512x512 curvature map and control the name and the image file type<a class="headerlink" href="#bake-512x512-curvature-map-and-control-the-name-and-the-image-file-type" title="Link to this heading"></a></h2>
+<p>This showcases how to control the name and file type of the generated file. The main takeaways are:</p>
+<ul class="simple">
+<li><p>The bakers can output images in multiple formats</p></li>
+<li><p>substance3d_baker gives you control over the name</p></li>
+<li><p>You can integrate input mesh scene, udim and bake operation names in the generated name if you want using {bakername}, {udim} and {scenename}. Note that the { and } characters may need special treatment by the shell to avoid problems.</p></li>
+</ul>
+<p>This call generates a file called ‘Curvature Map from Mesh_mesh_1001_test.tiff’ in the directory bake_results</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Powershell (Windows)</span>
+substance3d_baker.exe<span class="w"> </span>Curvature.Raytraced<span class="w"> </span>mesh.fbx<span class="w"> </span>--use_lowdef_as_highdef<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--output_size<span class="w"> </span><span class="m">512</span>,512<span class="w"> </span>--output_path<span class="w"> </span>bake_results<span class="w"> </span>--output_name<span class="w"> </span><span class="s1">&#39;{bakername}_{scenename}_{udim}_test&#39;</span><span class="w"> </span>--output_format<span class="w"> </span>tiff
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows Command Prompt</span>
+substance3d_baker.exe<span class="w"> </span>Curvature.Raytraced<span class="w"> </span>mesh.fbx<span class="w"> </span>--use_lowdef_as_highdef<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--output_size<span class="w"> </span><span class="m">512</span>,512<span class="w"> </span>--output_path<span class="w"> </span>bake_results<span class="w"> </span>--output_name<span class="w"> </span><span class="o">{</span>bakername<span class="o">}</span>_<span class="o">{</span>scenename<span class="o">}</span>_<span class="o">{</span>udim<span class="o">}</span>_test<span class="w"> </span>--output_format<span class="w"> </span>tiff
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linux/MacOSX</span>
+substance3d_baker<span class="w"> </span>Curvature.Raytraced<span class="w"> </span>mesh.fbx<span class="w"> </span>--use_lowdef_as_highdef<span class="w"> </span><span class="nb">true</span><span class="w"> </span>--output_size<span class="w"> </span><span class="m">512</span>,512<span class="w"> </span>--output_path<span class="w"> </span>bake_results<span class="w"> </span>--output_name<span class="w"> </span><span class="o">{</span>bakername<span class="o">}</span>_<span class="o">{</span>scenename<span class="o">}</span>_<span class="o">{</span>udim<span class="o">}</span>_test<span class="w"> </span>--output_format<span class="w"> </span>tiff
+</pre></div>
+</div>
+</section>
+<section id="substance3d-baker-run-use-a-designer-baker-preset-file-as-input">
+<h2>substance3d_baker run, use a Designer baker preset file as input<a class="headerlink" href="#substance3d-baker-run-use-a-designer-baker-preset-file-as-input" title="Link to this heading"></a></h2>
+<p>With Designer it’s possible to save a baker preset file under json format (“Preset”&gt;”Save preset” button).
+It’s also possible to create or edit your own json file (with python as an instance) by respecting the SD preset syntax.</p>
+<p>The most advantage of <cite>substance3d_baker run</cite> is that it keeps meshes file in memory for each baking. If several baking tasks are not parallelized between different machines, substance3d_baker run is by far the fastest way to process several bake on a single machine with SAT.</p>
+<p>This file can be pass to the <cite>substance3d_baker run</cite>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>substance3d_baker<span class="w"> </span>run<span class="w"> </span>--json<span class="w"> </span>sd_baker_preset.json
+</pre></div>
+</div>
+<p>substance3d_baker will process each bakers with its parameters present in the json file.
+The baking is done sequentially. One of the weaknesses of this method is that <cite>substance3d_baker run</cite> reload the mesh file for each baker.
+It is not recommended to use this method if a performance gain is required.</p>
+<p>It’s possible to update a json preset file saved from previous SD version to match the latest SD preset syntax, using the <cite>substance3d_baker update</cite> command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>substance3d_baker<span class="w"> </span>update<span class="w"> </span>--input<span class="w"> </span>sd_old_baker_preset.json<span class="w"> </span>--output<span class="w"> </span>sd_latest_baker_preset.json
+</pre></div>
+</div>
+<p>Simple json file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;Common&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;base.uv_set&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;output_format&quot;</span><span class="p">:</span> <span class="s2">&quot;png&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;output_name&quot;</span><span class="p">:</span> <span class="s2">&quot;$(scenename)_$(bakername)_$(udim)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;output_size&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="mi">2048</span><span class="p">,</span>
+            <span class="mi">2048</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;selected_meshes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;CommonProjection&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;cage_scene_path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cull_backfaces&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;high_scene_paths&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;hit_strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;inward&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="mf">0.009999999776482582</span><span class="p">,</span>
+        <span class="s2">&quot;max_height&quot;</span><span class="p">:</span> <span class="mf">0.009999999776482582</span><span class="p">,</span>
+        <span class="s2">&quot;mesh_match_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;match_all&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;normalized_distance&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;offset_map_path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sampling_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;skew_correction&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;skew_map_invert&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;skew_map_path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;smooth_normals&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;use_cage&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;use_lowdef_as_highdef&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;bakers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;baker&quot;</span><span class="p">:</span> <span class="s2">&quot;AmbientOcclusion.Raytraced&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;Ambient Occlusion Map from Mesh&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;attenuation&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;base.uv_set&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/base.uv_set&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cage_scene_path&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/cage_scene_path&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;culling_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;never&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;enable_ground_plane&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                <span class="s2">&quot;ground_offset&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;high_scene_paths&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/high_scene_paths&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;is_selected&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                <span class="s2">&quot;normal_map_orientation&quot;</span><span class="p">:</span> <span class="s2">&quot;directx&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;normal_map_path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;normal_map_space&quot;</span><span class="p">:</span> <span class="s2">&quot;tangent_space&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output_format&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/output_format&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/output_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output_size&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="mi">1024</span><span class="p">,</span>
+                    <span class="mi">1024</span>
+                <span class="p">],</span>
+                <span class="s2">&quot;projection.cull_backfaces&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/cull_backfaces&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.hit_strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/hit_strategy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.max_depth&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/max_depth&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.max_height&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/max_height&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.mesh_match_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/mesh_match_mode&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.normalized_distance&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/normalized_distance&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.offset_map_path&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/offset_map_path&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.sampling_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/sampling_rate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.skew_map_invert&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/skew_map_invert&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.skew_map_path&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/skew_map_path&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection.smooth_normals&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/smooth_normals&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secondary.max_distance&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;secondary.mesh_match_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;match_all&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secondary.min_distance&quot;</span><span class="p">:</span> <span class="mf">9.999999747378752e-06</span><span class="p">,</span>
+                <span class="s2">&quot;secondary.normalized_distance&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                <span class="s2">&quot;secondary.sample_count&quot;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+                <span class="s2">&quot;secondary.sample_distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;cosine&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secondary.spread_angle&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
+                <span class="s2">&quot;selected_meshes&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/selected_meshes&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;skew_correction&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/skew_correction&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;use_cage&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/use_cage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;use_lowdef_as_highdef&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from CommonProjection/use_lowdef_as_highdef&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;baker&quot;</span><span class="p">:</span> <span class="s2">&quot;Position.Rasterised&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;identifier&quot;</span><span class="p">:</span> <span class="s2">&quot;Position&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;base.uv_set&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/base.uv_set&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;is_selected&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;all_axes&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;normalization&quot;</span><span class="p">:</span> <span class="s2">&quot;bsphere&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;normalization_scale&quot;</span><span class="p">:</span> <span class="s2">&quot;full_scene&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output_format&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/output_format&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/output_name&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output_size&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="mi">512</span><span class="p">,</span>
+                    <span class="mi">512</span>
+                <span class="p">],</span>
+                <span class="s2">&quot;selected_meshes&quot;</span><span class="p">:</span> <span class="s2">&quot;Value from Common/selected_meshes&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;enable_mip_diffusion&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;low_scene_path&quot;</span><span class="p">:</span> <span class="s2">&quot;input_mesh.fbx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;output_path&quot;</span><span class="p">:</span> <span class="s2">&quot;output_path/directory&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;padding_radius&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;per_fragment_binormal&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;save_stencil&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;sbsoutput_place_into_specific_folder&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;sbsoutput_resource_method&quot;</span><span class="p">:</span> <span class="s2">&quot;linked&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;settingsInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In versions 11.2.0 to 14.1.2, uvTiles values were stored in a string using either the two zero-based indices convention (e.g. <cite>“uvTiles”: “0x0 1x0 0x1 1x1”</cite>) or UDIM convention (e.g. <cite>“uvTiles”: “1001 1002 1011 1012”</cite>).
+Starting from 15.0.0 version, they are stored in a JSON array and use only the two zero-based indices convention:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;Common&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="o">...</span>
+        <span class="s2">&quot;uv_tiles&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">0</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="mi">1</span><span class="p">,</span>
+                <span class="mi">0</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">1</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="mi">1</span><span class="p">,</span>
+                <span class="mi">1</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="substance3d_baker_options.html" class="btn btn-neutral float-left" title="substance3d_baker command line options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbscooker.html" class="btn btn-neutral float-right" title="Cooks .sbs files to .sbsar files ready to be rendered with sbsrender." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
