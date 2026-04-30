@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Basic manipulation of a Substance &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -212,47 +212,6 @@
 <span class="n">connectedNodes</span> <span class="o">=</span> <span class="n">aGraph</span><span class="o">.</span><span class="n">getNodesConnectedFrom</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">myNode</span><span class="p">,</span> <span class="n">aLeftNodeOutput</span><span class="o">=</span><span class="s1">&#39;myOutput&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Working with MDL graph (<a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>) is done with almost the same functions:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Getting all the MDL graphs of a package</span>
-<span class="n">aMDLGraphList</span> <span class="o">=</span> <span class="n">aDoc</span><span class="o">.</span><span class="n">getMDLGraphList</span><span class="p">()</span>
-
-<span class="c1"># Getting the output/root node of a MDL graph</span>
-<span class="n">aOutput</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getGraphOutput</span><span class="p">()</span>
-
-<span class="c1"># Getting the input nodes of a graph (e.g. the Constant nodes that has been exposed)</span>
-<span class="n">aInputList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getAllInputs</span><span class="p">()</span>                         <span class="c1"># Get all the inputs (images and parameters)</span>
-<span class="n">aInputList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getAllInputsInGroup</span><span class="p">(</span><span class="n">aGroup</span><span class="o">=</span><span class="s1">&#39;MyGroup&#39;</span><span class="p">)</span>  <span class="c1"># Get all the inputs of a particular GUI group named &#39;MyGroup&#39;</span>
-<span class="n">aParamList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputParameters</span><span class="p">()</span>                   <span class="c1"># Get only the input parameters</span>
-<span class="n">aImageList</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputImages</span><span class="p">()</span>                       <span class="c1"># Get only the input of kind textures</span>
-
-<span class="c1"># Or get a particular input node:</span>
-<span class="n">aInput</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInput</span><span class="p">(</span><span class="n">aInputIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInput&#39;</span><span class="p">)</span>
-<span class="n">aParam</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputParameter</span><span class="p">(</span><span class="n">aInputParamIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInputParam&#39;</span><span class="p">)</span>
-<span class="n">aImage</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputImage</span><span class="p">(</span><span class="n">aInputImageIdentifier</span><span class="o">=</span><span class="s1">&#39;MyInputImage&#39;</span><span class="p">)</span>
-<span class="n">aImage</span> <span class="o">=</span> <span class="n">aMdlGraph</span><span class="o">.</span><span class="n">getInputImageWithUsage</span><span class="p">(</span><span class="n">aUsage</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">UsageEnum</span><span class="o">.</span><span class="n">ROUGHNESS</span><span class="p">)</span>   <span class="c1"># A custom string can be used</span>
-
-<span class="c1"># List all the nodes by category</span>
-<span class="c1"># - Constants</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLConstants</span><span class="p">()</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLConstantsOfType</span><span class="p">(</span><span class="s1">&#39;mdl::float&#39;</span><span class="p">)</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLConstantsWithName</span><span class="p">(</span><span class="s1">&#39;roughness&#39;</span><span class="p">)</span>
-<span class="c1"># - Selectors</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLSelectors</span><span class="p">()</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLSelectorsWithName</span><span class="p">(</span><span class="s1">&#39;tint&#39;</span><span class="p">)</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLSelectorsOfType</span><span class="p">(</span><span class="s1">&#39;mdl::color&#39;</span><span class="p">)</span>
-<span class="c1"># - MDL instances</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLInstances</span><span class="p">()</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLInstancesOf</span><span class="p">(</span><span class="s1">&#39;mdl::operator*&#39;</span><span class="p">)</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLInstancesOf</span><span class="p">(</span><span class="s1">&#39;mdl::operator*(float,float)&#39;</span><span class="p">)</span>
-<span class="c1"># - MDL Graph instances</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLGraphInstances</span><span class="p">()</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllMDLGraphInstancesOf</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">aDoc</span><span class="p">,</span> <span class="n">aPath</span><span class="o">=</span><span class="n">aDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;myMDL.sbs/MDL_Material&#39;</span><span class="p">))</span>
-<span class="c1"># - Substance Graph instances</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllSBSInstances</span><span class="p">()</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllSBSInstancesOf</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">aDoc</span><span class="p">,</span> <span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;pkg:///myGraph&#39;</span><span class="p">)</span>
-<span class="n">nodeList</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getAllSBSInstancesOf</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">aDoc</span><span class="p">,</span> <span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;sbs://perlin_noise_1.sbs&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="line-block">
 <div class="line">Many objects in a .sbs file has <strong>a unique identifier (uid)</strong>, accessible through the member ‘mUID’.</div>
 <div class="line">Some objects can be requested from their parent given their uid, that can be found either by reading the .sbs file, or, in the case of the nodes,</div>
@@ -274,7 +233,6 @@ the function <code class="xref py py-func docutils literal notranslate"><span cl
 <ul class="simple">
 <li><p>SBSParamNode.getDefinition() the Function nodes (<a class="reference internal" href="../params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>)</p></li>
 <li><p>SBSParamsGraphNode.getDefinition() for the FxMap nodes (<a class="reference internal" href="../compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p></li>
-<li><p>MDLNode.getDefinition() for the nodes of a MDL graph (<a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a>)</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the definition of a node</span>
 <span class="n">nodeDef</span> <span class="o">=</span> <span class="n">myNode</span><span class="o">.</span><span class="n">getDefinition</span><span class="p">()</span>

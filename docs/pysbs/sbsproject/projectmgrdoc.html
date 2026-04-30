@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Manager How To &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -57,7 +57,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">sbsprj module: Substance Designer project file management (.sbsprj)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#project-manager">Project Manager</a></li>
@@ -519,13 +518,6 @@ To do that the best way is to use ProjectMgr</p>
 <li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJGeneral.write"><code class="docutils literal notranslate"><span class="pre">SBSPRJGeneral.write()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJIRay"><code class="docutils literal notranslate"><span class="pre">SBSPRJIRay</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJIRay.equals"><code class="docutils literal notranslate"><span class="pre">SBSPRJIRay.equals()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJIRay.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSPRJIRay.getUidIsUsed()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJIRay.parse"><code class="docutils literal notranslate"><span class="pre">SBSPRJIRay.parse()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJIRay.write"><code class="docutils literal notranslate"><span class="pre">SBSPRJIRay.write()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJId"><code class="docutils literal notranslate"><span class="pre">SBSPRJId</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJId.equals"><code class="docutils literal notranslate"><span class="pre">SBSPRJId.equals()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJId.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSPRJId.getUidIsUsed()</span></code></a></li>
@@ -714,39 +706,6 @@ To do that the best way is to use ProjectMgr</p>
 <li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMacrosItem.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSPRJMacrosItem.getUidIsUsed()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMacrosItem.parse"><code class="docutils literal notranslate"><span class="pre">SBSPRJMacrosItem.parse()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMacrosItem.write"><code class="docutils literal notranslate"><span class="pre">SBSPRJMacrosItem.write()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdl"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdl</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdl.equals"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdl.equals()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdl.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdl.getUidIsUsed()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdl.parse"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdl.parse()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdl.write"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdl.write()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.append"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.append()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.clear"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.clear()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.copy"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.copy()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.count"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.count()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.equals"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.equals()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.extend"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.extend()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.getUidIsUsed()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.index"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.index()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.insert"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.insert()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.itemTemplate"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.itemTemplate</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.parse"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.parse()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.pop"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.pop()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.remove"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.remove()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.reverse"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.reverse()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.sort"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.sort()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPaths.write"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPaths.write()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPathsItem"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPathsItem</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPathsItem.equals"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPathsItem.equals()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPathsItem.getUidIsUsed"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPathsItem.getUidIsUsed()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPathsItem.parse"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPathsItem.parse()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMdlPathsItem.write"><code class="docutils literal notranslate"><span class="pre">SBSPRJMdlPathsItem.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sbsproject.html#sbsproject.sbsproject.SBSPRJMeshID"><code class="docutils literal notranslate"><span class="pre">SBSPRJMeshID</span></code></a><ul>

@@ -1,0 +1,61 @@
+.. SD_Python_API documentation master file, created by
+   sphinx-quickstart on Fri Jul 22 11:23:13 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Automation Toolkit Home
+.......................
+
+
+The Substance Automation Toolkit provides features for automating Substance based tasks. It has two main components:
+
+- :ref:`ref-to-sat-commandlines`, these are a set of command line tools for baking maps for meshes, doing simple modifications to substances, creating substance archives and rendering out maps.
+- :ref:`Pysbs - Python API<ref-to-api-overview>`, the Python API is a python package for reading and modifying sbs files such as assembling composite materials from multiple substances or batch renaming nodes in files.
+
+The combination of these two packages allows you to fully automating the task of generating maps for large sets of assets based on rules and build your own tools for Substance related tasks.
+
+
+
+Welcome to Pysbs documentation, the Python API for .sbs files !
+===============================================================
+
+Pysbs provides a way to get information on substances (.sbs and .sbsar files), and to generate or modify substances without using Substance Designer Application, but by scripting in Python.
+
+The API can be used for different purposes related to creation content pipeline and automation, for instance:
+       - Dependency and asset management
+       - Substance variation creation
+       - Substance automatic generation using bakers output map for instance
+
+| The API allows to reading both .sbs and .sbsar files.
+| It allows starting from scratch to create a new .sbs file, including the creation of compositing graphs with basic filters, instance of graphs, reference to bitmaps, pixel processor and the definition of the inputs and outputs.
+| The input parameters of the graph can also be specified, including the widget definition. 
+| The node parameters can be tweaked, and they can be set as dynamic, by creating the function that handles the parameter value.
+| Function graphs can also be created, and can be referenced in another function or dynamic parameter or Pixel processor function.
+|
+| This API can also be used to modify existing substances, to script the modification to apply on substances instead of doing them manually. 
+| In particular, it allows creating an iteration of a node or of a pattern, inside a graph or a function.
+
+
+Detailed documentation
+----------------------
+
+.. toctree::
+   :maxdepth: 4
+
+   pysbs/getting_started
+   pysbs/overview/overview
+   pysbs/modules
+   pysbs/sat_commandlines/sat_commandlines
+
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. toctree::
+   :maxdepth: 1
+
+   CHANGELOG

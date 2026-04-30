@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>modeloperand module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -57,7 +57,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a><ul class="current">
@@ -114,7 +113,7 @@
 Each class handle an operand type</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelBaseOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelBaseOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelBaseOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelBaseOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelBaseOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleOperand</span></code></p>
 <p>ModelBaseOperand is the base class for operand, each typed operand inherited of ModelBaseOperand</p>
 <dl class="simple">
@@ -223,7 +222,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelBoolOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelBoolOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelBoolOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelBoolOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelBoolOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelBoolOperand.equals">
@@ -329,7 +328,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelEnumOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelEnumOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelEnumOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelEnumOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelEnumOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelEnumOperand.equals">
@@ -440,7 +439,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelFloat2Operand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelFloat2Operand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelFloat2Operand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelFloat2Operand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelFloat2Operand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelFloat2Operand.equals">
@@ -546,7 +545,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelFloat3Operand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelFloat3Operand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelFloat3Operand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelFloat3Operand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelFloat3Operand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelFloat3Operand.equals">
@@ -652,7 +651,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelFloatOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelFloatOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelFloatOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelFloatOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelFloatOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelFloatOperand.equals">
@@ -758,7 +757,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelIntegerOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelIntegerOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelIntegerOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelIntegerOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelIntegerOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelIntegerOperand.equals">
@@ -864,7 +863,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelListOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelListOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aClassType=&lt;class</span> <span class="pre">'float'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelListOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelListOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aClassType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'float'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelListOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelListOperand.equals">
@@ -970,7 +969,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelSceneTreeOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelSceneTreeOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelSceneTreeOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelSceneTreeOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelSceneTreeOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelSceneTreeOperand.equals">
@@ -1074,7 +1073,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelStringOperand">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelStringOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelStringOperand" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modeloperand.</span></span><span class="sig-name descname"><span class="pre">ModelStringOperand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modeloperand.ModelStringOperand" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#modelgraph.modeloperand.ModelBaseOperand" title="modelgraph.modeloperand.ModelBaseOperand"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelBaseOperand</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modeloperand.ModelStringOperand.equals">

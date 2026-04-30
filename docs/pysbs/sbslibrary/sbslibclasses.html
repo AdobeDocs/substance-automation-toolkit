@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sbslibclasses module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -127,7 +127,7 @@
 <h1>sbslibclasses module<a class="headerlink" href="#sbslibclasses-module" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeInput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsPrimary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsMultiInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsPrimary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsMultiInput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code></p>
 <p>This class contains the definition of an input of a Compositing node.</p>
 <dl class="simple">
@@ -135,6 +135,7 @@
 <li><p>mIdentifier   (<a class="reference internal" href="../sbsenum.html#sbsenum.InputEnum" title="sbsenum.InputEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">InputEnum</span></code></a> or str): identifier of the input.</p></li>
 <li><p>mType         (<a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>): type of the input.</p></li>
 <li><p>mIsPrimary    (bool): defines if the input is the primary input of the node</p></li>
+<li><p>mLabel        (str, optional): user label</p></li>
 </ul>
 </dd>
 </dl>
@@ -161,6 +162,19 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeInput.getLabel">
+<span class="sig-name descname"><span class="pre">getLabel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput.getLabel" title="Link to this definition"></a></dt>
+<dd><p>Get the input label
+(“Label” is set by the user in the Ds app to give a meaningful name
+that will be displayed on the node inputs in the graph editor view)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input label as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeInput.isVariant">
 <span class="sig-name descname"><span class="pre">isVariant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeInput.isVariant" title="Link to this definition"></a></dt>
 <dd><p>Check if input has a variant type.</p>
@@ -175,7 +189,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeOutput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeOutput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeOutput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code></p>
 <p>This class contains the definition of an output of a Compositing node.</p>
 <dl class="simple">
@@ -211,7 +225,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeParam">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsConnectable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsConnectable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeParam" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code></p>
 <p>This class contains the definition of a parameter of a Compositing node.</p>
 <dl class="simple">
@@ -260,7 +274,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CompNodeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputValues</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeDef</span></code></p>
 <p>This class contains the definition of a Compositing node.</p>
 <dl class="simple">
@@ -283,6 +297,17 @@
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputIdentifiers">
 <span class="sig-name descname"><span class="pre">getAllInputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputIdentifiers" title="Link to this definition"></a></dt>
 <dd><p>Get all the input identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputLabels">
+<span class="sig-name descname"><span class="pre">getAllInputLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.getAllInputLabels" title="Link to this definition"></a></dt>
+<dd><p>Get all the input labels as strings of this node definition</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>a list of string</p>
@@ -427,7 +452,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CompNodeDef.isBaseParameter">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isBaseParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.isBaseParameter" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isBaseParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CompNodeDef.isBaseParameter" title="Link to this definition"></a></dt>
 <dd><p>Check if the given parameter is one of the base parameter or not (Output size, Pixel format, …)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -464,7 +489,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionInput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionInput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionInput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeInput</span></code></p>
 <p>This class contains the definition of an input of a Function node.</p>
 <dl class="simple">
@@ -496,11 +521,24 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionInput.getLabel">
+<span class="sig-name descname"><span class="pre">getLabel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionInput.getLabel" title="Link to this definition"></a></dt>
+<dd><p>Get the input label
+(“Label” is set by the user in the Ds app to give a meaningful name
+that will be displayed on the node inputs in the graph editor view)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the input label as a string</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionOutput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionOutput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionOutput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeOutput</span></code></p>
 <p>This class contains the definition of an output of a Function node.</p>
 <dl class="simple">
@@ -536,7 +574,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionParam">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDefaultValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionParam" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeParam</span></code></p>
 <p>This class contains the definition of a parameter of a Function node.</p>
 <dl class="simple">
@@ -584,7 +622,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunctionDatas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTemplate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FunctionDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFunctionDatas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aTemplate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseNodeDef</span></code></p>
 <p>This class contains the definition of a Function node.</p>
 <dl class="simple">
@@ -601,6 +639,17 @@
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputIdentifiers">
 <span class="sig-name descname"><span class="pre">getAllInputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputIdentifiers" title="Link to this definition"></a></dt>
 <dd><p>Get all the input identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputLabels">
+<span class="sig-name descname"><span class="pre">getAllInputLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FunctionDef.getAllInputLabels" title="Link to this definition"></a></dt>
+<dd><p>Get all the input labels as strings of this node definition</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>a list of string</p>
@@ -774,7 +823,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FxMapNodeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">FxMapNodeDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOutputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aInheritance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeDef</span></code></p>
 <p>This class contains the definition of a FxMap node.</p>
 <dl class="simple">
@@ -791,6 +840,17 @@
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputIdentifiers">
 <span class="sig-name descname"><span class="pre">getAllInputIdentifiers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputIdentifiers" title="Link to this definition"></a></dt>
 <dd><p>Get all the input identifiers as strings of this node definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputLabels">
+<span class="sig-name descname"><span class="pre">getAllInputLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.getAllInputLabels" title="Link to this definition"></a></dt>
+<dd><p>Get all the input labels as strings of this node definition</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>a list of string</p>
@@ -935,7 +995,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isBaseParameter">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isBaseParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isBaseParameter" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isBaseParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParam</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.FxMapNodeDef.isBaseParameter" title="Link to this definition"></a></dt>
 <dd><p>Check if the given parameter is one of the base parameter or not (Output size, Pixel format, …)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -972,7 +1032,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.GradientKey">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">GradientKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMidpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.GradientKey" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">GradientKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMidpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.GradientKey" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
 <p>Class that provides a description of a gradient key for the Gradient Map filter.</p>
 <dl class="simple">
@@ -987,7 +1047,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveKey">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CurveKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsLeftBroken</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsRightBroken</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsLocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveKey" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CurveKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPosition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLeft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aRight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsLeftBroken</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsRightBroken</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIsLocked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveKey" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
 <p>Class that provides a description of a curve key for the Curve filter.</p>
 <dl class="simple">
@@ -1005,7 +1065,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveDefinition">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CurveDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCurveKeys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">CurveDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCurveKeys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
 <p>Class that provides a description of a curve for the Curve filter.</p>
 <dl class="simple">
@@ -1028,7 +1088,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.CurveDefinition.initCurve">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition.initCurve" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">initCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.CurveDefinition.initCurve" title="Link to this definition"></a></dt>
 <dd><p>Create the initial curve with the bottom left and top right keys.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1062,7 +1122,7 @@ The resulting position is clamped to the allowed space for this key, considering
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.WidgetOption">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">WidgetOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.WidgetOption" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">WidgetOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aOption</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.WidgetOption" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
 <p>This class provide the definition of an option of a GUI widget associated to an Input Parameter of a Graph.</p>
 <dl class="simple">
@@ -1077,7 +1137,7 @@ The resulting position is clamped to the allowed space for this key, considering
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pysbs.sbslibrary.sbslibclasses.InputParamWidget">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">InputParamWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aWidget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.InputParamWidget" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbslibclasses.</span></span><span class="sig-name descname"><span class="pre">InputParamWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aWidget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbslibclasses.InputParamWidget" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LibObject</span></code></p>
 <p>Class providing the definition of the GUI widget associated to an Input Parameter of a Graph.</p>
 <dl class="simple">

@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sbsarchive module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -67,7 +67,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
@@ -403,7 +402,7 @@
 mostly <a class="reference internal" href="#sbsarchive.sbsarchive.SBSArchive" title="sbsarchive.sbsarchive.SBSArchive"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSArchive</span></code></a> and <a class="reference internal" href="#sbsarchive.sbsarchive.SBSARGlobalVar" title="sbsarchive.sbsarchive.SBSARGlobalVar"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGlobalVar</span></code></a>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSARGlobalVar">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarchive.</span></span><span class="sig-name descname"><span class="pre">SBSARGlobalVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSARGlobalVar" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarchive.</span></span><span class="sig-name descname"><span class="pre">SBSARGlobalVar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSARGlobalVar" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></p>
 <p>Class that contains information on a graph input as defined in a .sbsar file</p>
 <dl class="simple">
@@ -432,7 +431,7 @@ mostly <a class="reference internal" href="#sbsarchive.sbsarchive.SBSArchive" ti
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarchive.</span></span><span class="sig-name descname"><span class="pre">SBSArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormatVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookerBuild</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAsmUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGlobalVar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsarchive.sbsarchive.</span></span><span class="sig-name descname"><span class="pre">SBSArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormatVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aCookerBuild</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aAsmUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aContent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGlobalVar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aMetaDataTree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Package</span></code>, <a class="reference internal" href="sbsarmetadata.html#sbsarchive.sbsarmetadata.SBSARMetaDataObject" title="sbsarchive.sbsarmetadata.SBSARMetaDataObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARMetaDataObject</span></code></a></p>
 <p>Class used to get information on a .sbsar file.
 It contains the full description of a substance archive, which correspond to the root node &lt;sbsdescription&gt; of the .sbsar file.</p>
@@ -684,7 +683,7 @@ Get the first Graph object</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.isAPackage">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAPackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.isAPackage" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isAPackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.isAPackage" title="Link to this definition"></a></dt>
 <dd><p>Check if the given filename is a .sbs file or .sbsar file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -698,7 +697,7 @@ Get the first Graph object</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.isAnArchive">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAnArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.isAnArchive" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isAnArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.isAnArchive" title="Link to this definition"></a></dt>
 <dd><p>Check if the given filename is a .sbsar package or a .sbs package</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -750,7 +749,7 @@ Get the first Graph object</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sbsarchive.sbsarchive.SBSArchive.removePackageExtension">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">removePackageExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.removePackageExtension" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">removePackageExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsarchive.sbsarchive.SBSArchive.removePackageExtension" title="Link to this definition"></a></dt>
 <dd><p>Remove the package extension to the given path (.sbs or .sbsar)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

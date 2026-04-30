@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>demos module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -63,7 +63,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#demos.demoBakingParameters"><code class="docutils literal notranslate"><span class="pre">demoBakingParameters()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#demos.demoBuildSBSFromPainterBitmaps"><code class="docutils literal notranslate"><span class="pre">demoBuildSBSFromPainterBitmaps()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#demos.demoCreation"><code class="docutils literal notranslate"><span class="pre">demoCreation()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#demos.demoCreationMDL"><code class="docutils literal notranslate"><span class="pre">demoCreationMDL()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#demos.demoExportWithDependencies"><code class="docutils literal notranslate"><span class="pre">demoExportWithDependencies()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#demos.demoIteration"><code class="docutils literal notranslate"><span class="pre">demoIteration()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#demos.demoIterationFlame"><code class="docutils literal notranslate"><span class="pre">demoIterationFlame()</span></code></a></li>
@@ -577,143 +576,6 @@
 
 <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
     <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoCreation] Failed to create the new package&quot;</span><span class="p">)</span>
-    <span class="k">raise</span> <span class="n">error</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="demos.demoCreationMDL">
-<span class="sig-prename descclassname"><span class="pre">demos.</span></span><span class="sig-name descname"><span class="pre">demoCreationMDL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDestFileAbsPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#demos.demoCreationMDL" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Demonstrates the MDL graph creation using this API:</dt><dd><ul class="simple">
-<li><p>MDL Graph</p></li>
-<li><p>MDL Nodes of any kind (constants, native mdl nodes, mdl graph instances, …)</p></li>
-<li><p>Declaring the input of the graph</p></li>
-<li><p>Setting parameters and annotations</p></li>
-<li><p>Create resources dedicated to MDL graphs (light profile or bsdf measurement)</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>aContext</strong> (<a class="reference internal" href="../context.html#context.Context" title="context.Context"><em>context.Context</em></a>) – Execution context</p></li>
-<li><p><strong>aDestFileAbsPath</strong> (<em>str</em>) – The absolute path of the resulting file. Can be the same as aFileAbsPath</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Nothing</p>
-</dd>
-</dl>
-<p>Here is the code of function demoCreationMDL:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">aDestFileAbsPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Please provide the appropriate arguments: aFileAbsPath and aDestFileAbsPath&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">False</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">startPos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">48</span><span class="p">,</span>  <span class="mi">48</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
-    <span class="n">xOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
-    <span class="n">yOffset</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">192</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
-    <span class="n">xyOffset</span> <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
-
-    <span class="c1"># Create a new package and a MDL graph</span>
-    <span class="n">sbsDoc</span> <span class="o">=</span> <span class="n">sbsgenerator</span><span class="o">.</span><span class="n">createSBSDocument</span><span class="p">(</span><span class="n">aContext</span><span class="p">,</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
-    <span class="n">mdlGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createMDLGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span><span class="o">=</span><span class="s1">&#39;DemoMDLGraph&#39;</span><span class="p">,</span> <span class="n">aCreateOutputNode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># Create a new Substance graph, which will be used in the MDL graph</span>
-    <span class="n">sbsGraph</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createGraph</span><span class="p">(</span><span class="n">aGraphIdentifier</span><span class="o">=</span><span class="s1">&#39;SBSGraph&#39;</span><span class="p">)</span>
-    <span class="n">aNode</span> <span class="o">=</span> <span class="n">sbsGraph</span><span class="o">.</span><span class="n">createCompFilterNode</span><span class="p">(</span><span class="n">aFilter</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">FilterEnum</span><span class="o">.</span><span class="n">UNIFORM</span><span class="p">,</span>
-                                        <span class="n">aParameters</span><span class="o">=</span><span class="p">{</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">CompNodeParamEnum</span><span class="o">.</span><span class="n">OUTPUT_COLOR</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]},</span>
-                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">startPos</span><span class="p">)</span>
-    <span class="n">aOutput</span> <span class="o">=</span> <span class="n">sbsGraph</span><span class="o">.</span><span class="n">createOutputNode</span><span class="p">(</span><span class="n">aIdentifier</span><span class="o">=</span><span class="s1">&#39;Output&#39;</span><span class="p">,</span>
-                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">aNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
-    <span class="n">sbsGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">aNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">aOutput</span><span class="p">)</span>
-
-
-    <span class="c1"># Create the microfacet ggx branch</span>
-    <span class="n">inputRoughness</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeConst</span><span class="p">(</span><span class="n">aName</span><span class="o">=</span><span class="s1">&#39;roughness&#39;</span><span class="p">,</span> <span class="n">aConstTypePath</span><span class="o">=</span><span class="s1">&#39;mdl::float&#39;</span><span class="p">,</span> <span class="n">aExposed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                        <span class="n">aValue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-                                        <span class="n">aAnnotations</span><span class="o">=</span><span class="p">{</span><span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">DISPLAY_NAME</span><span class="p">:</span><span class="s1">&#39;Roughness&#39;</span><span class="p">,</span>
-                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">GAMMA_TYPE</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">SAMPLER_USAGE</span><span class="p">:</span><span class="s1">&#39;roughness&#39;</span><span class="p">,</span>
-                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">HARD_RANGE</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]},</span>
-                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">startPos</span><span class="p">)</span>
-    <span class="n">sbsInstance</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeSBSGraphInstance</span><span class="p">(</span><span class="n">aSBSDocument</span><span class="o">=</span><span class="n">sbsDoc</span><span class="p">,</span>
-                                                         <span class="n">aGraph</span><span class="o">=</span><span class="n">sbsGraph</span><span class="p">,</span>
-                                                         <span class="n">aGUIPos</span><span class="o">=</span><span class="n">inputRoughness</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
-
-    <span class="n">mulNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::operator*(float,float)&#39;</span><span class="p">,</span>
-                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">inputRoughness</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
-
-    <span class="n">ggxNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::df::microfacet_ggx_smith_bsdf$1.5(float,float,color,float3,::df::scatter_mode,string)&#39;</span><span class="p">,</span>
-                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">mulNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">inputRoughness</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">inputRoughness</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;roughness_u&#39;</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">mulNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;roughness_v&#39;</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">sbsInstance</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;tint&#39;</span><span class="p">)</span>
-
-
-    <span class="c1"># Create a new light profile resource</span>
-    <span class="n">aPath</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">buildAbsPathFromRelToMePath</span><span class="p">(</span><span class="s1">&#39;Bitmaps/Comet.IES&#39;</span><span class="p">)</span>
-    <span class="n">aRes</span> <span class="o">=</span> <span class="n">sbsDoc</span><span class="o">.</span><span class="n">createLinkedResource</span><span class="p">(</span><span class="n">aResourcePath</span><span class="o">=</span><span class="n">aPath</span><span class="p">,</span><span class="n">aResourceTypeEnum</span><span class="o">=</span><span class="n">sbsenum</span><span class="o">.</span><span class="n">ResourceTypeEnum</span><span class="o">.</span><span class="n">LIGHT_PROFILE</span><span class="p">)</span>
-
-    <span class="c1"># Create a IES profile node that uses this resource and generate a &#39;material_emission&#39;</span>
-    <span class="n">iesNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::light_profile(string)&#39;</span><span class="p">,</span>
-                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">sbsInstance</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
-    <span class="n">iesNode</span><span class="o">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">aParamValue</span><span class="o">=</span><span class="n">aRes</span><span class="o">.</span><span class="n">getPkgResourcePath</span><span class="p">())</span>
-
-    <span class="n">edfNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::df::measured_edf(light_profile,float,bool,float3x3,float3,string)&#39;</span><span class="p">,</span>
-                                             <span class="n">aParameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;multiplier&#39;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">},</span>
-                                             <span class="n">aGUIPos</span><span class="o">=</span><span class="n">iesNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
-    <span class="n">matEmissionNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::material_emission(edf,color,intensity_mode)&#39;</span><span class="p">,</span>
-                                                     <span class="n">aParameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;intensity&#39;</span><span class="p">:[</span><span class="mf">0.000619</span><span class="p">,</span><span class="mf">0.000387</span><span class="p">,</span><span class="mf">0.000077</span><span class="p">]},</span>
-                                                     <span class="n">aGUIPos</span><span class="o">=</span><span class="n">edfNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
-
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">iesNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">edfNode</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">edfNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matEmissionNode</span><span class="p">)</span>
-
-    <span class="c1"># Handle the material_geometry</span>
-    <span class="n">stateNormal</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::state::normal()&#39;</span><span class="p">,</span>
-                                                 <span class="n">aGUIPos</span><span class="o">=</span><span class="n">iesNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">yOffset</span><span class="p">))</span>
-
-    <span class="n">inputNormal</span> <span class="o">=</span>  <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeConst</span><span class="p">(</span><span class="n">aName</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">aConstTypePath</span><span class="o">=</span><span class="s1">&#39;mdl::float3&#39;</span><span class="p">,</span> <span class="n">aExposed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                        <span class="n">aAnnotations</span><span class="o">=</span><span class="p">{</span><span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">DISPLAY_NAME</span><span class="p">:</span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span>
-                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">GAMMA_TYPE</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-                                                      <span class="n">mdl</span><span class="o">.</span><span class="n">mdlenum</span><span class="o">.</span><span class="n">MDLAnnotationEnum</span><span class="o">.</span><span class="n">SAMPLER_USAGE</span><span class="p">:</span><span class="s1">&#39;normal&#39;</span><span class="p">},</span>
-                                        <span class="n">aGUIPos</span><span class="o">=</span><span class="n">stateNormal</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
-
-    <span class="n">matGeometryNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::material_geometry(float3,float,float3)&#39;</span><span class="p">,</span>
-                                                     <span class="n">aGUIPos</span><span class="o">=</span><span class="n">inputNormal</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xOffset</span><span class="p">))</span>
-
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">stateNormal</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">inputNormal</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">inputNormal</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matGeometryNode</span><span class="p">,</span> <span class="n">aRightNodeInput</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Create the material_surface</span>
-    <span class="n">matSurfaceNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">createMDLNodeInstance</span><span class="p">(</span><span class="n">aPath</span><span class="o">=</span><span class="s1">&#39;mdl::material_surface(bsdf,material_emission)&#39;</span><span class="p">,</span>
-                                                    <span class="n">aGUIPos</span><span class="o">=</span><span class="n">ggxNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
-    <span class="n">matSurfaceNode</span><span class="o">.</span><span class="n">setPinVisibilityForParameter</span><span class="p">(</span><span class="n">aParameter</span><span class="o">=</span><span class="s1">&#39;emission&#39;</span><span class="p">,</span> <span class="n">aVisible</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">ggxNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matSurfaceNode</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">matEmissionNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">matSurfaceNode</span><span class="p">)</span>
-
-    <span class="c1"># Get the output node</span>
-    <span class="n">outputNode</span> <span class="o">=</span> <span class="n">mdlGraph</span><span class="o">.</span><span class="n">getGraphOutput</span><span class="p">()</span>
-    <span class="n">outputNode</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">matSurfaceNode</span><span class="o">.</span><span class="n">getOffsetPosition</span><span class="p">(</span><span class="n">xyOffset</span><span class="p">))</span>
-
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">matSurfaceNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">outputNode</span><span class="p">)</span>
-    <span class="n">mdlGraph</span><span class="o">.</span><span class="n">connectNodes</span><span class="p">(</span><span class="n">aLeftNode</span><span class="o">=</span><span class="n">matGeometryNode</span><span class="p">,</span> <span class="n">aRightNode</span><span class="o">=</span><span class="n">outputNode</span><span class="p">)</span>
-
-    <span class="c1"># Write back the document structure into the destination .sbs file</span>
-    <span class="n">sbsDoc</span><span class="o">.</span><span class="n">writeDoc</span><span class="p">(</span><span class="n">aNewFileAbsPath</span><span class="o">=</span><span class="n">aDestFileAbsPath</span><span class="p">)</span>
-
-    <span class="k">del</span> <span class="n">sbsDoc</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;=&gt; Resulting substance saved at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">aDestFileAbsPath</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">True</span>
-
-<span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;!!! [demoCreationMDL] Failed to modify package&quot;</span><span class="p">)</span>
     <span class="k">raise</span> <span class="n">error</span>
 </pre></div>
 </div>

@@ -130,50 +130,6 @@ On a :class:`.SBSGraph`, these lines allow to retrieve different lists of compos
     connectedNodes = aGraph.getNodesConnectedFrom(aLeftNode=myNode, aLeftNodeOutput='myOutput')
 
 
-Working with MDL graph (:class:`.MDLGraph`) is done with almost the same functions:
-
-.. code-block:: python
-
-    # Getting all the MDL graphs of a package
-    aMDLGraphList = aDoc.getMDLGraphList()
-
-    # Getting the output/root node of a MDL graph
-    aOutput = aMdlGraph.getGraphOutput()
-
-    # Getting the input nodes of a graph (e.g. the Constant nodes that has been exposed)
-    aInputList = aMdlGraph.getAllInputs()                         # Get all the inputs (images and parameters)
-    aInputList = aMdlGraph.getAllInputsInGroup(aGroup='MyGroup')  # Get all the inputs of a particular GUI group named 'MyGroup'
-    aParamList = aMdlGraph.getInputParameters()                   # Get only the input parameters
-    aImageList = aMdlGraph.getInputImages()                       # Get only the input of kind textures
-
-    # Or get a particular input node:
-    aInput = aMdlGraph.getInput(aInputIdentifier='MyInput')
-    aParam = aMdlGraph.getInputParameter(aInputParamIdentifier='MyInputParam')
-    aImage = aMdlGraph.getInputImage(aInputImageIdentifier='MyInputImage')
-    aImage = aMdlGraph.getInputImageWithUsage(aUsage=sbsenum.UsageEnum.ROUGHNESS)   # A custom string can be used
-
-    # List all the nodes by category
-    # - Constants
-    nodeList = mdlGraph.getAllMDLConstants()
-    nodeList = mdlGraph.getAllMDLConstantsOfType('mdl::float')
-    nodeList = mdlGraph.getAllMDLConstantsWithName('roughness')
-    # - Selectors
-    nodeList = mdlGraph.getAllMDLSelectors()
-    nodeList = mdlGraph.getAllMDLSelectorsWithName('tint')
-    nodeList = mdlGraph.getAllMDLSelectorsOfType('mdl::color')
-    # - MDL instances
-    nodeList = mdlGraph.getAllMDLInstances()
-    nodeList = mdlGraph.getAllMDLInstancesOf('mdl::operator*')
-    nodeList = mdlGraph.getAllMDLInstancesOf('mdl::operator*(float,float)')
-    # - MDL Graph instances
-    nodeList = mdlGraph.getAllMDLGraphInstances()
-    nodeList = mdlGraph.getAllMDLGraphInstancesOf(aSBSDocument=aDoc, aPath=aDoc.buildAbsPathFromRelToMePath('myMDL.sbs/MDL_Material'))
-    # - Substance Graph instances
-    nodeList = mdlGraph.getAllSBSInstances()
-    nodeList = mdlGraph.getAllSBSInstancesOf(aSBSDocument=aDoc, aPath='pkg:///myGraph')
-    nodeList = mdlGraph.getAllSBSInstancesOf(aSBSDocument=aDoc, aPath='sbs://perlin_noise_1.sbs')
-
-
 | Many objects in a .sbs file has **a unique identifier (uid)**, accessible through the member 'mUID'.
 | Some objects can be requested from their parent given their uid, that can be found either by reading the .sbs file, or, in the case of the nodes,
 | through Substance Designer user interface, by right clicking on a particular node and selecting: 'Copy info to clipboard'
@@ -196,7 +152,6 @@ The same function exists for the other types of node:
 
 - SBSParamNode.getDefinition() the Function nodes (:class:`.SBSParamNode`)
 - SBSParamsGraphNode.getDefinition() for the FxMap nodes (:class:`.SBSParamsGraphNode`)
-- MDLNode.getDefinition() for the nodes of a MDL graph (:class:`.MDLNode`)
 
 .. code-block:: python
 

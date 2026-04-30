@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>modelgraph module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -57,7 +57,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a><ul class="current">
@@ -113,7 +112,7 @@
 <p>Module <strong>modelgraph</strong></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="modelgraph.modelgraph.ModelGraph">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelgraph.modelgraph.</span></span><span class="sig-name descname"><span class="pre">ModelGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelgraph.modelgraph.</span></span><span class="sig-name descname"><span class="pre">ModelGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraph</span></code></p>
 <p>ModelGraph is the Model specialized graph. It is derived from base class ModuleGraph. It handle all specific methods and properties
 of the Model Graph.</p>
@@ -208,7 +207,7 @@ createNode(aModelgraph, “Structure::NodeBool”)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modelgraph.ModelGraph.fromJson">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aJsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph.fromJson" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aJsonData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph.fromJson" title="Link to this definition"></a></dt>
 <dd><p>Classmethod to build a <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTree" title="common_interfaces.metadata.SBSMetaDataTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></a> from the old json file. Here to support old package without xmp</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -222,7 +221,7 @@ createNode(aModelgraph, “Structure::NodeBool”)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modelgraph.ModelGraph.fromXmpIter">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromXmpIter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetaDataIter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph.fromXmpIter" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromXmpIter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMetaDataIter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph.fromXmpIter" title="Link to this definition"></a></dt>
 <dd><p>Classmethod to build a <a class="reference internal" href="../common_interfaces/metadata.html#common_interfaces.metadata.SBSMetaDataTree" title="common_interfaces.metadata.SBSMetaDataTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataTree</span></code></a> from a xmp <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSMetaDataIter</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -258,7 +257,7 @@ createNode(aModelgraph, “Structure::NodeBool”)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="modelgraph.modelgraph.ModelGraph.getAllInputsInGroup">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAllInputsInGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph.getAllInputsInGroup" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getAllInputsInGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modelgraph.modelgraph.ModelGraph.getAllInputsInGroup" title="Link to this definition"></a></dt>
 <dd><div class="line-block">
 <div class="line">Get the list of all inputs (images and parameters) contained in the given group.</div>
 <div class="line">If aGroup is None, returns all the parameters that are not included in a group.</div>
@@ -410,7 +409,7 @@ createNode(aModelgraph, “Structure::NodeBool”)</p>
 <dd><p>Search for the given compositing node in the node list</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../modulegraph/modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> or str) – node to get, identified by its uid or as a <a class="reference internal" href="../mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a></p>
+<dd class="field-odd"><p><strong>aNode</strong> (<a class="reference internal" href="../modulegraph/modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> or str) – node to get, identified by its uid or as a <a class="reference internal" href="../modulegraph/modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A <a class="reference internal" href="../modulegraph/modulenode.html#modulegraph.modulenode.ModuleNode" title="modulegraph.modulenode.ModuleNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleNode</span></code></a> object if found, None otherwise</p>

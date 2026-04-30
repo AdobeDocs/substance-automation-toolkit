@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>autograph module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ag_functions module" href="ag_functions.html" />
+    <link rel="prev" title="sbsbakingconverter module" href="../sbsbakers/sbsbakingconverter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#helpers">Helpers</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">autograph module: Automatic generation and layout of graphs: easier way to create function graphs using arithmetic operators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ag_functions.html">ag_functions module: Definition of the function context and the mathematical operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ag_types.html">ag_types module: Definition of all data types used by the automatic generation of function graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ag_layout.html">ag_layout module: Functions for automatically laying out graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../batchtools/batchtools%20overview.html">batchtools module: Utilities to call the Substance Batchtools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbscleaner.html">sbscleaner module: Substance cleaner: allows to clean useless parameters and nodes of graph and function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsexporter.html">sbsexporter module: Substance exporter: used to export a .sbs file with its dependencies into a self-contained package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsgenerator.html">sbsgenerator module: Substance generator helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsimpactmanager.html">sbsimpactmanager module: Allows to propagate changes made on a Substance to all its references in a particular tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbsparser.html">sbsparser module: Substance parser: used to deserialize a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbswriter.html">sbswriter module: Substance writer: used to serialize SBSDocument into a .sbs file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../psdparser.html">psdparser module: Adobe Photoshop Document (.psd) file parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qtclasses/qtclasses.html">qtclasses module: Helpers classes to read/write PyQt objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">autograph module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autograph-module">
+<h1>autograph module<a class="headerlink" href="#autograph-module" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">This module simplifies creation and organization of graphs.</div>
+<div class="line">It allows creating function graphs with an interface based on overloaded operators rather than explicitly connecting</div>
+<div class="line">nodes. For instance, if a and b are two nodes, a*b will generate the ‘mul’ node and connect a and b to ‘mul’.</div>
+<div class="line">It also contains functionality for automatically laying out graphs of all types.</div>
+</div>
+<p>Content included in autograph module:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ag_functions.html">ag_functions module: Definition of the function context and the mathematical operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext"><code class="docutils literal notranslate"><span class="pre">FunctionContext</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.input_parameter"><code class="docutils literal notranslate"><span class="pre">FunctionContext.input_parameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.variable"><code class="docutils literal notranslate"><span class="pre">FunctionContext.variable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.constant"><code class="docutils literal notranslate"><span class="pre">FunctionContext.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.import_external_function"><code class="docutils literal notranslate"><span class="pre">FunctionContext.import_external_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.import_local_function"><code class="docutils literal notranslate"><span class="pre">FunctionContext.import_local_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.generate"><code class="docutils literal notranslate"><span class="pre">FunctionContext.generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.dot"><code class="docutils literal notranslate"><span class="pre">FunctionContext.dot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.sqrt"><code class="docutils literal notranslate"><span class="pre">FunctionContext.sqrt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.atan2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.atan2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.abs_of"><code class="docutils literal notranslate"><span class="pre">FunctionContext.abs_of()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.log"><code class="docutils literal notranslate"><span class="pre">FunctionContext.log()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.exp"><code class="docutils literal notranslate"><span class="pre">FunctionContext.exp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.log2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.log2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.pow2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.pow2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.floor"><code class="docutils literal notranslate"><span class="pre">FunctionContext.floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.ceil"><code class="docutils literal notranslate"><span class="pre">FunctionContext.ceil()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cos"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.sin"><code class="docutils literal notranslate"><span class="pre">FunctionContext.sin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.tan"><code class="docutils literal notranslate"><span class="pre">FunctionContext.tan()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.rand"><code class="docutils literal notranslate"><span class="pre">FunctionContext.rand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cartesian"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cartesian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.max_of"><code class="docutils literal notranslate"><span class="pre">FunctionContext.max_of()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.maximum"><code class="docutils literal notranslate"><span class="pre">FunctionContext.maximum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.min_of"><code class="docutils literal notranslate"><span class="pre">FunctionContext.min_of()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.minimum"><code class="docutils literal notranslate"><span class="pre">FunctionContext.minimum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.clamp"><code class="docutils literal notranslate"><span class="pre">FunctionContext.clamp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.lerp"><code class="docutils literal notranslate"><span class="pre">FunctionContext.lerp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_float1"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_float1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_float2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_float2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_float3"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_float3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_float4"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_float4()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_int1"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_int1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_int2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_int2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_int3"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_int3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.swizzle_int4"><code class="docutils literal notranslate"><span class="pre">FunctionContext.swizzle_int4()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.expand_to_int2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.expand_to_int2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.expand_to_int3"><code class="docutils literal notranslate"><span class="pre">FunctionContext.expand_to_int3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.expand_to_int4"><code class="docutils literal notranslate"><span class="pre">FunctionContext.expand_to_int4()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.expand_to_float2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.expand_to_float2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.expand_to_float3"><code class="docutils literal notranslate"><span class="pre">FunctionContext.expand_to_float3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.expand_to_float4"><code class="docutils literal notranslate"><span class="pre">FunctionContext.expand_to_float4()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.expand"><code class="docutils literal notranslate"><span class="pre">FunctionContext.expand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_float1"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_float1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_float2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_float2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_float3"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_float3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_float4"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_float4()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.auto_cast_to_float"><code class="docutils literal notranslate"><span class="pre">FunctionContext.auto_cast_to_float()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_int1"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_int1()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_int2"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_int2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_int3"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_int3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.cast_to_int4"><code class="docutils literal notranslate"><span class="pre">FunctionContext.cast_to_int4()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.auto_cast_to_int"><code class="docutils literal notranslate"><span class="pre">FunctionContext.auto_cast_to_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.if_else"><code class="docutils literal notranslate"><span class="pre">FunctionContext.if_else()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.seq"><code class="docutils literal notranslate"><span class="pre">FunctionContext.seq()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.sequence"><code class="docutils literal notranslate"><span class="pre">FunctionContext.sequence()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.set_var"><code class="docutils literal notranslate"><span class="pre">FunctionContext.set_var()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.create_color_sampler"><code class="docutils literal notranslate"><span class="pre">FunctionContext.create_color_sampler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.create_gray_sampler"><code class="docutils literal notranslate"><span class="pre">FunctionContext.create_gray_sampler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.create_passthrough"><code class="docutils literal notranslate"><span class="pre">FunctionContext.create_passthrough()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.FunctionContext.normalize"><code class="docutils literal notranslate"><span class="pre">FunctionContext.normalize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_functions.html#autograph.ag_functions.generate_function"><code class="docutils literal notranslate"><span class="pre">generate_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ag_types.html">ag_types module: Definition of all data types used by the automatic generation of function graph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.TypeInfo"><code class="docutils literal notranslate"><span class="pre">TypeInfo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.TypeInfo.type_to_string"><code class="docutils literal notranslate"><span class="pre">TypeInfo.type_to_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Type"><code class="docutils literal notranslate"><span class="pre">Type</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.VectorType"><code class="docutils literal notranslate"><span class="pre">VectorType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.FloatType"><code class="docutils literal notranslate"><span class="pre">FloatType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float1"><code class="docutils literal notranslate"><span class="pre">Float1</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float1.constant"><code class="docutils literal notranslate"><span class="pre">Float1.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float1.variable"><code class="docutils literal notranslate"><span class="pre">Float1.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float2"><code class="docutils literal notranslate"><span class="pre">Float2</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float2.constant"><code class="docutils literal notranslate"><span class="pre">Float2.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float2.variable"><code class="docutils literal notranslate"><span class="pre">Float2.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float3"><code class="docutils literal notranslate"><span class="pre">Float3</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float3.constant"><code class="docutils literal notranslate"><span class="pre">Float3.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float3.variable"><code class="docutils literal notranslate"><span class="pre">Float3.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float4"><code class="docutils literal notranslate"><span class="pre">Float4</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float4.constant"><code class="docutils literal notranslate"><span class="pre">Float4.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Float4.variable"><code class="docutils literal notranslate"><span class="pre">Float4.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.IntType"><code class="docutils literal notranslate"><span class="pre">IntType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int1"><code class="docutils literal notranslate"><span class="pre">Int1</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int1.constant"><code class="docutils literal notranslate"><span class="pre">Int1.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int1.variable"><code class="docutils literal notranslate"><span class="pre">Int1.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int2"><code class="docutils literal notranslate"><span class="pre">Int2</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int2.constant"><code class="docutils literal notranslate"><span class="pre">Int2.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int2.variable"><code class="docutils literal notranslate"><span class="pre">Int2.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int3"><code class="docutils literal notranslate"><span class="pre">Int3</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int3.constant"><code class="docutils literal notranslate"><span class="pre">Int3.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int3.variable"><code class="docutils literal notranslate"><span class="pre">Int3.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int4"><code class="docutils literal notranslate"><span class="pre">Int4</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int4.constant"><code class="docutils literal notranslate"><span class="pre">Int4.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Int4.variable"><code class="docutils literal notranslate"><span class="pre">Int4.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.Boolean"><code class="docutils literal notranslate"><span class="pre">Boolean</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Boolean.constant"><code class="docutils literal notranslate"><span class="pre">Boolean.constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ag_types.html#autograph.ag_types.Boolean.variable"><code class="docutils literal notranslate"><span class="pre">Boolean.variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.create_constant"><code class="docutils literal notranslate"><span class="pre">create_constant()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_types.html#autograph.ag_types.create_variable"><code class="docutils literal notranslate"><span class="pre">create_variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ag_layout.html">ag_layout module: Functions for automatically laying out graphs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ag_layout.html#autograph.ag_layout.NodesToKeepEnum"><code class="docutils literal notranslate"><span class="pre">NodesToKeepEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_layout.html#autograph.ag_layout.GUIElementsToKeepEnum"><code class="docutils literal notranslate"><span class="pre">GUIElementsToKeepEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_layout.html#autograph.ag_layout.GraphFlowDirectionEnum"><code class="docutils literal notranslate"><span class="pre">GraphFlowDirectionEnum</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_layout.html#autograph.ag_layout.GraphLayoutAlignment"><code class="docutils literal notranslate"><span class="pre">GraphLayoutAlignment</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_layout.html#autograph.ag_layout.layoutGraph"><code class="docutils literal notranslate"><span class="pre">layoutGraph()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ag_layout.html#autograph.ag_layout.layoutDoc"><code class="docutils literal notranslate"><span class="pre">layoutDoc()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-autograph"></span></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sbsbakers/sbsbakingconverter.html" class="btn btn-neutral float-left" title="sbsbakingconverter module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ag_functions.html" class="btn btn-neutral float-right" title="ag_functions module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

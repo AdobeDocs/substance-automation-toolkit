@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sbsobject module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -64,7 +64,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
@@ -112,7 +111,7 @@
 <p>Module <strong>sbsobject</strong> provides the definition of a SBSObject, the base class for all objects of a .sbs package.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.sbsobject.SBSObject">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.sbsobject.</span></span><span class="sig-name descname"><span class="pre">SBSObject</span></span><a class="headerlink" href="#common_interfaces.sbsobject.SBSObject" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.sbsobject.</span></span><span class="sig-name descname"><span class="pre">SBSObject</span></span><a class="headerlink" href="#common_interfaces.sbsobject.SBSObject" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="sbsarobject.html#common_interfaces.sbsarobject.SBSARObject" title="common_interfaces.sbsarobject.SBSARObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARObject</span></code></a></p>
 <p>Abstract class used to provide a common interface for all derived SBSObjects,
 and to ensure that each derived object implements the functions ‘parse’ and ‘write’</p>
@@ -150,7 +149,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.sbsobject.SBSObject.parse">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.sbsobject.SBSObject.parse" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aDirAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aSBSParser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.sbsobject.SBSObject.parse" title="Link to this definition"></a></dt>
 <dd><p>Parse recursively the given xml node to retrieve the content of the SBSObject.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -166,7 +165,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.sbsobject.SBSObject.write">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.sbsobject.SBSObject.write" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aXmlNode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.sbsobject.SBSObject.write" title="Link to this definition"></a></dt>
 <dd><p>Write recursively the content of the SBSObject into the given xml node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -182,12 +181,12 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.sbsobject.UIDGenerator">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.sbsobject.</span></span><span class="sig-name descname"><span class="pre">UIDGenerator</span></span><a class="headerlink" href="#common_interfaces.sbsobject.UIDGenerator" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.sbsobject.</span></span><span class="sig-name descname"><span class="pre">UIDGenerator</span></span><a class="headerlink" href="#common_interfaces.sbsobject.UIDGenerator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class used to generate unique ID for new <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObjects</span></code>, in the context of their parent.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.sbsobject.UIDGenerator.generateUID">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generateUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.sbsobject.UIDGenerator.generateUID" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">generateUID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aSBSObject</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.sbsobject.UIDGenerator.generateUID" title="Link to this definition"></a></dt>
 <dd><p>Generate a unique 10-digit UID in the context of the given <a class="reference internal" href="#common_interfaces.sbsobject.SBSObject" title="common_interfaces.sbsobject.SBSObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>basegraph module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -64,7 +64,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
@@ -118,9 +117,9 @@
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.basegraph.BaseGraph">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.basegraph.</span></span><span class="sig-name descname"><span class="pre">BaseGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamInputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.BaseGraph" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.basegraph.</span></span><span class="sig-name descname"><span class="pre">BaseGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamInputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.BaseGraph" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class used to provide a common interface between a <a class="reference internal" href="#common_interfaces.basegraph.Graph" title="common_interfaces.basegraph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code></a> and a <a class="reference internal" href="../mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>.</p>
+<p>Class used to provide a common interface between a <a class="reference internal" href="#common_interfaces.basegraph.Graph" title="common_interfaces.basegraph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code></a> and a <a class="reference internal" href="../modulegraph/modulegraph.html#modulegraph.modulegraph.ModuleGraph" title="modulegraph.modulegraph.ModuleGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleGraph</span></code></a>.</p>
 <dl class="simple">
 <dt>Members:</dt><dd><ul class="simple">
 <li><p>mIdentifier: Unique identifier of the graph</p></li>
@@ -166,7 +165,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.basegraph.BaseGraph.getAllInputsInGroup">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAllInputsInGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.BaseGraph.getAllInputsInGroup" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getAllInputsInGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGroup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.BaseGraph.getAllInputsInGroup" title="Link to this definition"></a></dt>
 <dd><div class="line-block">
 <div class="line">Get the list of all inputs (images and parameters) contained in the given group.</div>
 <div class="line">If aGroup is None, returns all the parameters that are not included in a group.</div>
@@ -302,7 +301,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.basegraph.Graph">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.basegraph.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPrimaryInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamInputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphOutputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresets</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.Graph" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.basegraph.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPrimaryInput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParamInputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphOutputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresets</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.Graph" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#common_interfaces.basegraph.BaseGraph" title="common_interfaces.basegraph.BaseGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseGraph</span></code></a></p>
 <p>Class used to provide a common interface between a <a class="reference internal" href="../graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> and a <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARGraph" title="sbsarchive.sbsargraph.SBSARGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARGraph</span></code></a>.</p>
 <dl class="simple">
@@ -392,7 +391,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.basegraph.Graph.getPrimaryInput">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPrimaryInput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.Graph.getPrimaryInput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getPrimaryInput</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.Graph.getPrimaryInput" title="Link to this definition"></a></dt>
 <dd><p>Get the primary input of the graph</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -403,7 +402,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.basegraph.Graph.isPrimaryInput">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isPrimaryInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.Graph.isPrimaryInput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isPrimaryInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aInput</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.basegraph.Graph.isPrimaryInput" title="Link to this definition"></a></dt>
 <dd><p>Check if the given input is the primary input for this graph or not</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sbsgenerator module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -75,8 +75,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createInputParameter"><code class="docutils literal notranslate"><span class="pre">createInputParameter()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createIterationOnPattern"><code class="docutils literal notranslate"><span class="pre">createIterationOnPattern()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createLinkedResource"><code class="docutils literal notranslate"><span class="pre">createLinkedResource()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createMDLGraph"><code class="docutils literal notranslate"><span class="pre">createMDLGraph()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createMDLNode"><code class="docutils literal notranslate"><span class="pre">createMDLNode()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createOutputNode"><code class="docutils literal notranslate"><span class="pre">createOutputNode()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createPreset"><code class="docutils literal notranslate"><span class="pre">createPreset()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sbsgenerator.createResourceNode"><code class="docutils literal notranslate"><span class="pre">createResourceNode()</span></code></a></li>
@@ -512,53 +510,6 @@ Create the SBSGroup ResourceGroup if necessary.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The new <a class="reference internal" href="substance/resource.html#substance.resource.SBSResource" title="substance.resource.SBSResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSResource</span></code></a> object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sbsgenerator.createMDLGraph">
-<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createMDLGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createMDLGraph" title="Link to this definition"></a></dt>
-<dd><p>Create a new MDL graph with an output node.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>aParentObject</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> or <a class="reference internal" href="substance/content.html#substance.content.SBSContent" title="substance.content.SBSContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSContent</span></code></a>) – reference to the parent object that will contain this graph</p></li>
-<li><p><strong>aGraphIdentifier</strong> (<em>str</em>) – name of the graph</p></li>
-<li><p><strong>aCreateOutputNode</strong> (<em>bool</em>) – True to create the output node. Default to True</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The new <a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sbsgenerator.createMDLNode">
-<span class="sig-prename descclassname"><span class="pre">sbsgenerator.</span></span><span class="sig-name descname"><span class="pre">createMDLNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aParentGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aParameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbsgenerator.createMDLNode" title="Link to this definition"></a></dt>
-<dd><p>Create a new MDL node with the given parameters.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>aParentGraph</strong> (<a class="reference internal" href="mdl/mdlgraph.html#mdl.mdlgraph.MDLGraph" title="mdl.mdlgraph.MDLGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLGraph</span></code></a>) – graph which will contain the created MDL node</p></li>
-<li><p><strong>aImplementationKind</strong> (<a class="reference internal" href="mdl/mdlenum.html#mdl.mdlenum.MDLImplementationKindEnum" title="mdl.mdlenum.MDLImplementationKindEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLImplementationKindEnum</span></code></a>) – kind of mdl node implementation to create</p></li>
-<li><p><strong>aPath</strong> (<em>str</em><em>, </em><em>optional</em>) – mdl path of the node to create</p></li>
-<li><p><strong>aParameters</strong> (<em>dictionary in the format {parameterName</em><em>(</em><em>str</em><em>) </em><em>: parameterValue</em><em>(</em><em>str</em><em>)</em><em>}</em><em>, </em><em>optional</em>) – parameters of the mdl node</p></li>
-<li><p><strong>aCstAnnotations</strong> (dictionary in the format {annotation(<a class="reference internal" href="mdl/mdlenum.html#mdl.mdlenum.MDLAnnotationEnum" title="mdl.mdlenum.MDLAnnotationEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLAnnotationEnum</span></code></a>),annotationValue(str)}, optional) – for a constant: annotations of the mdl node</p></li>
-<li><p><strong>aCstIsExposed</strong> (<em>bool</em><em>, </em><em>optional</em>) – for a constant: defines if this constant is exposed as an input parameter of the graph</p></li>
-<li><p><strong>aCstName</strong> (<em>str</em><em>, </em><em>optional</em>) – for a constant: name of the constant. If None, a name is affected by default using the constant type</p></li>
-<li><p><strong>aCstValue</strong> (<em>any type</em><em>, </em><em>optional</em>) – for a constant: value of the constant</p></li>
-<li><p><strong>aCstTypeModifier</strong> (<a class="reference internal" href="mdl/mdlenum.html#mdl.mdlenum.MDLTypeModifierEnum" title="mdl.mdlenum.MDLTypeModifierEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLTypeModifierEnum</span></code></a>) – for a constant: type modifier to set. Default to ‘auto’</p></li>
-<li><p><strong>aInstanceOfGraph</strong> (<a class="reference internal" href="common_interfaces/basegraph.html#common_interfaces.basegraph.BaseGraph" title="common_interfaces.basegraph.BaseGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseGraph</span></code></a>) – for a Substance or MDL graph instance: the instantiated graph</p></li>
-<li><p><strong>aInstanceDependency</strong> (<a class="reference internal" href="substance/substance.html#substance.substance.SBSDependency" title="substance.substance.SBSDependency"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDependency</span></code></a>) – for a Substance or MDL graph instance: the associated dependency</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The new <a class="reference internal" href="mdl/mdlnode.html#mdl.mdlnode.MDLNode" title="mdl.mdlnode.MDLNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">MDLNode</span></code></a> object</p>
-</dd>
-<dt class="field-odd">Raise<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSImpossibleActionError</span></code></p>
 </dd>
 </dl>
 </dd></dl>

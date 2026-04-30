@@ -81,30 +81,6 @@ Here is the detail of the objects created by this script:
     * An output node.
 
 
-Sample 3: MDL Graph creation
-""""""""""""""""""""""""""""
-
-| The sample function :func:`demos.demoCreationMDL` shows specifically the creation of a MDL Graph using the API.
-| Launch the script with this command line, from the folder *demos/*:
-
-.. code-block:: shell
-
-    python demos.py -fct: demoCreationMDL -args: "sample/argsDemoCreationMDL.xml"
-
-And check the result by opening the generated file *sample/resultDemoCreationMDL.sbs*:
-
-.. image:: ../images/GraphMDL.png
-    :width: 700px
-    :align: center
-
-This script creates a new MDL Graph from scratch, mostly identical to a metallic material but with an emissive part:
-    * It declares some constants as input parameters of the graph.
-    * It instantiates some native mdl nodes, such as 'material_emission' and 'material_surface'.
-    * It creates a new light profile resource and uses it to handle the emissive term of the material.
-
-All the objects, libraries and functions related to MDL are included in the module :mod:`.mdl`.
-
-
 Highlights on the most important modules and classes of the API
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 The objects are created from the parent object that contains them, so the majority of creation methods are located in the following classes:

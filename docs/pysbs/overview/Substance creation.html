@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Substance creation &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -51,7 +51,6 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Creation of a Substance from scratch</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sample-1-hello-world">Sample 1: Hello World</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sample-2-full-creation-demonstration">Sample 2: Full creation demonstration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sample-3-mdl-graph-creation">Sample 3: MDL Graph creation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#highlights-on-the-most-important-modules-and-classes-of-the-api">Highlights on the most important modules and classes of the API</a></li>
 </ul>
 </li>
@@ -180,28 +179,6 @@ The function retrieves the value of the graph input parameter and pass as the in
 </dl>
 </li>
 </ul>
-</section>
-<section id="sample-3-mdl-graph-creation">
-<h2>Sample 3: MDL Graph creation<a class="headerlink" href="#sample-3-mdl-graph-creation" title="Link to this heading"></a></h2>
-<div class="line-block">
-<div class="line">The sample function <a class="reference internal" href="../pysbs_demos/demos.html#demos.demoCreationMDL" title="demos.demoCreationMDL"><code class="xref py py-func docutils literal notranslate"><span class="pre">demos.demoCreationMDL()</span></code></a> shows specifically the creation of a MDL Graph using the API.</div>
-<div class="line">Launch the script with this command line, from the folder <em>demos/</em>:</div>
-</div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>demos.py<span class="w"> </span>-fct:<span class="w"> </span>demoCreationMDL<span class="w"> </span>-args:<span class="w"> </span><span class="s2">&quot;sample/argsDemoCreationMDL.xml&quot;</span>
-</pre></div>
-</div>
-<p>And check the result by opening the generated file <em>sample/resultDemoCreationMDL.sbs</em>:</p>
-<a class="reference internal image-reference" href="../../_images/GraphMDL.png"><img alt="../../_images/GraphMDL.png" class="align-center" src="../../_images/GraphMDL.png" style="width: 700px;" />
-</a>
-<dl class="simple">
-<dt>This script creates a new MDL Graph from scratch, mostly identical to a metallic material but with an emissive part:</dt><dd><ul class="simple">
-<li><p>It declares some constants as input parameters of the graph.</p></li>
-<li><p>It instantiates some native mdl nodes, such as ‘material_emission’ and ‘material_surface’.</p></li>
-<li><p>It creates a new light profile resource and uses it to handle the emissive term of the material.</p></li>
-</ul>
-</dd>
-</dl>
-<p>All the objects, libraries and functions related to MDL are included in the module <a class="reference internal" href="../mdl/mdl.html#module-mdl" title="mdl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mdl</span></code></a>.</p>
 </section>
 <section id="highlights-on-the-most-important-modules-and-classes-of-the-api">
 <h2>Highlights on the most important modules and classes of the API<a class="headerlink" href="#highlights-on-the-most-important-modules-and-classes-of-the-api" title="Link to this heading"></a></h2>

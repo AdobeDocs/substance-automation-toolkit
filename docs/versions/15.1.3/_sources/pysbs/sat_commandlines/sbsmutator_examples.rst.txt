@@ -1,0 +1,20 @@
+.. _ref-to-sat-sbsmutatorexamples:
+
+sbsmutator Example Command Lines
+================================
+
+This page contains examples of command lines for various environments to showcase how to invoke the command line processors. In the examples, the command line tools are assumed to be in the PATH.
+
+Modify an SBS file to connect bitmap to input nodes of a graph
+--------------------------------------------------------------
+
+.. code-block:: shell
+
+    sbsmutator edit --input /an/sbs/file/foo.sbs --connect-image "input1"@path@"/an/image/to/connect/bar.png" --output-path {inputPath} --output-name {inputName}
+
+`input1` is the identifier of the input node.
+
+Patterns `{inputName}` and `{inputPath}` will be replaced by the input name and input path. Consequently, the foo.sbs entry will be overwritten by the new modified SBS file.
+
+
+

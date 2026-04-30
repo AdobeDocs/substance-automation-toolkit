@@ -1,0 +1,57 @@
+.. _ref-to-sat-sbsrenderpattern:
+
+sbsrender base parameters and pattern variables
+===============================================
+
+Base parameters
+---------------
+
+With sbsrender command line it's possible to tweak some sbsar's exposed parameters with the flag --set-value <param@value>. Within a sbsar some parameters are exposed by default, these are the base parameters as shown in the next examples, to set a base parameter values the name must starts with a $ (unlike user parameters $).
+
+.. code-block:: batch
+
+    # windows, depends the console escape using ' :
+    sbsrender render C:\path\to\file.sbsar --set-value '$outputsize@11,11'
+
+    # linux (macos) escape the $ using \ :
+    sbsrender render /path/to/file.sbsar --set-value \$outputsize@11,11
+
+
+The list of the base parameters name:
+
+.. code-block:: batch
+
+    Output Size: $outputsize@<int>,<int>
+    Output Format: $format@<int>
+    Pixel Size: $pixelsize@<float>,<float>
+    Pixel Ratio: $pixelration@<int>
+    Tiling Mode: $tiling@<int>
+    Random Seed: $randomseed@<int>
+
+
+Pattern variables
+-----------------
+
+SbsRender can replace some pattern by the content of its variable as shown in the next example:
+
+.. code-block:: batch
+
+    sbsrender render C:\path\to\file.sbsar --output-name map_{outputNodeName}
+
+
+The list of the available pattern variables:
+
+.. code-block:: batch
+
+    {inputName} the name of the input sbsar file
+    {inputGraphUrl} the graph name
+    {outputNodeName} the processed output node's identifier
+    {inputPath} the directory path of the input sbsar file, usable only with --output-path flag
+    {outputIndex} the processed output node's index, 0, 1, 2 ... by creation order
+    {outputUsages} the processed output node's usages, if more than one usage is set they will be concatenated with _ (underscore)
+    {outputLabel} the processed output node's label
+    {outputGroup} the processed output node's group name
+    {outputUserData} the processed output node's user data
+    {colorspace} the processed output node's colorspace
+
+

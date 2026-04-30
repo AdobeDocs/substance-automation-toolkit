@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>package module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -64,7 +64,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbspreset/sbspreset.html">sbspreset module: Preset file management (.sbsprs)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbsproject/projectmgrdoc.html">sbsprj module: Substance Designer project file management (.sbsprj)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modelgraph/modelgraphindex.html">ModelGraph module: ModelGraph definition and all objects related to ModelGraph</a></li>
@@ -121,7 +120,7 @@
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.package.Package">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">Package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">Package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class used to provide a common interface between a <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a> and a <a class="reference internal" href="../sbsarchive/sbsarchive.html#sbsarchive.sbsarchive.SBSArchive" title="sbsarchive.sbsarchive.SBSArchive"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSArchive</span></code></a>.</p>
 <dl class="simple">
@@ -135,7 +134,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.buildAbsPathFromRelToMePath">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">buildAbsPathFromRelToMePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRelPathFromPackage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.buildAbsPathFromRelToMePath" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">buildAbsPathFromRelToMePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aRelPathFromPackage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.buildAbsPathFromRelToMePath" title="Link to this definition"></a></dt>
 <dd><p>Build a path starting from the current package absolute directory and complete it with the given relative path</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -149,7 +148,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.parseDoc">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parseDoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aResolveDependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.parseDoc" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">parseDoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aResolveDependencies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.parseDoc" title="Link to this definition"></a></dt>
 <dd><p>Parse the file content</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -160,7 +159,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.getObjectFromInternalPath">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getObjectFromInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getObjectFromInternalPath" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getObjectFromInternalPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getObjectFromInternalPath" title="Link to this definition"></a></dt>
 <dd><p>Get the object pointed by the given path, which must references the current package.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -174,7 +173,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.getSBSGraph">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getSBSGraph" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getSBSGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraphIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getSBSGraph" title="Link to this definition"></a></dt>
 <dd><p>Get the Graph object with the given identifier</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -188,7 +187,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.getSBSGraphPkgUrl">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSGraphPkgUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getSBSGraphPkgUrl" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getSBSGraphPkgUrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getSBSGraphPkgUrl" title="Link to this definition"></a></dt>
 <dd><p>Get the path of the given graph relatively to the current package (pkg:///…/aGraphIdentifier)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -202,7 +201,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.getSBSGraphList">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getSBSGraphList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getSBSGraphList" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getSBSGraphList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.getSBSGraphList" title="Link to this definition"></a></dt>
 <dd><p>Get the list of all graphs defined in the .sbs file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -213,7 +212,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.isAnArchive">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAnArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.isAnArchive" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isAnArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.isAnArchive" title="Link to this definition"></a></dt>
 <dd><p>Check if the given filename is a .sbsar package or a .sbs package</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -227,7 +226,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.isAPackage">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAPackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.isAPackage" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isAPackage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.isAPackage" title="Link to this definition"></a></dt>
 <dd><p>Check if the given filename is a .sbs file or .sbsar file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -258,7 +257,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.Package.removePackageExtension">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">removePackageExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.removePackageExtension" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">removePackageExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aFilePath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Package.removePackageExtension" title="Link to this definition"></a></dt>
 <dd><p>Remove the package extension to the given path (.sbs or .sbsar)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -274,7 +273,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">ParamInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">ParamInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class used to provide a common interface between a <a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSParamInput" title="graph.inputparameters.SBSParamInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamInput</span></code></a> and a <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARInput" title="sbsarchive.sbsargraph.SBSARInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARInput</span></code></a>.</p>
 <dl class="simple">
@@ -325,7 +324,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getGroup">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getGroup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getGroup" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getGroup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getGroup" title="Link to this definition"></a></dt>
 <dd><p>Get the input GUI group containing this input</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -336,7 +335,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getClamp">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getClamp" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getClamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getClamp" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the clamp as a boolean if defined for this parameter, None if not defined</p>
@@ -346,7 +345,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getMinValue">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getMinValue" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getMinValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getMinValue" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the minimum parameter value in the type of the parameter (int or float), None if not defined</p>
@@ -356,7 +355,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getMaxValue">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getMaxValue" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getMaxValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getMaxValue" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the maximum parameter value in the type of the parameter (int or float), None if not defined</p>
@@ -366,7 +365,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getDefaultValue">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getDefaultValue" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getDefaultValue" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the default value as a value or a list of values, in the type of the parameter (bool, int or float), None if not defined</p>
@@ -376,7 +375,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getDropDownList">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getDropDownList" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getDropDownList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getDropDownList" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the map{value(int):label(str)} corresponding to the drop down definition if defined for this parameter, None otherwise.</p>
@@ -386,7 +385,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getLabels">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getLabels" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getLabels" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the list of all labels defined for this parameter, in the right order, as a list of strings. None if not defined</p>
@@ -396,7 +395,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getStep">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getStep" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getStep" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the step value (in the type of the parameter) of the widget for this parameter, None if not defined</p>
@@ -406,7 +405,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getUsages">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getUsages" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getUsages" title="Link to this definition"></a></dt>
 <dd><p>Get the usages of this param input</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -417,7 +416,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getWidget">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getWidget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getWidget" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getWidget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getWidget" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The widget used for this parameter, None if not defined</p>
@@ -427,7 +426,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.hasUsage">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.hasUsage" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.hasUsage" title="Link to this definition"></a></dt>
 <dd><p>Check if the given usage is defined on this param input</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -441,7 +440,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.isAnInputImage">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAnInputImage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.isAnInputImage" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isAnInputImage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.isAnInputImage" title="Link to this definition"></a></dt>
 <dd><p>Check if this input is of kind image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -452,7 +451,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.isAnInputParameter">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isAnInputParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.isAnInputParameter" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isAnInputParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.isAnInputParameter" title="Link to this definition"></a></dt>
 <dd><p>Check if this input is a parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -463,7 +462,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getType">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getType" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getType" title="Link to this definition"></a></dt>
 <dd><p>Get the type of the input among the list defined in <a class="reference internal" href="../sbsenum.html#sbsenum.ParamTypeEnum" title="sbsenum.ParamTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -474,7 +473,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.ParamInput.getIsConnectable">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getIsConnectable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getIsConnectable" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getIsConnectable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.ParamInput.getIsConnectable" title="Link to this definition"></a></dt>
 <dd><p>Returns True if this parameter can be connected to</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -487,7 +486,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.package.GraphOutput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">GraphOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">GraphOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class used to provide a common interface between a <a class="reference internal" href="../graph/output.html#graph.output.SBSGraphOutput" title="graph.output.SBSGraphOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraphOutput</span></code></a> and a <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSAROutput" title="sbsarchive.sbsargraph.SBSAROutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSAROutput</span></code></a>.</p>
 <dl class="simple">
@@ -513,7 +512,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.GraphOutput.getUsages">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput.getUsages" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getUsages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput.getUsages" title="Link to this definition"></a></dt>
 <dd><p>Get the usages of this graph output</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -524,7 +523,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.GraphOutput.hasUsage">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput.hasUsage" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">hasUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUsage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput.hasUsage" title="Link to this definition"></a></dt>
 <dd><p>Check if the given usage is defined on this graph output</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -538,7 +537,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="common_interfaces.package.GraphOutput.getType">
-<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput.getType" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.GraphOutput.getType" title="Link to this definition"></a></dt>
 <dd><p>Get the output type of this GraphOutput.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -551,7 +550,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.package.Preset">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">Preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Preset" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">Preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.Preset" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class used to provide a common interface between a <a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPreset" title="graph.inputparameters.SBSPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPreset</span></code></a> and a <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARPreset" title="sbsarchive.sbsargraph.SBSARPreset"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPreset</span></code></a>.</p>
 <dl class="simple">
@@ -618,7 +617,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="common_interfaces.package.PresetInput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">PresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.PresetInput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">common_interfaces.package.</span></span><span class="sig-name descname"><span class="pre">PresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#common_interfaces.package.PresetInput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class used to provide a common interface between a <a class="reference internal" href="../graph/inputparameters.html#graph.inputparameters.SBSPresetInput" title="graph.inputparameters.SBSPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSPresetInput</span></code></a> and a <a class="reference internal" href="../sbsarchive/sbsargraph.html#sbsarchive.sbsargraph.SBSARPresetInput" title="sbsarchive.sbsargraph.SBSARPresetInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSARPresetInput</span></code></a>.</p>
 <dl class="simple">

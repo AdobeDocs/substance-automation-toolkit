@@ -8,20 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sbspreset module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=8d563738"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Project Manager How To" href="../sbsproject/projectmgrdoc.html" />
-    <link rel="prev" title="mdllibclasses module" href="../mdl/mdllibclasses.html" /> 
+    <link rel="prev" title="values module" href="../sbscommon/values.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,7 +57,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../compnode/compnode.html">compnode module: Compositing node definitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../params/params.html">params module: Parameters definition (dynamic or constant)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sbscommon/sbscommon.html">sbscommon module: Common classes related to SBS package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mdl/mdl.html">mdl module: MDL graph definition and all objects related to MDL</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">sbspreset module: Preset file management (.sbsprs)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPreset"><code class="docutils literal notranslate"><span class="pre">SBSPRSPreset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sbspreset.sbspreset.SBSPRSPresetInput"><code class="docutils literal notranslate"><span class="pre">SBSPRSPresetInput</span></code></a></li>
@@ -121,7 +120,7 @@ with compgraphs</p>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPreset">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPkgUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPreset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUsertags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPkgUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresetInputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPreset" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Preset</span></code></p>
 <p>Class representing an SBSPRS preset</p>
 <dl class="simple">
@@ -453,7 +452,7 @@ Sets the usertags for the preset</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresetInput">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPresetInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aUID</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aValue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresetInput" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">PresetInput</span></code></p>
 <p>Class representing an SBSPRS preset</p>
 <dl class="simple">
@@ -642,7 +641,7 @@ Some members may be excluded from this check, the UIDs or GUILayout for instance
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSPresets">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPresets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormatVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSPresets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFileAbsPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aFormatVersion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aPresets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSPresets" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SBSObject</span></code></p>
 <p>Class representing the preset datastructure.</p>
 <dl class="simple">
@@ -879,20 +878,9 @@ If aNewFileAbsPath is provided, the document is saved at this location, otherwis
 
 <dl class="py class">
 <dt class="sig sig-object py" id="sbspreset.sbspreset.SBSPRSTypes">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSTypes</span></span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSTypes" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbspreset.sbspreset.</span></span><span class="sig-name descname"><span class="pre">SBSPRSTypes</span></span><a class="headerlink" href="#sbspreset.sbspreset.SBSPRSTypes" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Enumeration for sbsprs preset types</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FLOAT1</span>   <span class="o">=</span> <span class="mi">0</span>
-<span class="n">FLOAT2</span>   <span class="o">=</span> <span class="mi">1</span>
-<span class="n">FLOAT3</span>   <span class="o">=</span> <span class="mi">2</span>
-<span class="n">FLOAT4</span>   <span class="o">=</span> <span class="mi">3</span>
-<span class="n">INTEGER1</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">STRING</span>   <span class="o">=</span> <span class="mi">6</span>
-<span class="n">INTEGER2</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">INTEGER3</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="n">INTEGER4</span> <span class="o">=</span> <span class="mi">10</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </section>
@@ -901,7 +889,7 @@ If aNewFileAbsPath is provided, the document is saved at this location, otherwis
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../mdl/mdllibclasses.html" class="btn btn-neutral float-left" title="mdllibclasses module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sbscommon/values.html" class="btn btn-neutral float-left" title="values module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../sbsproject/projectmgrdoc.html" class="btn btn-neutral float-right" title="Project Manager How To" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
