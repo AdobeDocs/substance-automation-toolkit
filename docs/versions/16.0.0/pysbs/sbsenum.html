@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsenum module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sbslibrary module" href="sbslibrary/sbslibrary.html" />
+    <link rel="prev" title="moduleoutputbridging module" href="modulegraph/moduleoutputbridging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">sbsenum module: Types and enumeration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ParamTypeEnum"><code class="docutils literal notranslate"><span class="pre">ParamTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.InputValueTypeEnum"><code class="docutils literal notranslate"><span class="pre">InputValueTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TypeMasksEnum"><code class="docutils literal notranslate"><span class="pre">TypeMasksEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.AttributesEnum"><code class="docutils literal notranslate"><span class="pre">AttributesEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BitmapFormatEnum"><code class="docutils literal notranslate"><span class="pre">BitmapFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.InputEnum"><code class="docutils literal notranslate"><span class="pre">InputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.OutputEnum"><code class="docutils literal notranslate"><span class="pre">OutputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FilterEnum"><code class="docutils literal notranslate"><span class="pre">FilterEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BaseParamEnum"><code class="docutils literal notranslate"><span class="pre">BaseParamEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CompNodeParamEnum"><code class="docutils literal notranslate"><span class="pre">CompNodeParamEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FunctionEnum"><code class="docutils literal notranslate"><span class="pre">FunctionEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FunctionInputEnum"><code class="docutils literal notranslate"><span class="pre">FunctionInputEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FxMapNodeEnum"><code class="docutils literal notranslate"><span class="pre">FxMapNodeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TextureFormatEnum"><code class="docutils literal notranslate"><span class="pre">TextureFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.MipmapEnum"><code class="docutils literal notranslate"><span class="pre">MipmapEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.UsageEnum"><code class="docutils literal notranslate"><span class="pre">UsageEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ComponentsEnum"><code class="docutils literal notranslate"><span class="pre">ComponentsEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ColorSpacesEnum"><code class="docutils literal notranslate"><span class="pre">ColorSpacesEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.UsageDataEnum"><code class="docutils literal notranslate"><span class="pre">UsageDataEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ResourceTypeEnum"><code class="docutils literal notranslate"><span class="pre">ResourceTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ParamInheritanceEnum"><code class="docutils literal notranslate"><span class="pre">ParamInheritanceEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TilingEnum"><code class="docutils literal notranslate"><span class="pre">TilingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.OutputFormatEnum"><code class="docutils literal notranslate"><span class="pre">OutputFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.OutputSizeEnum"><code class="docutils literal notranslate"><span class="pre">OutputSizeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.PixelRatioEnum"><code class="docutils literal notranslate"><span class="pre">PixelRatioEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.QualityEnum"><code class="docutils literal notranslate"><span class="pre">QualityEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ColorModeEnum"><code class="docutils literal notranslate"><span class="pre">ColorModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BlendBlendingModeEnum"><code class="docutils literal notranslate"><span class="pre">BlendBlendingModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.AlphaBlendingEnum"><code class="docutils literal notranslate"><span class="pre">AlphaBlendingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.ChannelShuffleEnum"><code class="docutils literal notranslate"><span class="pre">ChannelShuffleEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CombineDistanceEnum"><code class="docutils literal notranslate"><span class="pre">CombineDistanceEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CurveTypeEnum"><code class="docutils literal notranslate"><span class="pre">CurveTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GradientAddressingEnum"><code class="docutils literal notranslate"><span class="pre">GradientAddressingEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GradientOrientationEnum"><code class="docutils literal notranslate"><span class="pre">GradientOrientationEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.NormalFormatEnum"><code class="docutils literal notranslate"><span class="pre">NormalFormatEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.NormalAlphaChannelContentEnum"><code class="docutils literal notranslate"><span class="pre">NormalAlphaChannelContentEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.MipMapModeEnum"><code class="docutils literal notranslate"><span class="pre">MipMapModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FilteringEnum"><code class="docutils literal notranslate"><span class="pre">FilteringEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.TextAlignEnum"><code class="docutils literal notranslate"><span class="pre">TextAlignEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_PatternType"><code class="docutils literal notranslate"><span class="pre">FX_PatternType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_BlendingModeEnum"><code class="docutils literal notranslate"><span class="pre">FX_BlendingModeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_InputImageAlphaEnum"><code class="docutils literal notranslate"><span class="pre">FX_InputImageAlphaEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_InputImageFilteringEnum"><code class="docutils literal notranslate"><span class="pre">FX_InputImageFilteringEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.FX_SelectorEnum"><code class="docutils literal notranslate"><span class="pre">FX_SelectorEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BitmapResizeMethodEnum"><code class="docutils literal notranslate"><span class="pre">BitmapResizeMethodEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.WidgetTypeEnum"><code class="docutils literal notranslate"><span class="pre">WidgetTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.WidgetOptionEnum"><code class="docutils literal notranslate"><span class="pre">WidgetOptionEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.WidgetEnum"><code class="docutils literal notranslate"><span class="pre">WidgetEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GUIObjectTypeEnum"><code class="docutils literal notranslate"><span class="pre">GUIObjectTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.CompImplementationKindEnum"><code class="docutils literal notranslate"><span class="pre">CompImplementationKindEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BatchToolsEnum"><code class="docutils literal notranslate"><span class="pre">BatchToolsEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GraphTemplateEnum"><code class="docutils literal notranslate"><span class="pre">GraphTemplateEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.BaseTypeEnum"><code class="docutils literal notranslate"><span class="pre">BaseTypeEnum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.UVTileFormat"><code class="docutils literal notranslate"><span class="pre">UVTileFormat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbsenum.GraphTypeEnum"><code class="docutils literal notranslate"><span class="pre">GraphTypeEnum</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sbsbakers/sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Content</a></li>
+      <li class="breadcrumb-item active">sbsenum module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sbsenum">
+<span id="sbsenum-module"></span><h1>sbsenum module<a class="headerlink" href="#module-sbsenum" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsenum</strong> provides all the enumeration used in Pysbs.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ParamTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ParamTypeEnum</span></span><a class="headerlink" href="#sbsenum.ParamTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of all the types manipulated by Substance Designer</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.InputValueTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">InputValueTypeEnum</span></span><a class="headerlink" href="#sbsenum.InputValueTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of all the types compatible with input values</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TypeMasksEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TypeMasksEnum</span></span><a class="headerlink" href="#sbsenum.TypeMasksEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper masks enumeration</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.AttributesEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">AttributesEnum</span></span><a class="headerlink" href="#sbsenum.AttributesEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different attributes available on a <a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a> or a <a class="reference internal" href="graph/function.html#graph.function.SBSFunction" title="graph.function.SBSFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSFunction</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BitmapFormatEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BitmapFormatEnum</span></span><a class="headerlink" href="#sbsenum.BitmapFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the supported bitmap format</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.InputEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">InputEnum</span></span><a class="headerlink" href="#sbsenum.InputEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the input identifier available on the compositing node filters (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.OutputEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">OutputEnum</span></span><a class="headerlink" href="#sbsenum.OutputEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the output identifiers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FilterEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FilterEnum</span></span><a class="headerlink" href="#sbsenum.FilterEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available compositing node filters (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BaseParamEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BaseParamEnum</span></span><a class="headerlink" href="#sbsenum.BaseParamEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the parameters (<a class="reference internal" href="params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>) associated to a graph or node
+(<a class="reference internal" href="graph/graph.html#graph.graph.SBSGraph" title="graph.graph.SBSGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSGraph</span></code></a>), (<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>) and FxMap node (<a class="reference internal" href="compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CompNodeParamEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CompNodeParamEnum</span></span><a class="headerlink" href="#sbsenum.CompNodeParamEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the parameters (<a class="reference internal" href="params/params.html#params.params.SBSParameter" title="params.params.SBSParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParameter</span></code></a>) associated to the compositing node filters
+(<a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompFilter" title="compnode.compimplementation.SBSCompFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompFilter</span></code></a>) and FxMap node (<a class="reference internal" href="compnode/paramgraph.html#compnode.paramgraph.SBSParamsGraphNode" title="compnode.paramgraph.SBSParamsGraphNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamsGraphNode</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FunctionEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FunctionEnum</span></span><a class="headerlink" href="#sbsenum.FunctionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available function nodes (<a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FunctionInputEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FunctionInputEnum</span></span><a class="headerlink" href="#sbsenum.FunctionInputEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the input identifier of the function nodes (<a class="reference internal" href="params/paramnode.html#params.paramnode.SBSParamNode" title="params.paramnode.SBSParamNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSParamNode</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FxMapNodeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FxMapNodeEnum</span></span><a class="headerlink" href="#sbsenum.FxMapNodeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available FxMap nodes (<code class="xref py py-class docutils literal notranslate"><span class="pre">ParamsGraphNode</span></code>)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TextureFormatEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TextureFormatEnum</span></span><a class="headerlink" href="#sbsenum.TextureFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of all the texture formats available in Substance Designer</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.MipmapEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">MipmapEnum</span></span><a class="headerlink" href="#sbsenum.MipmapEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the mipmap format available on an Output node</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.UsageEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">UsageEnum</span></span><a class="headerlink" href="#sbsenum.UsageEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the usages available on an Output node</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ComponentsEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ComponentsEnum</span></span><a class="headerlink" href="#sbsenum.ComponentsEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the components associated to a usage on an Output node</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ColorSpacesEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ColorSpacesEnum</span></span><a class="headerlink" href="#sbsenum.ColorSpacesEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the color spaces associated to a usage on an Output node</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.UsageDataEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">UsageDataEnum</span></span><a class="headerlink" href="#sbsenum.UsageDataEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the data contained in a usage</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ResourceTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ResourceTypeEnum</span></span><a class="headerlink" href="#sbsenum.ResourceTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of resources handled by the application</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ParamInheritanceEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ParamInheritanceEnum</span></span><a class="headerlink" href="#sbsenum.ParamInheritanceEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Inheritance parameter of filters</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TilingEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TilingEnum</span></span><a class="headerlink" href="#sbsenum.TilingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of tiling</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.OutputFormatEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">OutputFormatEnum</span></span><a class="headerlink" href="#sbsenum.OutputFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the output format</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.OutputSizeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">OutputSizeEnum</span></span><a class="headerlink" href="#sbsenum.OutputSizeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Output size option</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.PixelRatioEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">PixelRatioEnum</span></span><a class="headerlink" href="#sbsenum.PixelRatioEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the pixel ratio option</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.QualityEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">QualityEnum</span></span><a class="headerlink" href="#sbsenum.QualityEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the quality property</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ColorModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ColorModeEnum</span></span><a class="headerlink" href="#sbsenum.ColorModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the color switch values</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BlendBlendingModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BlendBlendingModeEnum</span></span><a class="headerlink" href="#sbsenum.BlendBlendingModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the blending mode for the Blend filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.AlphaBlendingEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">AlphaBlendingEnum</span></span><a class="headerlink" href="#sbsenum.AlphaBlendingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha blending mode for the Blend filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.ChannelShuffleEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">ChannelShuffleEnum</span></span><a class="headerlink" href="#sbsenum.ChannelShuffleEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha blending mode for the Blend filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CombineDistanceEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CombineDistanceEnum</span></span><a class="headerlink" href="#sbsenum.CombineDistanceEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the ways to combine source / distance in the Distance filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CurveTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CurveTypeEnum</span></span><a class="headerlink" href="#sbsenum.CurveTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of curve available in Substance Designer for the Curve filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GradientAddressingEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GradientAddressingEnum</span></span><a class="headerlink" href="#sbsenum.GradientAddressingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the gradient addressing for the Dynamic Gradient and Gradient Map filters</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GradientOrientationEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GradientOrientationEnum</span></span><a class="headerlink" href="#sbsenum.GradientOrientationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the gradient orientation for the Dynamic Gradient filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.NormalFormatEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">NormalFormatEnum</span></span><a class="headerlink" href="#sbsenum.NormalFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the normal format for the Normal filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.NormalAlphaChannelContentEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">NormalAlphaChannelContentEnum</span></span><a class="headerlink" href="#sbsenum.NormalAlphaChannelContentEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha channel content for the Normal filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.MipMapModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">MipMapModeEnum</span></span><a class="headerlink" href="#sbsenum.MipMapModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the mipmap mode for the Transformation 2D filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FilteringEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FilteringEnum</span></span><a class="headerlink" href="#sbsenum.FilteringEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the filtering mode for the Transformation 2D filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.TextAlignEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">TextAlignEnum</span></span><a class="headerlink" href="#sbsenum.TextAlignEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the text alignment enumeration for the Text filter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_PatternType">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_PatternType</span></span><a class="headerlink" href="#sbsenum.FX_PatternType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the pattern available on the Quadrant node of an FxMap</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_BlendingModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_BlendingModeEnum</span></span><a class="headerlink" href="#sbsenum.FX_BlendingModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the blending mode available on the Quadrant node of an FxMap</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_InputImageAlphaEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_InputImageAlphaEnum</span></span><a class="headerlink" href="#sbsenum.FX_InputImageAlphaEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the alpha blending mode available on the Quadrant node of an FxMap</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_InputImageFilteringEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_InputImageFilteringEnum</span></span><a class="headerlink" href="#sbsenum.FX_InputImageFilteringEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the filtering mode available on the Quadrant node of an FxMap</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.FX_SelectorEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">FX_SelectorEnum</span></span><a class="headerlink" href="#sbsenum.FX_SelectorEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the selector available on the Switch node of an FxMap</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BitmapResizeMethodEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BitmapResizeMethodEnum</span></span><a class="headerlink" href="#sbsenum.BitmapResizeMethodEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the bitmap resize methods</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.WidgetTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">WidgetTypeEnum</span></span><a class="headerlink" href="#sbsenum.WidgetTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of widget available in Substance Designer for the parameter definition</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.WidgetOptionEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">WidgetOptionEnum</span></span><a class="headerlink" href="#sbsenum.WidgetOptionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>enumeration of all the options available among the different kind of widget</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.WidgetEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">WidgetEnum</span></span><a class="headerlink" href="#sbsenum.WidgetEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of widget available in Substance Designer for the parameter definition</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GUIObjectTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GUIObjectTypeEnum</span></span><a class="headerlink" href="#sbsenum.GUIObjectTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the type of GUI Objects in a compositing graph or a function graph</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.CompImplementationKindEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">CompImplementationKindEnum</span></span><a class="headerlink" href="#sbsenum.CompImplementationKindEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the kind of comp implementation available for a <a class="reference internal" href="compnode/compimplementation.html#compnode.compimplementation.SBSCompImplementation" title="compnode.compimplementation.SBSCompImplementation"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSCompImplementation</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BatchToolsEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BatchToolsEnum</span></span><a class="headerlink" href="#sbsenum.BatchToolsEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different BatchTools</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GraphTemplateEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GraphTemplateEnum</span></span><a class="headerlink" href="#sbsenum.GraphTemplateEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Substance Graph templates available in Substance Designer</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.BaseTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">BaseTypeEnum</span></span><a class="headerlink" href="#sbsenum.BaseTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the base types used in <a class="reference internal" href="autograph/autograph.html#module-autograph" title="autograph"><code class="xref py py-mod docutils literal notranslate"><span class="pre">autograph</span></code></a> module</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.UVTileFormat">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">UVTileFormat</span></span><a class="headerlink" href="#sbsenum.UVTileFormat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different UV tiles format supported by the API</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sbsenum.GraphTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sbsenum.</span></span><span class="sig-name descname"><span class="pre">GraphTypeEnum</span></span><a class="headerlink" href="#sbsenum.GraphTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the different graph type</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modulegraph/moduleoutputbridging.html" class="btn btn-neutral float-left" title="moduleoutputbridging module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbslibrary/sbslibrary.html" class="btn btn-neutral float-right" title="sbslibrary module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

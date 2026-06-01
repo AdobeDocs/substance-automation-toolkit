@@ -142,7 +142,8 @@ corresponding string identifier used by Substance Designer.</p>
     <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">UserTags</span>      <span class="p">:</span> <span class="s1">&#39;usertags&#39;</span>     <span class="p">,</span>
     <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">Icon</span>          <span class="p">:</span> <span class="s1">&#39;icon&#39;</span>         <span class="p">,</span>
     <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">HideInLibrary</span> <span class="p">:</span> <span class="s1">&#39;hideInLibrary&#39;</span><span class="p">,</span>
-    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">PhysicalSize</span>  <span class="p">:</span> <span class="s1">&#39;physicalSize&#39;</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">PhysicalSize</span>  <span class="p">:</span> <span class="s1">&#39;physicalSize&#39;</span> <span class="p">,</span>
+    <span class="n">sbsenum</span><span class="o">.</span><span class="n">AttributesEnum</span><span class="o">.</span><span class="n">MaterialModel</span> <span class="p">:</span> <span class="s1">&#39;materialModel&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -810,10 +811,24 @@ corresponding string identifier used by Substance Designer.</p>
 <dd><p>Get the type value of the given Substance Graph type</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>aTypeEnum</strong> – Substance Graph type</p>
+<dd class="field-odd"><p><strong>aTypeEnum</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.GraphTypeEnum" title="sbsenum.GraphTypeEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphTypeEnum</span></code></a>) – Substance Graph type</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the graph type value as str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysbs.sbslibrary.sbsdictionaries.getSubstanceMaterialModel">
+<span class="sig-prename descclassname"><span class="pre">pysbs.sbslibrary.sbsdictionaries.</span></span><span class="sig-name descname"><span class="pre">getSubstanceMaterialModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aMaterialModelEnum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysbs.sbslibrary.sbsdictionaries.getSubstanceMaterialModel" title="Link to this definition"></a></dt>
+<dd><p>Get the value of the given Substance material model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>aMaterialModelEnum</strong> (<a class="reference internal" href="../sbsenum.html#sbsenum.MaterialModelEnum" title="sbsenum.MaterialModelEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">MaterialModelEnum</span></code></a>) – Substance material model</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the material model as str</p>
 </dd>
 </dl>
 </dd></dl>
