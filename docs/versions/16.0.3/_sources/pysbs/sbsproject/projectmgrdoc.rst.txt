@@ -1,0 +1,134 @@
+.. _ref-to-projectmgrdoc:
+
+Project Manager How To
+======================
+
+Content included in sbsproject module:
+
+This module provides access to the contents of Substance Designer
+project preferences files (.sbsprj)
+
+Project Manager
+---------------
+.. toctree::
+   :maxdepth: 4
+
+
+* :mod:`.sbsproject` ProjectMgr definition.
+
+
+The ProjectMgr manages sbsprj files.
+You can get an instance the ProjectMgr from an instance of `context.Context()`.
+
+.. code-block:: python
+
+    aContext = context.Context()
+    aProjectMgr = aContext.getProjectMgr()
+    aProjectMgr.parseADoc("foo.sbsprj")
+
+    # or give the sbsprj file directly as arg
+    aProjectMgr = aContext.getProjectMgr("foo.sbsprj")
+
+It also possible, like Designer, to load several project files. Values will be override by the most recently load and lists will
+be extended (aliases, filter paths...).
+
+.. code-block:: python
+
+    # give a list of sbsprj files
+    aContext = context.Context()
+    aProjectMgr = aContext.getProjectMgr(["foo.sbsprj", "bar.sbsprj"])
+
+    # or one by one
+    aContext = context.Context()
+    aProjectMgr = aContext.getProjectMgr()
+    aProjectMgr.parseADoc("foo.sbsprj")
+    aProjectMgr.parseADoc("bar.sbsprj")
+
+You can also get the context through the ProjectMgr.
+
+.. code-block:: python
+
+    aProjectMgr = context.ProjectMgr(aSbsPrjFilePath="foo.sbsprj")
+    aContext = aProjectMgr.getContext()
+
+
+Get values from ProjectMgr
+..........................
+You can get values from the project file using getters.
+
+.. code-block:: python
+
+    tmplDirs = aProjectMgr.getSBSProject().getPreferences().getSbsTemplates().getDirs()
+    for dir in tmplDirs:
+        print(dir.getUrl().getValue())
+    jpgCompression = aProjectMgr.getSBSProject().getPreferences().getGeneral().getImageOptions().getJpg().getWrite().getJpgQuality().getValue()
+
+
+Shortcut function helpers
+.........................
+ProjectMgr has shortcut functions. For instance it can populate the AliasUrlMgr directly with
+the sbsprj's aliases.
+
+.. code-block:: python
+
+    # populate sbsprj's aliases
+    aProjectMgr = context.ProjectMgr(aSbsPrjFilePath=sbsPrj)
+    aProjectMgr.populateUrlAliasesMgr()
+    aContext = aProjectMgr.getContext()
+    print(aContext.getUrlAliasMgr().mUrlDict)
+
+
+
+.. _ref-to-projectmgrdoc-dep:
+
+Dependency path resolution method
+.................................
+
+Since 2019.1, Designer has two different dependency path storage methods.
+ - The old one which is the default behaviour, is a relative storage. That means directory that are not subdirectories of the package.sbs will be replaced by a dotdot symbol (dotdot or ../ in a path resolution mean “parent directory” or “go up one directory”).
+ - The second method is a absolute storage. Dependencies that are not subdirectories of the package they will be written as absolute paths. This option is handled by the Preferences > Project > General > Dependencies Path > ...absolute paths parameter of the sbsprj file.
+
+This choice can be configured from the ProjectMgr.
+If you instantiate a ProjectMgr with a sbsprj file or if you parse it (with .parseADoc) it will use it in
+the pysbs execution context.
+You can retrieve this option or tweak the value using the following functions:
+
+.. code-block:: python
+
+    # Get dependency path storage method
+    aEnumDepsMethod = aProjectMgr.getDependenciesPathStorageMethod()
+    # Set dependency path storage method
+    aProjectMgr = context.ProjectMgr(aSbsPrjFilePath=sbsPrj)
+    aProjectMgr.setDependenciesPathStorageMethod(sbsproject.SBSPRJDependenciesPathStorageMethods.ABSOLUTE)
+    # or
+    aProjectMgr.setDependenciesPathStorageMethod(sbsproject.SBSPRJDependenciesPathStorageMethods.RELATIVE)
+
+OpenColorIO setting
+...................
+For your different manipulations or sbs creation you may need to precise to SAT the location of config.ocio file.
+To do that the best way is to use ProjectMgr
+
+.. code-block:: python
+
+    ctx = context.Context()
+    # if you want to use an existing sbsprj file:
+    prj = ctx.getProjectMgr("/path/to/a/project.sbsprj")
+    # or without sbsprj file:
+    prj = ctx.getProjectMgr()
+    # if an ocio config file is already set in the sbsprj file no more actions is required.
+    # else add it with the below method:
+    prj.setOcioConfigFilePath("/path/to/config.ocio/)
+
+    # now, in instance you can set a resource colorspace:
+    a_resource.setColorSpace("Rec2020", ctx)
+    # or list all available colorspace:
+    ocio_helpers.getColorSpaces(prj.getOcioConfigFilePath()))
+
+
+sbsproject module
+-----------------
+.. toctree::
+   :maxdepth: 4
+
+    sbsproject module definition<sbsproject>
+

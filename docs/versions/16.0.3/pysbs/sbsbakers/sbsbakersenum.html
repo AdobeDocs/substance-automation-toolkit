@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sbsbakersenum module &mdash; Substance by Adobe - Substance Automation Toolkit - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/_static/custom_rtd.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="sbsbakersdictionaries module" href="sbsbakersdictionaries.html" />
+    <link rel="prev" title="sbsbakerslibrary module" href="sbsbakerslibrary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SAT PySBS
+              <img src="../../_static/sb_toolkit_icon_noshadow_256.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with the API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/overview.html">API overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">API Content</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#demos">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#substance-definition">Substance definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../modules.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sbsenum.html">sbsenum module: Types and enumeration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sbslibrary/sbslibrary.html">sbslibrary module: Substance libraries</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sbsbakerslibrary.html">sbsbakers module: Baking Parameters library</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sbsbakersenum module: Definition of all the enumeration used by the baking parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdictionaries.html">sbsbakersdictionaries module: List of dictionaries related to the bakers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingparameters.html">sbsbakingparameters module: Definition of the BakingParameters object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsscenedata.html">sbsscenedata module: Definition of the SubMeshColor and SubMeshSelection object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdef.html">sbsbakersdef module (not exposed): Bakers definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakersdefaultprops.html">sbsbakersdefaultprops module (not exposed): Definition of the bakers default properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverterparam.html">sbsbakingconverterparam module (not exposed): Definition of the BakingConverterParam and BakingGlobalParam objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakingconverter.html">sbsbakingconverter module (not exposed): Definition of the BakingConverter object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefaultIdentifier"><code class="docutils literal notranslate"><span class="pre">getBakerDefaultIdentifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerDefinition"><code class="docutils literal notranslate"><span class="pre">getBakerDefinition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sbsbakerslibrary.html#sbsbakers.sbsbakerslibrary.getBakerEnum"><code class="docutils literal notranslate"><span class="pre">getBakerEnum()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#helpers">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules.html#execution-context">Execution context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sat_commandlines/sat_commandlines.html">Command Line Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SAT PySBS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../modules.html">API Content</a></li>
+          <li class="breadcrumb-item"><a href="sbsbakerslibrary.html">sbsbakerslibrary module</a></li>
+      <li class="breadcrumb-item active">sbsbakersenum module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pysbs.sbsbakers.sbsbakersenum">
+<span id="sbsbakersenum-module"></span><h1>sbsbakersenum module<a class="headerlink" href="#module-pysbs.sbsbakers.sbsbakersenum" title="Link to this heading"></a></h1>
+<p>Module <strong>sbsbakersenum</strong> provides all the enumeration used by the bakers in Substance Designer.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the available bakers of a Scene resource in Substance Designer</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakingStructureTagEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakingStructureTagEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakingStructureTagEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the properties available on a Converter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">ConverterParamEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.ConverterParamEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the properties available on a Converter</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.SceneSelectionModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">SceneSelectionModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.SceneSelectionModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the scene resource selection mode option</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerAOAttenuationEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerAOAttenuationEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerAOAttenuationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Attenuation option in the Ambient Occlusion From Mesh Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerAOQualityEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerAOQualityEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerAOQualityEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Quality option in the Ambient Occlusion Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerBakingTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerBakingTypeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerBakingTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Baking Type option in the World Space Normals Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerColorGeneratorEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerColorGeneratorEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerColorGeneratorEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Color Generator option in the Color Map Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerColorModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerColorModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerColorModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Color Mode option in the Converter UV to SVG Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerColorSourceEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerColorSourceEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerColorSourceEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Color Source option in the Color Map Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerCurvatureAlgoEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerCurvatureAlgoEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerCurvatureAlgoEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Algorithm option in the Curvature Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerDistributionEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerDistributionEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerDistributionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Distribution option in the Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFilteringModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFilteringModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFilteringModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Filtering mode option in the Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFromMeshDistanceWithEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFromMeshDistanceWithEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshDistanceWithEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the ‘Set distance with’ option in the Mesh options</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFromMeshMatchEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFromMeshMatchEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshMatchEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Match method option in the ‘from mesh’ Bakers (Used for Match and SelfOcclusion)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerFromMeshSubSamplingEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerFromMeshSubSamplingEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerFromMeshSubSamplingEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Antialiasing option in the ‘from mesh’ Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerInputDirectionEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerInputDirectionEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerInputDirectionEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Input Direction option in the World Space Direction Baker</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerMapTypeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerMapTypeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerMapTypeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Map type option in the Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerNormalOrientationEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerNormalOrientationEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerNormalOrientationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the normal format for the Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerOutputFormatEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerOutputFormatEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerOutputFormatEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the output Format option of the Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerPositionAxisEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerPositionAxisEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerPositionAxisEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Axis option in the Position Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerPositionModeEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerPositionModeEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerPositionModeEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Mode option in the Position Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerPositionNormalizationEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerPositionNormalizationEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerPositionNormalizationEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Normalization option in the Position Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerResourceMethodEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerResourceMethodEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerResourceMethodEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the Resource method option in the Bakers</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pysbs.sbsbakers.sbsbakersenum.BakerUVSetEnum">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pysbs.sbsbakers.sbsbakersenum.</span></span><span class="sig-name descname"><span class="pre">BakerUVSetEnum</span></span><a class="headerlink" href="#pysbs.sbsbakers.sbsbakersenum.BakerUVSetEnum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Enumeration of the UV set option in the Bakers</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sbsbakerslibrary.html" class="btn btn-neutral float-left" title="sbsbakerslibrary module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sbsbakersdictionaries.html" class="btn btn-neutral float-right" title="sbsbakersdictionaries module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Adobe.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

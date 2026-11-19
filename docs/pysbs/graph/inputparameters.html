@@ -596,15 +596,22 @@ and isAnInputParameter(exposedOnly=True) filters those considered as “Input Pa
 
 <dl class="py method">
 <dt class="sig sig-object py" id="graph.inputparameters.SBSParamInput.setIdentifier">
-<span class="sig-name descname"><span class="pre">setIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDoc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setIdentifier" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aDoc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aIdentifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aOwnerGraph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.inputparameters.SBSParamInput.setIdentifier" title="Link to this definition"></a></dt>
 <dd><p>Be careful! if aIdentifier is already used by another input param of this graph, the file risks to be corrupted.
 It safer to use graph.changeInputParameterIdentifier()</p>
 <p>Change the param’s identifier and update its dependencies, function’s paramnode, visibleIf…
 :param aDoc: the current substance document <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>
-:type aDoc: <a class="reference internal" href="../substance/substance.html#substance.substance.SBSDocument" title="substance.substance.SBSDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">SBSDocument</span></code></a>
 :param aIdentifier: the new identifier value
-:type aIdentifier: str
-:return:</p>
+:param aOwnerGraph: the graph owning this input parameter, where the rename occurs.</p>
+<blockquote>
+<div><p>A comp-instance override is only renamed if the instance actually references aOwnerGraph, so that
+an override belonging to an unrelated graph exposing an input with the same name is left untouched.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

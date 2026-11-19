@@ -1,0 +1,49 @@
+.. _ref-to-sat-sbsrenderexamples:
+
+sbsrender example command lines
+===============================
+
+This page contains examples of command lines for invoking the command line processors in various environments. In the examples, the command line tools are assumed to be in the PATH.
+
+OpenColorIO with sbsrender
+--------------------------
+
+Substance Designer 2019.3 support OpenColorIO (https://opencolorio.org/).
+
+The examples assumes that you are already familiar with OCIO and a color workflow like ACES. SAT and SD provide three different color workflows (luts and config files are present in $SAT_INSTALL_DIR/resources/ocio):
+
+- Legacy, the color workflow used in previous versions. Legacy uses the old color engine.
+- Aces, the Academy Color Encoding System (https://en.wikipedia.org/wiki/Academy_Color_Encoding_System) which provides a set of color transforms adapted to the tv and cinema industry. Aces uses the OCIO color engine.
+- Substance, a simplified Aces workflow. A selection of the most used colorspaces in the VFX and animation industry. Substance also uses the OCIO color engine.
+
+
+A new set of flags have been added to sbsrender to control OCIO:
+
+`--ocio <string>` Specify an OpenColorIO configuration to use (can be a config.ocio present in $SAT_INSTALL_DIR/resources/ocio). If you don't set this flag the legacy color engine will be used.
+
+`--output-colorspace <string>` Specify the colorspace name for outputs. `--output-colorspace sRGB`.
+
+Input colorspace is controlled using:
+
+`--set-entry-colorspace <arg>` Specify the colorspace to use for an input. `--set-entry-colorspace input_id@sRGB`.
+Output colorspace is controlled using the following flags:
+
+`--set-output-bit-depth <arg>` Specify the bit depth of an output node. `--set-output-bit-depth output_id@16f`.
+
+`--set-output-colorspace <arg>` Specify the colorspace name for an output. `--set-output-colorspace output_id@sRGB`.
+
+`--set-output-format <arg>` Specify the image format of an output node. `--set-output-format output_id@exr`.
+
+The new colorspace pattern `{colorspace}` will be converted to the used colorspace when generating filenames.
+Example of using OCIO in sbsrender command line:
+
+Note, The substance file must have been authored with an OCIO workflow in Designer work properly. If using bitmap resources the cooking must be done with OCIO option (`sbscooker --ocio <path>` or publishing using Substance Designers publish feature)
+
+The colorspace value must correspond to a colorspace present in the config.ocio file.
+
+.. code-block:: shell
+
+    sbsrender render /path/to/ocio_graph.sbar --output-name "ocio_{outputNodeName}_{colorspace}" --output-colorspace Linear --set-output-colorspace basecolor_output@sRGB --set-entry bitmap_input@/path/to/bitmap.png --set-entry-colorspace Linear --ocio $SAT_INSTALL_DIR/resources/ocio/substance/config.ocio
+
+
+
